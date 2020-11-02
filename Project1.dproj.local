@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/10/19 15:01:08.000.494,=C:\Delphi Project\Unit1.pas</Transaction>
+    <Transaction>2020/10/19 15:22:40.000.155,=C:\Delphi Project\Unit1.pas</Transaction>
+    <Transaction>2020/10/19 15:26:21.000.998,C:\Delphi Project\Project1.dproj=C:\Delphi Project\Project1.dproj</Transaction>
+    <Transaction>2020/10/20 17:29:19.000.607,=C:\Delphi Project\Unit1.pas</Transaction>
+    <Transaction>2020/11/02 14:26:19.665,=C:\Delphi Project\Unit1.pas</Transaction>
+    <Transaction>2020/11/02 14:27:56.249,=C:\Delphi Project\Microfinance\Login.pas</Transaction>
+    <Transaction>2020/11/02 14:28:10.858,C:\Delphi Project\Github\Microfinance_Dlephi\Login.dfm=C:\Delphi Project\Microfinance\Login.dfm</Transaction>
+    <Transaction>2020/11/02 14:28:10.858,C:\Delphi Project\Github\Microfinance_Dlephi\Login.pas=C:\Delphi Project\Microfinance\Login.pas</Transaction>
+    <Transaction>2020/11/02 14:28:19.262,C:\Delphi Project\Github\Microfinance_Dlephi\Project1.dproj=C:\Delphi Project\Project1.dproj</Transaction>
+    <Transaction>2020/11/02 14:30:45.483,=C:\Delphi Project\Microfinance\ClientEntry.pas</Transaction>
+    <Transaction>2020/11/02 14:30:51.352,=C:\Delphi Project\Microfinance\Main.pas</Transaction>
+    <Transaction>2020/11/02 14:31:02.201,C:\Delphi Project\Microfinance\ClientEntry.pas=</Transaction>
+    <Transaction>2020/11/02 14:31:02.218,C:\Delphi Project\Microfinance\Main.pas=</Transaction>
+    <Transaction>2020/11/02 14:50:42.828,=C:\Delphi Project\Microfinance\ClientFrame.pas</Transaction>
+    <Transaction>2020/11/02 14:50:42.890,=C:\Delphi Project\Microfinance\GroupFrame.pas</Transaction>
+    <Transaction>2020/11/02 14:50:42.956,=C:\Delphi Project\Microfinance\LoanFrame.pas</Transaction>
+    <Transaction>2020/11/02 14:50:43.102,=C:\Delphi Project\Microfinance\Main.pas</Transaction>
+    <Transaction>2020/11/02 14:51:26.278,C:\Delphi Project\Github\Microfinance_Dlephi\ClientFrame.pas=C:\Delphi Project\Microfinance\ClientFrame.pas</Transaction>
+    <Transaction>2020/11/02 14:51:26.278,C:\Delphi Project\Github\Microfinance_Dlephi\ClientFrame.dfm=C:\Delphi Project\Microfinance\ClientFrame.dfm</Transaction>
+    <Transaction>2020/11/02 14:51:43.531,C:\Delphi Project\Github\Microfinance_Dlephi\GroupFrame.dfm=C:\Delphi Project\Microfinance\GroupFrame.dfm</Transaction>
+    <Transaction>2020/11/02 14:51:43.531,C:\Delphi Project\Github\Microfinance_Dlephi\GroupFrame.pas=C:\Delphi Project\Microfinance\GroupFrame.pas</Transaction>
+    <Transaction>2020/11/02 14:52:03.057,C:\Delphi Project\Github\Microfinance_Dlephi\LoanFrame.dfm=C:\Delphi Project\Microfinance\LoanFrame.dfm</Transaction>
+    <Transaction>2020/11/02 14:52:03.057,C:\Delphi Project\Github\Microfinance_Dlephi\LoanFrame.pas=C:\Delphi Project\Microfinance\LoanFrame.pas</Transaction>
+    <Transaction>2020/11/02 14:52:14.301,C:\Delphi Project\Github\Microfinance_Dlephi\Main.dfm=C:\Delphi Project\Microfinance\Main.dfm</Transaction>
+    <Transaction>2020/11/02 14:52:14.301,C:\Delphi Project\Github\Microfinance_Dlephi\Main.pas=C:\Delphi Project\Microfinance\Main.pas</Transaction>
+  </Transactions>
+</BorlandProject>

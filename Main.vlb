@@ -1,0 +1,9 @@
+﻿[TFrame11.StringGridBindSourceDB1]
+Coordinates=234,163,195,51
+
+[TClientFM1.ClientTable]
+Visible=False
+
+[TGroupFM1.ClientgroupTable]
+Visible=False
+
