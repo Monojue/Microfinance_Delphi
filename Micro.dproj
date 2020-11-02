@@ -3,7 +3,7 @@
         <ProjectGuid>{6CCC5D64-28C7-4603-8E12-C9A04CAD3519}</ProjectGuid>
         <ProjectVersion>18.8</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
-        <MainSource>Project1.dpr</MainSource>
+        <MainSource>Micro.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
@@ -57,7 +57,7 @@
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
-        <SanitizedProjectName>Project1</SanitizedProjectName>
+        <SanitizedProjectName>Micro</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;IndyIPCommon;RESTComponents;bindcompdbx;DBXInterBaseDriver;vcl;IndyIPServer;vclactnband;vclFireDAC;IndySystem;tethering;svnui;dsnapcon;FireDACADSDriver;FireDACMSAccDriver;fmxFireDAC;vclimg;TeeDB;FireDAC;vcltouch;vcldb;bindcompfmx;svn;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;inetdb;FMXTee;soaprtl;DbxCommonDriver;FmxTeeUI;ibxpress;fmx;FireDACIBDriver;fmxdae;xmlrtl;soapmidas;ibxbindings;fmxobj;vclwinx;vclib;rtl;Tee;DbxClientDriver;CustomIPTransport;vcldsnap;dbexpress;IndyCore;vclx;bindcomp;appanalytics;dsnap;FireDACCommon;IndyIPClient;bindcompvcl;RESTBackendComponents;TeeUI;VCLRESTComponents;soapserver;dbxcds;VclSmp;adortl;vclie;bindengine;DBXMySQLDriver;CloudService;dsnapxml;FireDACMySQLDriver;dbrtl;IndyProtocols;inetdbxpress;FireDACCommonODBC;FireDACCommonDriver;inet;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
@@ -141,7 +141,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">Project1.dpr</Source>
+                    <Source Name="MainSource">Micro.dpr</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k260.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
@@ -149,9 +149,9 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="Win32\Debug\Project1.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Win32\Debug\Micro.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>Project1.exe</RemoteName>
+                        <RemoteName>Micro.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
