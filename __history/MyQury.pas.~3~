@@ -1,0 +1,20 @@
+unit MyQury;
+
+interface
+
+uses SysUtils;
+
+function InsertData(table : string; data :string  ) : boolean;
+
+implementation
+
+function InsertData(table : string; data: string) : boolean;
+begin
+  DM.SQLQuery.Close;
+  DM.SQLQuery.SQL.Clear;
+  DM.SQLQuery.SQL.Add('Insert into '+table+' ');
+  DM.SQLQuery.Open;
+end;
+
+
+end.

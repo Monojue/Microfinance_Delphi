@@ -268,6 +268,7 @@ object ClientFM: TClientFM
         Anchors = []
         Caption = 'New'
         TabOrder = 3
+        OnClick = btnNewClick
       end
       object btnEdit: TButton
         Left = 1060

@@ -23,6 +23,7 @@ type
     btnNew: TButton;
     btnEdit: TButton;
     btnDelete: TButton;
+    procedure btnNewClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -34,5 +35,12 @@ implementation
 
 {$R *.dfm}
 
+uses ClientEntry;
+
+
+procedure TClientFM.btnNewClick(Sender: TObject);
+begin
+  CleintEntry.Show;
+end;
 
 end.
