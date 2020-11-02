@@ -43,6 +43,7 @@ type
     btnClose: TButton;
 
     procedure FormCreate(Sender: TObject);
+    procedure btnSaveClick(Sender: TObject);
 
 
   private
@@ -60,13 +61,66 @@ implementation
 
 {$R *.dfm}
 
-uses shareFunction, MyQury;
+uses shareFunction, MyQury, DataModule;
 
 procedure TCleintEntry.FormCreate(Sender: TObject);
 begin
   today := Now;
   lblDate.Caption := FormatDateTime('yyyy/MM/dd', today);
   lblID.Caption := shareFunction.getAutoID('clientID','Client','CL-');
+end;
+
+procedure TCleintEntry.btnSaveClick(Sender: TObject);
+var
+  NRC : string;
+  DOB : string;
+  Home : string;
+  data : array of string;
+  save : boolean;
+begin
+    if not check then
+  begin
+    NRC := cboxNo.Text + cboxR.Text + editNRC.Text;
+    DOB := cboxDate.Text +'-'+ cboxMonth.Text + '-' + cboxYear.Text;
+    Home := 'Owned';
+
+//    data[0] := lblID.Caption;
+//    data[1] := editName.Text;
+//    data[2] := NRC;
+//    data[3] := editAddress.Text;
+//    data[4] := editPhone.Text;
+//    data[5] := DOB;
+//    data[6] := Home;
+//    data[7] := editJOB.Text;
+//    data[8] := editSalary.Text;
+
+    if btnSave.Caption = 'Save' then
+    begin
+
+        with DMMicro do
+        begin
+          SQLQuery.Close;
+          SQLQuery.SQL.Clear;
+          SQLQuery.SQL.Add('INSERT INTO client (ClientID,Name,NRC,Address,Phone,DateofBirth,Home,Job,Salary) ');
+          SQLQuery.SQL.Add('values("CL-0002154", "Kaung", "12/DaGARA(N)001112", "HOME", 096085958, "12-Jan-1996", 1, "JOB", 800000)');
+          SQLQuery.ExecSQL;
+        end;
+//        save := InsertData('Client', data);
+//         if save then
+//         begin
+//             ShowMessage('Save Success');
+//         end
+//         else
+//         begin
+//           ShowMessage('Error');
+//         end;
+    end
+    else
+    begin
+
+    end;
+
+  end;
 end;
 
 function TCleintEntry.check: boolean;
@@ -83,49 +137,5 @@ begin
   end;
   Result := True;
 end;
-
-//procedure TCleintEntry.btnSaveClick(Sender: TObject);
-// var
-//  NRC : string;
-//  DOB : string;
-//  Home : string;
-//  data : array of string;
-//  save : boolean;
-//begin
-//  if check then
-//  begin
-//    NRC := cboxNo.Text + cboxR.Text + editNRC.Text;
-//    DOB := cboxDate.Text +'-'+ cboxMonth.Text + '-' + cboxYear.Text;
-//    Home := 'Owned';
-//
-//    data[0] := lblID.Caption;
-//    data[1] := editName.Text;
-//    data[2] := NRC;
-//    data[3] := editAddress.Text;
-//    data[4] := editPhone.Text;
-//    data[5] := DOB;
-//    data[6] := Home;
-//    data[7] := editJOB.Text;
-//    data[8] := editSalary.Text;
-//
-//    if btnSave.Caption = 'Save' then
-//    begin
-//        save := MyQury.InsertData('Client', data);
-//         if save then
-//         begin
-//             ShowMessage('Save Success');
-//         end
-//         else
-//         begin
-//           ShowMessage('Error');
-//         end;
-//    end
-//    else
-//    begin
-//
-//    end;
-//
-//  end;
-//end;
 
 end.
