@@ -41,10 +41,9 @@ type
     editSalary: TEdit;
     btnSave: TButton;
     btnClose: TButton;
-
     procedure FormCreate(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
-
+    procedure prepareupdate(data : array of String);
 
   private
     { Private declarations }
@@ -61,13 +60,40 @@ implementation
 
 {$R *.dfm}
 
-uses shareFunction, MyQury, DataModule;
+uses shareFunction, MyQury, DataModule, ClientFrame;
 
 procedure TCleintEntry.FormCreate(Sender: TObject);
 begin
   today := Now;
   lblDate.Caption := FormatDateTime('yyyy/MM/dd', today);
   lblID.Caption := shareFunction.getAutoID('clientID','Client','CL-');
+end;
+
+
+procedure TCleintEntry.prepareupdate(data: array of String);
+begin
+  lblID.Caption := data[0] ;
+  editName.Text := data[1] ;
+  cboxNo.Text := shareFunction.splitNRC(data[2])[0];
+  cboxR.Text := shareFunction.splitNRC(data[2])[1];
+  editNRC.Text := shareFunction.splitNRC(data[2])[2];  
+  editAddress.Text	:= data[3];
+  editPhone.Text	:= data[4];
+  cboxDate.Text := shareFunction.splitDOB(data[5])[0];
+  cboxMonth.Text := shareFunction.splitDOB(data[5])[1];
+  cboxYear.Text := shareFunction.splitDOB(data[5])[2];
+  if data[6].Equals('Owned') then
+  begin
+     checkHome.Checked := True;
+  end
+  else
+  begin
+     checkHome.Checked := False;
+  end;
+  
+  editJOB.Text	:= data[7]; 
+  editSalary.Text	:= data[8];
+  btnSave.Caption := 'Update';
 end;
 
 procedure TCleintEntry.btnSaveClick(Sender: TObject);
@@ -78,46 +104,55 @@ var
   data : array of string;
   save : boolean;
 begin
-    if not check then
+    if check then
   begin
-    NRC := cboxNo.Text + cboxR.Text + editNRC.Text;
+    NRC := cboxNo.Text+'/'+ cboxR.Text +'(N)'+ editNRC.Text;
     DOB := cboxDate.Text +'-'+ cboxMonth.Text + '-' + cboxYear.Text;
-    Home := 'Owned';
-
-//    data[0] := lblID.Caption;
-//    data[1] := editName.Text;
-//    data[2] := NRC;
-//    data[3] := editAddress.Text;
-//    data[4] := editPhone.Text;
-//    data[5] := DOB;
-//    data[6] := Home;
-//    data[7] := editJOB.Text;
-//    data[8] := editSalary.Text;
-
-    if btnSave.Caption = 'Save' then
+    if checkHome.Checked then
     begin
-
-        with DMMicro do
-        begin
-          SQLQuery.Close;
-          SQLQuery.SQL.Clear;
-          SQLQuery.SQL.Add('INSERT INTO client (ClientID,Name,NRC,Address,Phone,DateofBirth,Home,Job,Salary) ');
-          SQLQuery.SQL.Add('values("CL-0002154", "Kaung", "12/DaGARA(N)001112", "HOME", 096085958, "12-Jan-1996", 1, "JOB", 800000)');
-          SQLQuery.ExecSQL;
-        end;
-//        save := InsertData('Client', data);
-//         if save then
-//         begin
-//             ShowMessage('Save Success');
-//         end
-//         else
-//         begin
-//           ShowMessage('Error');
-//         end;
+      Home := 'Owned';  
     end
     else
     begin
+      Home := 'Not Owned';
+    end;
+    
 
+    SetLength(data, 9);
+    data[0] := lblID.Caption;
+    data[1] := editName.Text;
+    data[2] := NRC;
+    data[3] := editAddress.Text;
+    data[4] := editPhone.Text;
+    data[5] := DOB;
+    data[6] := Home;
+    data[7] := editJOB.Text;
+    data[8] := editSalary.Text;
+    if btnSave.Caption = 'Save' then
+    begin
+//       
+        save := InsertData('Client', data);
+         if save then
+         begin
+             ShowMessage('Save Successfully!');
+             
+         end
+         else
+         begin
+           ShowMessage('Error!');
+         end;
+    end
+    else if btnSave.Caption = 'Update' then
+    begin
+        save := UpdateData('Client', data);
+         if save then
+         begin
+             ShowMessage('Update Successfully!');
+         end
+         else
+         begin
+           ShowMessage('Error!');
+         end;
     end;
 
   end;
@@ -130,7 +165,7 @@ begin
   (editJOB.Text =  EmptyStr) or  (editSalary.Text = EmptyStr) or
   (cboxNo.Text = EmptyStr) or(cboxR.Text = EmptyStr) or
   (cboxDate.Text = EmptyStr) or (cboxMonth.Text = EmptyStr) or
-  (cboxYear.Text = EmptyStr) or (not checkHome.Checked) then
+  (cboxYear.Text = EmptyStr) then
   begin
     ShowMessage('All fields Required!');
     Exit(False)

@@ -24,8 +24,6 @@ object MainForm: TMainForm
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = '                CLIENT             '
-      ExplicitWidth = 296
-      ExplicitHeight = 173
       inline TClientFM1: TClientFM
         Left = 0
         Top = 0
@@ -36,15 +34,15 @@ object MainForm: TMainForm
         ParentBackground = False
         ParentColor = False
         TabOrder = 0
-        ExplicitWidth = 296
-        ExplicitHeight = 173
+        ExplicitWidth = 1223
+        ExplicitHeight = 649
         inherited GridPanel1: TGridPanel
           Width = 1223
           Height = 649
           ControlCollection = <
             item
               Column = 0
-              Control = TClientFM1.DBGrid1
+              Control = TClientFM1.clientGrid
               Row = 1
             end
             item
@@ -52,9 +50,9 @@ object MainForm: TMainForm
               Control = TClientFM1.GridPanel2
               Row = 0
             end>
-          ExplicitWidth = 296
-          ExplicitHeight = 173
-          inherited DBGrid1: TDBGrid
+          ExplicitWidth = 1223
+          ExplicitHeight = 649
+          inherited clientGrid: TDBGrid
             Width = 1215
             Height = 591
           end
@@ -101,7 +99,7 @@ object MainForm: TMainForm
                 Control = TClientFM1.btnDelete
                 Row = 0
               end>
-            ExplicitWidth = 294
+            ExplicitWidth = 1221
             inherited btnNew: TButton
               Left = 972
               ExplicitLeft = 972
@@ -121,8 +119,6 @@ object MainForm: TMainForm
     object TabSheet2: TTabSheet
       Caption = '               GROUP             '
       ImageIndex = 1
-      ExplicitWidth = 296
-      ExplicitHeight = 173
       inline TGroupFM1: TGroupFM
         Left = 0
         Top = 0
@@ -130,8 +126,8 @@ object MainForm: TMainForm
         Height = 649
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 296
-        ExplicitHeight = 173
+        ExplicitWidth = 1223
+        ExplicitHeight = 649
         inherited GridPanel1: TGridPanel
           Width = 1223
           Height = 649
@@ -146,8 +142,8 @@ object MainForm: TMainForm
               Control = TGroupFM1.GridPanel2
               Row = 0
             end>
-          ExplicitWidth = 296
-          ExplicitHeight = 173
+          ExplicitWidth = 1223
+          ExplicitHeight = 649
           inherited DBGrid1: TDBGrid
             Width = 1215
             Height = 591
@@ -262,7 +258,7 @@ object MainForm: TMainForm
                 Control = TGroupFM1.btnDelete
                 Row = 0
               end>
-            ExplicitWidth = 294
+            ExplicitWidth = 1221
             inherited btnNew: TButton
               Left = 972
               ExplicitLeft = 972
