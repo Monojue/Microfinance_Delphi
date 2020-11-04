@@ -5,7 +5,9 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Tabs, Vcl.ComCtrls,
-  GroupFrame, ClientFrame, LoanFrame, Vcl.ExtCtrls;
+  GroupFrame, ClientFrame, LoanFrame, Vcl.ExtCtrls, Data.DB, Data.DBXMySQL,
+  Data.FMTBcd, Data.SqlExpr, Datasnap.DBClient, Datasnap.Provider, Vcl.StdCtrls,
+  Vcl.Grids, Vcl.DBGrids;
 
 type
   TMainForm = class(TForm)
