@@ -9,7 +9,7 @@ uses
   Vcl.Bind.Editors, Data.Bind.EngExt, Vcl.Bind.DBEngExt, Data.FMTBcd, Vcl.Grids,
   Data.Bind.Components, Data.Bind.DBScope, Data.DB, Data.SqlExpr, Data.Bind.Grid,
   Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.DBGrids, Vcl.WinXCtrls, Datasnap.DBClient,
-  Datasnap.Provider;
+  Datasnap.Provider,DataModule;
 
 
 
@@ -19,29 +19,28 @@ type
     clientGrid: TDBGrid;
     GridPanel2: TGridPanel;
     Label1: TLabel;
-    ComboBox1: TComboBox;
+    cboxSearch: TComboBox;
     Label2: TLabel;
-    Edit2: TEdit;
+    editSearch: TEdit;
     btnNew: TButton;
     btnEdit: TButton;
     btnDelete: TButton;
-    MicrofinanceConnection: TSQLConnection;
-    ClientTable: TSQLDataSet;
-    DataSetProvider1: TDataSetProvider;
-    ClientDataSet1: TClientDataSet;
-    DataSource1: TDataSource;
-    ClientDataSet1ClientID: TStringField;
-    ClientDataSet1Name: TStringField;
-    ClientDataSet1NRC: TStringField;
-    ClientDataSet1Address: TStringField;
-    ClientDataSet1Phone: TStringField;
-    ClientDataSet1DateOfBirth: TStringField;
-    ClientDataSet1Home: TStringField;
-    ClientDataSet1Job: TStringField;
-    ClientDataSet1Salary: TIntegerField;
     btnRefresh: TButton;
     btnSearch: TButton;
-    SQLQuery1: TSQLQuery;
+    provider: TDataSetProvider;
+    CDataset: TClientDataSet;
+    DataSource: TDataSource;
+    CDataset1ClientID: TStringField;
+    CDataset1Name: TStringField;
+    CDataset1NRC: TStringField;
+    CDataset1Address: TStringField;
+    CDataset1Phone: TStringField;
+    CDataset1DateOfBirth: TStringField;
+    CDataset1Home: TStringField;
+    CDataset1Job: TStringField;
+    CDataset1Salary: TIntegerField;
+    CQuery: TSQLQuery;
+    SQLConnection1: TSQLConnection;
     procedure btnNewClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure clientGridCellClick(Column: TColumn);
@@ -58,24 +57,31 @@ implementation
 
 {$R *.dfm}
 
-uses ClientEntry, DataModule, MyQury;
+uses ClientEntry, MyQury, frmSelector;
 
 var
  selData : array of string;
 
 procedure TClientFM.btnEditClick(Sender: TObject);
 begin
-  CleintEntry.prepareupdate(selData);
-  ClientEntry.CleintEntry.Show;
+  frmCleintEntry.prepareupdate(selData);
+  frmCleintEntry.Show;
 end;
 
 procedure TClientFM.btnNewClick(Sender: TObject);
 begin
-  CleintEntry.Show;
+  frmCleintEntry.Show;
 end;
 
 procedure TClientFM.btnRefreshClick(Sender: TObject);
 begin
+with CQuery do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('select * from client');
+    Open;
+  end;
     clientGrid.DataSource.DataSet.Refresh;
     btnEdit.Enabled := False;
     btnDelete.Enabled := False;
@@ -83,14 +89,22 @@ end;
 
 procedure TClientFM.btnSearchClick(Sender: TObject);
 begin
-   with SQLQuery1 do
-     begin
-       close;
-       SQL.Clear;
-       SQL.Add('Select * from client where Name = "Kaung"');
-       Open;
+  with CQuery do
+  begin
+    Close;
+    SQL.Clear;
+    if cboxSearch.Text = 'Name' then
+    begin
+      SQL.Add('select * from client where name like "'+editSearch.Text+'%"');
+    end
+    else
+    begin
+      SQL.Add('select * from client where clientID = "CL-'+editSearch.Text+'"');
+    end;
 
-     end;
+    Open;
+    clientGrid.DataSource.DataSet.Refresh;
+  end;
 end;
 
 procedure TClientFM.clientGridCellClick(Column: TColumn);

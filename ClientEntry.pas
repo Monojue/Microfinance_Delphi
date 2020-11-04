@@ -8,7 +8,7 @@ uses
   Vcl.WinXCtrls, Vcl.ComCtrls;
 
 type
-  TCleintEntry = class(TForm)
+  TfrmCleintEntry = class(TForm)
     MainGrip: TGridPanel;
     BtmGrip: TGridPanel;
     TopGrip: TGridPanel;
@@ -53,7 +53,7 @@ type
   end;
 
 var
-  CleintEntry: TCleintEntry;
+  frmCleintEntry: TfrmCleintEntry;
   today : TDateTime;
 
 implementation
@@ -62,7 +62,7 @@ implementation
 
 uses shareFunction, MyQury, DataModule, ClientFrame;
 
-procedure TCleintEntry.FormCreate(Sender: TObject);
+procedure TfrmCleintEntry.FormCreate(Sender: TObject);
 begin
   today := Now;
   lblDate.Caption := FormatDateTime('yyyy/MM/dd', today);
@@ -70,7 +70,7 @@ begin
 end;
 
 
-procedure TCleintEntry.prepareupdate(data: array of String);
+procedure TfrmCleintEntry.prepareupdate(data: array of String);
 begin
   lblID.Caption := data[0] ;
   editName.Text := data[1] ;
@@ -96,7 +96,7 @@ begin
   btnSave.Caption := 'Update';
 end;
 
-procedure TCleintEntry.btnSaveClick(Sender: TObject);
+procedure TfrmCleintEntry.btnSaveClick(Sender: TObject);
 var
   NRC : string;
   DOB : string;
@@ -158,7 +158,7 @@ begin
   end;
 end;
 
-function TCleintEntry.check: boolean;
+function TfrmCleintEntry.check: boolean;
 begin
   if (editName.Text = EmptyStr) or (editAddress.Text = EmptyStr)
   or (editNRC.Text = EmptyStr) or (editPhone.Text = EmptyStr) or

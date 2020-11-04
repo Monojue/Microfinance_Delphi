@@ -104,11 +104,6 @@
             <Form>LoginForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ClientFrame.pas">
-            <Form>ClientFM</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
         <DCCReference Include="GroupFrame.pas">
             <Form>GroupFM</Form>
             <FormType>dfm</FormType>
@@ -124,7 +119,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="ClientEntry.pas">
-            <Form>CleintEntry</Form>
+            <Form>frmCleintEntry</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="MyQury.pas"/>
@@ -133,6 +128,23 @@
             <Form>DMMicro</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="ClientFrame.pas">
+            <Form>ClientFM</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="frmSelector.pas">
+            <Form>MySelector</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="ClientLoanRequestForm.pas">
+            <Form>ClientLoanRequest</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="GroupEntry.pas">
+            <Form>frmGroupEntry</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

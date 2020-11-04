@@ -3,14 +3,17 @@ program Micro;
 uses
   Vcl.Forms,
   Login in 'Login.pas' {LoginForm},
-  ClientFrame in 'ClientFrame.pas' {ClientFM: TFrame},
   GroupFrame in 'GroupFrame.pas' {GroupFM: TFrame},
   LoanFrame in 'LoanFrame.pas' {LoanFM: TFrame},
   Main in 'Main.pas' {MainForm},
-  ClientEntry in 'ClientEntry.pas' {CleintEntry},
+  ClientEntry in 'ClientEntry.pas' {frmCleintEntry},
   MyQury in 'MyQury.pas',
   shareFunction in 'shareFunction.pas',
-  DataModule in 'DataModule.pas' {DMMicro: TDataModule};
+  DataModule in 'DataModule.pas' {DMMicro: TDataModule},
+  ClientFrame in 'ClientFrame.pas' {ClientFM: TFrame},
+  frmSelector in 'frmSelector.pas' {MySelector},
+  ClientLoanRequestForm in 'ClientLoanRequestForm.pas' {ClientLoanRequest},
+  GroupEntry in 'GroupEntry.pas' {frmGroupEntry};
 
 {$R *.res}
 
@@ -22,7 +25,10 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TMainForm, MainForm);
   Application.CreateForm(TDMMicro, DMMicro);
-  Application.CreateForm(TCleintEntry, CleintEntry);
+  Application.CreateForm(TfrmCleintEntry, frmCleintEntry);
+  Application.CreateForm(TMySelector, MySelector);
+  Application.CreateForm(TClientLoanRequest, ClientLoanRequest);
+  Application.CreateForm(TfrmGroupEntry, frmGroupEntry);
   Application.Run;
 end;
 

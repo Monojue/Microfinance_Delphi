@@ -265,6 +265,7 @@ object GroupFM: TGroupFM
         Anchors = []
         Caption = 'New'
         TabOrder = 3
+        OnClick = btnNewClick
       end
       object btnEdit: TButton
         Left = 1060

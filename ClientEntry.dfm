@@ -1,4 +1,4 @@
-object CleintEntry: TCleintEntry
+object frmCleintEntry: TfrmCleintEntry
   Left = 0
   Top = 0
   Caption = 'ClientEntry'

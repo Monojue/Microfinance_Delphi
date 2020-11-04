@@ -23,6 +23,7 @@ type
     btnNew: TButton;
     btnEdit: TButton;
     btnDelete: TButton;
+    procedure btnNewClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,5 +33,12 @@ type
 implementation
 
 {$R *.dfm}
+
+uses GroupEntry;
+
+procedure TGroupFM.btnNewClick(Sender: TObject);
+begin
+  frmGroupEntry.Show;
+end;
 
 end.

@@ -50,7 +50,7 @@ object ClientFM: TClientFM
       Width = 1223
       Height = 619
       Align = alClient
-      DataSource = DataSource1
+      DataSource = DataSource
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
@@ -178,7 +178,7 @@ object ClientFM: TClientFM
         end
         item
           Column = 2
-          Control = ComboBox1
+          Control = cboxSearch
           Row = 0
         end
         item
@@ -188,7 +188,7 @@ object ClientFM: TClientFM
         end
         item
           Column = 4
-          Control = Edit2
+          Control = editSearch
           Row = 0
         end
         item
@@ -234,14 +234,18 @@ object ClientFM: TClientFM
         ExplicitLeft = 36
         ExplicitTop = 6
       end
-      object ComboBox1: TComboBox
+      object cboxSearch: TComboBox
         Left = 85
         Top = 14
         Width = 112
         Height = 21
         Anchors = []
+        ItemIndex = 0
         TabOrder = 0
-        Text = 'ComboBox1'
+        Text = 'Name'
+        Items.Strings = (
+          'Name'
+          'Client ID')
       end
       object Label2: TLabel
         Left = 205
@@ -253,14 +257,13 @@ object ClientFM: TClientFM
         ExplicitLeft = 201
         ExplicitTop = 6
       end
-      object Edit2: TEdit
+      object editSearch: TEdit
         Left = 230
         Top = 14
         Width = 121
         Height = 21
         Anchors = []
         TabOrder = 1
-        Text = 'Edit2'
       end
       object btnNew: TButton
         Left = 900
@@ -271,7 +274,6 @@ object ClientFM: TClientFM
         Caption = 'New'
         TabOrder = 2
         OnClick = btnNewClick
-        ExplicitLeft = 979
       end
       object btnEdit: TButton
         Left = 980
@@ -283,7 +285,6 @@ object ClientFM: TClientFM
         Enabled = False
         TabOrder = 3
         OnClick = btnEditClick
-        ExplicitLeft = 1060
       end
       object btnDelete: TButton
         Left = 1060
@@ -294,7 +295,6 @@ object ClientFM: TClientFM
         Caption = 'Delete'
         Enabled = False
         TabOrder = 4
-        ExplicitLeft = 1140
       end
       object btnRefresh: TButton
         Left = 1140
@@ -305,7 +305,6 @@ object ClientFM: TClientFM
         Caption = 'Refresh'
         TabOrder = 5
         OnClick = btnRefreshClick
-        ExplicitLeft = 917
       end
       object btnSearch: TButton
         Left = 358
@@ -316,11 +315,79 @@ object ClientFM: TClientFM
         Caption = 'Search'
         TabOrder = 6
         OnClick = btnSearchClick
-        ExplicitLeft = 391
       end
     end
   end
-  object MicrofinanceConnection: TSQLConnection
+  object provider: TDataSetProvider
+    DataSet = CQuery
+    Left = 768
+    Top = 320
+  end
+  object CDataset: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'provider'
+    Left = 904
+    Top = 328
+    object CDataset1ClientID: TStringField
+      FieldName = 'ClientID'
+      Required = True
+      Size = 10
+    end
+    object CDataset1Name: TStringField
+      FieldName = 'Name'
+      Required = True
+      Size = 45
+    end
+    object CDataset1NRC: TStringField
+      FieldName = 'NRC'
+      Size = 45
+    end
+    object CDataset1Address: TStringField
+      FieldName = 'Address'
+      Required = True
+      Size = 100
+    end
+    object CDataset1Phone: TStringField
+      FieldName = 'Phone'
+      Required = True
+      Size = 45
+    end
+    object CDataset1DateOfBirth: TStringField
+      FieldName = 'DateOfBirth'
+      Required = True
+    end
+    object CDataset1Home: TStringField
+      FieldName = 'Home'
+      Required = True
+      Size = 10
+    end
+    object CDataset1Job: TStringField
+      FieldName = 'Job'
+      Required = True
+      Size = 45
+    end
+    object CDataset1Salary: TIntegerField
+      FieldName = 'Salary'
+      Required = True
+    end
+  end
+  object DataSource: TDataSource
+    DataSet = CDataset
+    Left = 1000
+    Top = 272
+  end
+  object CQuery: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      'Select * from client')
+    SQLConnection = SQLConnection1
+    Left = 872
+    Top = 240
+  end
+  object SQLConnection1: TSQLConnection
     ConnectionName = 'Microfinance'
     DriverName = 'MySQL'
     LoginPrompt = False
@@ -357,90 +424,7 @@ object ClientFM: TClientFM
       'Database=micro'
       'Password=root')
     Connected = True
-    Left = 834
-    Top = 137
-  end
-  object ClientTable: TSQLDataSet
-    Active = True
-    CommandText = 'client'
-    CommandType = ctTable
-    DbxCommandType = 'Dbx.Table'
-    MaxBlobSize = -1
-    Params = <>
-    SQLConnection = MicrofinanceConnection
-    Left = 834
-    Top = 185
-  end
-  object DataSetProvider1: TDataSetProvider
-    DataSet = ClientTable
-    Left = 720
-    Top = 240
-  end
-  object ClientDataSet1: TClientDataSet
-    Active = True
-    Aggregates = <>
-    Params = <>
-    ProviderName = 'DataSetProvider1'
-    Left = 864
-    Top = 320
-    object ClientDataSet1ClientID: TStringField
-      FieldName = 'ClientID'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      Size = 10
-    end
-    object ClientDataSet1Name: TStringField
-      FieldName = 'Name'
-      Required = True
-      Size = 45
-    end
-    object ClientDataSet1NRC: TStringField
-      FieldName = 'NRC'
-      Size = 45
-    end
-    object ClientDataSet1Address: TStringField
-      FieldName = 'Address'
-      Required = True
-      Size = 100
-    end
-    object ClientDataSet1Phone: TStringField
-      FieldName = 'Phone'
-      Required = True
-      Size = 45
-    end
-    object ClientDataSet1DateOfBirth: TStringField
-      FieldName = 'DateOfBirth'
-      Required = True
-    end
-    object ClientDataSet1Home: TStringField
-      FieldName = 'Home'
-      Required = True
-      Size = 10
-    end
-    object ClientDataSet1Job: TStringField
-      FieldName = 'Job'
-      Required = True
-      Size = 45
-    end
-    object ClientDataSet1Salary: TIntegerField
-      FieldName = 'Salary'
-      Required = True
-    end
-  end
-  object DataSource1: TDataSource
-    DataSet = ClientDataSet1
-    Left = 992
-    Top = 304
-  end
-  object SQLQuery1: TSQLQuery
-    Active = True
-    DataSource = DataSource1
-    MaxBlobSize = -1
-    Params = <>
-    SQL.Strings = (
-      'Select * from client')
-    SQLConnection = MicrofinanceConnection
-    Left = 776
-    Top = 336
+    Left = 816
+    Top = 184
   end
 end

@@ -13,7 +13,7 @@ function splitDOB(DOB: string) : resultData;
 function splitNRC(NRC: string) : resultData;
 implementation
 
-uses DataModule;
+uses DataModule, ClientFrame;
 
 
 

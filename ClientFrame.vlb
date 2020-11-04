@@ -1,38 +1,90 @@
 ﻿[]
-Coordinates=209,141,64,51
+Coordinates=484,276,91,36
 Visible=True
 
 [DataModule1.]
 Coordinates=322,347,136,339
 
 [GridPanel2]
-Coordinates=103,71,68,51
+Coordinates=103,71,79,58
 
 [Label1]
-Coordinates=103,1,46,51
+Coordinates=103,1,53,58
 
 [btnEdit]
-Coordinates=25,124,49,51
-
-[ComboBox1]
-Coordinates=0,0,84,105
+Coordinates=25,124,55,58
 
 [btnDelete]
-Coordinates=209,211,61,51
-
-[Edit2]
-Coordinates=84,124,40,51
+Coordinates=209,211,70,58
 
 [GridPanel1]
-Coordinates=209,1,68,51
+Coordinates=209,1,79,58
 
 [Label2]
-Coordinates=160,213,46,51
+Coordinates=160,213,53,58
 
 [btnNew]
-Coordinates=209,71,51,51
+Coordinates=209,71,58,58
 
 [clientGrid]
-Coordinates=22,213,56,33
+Coordinates=22,213,69,36
 Visible=True
+
+[editSearch]
+Coordinates=84,124,76,58
+
+[cboxSearch]
+Coordinates=320,10,101,124
+Visible=True
+
+[btnSearch]
+Coordinates=81,220,73,58
+
+[btnRefresh]
+Coordinates=198,78,77,58
+
+[CDataset1Home]
+Coordinates=484,1,109,36
+
+[CDataset1Address]
+Coordinates=484,56,122,36
+
+[provider]
+Coordinates=220,155,61,36
+
+[CDataset1Name]
+Coordinates=484,111,109,36
+
+[SQLConnection1]
+Coordinates=484,166,112,36
+
+[CDataset1DateOfBirth]
+Coordinates=484,221,142,36
+
+[DMMicro.SQLQuery]
+Coordinates=41,297,130,410
+
+[CDataset1NRC]
+Coordinates=465,316,103,36
+
+[CQuery]
+Coordinates=251,288,75,410
+
+[CDataset1Salary]
+Coordinates=346,316,112,36
+
+[CDataset1Phone]
+Coordinates=664,1,112,36
+
+[DataSource]
+Coordinates=364,1,82,36
+
+[CDataset1ClientID]
+Coordinates=664,56,121,36
+
+[CDataset]
+Coordinates=172,316,71,256
+
+[CDataset1Job]
+Coordinates=664,111,96,36
 

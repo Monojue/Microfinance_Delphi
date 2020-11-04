@@ -11,9 +11,9 @@ type
   TMainForm = class(TForm)
     PageControl1: TPageControl;
     TabSheet1: TTabSheet;
-    TClientFM1: TClientFM;
     TabSheet2: TTabSheet;
     TGroupFM1: TGroupFM;
+    TClientFM1: TClientFM;
   private
     { Private declarations }
   public
@@ -26,4 +26,6 @@ var
 implementation
 
 {$R *.dfm}
+
+uses DataModule;
 end.
