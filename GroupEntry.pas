@@ -49,11 +49,13 @@ type
     procedure btnSaveClick(Sender: TObject);
     function check : boolean;
     procedure btnCancelClick(Sender: TObject);
+    procedure prepareUpdate(data : string);
   private
     { Private declarations }
   public
     { Public declarations }
     procedure setIDandName(ID : string; Name : string);
+    procedure ClearFields;
   end;
 
 var
@@ -205,11 +207,8 @@ begin
     end;
 end;
 
-procedure TfrmGroupEntry.FormShow(Sender: TObject);
+procedure TfrmGroupEntry.ClearFields;
 begin
-  today := Now;
-  lblDate.Caption := FormatDateTime('yyyy/MM/dd', today);
-  lblID.Caption := shareFunction.getAutoID('groupID','ClientGroup','GP-');
   lblLeadName.Caption := '';
   lblLeadID.Caption := '';
   lblM1ID.Caption := '';
@@ -220,6 +219,18 @@ begin
   lblM3Name.Caption := '';
   lblM4ID.Caption := '';
   lblM4Name.Caption := '';
+end;
+
+procedure TfrmGroupEntry.FormShow(Sender: TObject);
+begin
+  today := Now;
+  lblDate.Caption := FormatDateTime('yyyy/MM/dd', today);
+  lblID.Caption := shareFunction.getAutoID('groupID','ClientGroup','GP-');
+end;
+
+procedure TfrmGroupEntry.prepareUpdate(data: string);
+begin
+  lblLeadID.Caption := data;
 end;
 
 procedure TfrmGroupEntry.setIDandName(ID, Name: string);

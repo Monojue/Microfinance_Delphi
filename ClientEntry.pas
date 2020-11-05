@@ -44,12 +44,13 @@ type
     procedure FormCreate(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
     procedure prepareupdate(data : array of String);
-
+    procedure setAutoID;
   private
     { Private declarations }
   public
     { Public declarations }
     function check : boolean;
+    procedure ClearFields;
   end;
 
 var
@@ -64,9 +65,7 @@ uses shareFunction, MyQury, DataModule, ClientFrame;
 
 procedure TfrmCleintEntry.FormCreate(Sender: TObject);
 begin
-  today := Now;
-  lblDate.Caption := FormatDateTime('yyyy/MM/dd', today);
-  lblID.Caption := shareFunction.getAutoID('clientID','Client','CL-');
+  setAutoID;
 end;
 
 
@@ -94,6 +93,13 @@ begin
   editJOB.Text	:= data[7]; 
   editSalary.Text	:= data[8];
   btnSave.Caption := 'Update';
+end;
+
+procedure TfrmCleintEntry.setAutoID;
+begin
+  today := Now;
+  lblDate.Caption := FormatDateTime('yyyy/MM/dd', today);
+  lblID.Caption := shareFunction.getAutoID('clientID','Client','CL-');
 end;
 
 procedure TfrmCleintEntry.btnSaveClick(Sender: TObject);
@@ -171,6 +177,11 @@ begin
     Exit(False)
   end;
   Result := True;
+end;
+
+procedure TfrmCleintEntry.ClearFields;
+begin
+  editName.Text := '';
 end;
 
 end.

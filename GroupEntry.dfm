@@ -498,8 +498,8 @@ object frmGroupEntry: TfrmGroupEntry
         Align = alClient
         Alignment = taCenter
         Layout = tlCenter
-        ExplicitLeft = 130
-        ExplicitTop = 140
+        ExplicitWidth = 3
+        ExplicitHeight = 13
       end
       object lblM2ID: TLabel
         Left = 292
@@ -520,8 +520,8 @@ object frmGroupEntry: TfrmGroupEntry
         Align = alClient
         Alignment = taCenter
         Layout = tlCenter
-        ExplicitLeft = 130
-        ExplicitTop = 175
+        ExplicitWidth = 3
+        ExplicitHeight = 13
       end
       object lblM3ID: TLabel
         Left = 292
@@ -542,8 +542,8 @@ object frmGroupEntry: TfrmGroupEntry
         Align = alClient
         Alignment = taCenter
         Layout = tlCenter
-        ExplicitLeft = 130
-        ExplicitTop = 210
+        ExplicitWidth = 3
+        ExplicitHeight = 13
       end
       object btnAdd1: TButton
         Left = 462
