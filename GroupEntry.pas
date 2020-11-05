@@ -45,6 +45,10 @@ type
     procedure btnAdd3Click(Sender: TObject);
     procedure btnAdd4Click(Sender: TObject);
     procedure btnAdd5Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure btnSaveClick(Sender: TObject);
+    function check : boolean;
+    procedure btnCancelClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -55,12 +59,14 @@ type
 var
   frmGroupEntry: TfrmGroupEntry;
   btnType : Integer;
+  today : TDateTime;
+  data : array of string;
 
 implementation
 
 {$R *.dfm}
 
-uses frmSelector;
+uses frmSelector, shareFunction, DataModule, MyQury;
 
 procedure TfrmGroupEntry.btnAdd1Click(Sender: TObject);
 begin
@@ -95,6 +101,125 @@ begin
   btnType := 4;
   MySelector.setFormType('client');
   MySelector.Show;
+end;
+
+procedure TfrmGroupEntry.btnCancelClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmGroupEntry.btnSaveClick(Sender: TObject);
+begin
+  if (lblLeadID.Caption = EmptyStr) or (lblM1ID.Caption = EmptyStr) or
+  (lblM2ID.Caption = EmptyStr) or (lblM3ID.Caption = EmptyStr) or
+  (lblM4ID.Caption = EmptyStr) then
+  begin
+    ShowMessage('Please Fill All Member!');
+  end
+  else if check then
+  begin
+    SetLength(data, 11);
+    data[0] := lblID.Caption;
+    data[1] := lblLeadID.Caption;
+    data[2] := lblM1ID.Caption;
+    data[3] := lblM2ID.Caption;
+    data[4] := lblM3ID.Caption;
+    data[5] := lblM4ID.Caption;
+
+    data[6] := lblLeadName.Caption;
+    data[7] := lblM1Name.Caption;
+    data[8] := lblM2Name.Caption;
+    data[9] := lblM3Name.Caption;
+    data[10] := lblM4Name.Caption;
+
+    if btnSave.Caption = 'Save' then
+    begin
+      if InsertData('group', data) then
+      begin
+        ShowMessage('Saved Successfully!');
+        Close;
+      end
+      else
+      begin
+        ShowMessage('Failed to Save new Record!');
+      end;
+    end
+    else if btnSave.Caption = 'Update' then
+    begin
+
+    end;
+  end;
+end;
+
+function TfrmGroupEntry.check: boolean;
+begin
+    if CheckClientIsInGroup(lblLeadID.Caption) then
+    begin
+      ShowMessage( 'Leader is in another Group!');
+    end
+    else if CheckClientIsInGroup(lblM1ID.Caption) then
+    begin
+      ShowMessage(lblM1Name.Caption +' is in another Group!');
+    end
+    else if CheckClientIsInGroup(lblM2ID.Caption) then
+    begin
+      ShowMessage(lblM2Name.Caption +' is in another Group!');
+    end
+    else if CheckClientIsInGroup(lblM3ID.Caption) then
+    begin
+      ShowMessage(lblM3Name.Caption +' is in another Group!');
+    end
+    else if CheckClientIsInGroup(lblM4ID.Caption) then
+    begin
+      ShowMessage(lblM4Name.Caption +' is in another Group!');
+
+    end
+    else if CheckAvaliable('Individual',lblLeadID.Caption) then
+    begin
+      ShowMessage( 'Leader is already requested Individual Loan!');
+
+    end
+    else if CheckAvaliable('Individual',lblM1ID.Caption) then
+    begin
+      ShowMessage(lblM1Name.Caption+' is already requested Individual Loan!');
+
+    end
+    else if CheckAvaliable('Individual',lblM2ID.Caption) then
+    begin
+      ShowMessage(lblM2Name.Caption+' is already requested Individual Loan!');
+
+    end
+    else if CheckAvaliable('Individual',lblM3ID.Caption) then
+    begin
+      ShowMessage(lblM3Name.Caption+' is already requested Individual Loan!');
+
+    end
+    else if CheckAvaliable('Individual',lblM4ID.Caption) then
+    begin
+      ShowMessage(lblM4Name.Caption+' is already requested Individual Loan!');
+
+    end
+    else
+    begin
+      Result := True;
+    end;
+end;
+
+procedure TfrmGroupEntry.FormShow(Sender: TObject);
+begin
+  today := Now;
+  lblDate.Caption := FormatDateTime('yyyy/MM/dd', today);
+  lblID.Caption := shareFunction.getAutoID('groupID','ClientGroup','GP-');
+  lblLeadName.Caption := '';
+  lblLeadID.Caption := '';
+  lblM1ID.Caption := '';
+  lblM1Name.Caption := '';
+  lblM2ID.Caption := '';
+  lblM2Name.Caption := '';
+  lblM3ID.Caption := '';
+  lblM3Name.Caption := '';
+  lblM4ID.Caption := '';
+  lblM4Name.Caption := '';
 end;
 
 procedure TfrmGroupEntry.setIDandName(ID, Name: string);

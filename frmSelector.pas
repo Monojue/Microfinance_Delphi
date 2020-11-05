@@ -12,8 +12,8 @@ type
   TMySelector = class(TForm)
     Panel1: TPanel;
     Label1: TLabel;
-    ComboBox1: TComboBox;
-    Edit1: TEdit;
+    cboxSearch: TComboBox;
+    editSearch: TEdit;
     btnSearch: TButton;
     btnNew: TButton;
     btnOK: TButton;
@@ -48,11 +48,14 @@ type
     GroupDataSetM3Name: TStringField;
     GroupDataSetM4Name: TStringField;
     btnRefresh: TButton;
+    Label2: TLabel;
     procedure DBGridCellClick(Column: TColumn);
     procedure FormShow(Sender: TObject);
     procedure btnNewClick(Sender: TObject);
     procedure btnRefreshClick(Sender: TObject);
     procedure btnOKClick(Sender: TObject);
+    procedure btnSearchClick(Sender: TObject);
+    procedure editSearchChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -63,6 +66,8 @@ type
 var
   MySelector: TMySelector;
   frmtype : string;
+  selID : string;
+  selName : string;
 
 implementation
 
@@ -86,7 +91,7 @@ procedure TMySelector.btnOKClick(Sender: TObject);
 begin
   if frmtype = 'client' then
   begin
-    frmGroupEntry.setIDandName('ID','Name');
+    frmGroupEntry.setIDandName(selID, selName);
     Close;
   end
   else
@@ -97,31 +102,111 @@ end;
 
 procedure TMySelector.btnRefreshClick(Sender: TObject);
 begin
-     DBGrid.DataSource.DataSet.Refresh;
+    
+     if frmtype = 'client' then
+    begin
+    CQuery.Close;
+    CQuery.SQL.Clear;
+    CQuery.SQL.Add('Select * from client');
+    CQuery.Open;
+    DBGrid.DataSource := ClientDataSource;
+    end
+    else if frmtype = 'group' then
+    begin
+    GQuery.Close;
+    GQuery.SQL.Clear;
+    GQuery.SQL.Add('Select * from clientgroup');
+    GQuery.Open;
+    DBGrid.DataSource := GroupDataSource;
+    end;
+    DBGrid.DataSource.DataSet.Refresh;
+    editSearch.Text := '';
+end;
+
+procedure TMySelector.btnSearchClick(Sender: TObject);
+begin
+  if frmtype = 'client' then
+  begin
+    CQuery.Close;
+    CQuery.SQL.Clear;
+    if cboxSearch.Text = 'Client Name' then
+    begin
+    CQuery.SQL.Add('Select * from client where name Like "'+editSearch.Text+'%"');
+    end
+    else if cboxSearch.Text = 'Client ID' then
+    begin
+    CQuery.SQL.Add('Select * from client where clientID = "CL-'+editSearch.Text+'"');
+    end;
+    CQuery.Open;
+  end
+  else if frmtype = 'group' then
+  begin
+    GQuery.Close;
+    GQuery.SQL.Clear;
+    if cboxSearch.ItemIndex = 0 then
+    begin
+    GQuery.SQL.Add('Select * from clientgroup where Leadername Like "'+editSearch.Text+'%"');
+    end
+    else if cboxSearch.ItemIndex = 1 then
+    begin
+    GQuery.SQL.Add('Select * from clientgroup where groupID = "GP-'+editSearch.Text+'"');
+    end
+    else if cboxSearch.ItemIndex = 2 then
+    begin
+    GQuery.SQL.Add('Select * from clientgroup where "'+editSearch.Text+'" in (LeaderName, M1Name, M2Name, M3Name, M4Name)');
+    end
+    else if cboxSearch.ItemIndex = 3 then
+    begin
+    GQuery.SQL.Add('Select * from clientgroup where "CL-'+editSearch.Text+'" in (Leader, Member_1, Member_2, Member_3, Member_4)');
+    end;
+    GQuery.Open;
+  end;
+  DBGrid.DataSource.DataSet.Refresh;
 end;
 
 procedure TMySelector.DBGridCellClick(Column: TColumn);
 begin
   btnOK.Enabled := True;
+  selID := DBGrid.Fields[0].AsString;
+  selName := DBGrid.Fields[1].AsString;
+end;
+
+procedure TMySelector.editSearchChange(Sender: TObject);
+begin
+  if editSearch.Text <> EmptyStr then
+  begin
+    btnSearch.Enabled := True;
+  end
+  else
+  begin
+    btnSearch.Enabled := False;
+  end;
 end;
 
 procedure TMySelector.FormShow(Sender: TObject);
 begin
-  Edit1.Text := frmtype;
+  cboxSearch.Items.Clear;
+  if frmtype = 'client' then
+  begin
+    cboxSearch.Items.Add('Client Name');
+    cboxSearch.Items.Add('Client ID');
+    DBGrid.DataSource := ClientDataSource;
+  end
+  else
+  begin
+    cboxSearch.Items.Add('Leader Name');
+    cboxSearch.Items.Add('Group ID');
+    cboxSearch.Items.Add('Client Name');
+    cboxSearch.Items.Add('Client ID');
+    DBGrid.DataSource := GroupDataSource;
+  end;
+  cboxSearch.ItemIndex := 0;
+  DBGrid.DataSource.DataSet.Refresh;
 end;
 
 procedure TMySelector.setFormType(settype: string);
 begin
   frmtype := settype;
-  if frmtype = 'client' then
-    begin
-         DBGrid.DataSource := ClientDataSource;
-    end
-    else if frmtype = 'group' then
-    begin
-         DBGrid.DataSource := GroupDataSource;
-    end;
-     DBGrid.DataSource.DataSet.Refresh;
 end;
 
 end.

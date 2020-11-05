@@ -71,7 +71,7 @@ class function TLoginForm.Execute: boolean;
           + txtPassword.Text+'"');
           SQLOfficer.Open;
 
-          if not SQLOfficer.Eof then
+          if SQLOfficer.Eof then
             ModalResult := mrOK
           else
             ShowMessage('Wrong UserName or Password!');

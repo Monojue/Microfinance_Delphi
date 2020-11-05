@@ -26,7 +26,7 @@ begin
     DMMicro.SQLQuery.SQL.Add('Select * from '+table+' order by '+field+' desc');
     DMMicro.SQLQuery.Open;
 
-      current := StrToInt(DMMicro.SQLQuery.FieldByName('ClientID').AsString.Substring(3,10))+1;
+      current := StrToInt(DMMicro.SQLQuery.FieldByName(field).AsString.Substring(3,10))+1;
       if (current > 0) and (current <= 9) then
         Exit(prefix + '000000'+ current.ToString)
       else if (current > 9) and (current <= 99) then

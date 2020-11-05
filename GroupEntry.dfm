@@ -1,5 +1,5 @@
 object frmGroupEntry: TfrmGroupEntry
-  Left = 0
+  Left = 244
   Top = 0
   Caption = 'Group Entry'
   ClientHeight = 386
@@ -11,6 +11,8 @@ object frmGroupEntry: TfrmGroupEntry
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poDesigned
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object MainGrid: TGridPanel
@@ -52,10 +54,6 @@ object frmGroupEntry: TfrmGroupEntry
         Value = 50.000000000000000000
       end>
     TabOrder = 0
-    ExplicitLeft = 320
-    ExplicitTop = 88
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object topGrip: TGridPanel
       Left = 1
       Top = 1
@@ -109,8 +107,6 @@ object frmGroupEntry: TfrmGroupEntry
           Value = 100.000000000000000000
         end>
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = 0
       object Label1: TLabel
         AlignWithMargins = True
         Left = 4
@@ -195,10 +191,6 @@ object frmGroupEntry: TfrmGroupEntry
           Value = 100.000000000000000000
         end>
       TabOrder = 1
-      ExplicitLeft = 280
-      ExplicitTop = 16
-      ExplicitWidth = 185
-      ExplicitHeight = 41
       DesignSize = (
         528
         50)
@@ -210,8 +202,7 @@ object frmGroupEntry: TfrmGroupEntry
         Anchors = []
         Caption = 'Save'
         TabOrder = 0
-        ExplicitLeft = 272
-        ExplicitTop = 24
+        OnClick = btnSaveClick
       end
       object btnCancel: TButton
         Left = 439
@@ -221,8 +212,7 @@ object frmGroupEntry: TfrmGroupEntry
         Anchors = []
         Caption = 'Cancel'
         TabOrder = 1
-        ExplicitLeft = 272
-        ExplicitTop = 24
+        OnClick = btnCancelClick
       end
     end
     object centerGrid: TGridPanel
@@ -390,10 +380,6 @@ object frmGroupEntry: TfrmGroupEntry
           Value = 12.500000000000000000
         end>
       TabOrder = 2
-      ExplicitLeft = 280
-      ExplicitTop = 168
-      ExplicitWidth = 185
-      ExplicitHeight = 41
       DesignSize = (
         528
         284)
@@ -489,11 +475,8 @@ object frmGroupEntry: TfrmGroupEntry
         Height = 35
         Align = alClient
         Alignment = taCenter
-        Caption = 'Label2'
         Layout = tlCenter
-        ExplicitLeft = 178
-        ExplicitTop = 117
-        ExplicitWidth = 31
+        ExplicitWidth = 3
         ExplicitHeight = 13
       end
       object lblM1ID: TLabel
@@ -503,10 +486,9 @@ object frmGroupEntry: TfrmGroupEntry
         Height = 35
         Align = alClient
         Alignment = taCenter
-        Caption = 'Label2'
         Layout = tlCenter
-        ExplicitLeft = 293
-        ExplicitTop = 100
+        ExplicitWidth = 3
+        ExplicitHeight = 13
       end
       object lblM2Name: TLabel
         Left = 129
@@ -515,12 +497,9 @@ object frmGroupEntry: TfrmGroupEntry
         Height = 35
         Align = alClient
         Alignment = taCenter
-        Caption = 'Label2'
         Layout = tlCenter
-        ExplicitLeft = 178
-        ExplicitTop = 152
-        ExplicitWidth = 31
-        ExplicitHeight = 13
+        ExplicitLeft = 130
+        ExplicitTop = 140
       end
       object lblM2ID: TLabel
         Left = 292
@@ -529,11 +508,8 @@ object frmGroupEntry: TfrmGroupEntry
         Height = 35
         Align = alClient
         Alignment = taCenter
-        Caption = 'Label2'
         Layout = tlCenter
-        ExplicitLeft = 341
-        ExplicitTop = 152
-        ExplicitWidth = 31
+        ExplicitWidth = 3
         ExplicitHeight = 13
       end
       object lblM3Name: TLabel
@@ -543,12 +519,9 @@ object frmGroupEntry: TfrmGroupEntry
         Height = 35
         Align = alClient
         Alignment = taCenter
-        Caption = 'Label2'
         Layout = tlCenter
-        ExplicitLeft = 178
-        ExplicitTop = 187
-        ExplicitWidth = 31
-        ExplicitHeight = 13
+        ExplicitLeft = 130
+        ExplicitTop = 175
       end
       object lblM3ID: TLabel
         Left = 292
@@ -557,11 +530,8 @@ object frmGroupEntry: TfrmGroupEntry
         Height = 35
         Align = alClient
         Alignment = taCenter
-        Caption = 'Label2'
         Layout = tlCenter
-        ExplicitLeft = 341
-        ExplicitTop = 187
-        ExplicitWidth = 31
+        ExplicitWidth = 3
         ExplicitHeight = 13
       end
       object lblM4Name: TLabel
@@ -571,12 +541,9 @@ object frmGroupEntry: TfrmGroupEntry
         Height = 35
         Align = alClient
         Alignment = taCenter
-        Caption = 'Label2'
         Layout = tlCenter
-        ExplicitLeft = 178
-        ExplicitTop = 222
-        ExplicitWidth = 31
-        ExplicitHeight = 13
+        ExplicitLeft = 130
+        ExplicitTop = 210
       end
       object btnAdd1: TButton
         Left = 462
@@ -587,7 +554,6 @@ object frmGroupEntry: TfrmGroupEntry
         Caption = '+'
         TabOrder = 0
         OnClick = btnAdd1Click
-        ExplicitLeft = 455
       end
       object btnAdd2: TButton
         Left = 462
@@ -598,7 +564,6 @@ object frmGroupEntry: TfrmGroupEntry
         Caption = '+'
         TabOrder = 1
         OnClick = btnAdd2Click
-        ExplicitLeft = 455
       end
       object btnAdd3: TButton
         Left = 462
@@ -609,7 +574,6 @@ object frmGroupEntry: TfrmGroupEntry
         Caption = '+'
         TabOrder = 2
         OnClick = btnAdd3Click
-        ExplicitLeft = 455
       end
       object btnAdd4: TButton
         Left = 462
@@ -620,7 +584,6 @@ object frmGroupEntry: TfrmGroupEntry
         Caption = '+'
         TabOrder = 3
         OnClick = btnAdd4Click
-        ExplicitLeft = 455
       end
       object lblM4ID: TLabel
         Left = 292
@@ -629,11 +592,8 @@ object frmGroupEntry: TfrmGroupEntry
         Height = 35
         Align = alClient
         Alignment = taCenter
-        Caption = 'Label2'
         Layout = tlCenter
-        ExplicitLeft = 341
-        ExplicitTop = 222
-        ExplicitWidth = 31
+        ExplicitWidth = 3
         ExplicitHeight = 13
       end
       object btnAdd5: TButton
@@ -645,7 +605,6 @@ object frmGroupEntry: TfrmGroupEntry
         Caption = '+'
         TabOrder = 4
         OnClick = btnAdd5Click
-        ExplicitLeft = 455
       end
     end
   end

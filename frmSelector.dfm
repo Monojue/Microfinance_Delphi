@@ -11,6 +11,7 @@ object MySelector: TMySelector
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poMainFormCenter
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -27,29 +28,41 @@ object MySelector: TMySelector
       Height = 13
       Caption = 'Search With :'
     end
-    object ComboBox1: TComboBox
-      Left = 93
-      Top = 11
-      Width = 76
-      Height = 21
-      TabOrder = 0
-      Text = 'ComboBox1'
+    object Label2: TLabel
+      Left = 225
+      Top = 14
+      Width = 17
+      Height = 13
+      Caption = 'GP-'
     end
-    object Edit1: TEdit
-      Left = 175
+    object cboxSearch: TComboBox
+      Left = 95
+      Top = 11
+      Width = 114
+      Height = 21
+      ItemIndex = 0
+      TabOrder = 0
+      Text = 'ID'
+      Items.Strings = (
+        'ID')
+    end
+    object editSearch: TEdit
+      Left = 248
       Top = 11
       Width = 121
       Height = 21
       TabOrder = 1
-      Text = 'Edit1'
+      OnChange = editSearchChange
     end
     object btnSearch: TButton
-      Left = 302
+      Left = 375
       Top = 9
       Width = 75
       Height = 25
       Caption = 'Search'
+      Enabled = False
       TabOrder = 2
+      OnClick = btnSearchClick
     end
   end
   object btnNew: TButton
@@ -76,7 +89,6 @@ object MySelector: TMySelector
     Top = 55
     Width = 611
     Height = 457
-    DataSource = GroupDataSource
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     TabOrder = 3
     TitleFont.Charset = DEFAULT_CHARSET
@@ -92,7 +104,6 @@ object MySelector: TMySelector
     Width = 75
     Height = 25
     Caption = 'Refresh'
-    Enabled = False
     TabOrder = 4
     OnClick = btnRefreshClick
   end

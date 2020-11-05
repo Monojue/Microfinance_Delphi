@@ -320,16 +320,16 @@ object ClientFM: TClientFM
   end
   object provider: TDataSetProvider
     DataSet = CQuery
-    Left = 768
-    Top = 320
+    Left = 560
+    Top = 472
   end
   object CDataset: TClientDataSet
     Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'provider'
-    Left = 904
-    Top = 328
+    Left = 608
+    Top = 520
     object CDataset1ClientID: TStringField
       FieldName = 'ClientID'
       Required = True
@@ -375,8 +375,8 @@ object ClientFM: TClientFM
   end
   object DataSource: TDataSource
     DataSet = CDataset
-    Left = 1000
-    Top = 272
+    Left = 704
+    Top = 536
   end
   object CQuery: TSQLQuery
     MaxBlobSize = -1
@@ -384,8 +384,8 @@ object ClientFM: TClientFM
     SQL.Strings = (
       'Select * from client')
     SQLConnection = SQLConnection1
-    Left = 872
-    Top = 240
+    Left = 560
+    Top = 416
   end
   object SQLConnection1: TSQLConnection
     ConnectionName = 'Microfinance'
@@ -424,7 +424,7 @@ object ClientFM: TClientFM
       'Database=micro'
       'Password=root')
     Connected = True
-    Left = 816
-    Top = 184
+    Left = 552
+    Top = 352
   end
 end
