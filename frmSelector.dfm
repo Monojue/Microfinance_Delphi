@@ -89,6 +89,7 @@ object MySelector: TMySelector
     Top = 55
     Width = 611
     Height = 457
+    DataSource = ClientDataSource
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     TabOrder = 3
     TitleFont.Charset = DEFAULT_CHARSET

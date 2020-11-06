@@ -54,7 +54,15 @@ begin
 begin
   DMMicro.SQLQuery.Close;
   SQLQuery.SQL.Clear;
+  if table = 'client' then
+  begin
   SQLQuery.SQL.Add('update client set Name= "'+data[1]+'",NRC= "'+data[2]+'",Address= "'+data[3]+'" ,Phone= "'+data[4]+'" ,DateOfBirth= "'+data[5]+'" ,Home= "'+data[6]+'" ,Job= "'+data[7]+'",Salary= '+data[8]+' where ClientID= "'+data[0]+'"');
+  end
+  else if table = 'group' then
+  begin
+  SQLQuery.SQL.Add('update clientgroup set leader= "'+data[1]+'",Member_1= "'+data[2]+'",Member_2= "'+data[3]+'" ,Member_3= "'+data[4]+'" ,Member_4= "'+data[5]+'" ,leaderName= "'+data[6]+'" ,M1Name= "'+data[7]+'",M2Name= "'+data[8]+'",M3Name= "'+data[9]+'",M4Name= "'+data[10]+'" where GroupID= "'+data[0]+'"');
+  end;
+
   if  SQLQuery.ExecSQL >0 then
   begin
     Exit(True);

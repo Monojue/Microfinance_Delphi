@@ -45,16 +45,17 @@ type
     procedure btnAdd3Click(Sender: TObject);
     procedure btnAdd4Click(Sender: TObject);
     procedure btnAdd5Click(Sender: TObject);
-    procedure FormShow(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
-    function check : boolean;
+    function check(ID : string; Name : string): boolean;
     procedure btnCancelClick(Sender: TObject);
-    procedure prepareUpdate(data : string);
+    procedure prepareUpdate(data : array of string);
+    procedure prepareNew;
+    procedure setAutoID;
   private
     { Private declarations }
   public
     { Public declarations }
-    procedure setIDandName(ID : string; Name : string);
+    function setIDandName(ID : string; Name : string) : Boolean;
     procedure ClearFields;
   end;
 
@@ -63,6 +64,7 @@ var
   btnType : Integer;
   today : TDateTime;
   data : array of string;
+  chk : Boolean;
 
 implementation
 
@@ -118,7 +120,7 @@ begin
   begin
     ShowMessage('Please Fill All Member!');
   end
-  else if check then
+  else if chk then
   begin
     SetLength(data, 11);
     data[0] := lblID.Caption;
@@ -148,61 +150,47 @@ begin
     end
     else if btnSave.Caption = 'Update' then
     begin
-
+       if UpdateData('group', data) then
+      begin
+        ShowMessage('Updated Successfully!');
+        Close;
+      end
+      else
+      begin
+        ShowMessage('Failed to Update!');
+      end;
     end;
+  end
+  else
+  begin
+    ShowMessage('Something Wrong!');
   end;
 end;
 
-function TfrmGroupEntry.check: boolean;
+function TfrmGroupEntry.check(ID : string; Name : string): boolean;
 begin
-    if CheckClientIsInGroup(lblLeadID.Caption) then
+    if CheckClientIsInGroup(ID) then
     begin
-      ShowMessage( 'Leader is in another Group!');
+      ShowMessage(Name + ' is in another Group!');
+      chk := False;
+      Exit(False);
     end
-    else if CheckClientIsInGroup(lblM1ID.Caption) then
+    else if CheckAvaliable('Individual',ID) then
     begin
-      ShowMessage(lblM1Name.Caption +' is in another Group!');
+      ShowMessage( Name + ' is already requested Individual Loan!');
+      chk := False;
+      Exit(False);
     end
-    else if CheckClientIsInGroup(lblM2ID.Caption) then
+    else if (ID=lblLeadID.Caption) or (ID=lblM1ID.Caption) or (ID=lblM2ID.Caption)
+    or (ID=lblM3ID.Caption) or (ID=lblM4ID.Caption) then
     begin
-      ShowMessage(lblM2Name.Caption +' is in another Group!');
-    end
-    else if CheckClientIsInGroup(lblM3ID.Caption) then
-    begin
-      ShowMessage(lblM3Name.Caption +' is in another Group!');
-    end
-    else if CheckClientIsInGroup(lblM4ID.Caption) then
-    begin
-      ShowMessage(lblM4Name.Caption +' is in another Group!');
-
-    end
-    else if CheckAvaliable('Individual',lblLeadID.Caption) then
-    begin
-      ShowMessage( 'Leader is already requested Individual Loan!');
-
-    end
-    else if CheckAvaliable('Individual',lblM1ID.Caption) then
-    begin
-      ShowMessage(lblM1Name.Caption+' is already requested Individual Loan!');
-
-    end
-    else if CheckAvaliable('Individual',lblM2ID.Caption) then
-    begin
-      ShowMessage(lblM2Name.Caption+' is already requested Individual Loan!');
-
-    end
-    else if CheckAvaliable('Individual',lblM3ID.Caption) then
-    begin
-      ShowMessage(lblM3Name.Caption+' is already requested Individual Loan!');
-
-    end
-    else if CheckAvaliable('Individual',lblM4ID.Caption) then
-    begin
-      ShowMessage(lblM4Name.Caption+' is already requested Individual Loan!');
-
+      ShowMessage( Name + ' is already Added!');
+      chk := False;
+      Exit(False);
     end
     else
     begin
+       chk := True;
       Result := True;
     end;
 end;
@@ -221,46 +209,69 @@ begin
   lblM4Name.Caption := '';
 end;
 
-procedure TfrmGroupEntry.FormShow(Sender: TObject);
+
+procedure TfrmGroupEntry.setAutoID;
 begin
   today := Now;
   lblDate.Caption := FormatDateTime('yyyy/MM/dd', today);
   lblID.Caption := shareFunction.getAutoID('groupID','ClientGroup','GP-');
 end;
 
-procedure TfrmGroupEntry.prepareUpdate(data: string);
+procedure TfrmGroupEntry.prepareNew;
 begin
-  lblLeadID.Caption := data;
+  ClearFields;
+  setAutoID;
+  btnSave.Caption := 'Save';
 end;
 
-procedure TfrmGroupEntry.setIDandName(ID, Name: string);
+procedure TfrmGroupEntry.prepareUpdate(data: array of string);
 begin
-  if btnType = 0 then
-  begin
-      lblLeadID.Caption := ID;
-      lblLeadName.Caption := Name;
-  end
-   else if btnType = 1 then
-  begin
-    lblM1ID.Caption := ID;
-    lblM1Name.Caption := Name;
-  end
-  else if btnType = 2 then
-  begin
-    lblM2ID.Caption := ID;
-    lblM2Name.Caption := Name;
-  end
-  else if btnType = 3 then
-  begin
-    lblM3ID.Caption := ID;
-    lblM3Name.Caption := Name;
-  end
-  else if btnType = 4 then
-  begin
-    lblM4ID.Caption := ID;
-    lblM4Name.Caption := Name;
+  lblID.Caption := data[0];
+  lblLeadID.Caption := data[1];
+  lblM1ID.Caption := data[2];
+  lblM2ID.Caption := data[3];
+  lblM3ID.Caption := data[4];
+  lblM4ID.Caption := data[5];
+  lblLeadName.Caption := data[6];
+  lblM1Name.Caption := data[7];
+  lblM2Name.Caption := data[8];
+  lblM3Name.Caption := data[9];
+  lblM4Name.Caption := data[10];
+  btnSave.Caption := 'Update';
+end;
+
+function TfrmGroupEntry.setIDandName(ID, Name: string) : Boolean;
+begin
+    if check(ID, Name) then
+    begin
+      if btnType = 0 then
+        begin
+            lblLeadID.Caption := ID;
+            lblLeadName.Caption := Name;
+        end
+         else if btnType = 1 then
+        begin
+          lblM1ID.Caption := ID;
+          lblM1Name.Caption := Name;
+        end
+        else if btnType = 2 then
+        begin
+          lblM2ID.Caption := ID;
+          lblM2Name.Caption := Name;
+        end
+        else if btnType = 3 then
+        begin
+          lblM3ID.Caption := ID;
+          lblM3Name.Caption := Name;
+        end
+        else if btnType = 4 then
+        begin
+          lblM4ID.Caption := ID;
+          lblM4Name.Caption := Name;
+        end;
+        Exit(True);
   end;
-  
+  Result := False;
 end;
 
 end.

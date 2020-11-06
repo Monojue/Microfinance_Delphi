@@ -44,6 +44,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
     procedure prepareupdate(data : array of String);
+    procedure prepareNew;
     procedure setAutoID;
   private
     { Private declarations }
@@ -69,13 +70,20 @@ begin
 end;
 
 
+procedure TfrmCleintEntry.prepareNew;
+begin
+  ClearFields;
+  setAutoID;
+  btnSave.Caption := 'Save';
+end;
+
 procedure TfrmCleintEntry.prepareupdate(data: array of String);
 begin
   lblID.Caption := data[0] ;
   editName.Text := data[1] ;
   cboxNo.Text := shareFunction.splitNRC(data[2])[0];
   cboxR.Text := shareFunction.splitNRC(data[2])[1];
-  editNRC.Text := shareFunction.splitNRC(data[2])[2];  
+  editNRC.Text := shareFunction.splitNRC(data[2])[2];
   editAddress.Text	:= data[3];
   editPhone.Text	:= data[4];
   cboxDate.Text := shareFunction.splitDOB(data[5])[0];
@@ -100,6 +108,7 @@ begin
   today := Now;
   lblDate.Caption := FormatDateTime('yyyy/MM/dd', today);
   lblID.Caption := shareFunction.getAutoID('clientID','Client','CL-');
+  btnSave.Caption := 'Save';
 end;
 
 procedure TfrmCleintEntry.btnSaveClick(Sender: TObject);
@@ -141,7 +150,7 @@ begin
          if save then
          begin
              ShowMessage('Save Successfully!');
-             
+             Close;
          end
          else
          begin
@@ -154,6 +163,7 @@ begin
          if save then
          begin
              ShowMessage('Update Successfully!');
+             Close;
          end
          else
          begin
@@ -182,6 +192,14 @@ end;
 procedure TfrmCleintEntry.ClearFields;
 begin
   editName.Text := '';
+  editAddress.Text := '';
+  cboxNo.Text := '';
+  cboxR.Text := '';
+  editNRC.Text := '';
+  editPhone.Text	:= '';
+  cboxDate.Text := '';
+  cboxMonth.Text := '';
+  cboxYear.Text := '';
 end;
 
 end.

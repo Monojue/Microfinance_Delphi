@@ -79,6 +79,7 @@ procedure TMySelector.btnNewClick(Sender: TObject);
 begin
   if frmtype = 'client' then
   begin
+    frmCleintEntry.prepareNew;
     frmCleintEntry.Show;
   end
   else if frmtype = 'group' then
@@ -88,15 +89,43 @@ begin
 end;
 
 procedure TMySelector.btnOKClick(Sender: TObject);
+var
+data : array of string;
 begin
   if frmtype = 'client' then
   begin
-    frmGroupEntry.setIDandName(selID, selName);
-    Close;
+    if frmGroupEntry.setIDandName(selID, selName) then
+    begin
+      Close;
+    end;
   end
-  else
+  else if frmtype = 'groupRequest ' then
   begin
-
+    SetLength(data, 11);
+    data[0] := DBGrid.Fields[0];
+    data[1] := DBGrid.Fields[1];
+    data[2] := DBGrid.Fields[2];
+    data[3] := DBGrid.Fields[3];
+    data[4] := DBGrid.Fields[4];
+    data[5] := DBGrid.Fields[5];
+    data[6] := DBGrid.Fields[6];
+    data[7] := DBGrid.Fields[7];
+    data[8] := DBGrid.Fields[8];
+    data[9] := DBGrid.Fields[9];
+    data[10] := DBGrid.Fields[10];
+  end
+  else if frmtype = 'clientRequest ' then
+  begin
+    SetLength(data, 9);
+    data[0] := DBGrid.Fields[0];
+    data[1] := DBGrid.Fields[1];
+    data[2] := DBGrid.Fields[2];
+    data[3] := DBGrid.Fields[3];
+    data[4] := DBGrid.Fields[4];
+    data[5] := DBGrid.Fields[5];
+    data[6] := DBGrid.Fields[6];
+    data[7] := DBGrid.Fields[7];
+    data[8] := DBGrid.Fields[8];
   end;
 end;
 

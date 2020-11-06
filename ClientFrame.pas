@@ -70,6 +70,7 @@ end;
 
 procedure TClientFM.btnNewClick(Sender: TObject);
 begin
+  frmCleintEntry.prepareNew;
   frmCleintEntry.Show;
 end;
 

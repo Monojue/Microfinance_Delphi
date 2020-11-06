@@ -17,7 +17,7 @@ object GroupFM: TGroupFM
     ControlCollection = <
       item
         Column = 0
-        Control = DBGrid1
+        Control = GroupGrid
         Row = 1
       end
       item
@@ -40,7 +40,7 @@ object GroupFM: TGroupFM
         SizeStyle = ssAuto
       end>
     TabOrder = 0
-    object DBGrid1: TDBGrid
+    object GroupGrid: TDBGrid
       AlignWithMargins = True
       Left = 4
       Top = 54
@@ -55,6 +55,7 @@ object GroupFM: TGroupFM
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
+      OnCellClick = GroupGridCellClick
       Columns = <
         item
           Expanded = False
@@ -160,6 +161,10 @@ object GroupFM: TGroupFM
         end
         item
           SizeStyle = ssAbsolute
+          Value = 80.000000000000000000
+        end
+        item
+          SizeStyle = ssAbsolute
           Value = 10.000000000000000000
         end>
       ControlCollection = <
@@ -170,7 +175,7 @@ object GroupFM: TGroupFM
         end
         item
           Column = 2
-          Control = ComboBox1
+          Control = cboxSearch
           Row = 0
         end
         item
@@ -180,7 +185,7 @@ object GroupFM: TGroupFM
         end
         item
           Column = 4
-          Control = Edit2
+          Control = editSearch
           Row = 0
         end
         item
@@ -202,12 +207,19 @@ object GroupFM: TGroupFM
           Column = 9
           Control = btnDelete
           Row = 0
+        end
+        item
+          Column = 10
+          Control = btnRefresh
+          Row = 0
         end>
       RowCollection = <
         item
           Value = 100.000000000000000000
         end>
       TabOrder = 1
+      ExplicitLeft = 2
+      ExplicitTop = 0
       DesignSize = (
         1229
         50)
@@ -221,14 +233,20 @@ object GroupFM: TGroupFM
         ExplicitLeft = 36
         ExplicitTop = 6
       end
-      object ComboBox1: TComboBox
+      object cboxSearch: TComboBox
         Left = 85
         Top = 14
         Width = 112
         Height = 21
         Anchors = []
+        ItemIndex = 0
         TabOrder = 0
-        Text = 'ComboBox1'
+        Text = 'Leader Name'
+        Items.Strings = (
+          'Leader Name'
+          'Group ID'
+          'Client Name'
+          'Client ID')
       end
       object Label2: TLabel
         Left = 205
@@ -240,14 +258,14 @@ object GroupFM: TGroupFM
         ExplicitLeft = 201
         ExplicitTop = 6
       end
-      object Edit2: TEdit
+      object editSearch: TEdit
         Left = 230
         Top = 14
         Width = 121
         Height = 21
         Anchors = []
         TabOrder = 1
-        Text = 'Edit2'
+        OnChange = editSearchChange
       end
       object btnSearch: TButton
         Left = 358
@@ -256,10 +274,12 @@ object GroupFM: TGroupFM
         Height = 25
         Anchors = []
         Caption = 'Search'
+        Enabled = False
         TabOrder = 2
+        OnClick = btnSearchClick
       end
       object btnNew: TButton
-        Left = 980
+        Left = 900
         Top = 12
         Width = 75
         Height = 25
@@ -267,25 +287,41 @@ object GroupFM: TGroupFM
         Caption = 'New'
         TabOrder = 3
         OnClick = btnNewClick
+        ExplicitLeft = 980
       end
       object btnEdit: TButton
-        Left = 1060
+        Left = 980
         Top = 12
         Width = 75
         Height = 25
         Anchors = []
         Caption = 'Edit'
+        Enabled = False
         TabOrder = 4
         OnClick = btnEditClick
+        ExplicitLeft = 1060
       end
       object btnDelete: TButton
-        Left = 1140
+        Left = 1060
         Top = 12
         Width = 75
         Height = 25
         Anchors = []
         Caption = 'Delete'
+        Enabled = False
         TabOrder = 5
+        ExplicitLeft = 1140
+      end
+      object btnRefresh: TButton
+        Left = 1140
+        Top = 12
+        Width = 75
+        Height = 25
+        Anchors = []
+        Caption = 'Refresh'
+        TabOrder = 6
+        OnClick = btnRefreshClick
+        ExplicitLeft = 1154
       end
     end
   end

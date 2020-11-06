@@ -14,12 +14,12 @@ uses
 type
   TGroupFM = class(TFrame)
     GridPanel1: TGridPanel;
-    DBGrid1: TDBGrid;
+    GroupGrid: TDBGrid;
     GridPanel2: TGridPanel;
     Label1: TLabel;
-    ComboBox1: TComboBox;
+    cboxSearch: TComboBox;
     Label2: TLabel;
-    Edit2: TEdit;
+    editSearch: TEdit;
     btnSearch: TButton;
     btnNew: TButton;
     btnEdit: TButton;
@@ -40,8 +40,13 @@ type
     ClientDataSetM2Name: TStringField;
     ClientDataSetM3Name: TStringField;
     ClientDataSetM4Name: TStringField;
+    btnRefresh: TButton;
     procedure btnNewClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
+    procedure GroupGridCellClick(Column: TColumn);
+    procedure btnRefreshClick(Sender: TObject);
+    procedure btnSearchClick(Sender: TObject);
+    procedure editSearchChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -55,16 +60,90 @@ implementation
 
 uses GroupEntry;
 
+var
+ seldata : array of string;
+
 procedure TGroupFM.btnEditClick(Sender: TObject);
 begin
-  frmGroupEntry.prepareUpdate(DBGrid1.Fields[0].AsString);
+  frmGroupEntry.prepareUpdate(seldata);
   frmGroupEntry.Show;
 end;
 
 procedure TGroupFM.btnNewClick(Sender: TObject);
 begin
-  frmGroupEntry.ClearFields;
+  frmGroupEntry.prepareNew;
   frmGroupEntry.Show;
+end;
+
+procedure TGroupFM.btnRefreshClick(Sender: TObject);
+begin
+  with SQLQuery do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('select * from clientGroup');
+    Open;
+  end;
+    GroupGrid.DataSource.DataSet.Refresh;
+    btnEdit.Enabled := False;
+    btnDelete.Enabled := False;
+end;
+
+procedure TGroupFM.btnSearchClick(Sender: TObject);
+begin
+  with SQLQuery do
+  begin
+    Close;
+    SQL.Clear;
+    if cboxSearch.ItemIndex = 0 then
+    begin
+    SQL.Add('Select * from clientgroup where Leadername Like "'+editSearch.Text+'%"');
+    end
+    else if cboxSearch.ItemIndex = 1 then
+    begin
+    SQL.Add('Select * from clientgroup where groupID = "GP-'+editSearch.Text+'"');
+    end
+    else if cboxSearch.ItemIndex = 2 then
+    begin
+    SQL.Add('Select * from clientgroup where "'+editSearch.Text+'" in (LeaderName, M1Name, M2Name, M3Name, M4Name)');
+    end
+    else if cboxSearch.ItemIndex = 3 then
+    begin
+    SQL.Add('Select * from clientgroup where "CL-'+editSearch.Text+'" in (Leader, Member_1, Member_2, Member_3, Member_4)');
+    end;
+    Open;
+    GroupGrid.DataSource.DataSet.Refresh;
+  end;
+end;
+
+procedure TGroupFM.editSearchChange(Sender: TObject);
+begin
+  if editSearch.Text <> EmptyStr then
+  begin
+    btnSearch.Enabled := True;
+  end
+  else
+  begin
+    btnSearch.Enabled := False;
+  end;
+end;
+
+procedure TGroupFM.GroupGridCellClick(Column: TColumn);
+begin
+  btnEdit.Enabled := True;
+  btnDelete.Enabled := True;
+  SetLength(selData , 11);
+  selData[0] := GroupGrid.Fields[0].AsString;
+  selData[1] := GroupGrid.Fields[1].AsString;
+  selData[2] := GroupGrid.Fields[3].AsString;
+  selData[3] := GroupGrid.Fields[5].AsString;
+  selData[4] := GroupGrid.Fields[7].AsString;
+  selData[5] := GroupGrid.Fields[9].AsString;
+  selData[6] := GroupGrid.Fields[2].AsString;
+  selData[7] := GroupGrid.Fields[4].AsString;
+  selData[8] := GroupGrid.Fields[6].AsString;
+  selData[9] := GroupGrid.Fields[8].AsString;
+  selData[10] := GroupGrid.Fields[10].AsString;
 end;
 
 end.
