@@ -13,7 +13,8 @@ uses
   ClientFrame in 'ClientFrame.pas' {ClientFM: TFrame},
   frmSelector in 'frmSelector.pas' {MySelector},
   ClientLoanRequestForm in 'ClientLoanRequestForm.pas' {ClientLoanRequest},
-  GroupEntry in 'GroupEntry.pas' {frmGroupEntry};
+  GroupEntry in 'GroupEntry.pas' {frmGroupEntry},
+  SettingFrame in 'SettingFrame.pas' {SettingFM: TFrame};
 
 {$R *.res}
 

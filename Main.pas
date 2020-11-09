@@ -5,9 +5,9 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Tabs, Vcl.ComCtrls,
-  GroupFrame, ClientFrame, LoanFrame, Vcl.ExtCtrls, Data.DB, Data.DBXMySQL,
+  LoanFrame, Vcl.ExtCtrls, Data.DB, Data.DBXMySQL,
   Data.FMTBcd, Data.SqlExpr, Datasnap.DBClient, Datasnap.Provider, Vcl.StdCtrls,
-  Vcl.Grids, Vcl.DBGrids;
+  Vcl.Grids, Vcl.DBGrids, ClientFrame, GroupFrame, SettingFrame;
 
 type
   TMainForm = class(TForm)
@@ -16,6 +16,10 @@ type
     TabSheet2: TTabSheet;
     TGroupFM1: TGroupFM;
     TClientFM1: TClientFM;
+    TabSheet3: TTabSheet;
+    TSettingFM1: TSettingFM;
+    procedure TSettingFM1btnIEditClick(Sender: TObject);
+    procedure PageControl1Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,4 +34,18 @@ implementation
 {$R *.dfm}
 
 uses DataModule;
+
+
+procedure TMainForm.PageControl1Change(Sender: TObject);
+begin
+  TSettingFM1.GetIData;
+  TSettingFM1.GetGData;
+end;
+
+procedure TMainForm.TSettingFM1btnIEditClick(Sender: TObject);
+begin
+  TSettingFM1.btnIEditClick(Sender);
+
+end;
+
 end.

@@ -264,6 +264,7 @@ object ClientFM: TClientFM
         Height = 21
         Anchors = []
         TabOrder = 1
+        OnChange = editSearchChange
       end
       object btnNew: TButton
         Left = 900
@@ -313,6 +314,7 @@ object ClientFM: TClientFM
         Height = 25
         Anchors = []
         Caption = 'Search'
+        Enabled = False
         TabOrder = 6
         OnClick = btnSearchClick
       end

@@ -46,6 +46,7 @@ type
     procedure clientGridCellClick(Column: TColumn);
     procedure btnRefreshClick(Sender: TObject);
     procedure btnSearchClick(Sender: TObject);
+    procedure editSearchChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -122,6 +123,18 @@ begin
   selData[6] := clientGrid.Fields[6].AsString;
   selData[7] := clientGrid.Fields[7].AsString;
   selData[8] := clientGrid.Fields[8].AsString;
+end;
+
+procedure TClientFM.editSearchChange(Sender: TObject);
+begin
+ if editSearch.Text <> EmptyStr then
+  begin
+    btnSearch.Enabled := True;
+  end
+  else
+  begin
+    btnSearch.Enabled := False;
+  end;
 end;
 
 end.

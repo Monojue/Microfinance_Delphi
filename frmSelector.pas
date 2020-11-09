@@ -102,30 +102,30 @@ begin
   else if frmtype = 'groupRequest ' then
   begin
     SetLength(data, 11);
-    data[0] := DBGrid.Fields[0];
-    data[1] := DBGrid.Fields[1];
-    data[2] := DBGrid.Fields[2];
-    data[3] := DBGrid.Fields[3];
-    data[4] := DBGrid.Fields[4];
-    data[5] := DBGrid.Fields[5];
-    data[6] := DBGrid.Fields[6];
-    data[7] := DBGrid.Fields[7];
-    data[8] := DBGrid.Fields[8];
-    data[9] := DBGrid.Fields[9];
-    data[10] := DBGrid.Fields[10];
+    data[0] := DBGrid.Fields[0].AsString;
+    data[1] := DBGrid.Fields[1].AsString;
+    data[2] := DBGrid.Fields[2].AsString;
+    data[3] := DBGrid.Fields[3].AsString;
+    data[4] := DBGrid.Fields[4].AsString;
+    data[5] := DBGrid.Fields[5].AsString;
+    data[6] := DBGrid.Fields[6].AsString;
+    data[7] := DBGrid.Fields[7].AsString;
+    data[8] := DBGrid.Fields[8].AsString;
+    data[9] := DBGrid.Fields[9].AsString;
+    data[10] := DBGrid.Fields[10].AsString;
   end
   else if frmtype = 'clientRequest ' then
   begin
     SetLength(data, 9);
-    data[0] := DBGrid.Fields[0];
-    data[1] := DBGrid.Fields[1];
-    data[2] := DBGrid.Fields[2];
-    data[3] := DBGrid.Fields[3];
-    data[4] := DBGrid.Fields[4];
-    data[5] := DBGrid.Fields[5];
-    data[6] := DBGrid.Fields[6];
-    data[7] := DBGrid.Fields[7];
-    data[8] := DBGrid.Fields[8];
+    data[0] := DBGrid.Fields[0].AsString;
+    data[1] := DBGrid.Fields[1].AsString;
+    data[2] := DBGrid.Fields[2].AsString;
+    data[3] := DBGrid.Fields[3].AsString;
+    data[4] := DBGrid.Fields[4].AsString;
+    data[5] := DBGrid.Fields[5].AsString;
+    data[6] := DBGrid.Fields[6].AsString;
+    data[7] := DBGrid.Fields[7].AsString;
+    data[8] := DBGrid.Fields[8].AsString;
   end;
 end;
 
