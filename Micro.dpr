@@ -14,7 +14,8 @@ uses
   frmSelector in 'frmSelector.pas' {MySelector},
   ClientLoanRequestForm in 'ClientLoanRequestForm.pas' {ClientLoanRequest},
   GroupEntry in 'GroupEntry.pas' {frmGroupEntry},
-  SettingFrame in 'SettingFrame.pas' {SettingFM: TFrame};
+  SettingFrame in 'SettingFrame.pas' {SettingFM: TFrame},
+  OfficerEntry in 'OfficerEntry.pas' {frmOfficerEntry};
 
 {$R *.res}
 
@@ -30,6 +31,7 @@ begin
   Application.CreateForm(TMySelector, MySelector);
   Application.CreateForm(TClientLoanRequest, ClientLoanRequest);
   Application.CreateForm(TfrmGroupEntry, frmGroupEntry);
+  Application.CreateForm(TfrmOfficerEntry, frmOfficerEntry);
   Application.Run;
 end;
 

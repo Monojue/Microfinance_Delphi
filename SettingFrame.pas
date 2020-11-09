@@ -83,6 +83,7 @@ type
     ClientDataSetPhone: TStringField;
     ClientDataSetNRC: TStringField;
     ClientDataSetRole: TStringField;
+    Button1: TButton;
     procedure IndividualfieldEnable;
     procedure GroupfieldEnable;
     procedure IfieldDisable;

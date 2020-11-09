@@ -60,23 +60,37 @@ object SettingFM: TSettingFM
         item
           Column = 0
           Control = IndiGrid
-          Row = 0
+          Row = 1
         end
         item
           Column = 1
           Control = GroupGrid
+          Row = 1
+        end
+        item
+          Column = 0
+          Control = Button1
           Row = 0
         end>
       RowCollection = <
         item
+          SizeStyle = ssAbsolute
+          Value = 50.000000000000000000
+        end
+        item
           Value = 100.000000000000000000
         end>
       TabOrder = 0
+      ExplicitLeft = -5
+      ExplicitTop = -3
+      DesignSize = (
+        879
+        337)
       object IndiGrid: TGridPanel
         Left = 1
-        Top = 1
+        Top = 51
         Width = 438
-        Height = 335
+        Height = 285
         Align = alClient
         Alignment = taLeftJustify
         Caption = 'Individual'
@@ -256,250 +270,275 @@ object SettingFM: TSettingFM
           end>
         TabOrder = 0
         VerticalAlignment = taAlignTop
+        ExplicitTop = 1
+        ExplicitHeight = 335
         DesignSize = (
           438
-          335)
+          285)
         object Label9: TLabel
           Left = 11
-          Top = 42
+          Top = 36
           Width = 146
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Amount'
           Layout = tlCenter
+          ExplicitTop = 42
           ExplicitWidth = 37
           ExplicitHeight = 13
         end
         object Label11: TLabel
           Left = 265
-          Top = 56
+          Top = 47
           Width = 4
           Height = 13
           Anchors = []
           Caption = '-'
+          ExplicitTop = 56
         end
         object Label13: TLabel
           Left = 377
-          Top = 42
+          Top = 36
           Width = 50
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Kyats'
           Layout = tlCenter
+          ExplicitTop = 42
           ExplicitWidth = 27
           ExplicitHeight = 13
         end
         object Label16: TLabel
           Left = 11
-          Top = 83
+          Top = 71
           Width = 146
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Duration'
           Layout = tlCenter
+          ExplicitTop = 83
           ExplicitWidth = 41
           ExplicitHeight = 13
         end
         object Label18: TLabel
           Left = 265
-          Top = 97
+          Top = 82
           Width = 4
           Height = 13
           Anchors = []
           Caption = '-'
           ExplicitLeft = 257
+          ExplicitTop = 97
         end
         object Label20: TLabel
           Left = 377
-          Top = 83
+          Top = 71
           Width = 50
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Month'
           Layout = tlCenter
+          ExplicitTop = 83
           ExplicitWidth = 30
           ExplicitHeight = 13
         end
         object Label23: TLabel
           Left = 11
-          Top = 124
+          Top = 106
           Width = 146
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Amount Interval'
           Layout = tlCenter
+          ExplicitTop = 124
           ExplicitWidth = 78
           ExplicitHeight = 13
         end
         object Label26: TLabel
           Left = 277
-          Top = 124
+          Top = 106
           Width = 100
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Kyats'
           Layout = tlCenter
+          ExplicitTop = 124
           ExplicitWidth = 27
           ExplicitHeight = 13
         end
         object Label30: TLabel
           Left = 11
-          Top = 165
+          Top = 141
           Width = 146
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Duration Interval'
           Layout = tlCenter
+          ExplicitTop = 165
           ExplicitWidth = 82
           ExplicitHeight = 13
         end
         object Label33: TLabel
           Left = 277
-          Top = 165
+          Top = 141
           Width = 100
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Month'
           Layout = tlCenter
+          ExplicitTop = 165
           ExplicitWidth = 30
           ExplicitHeight = 13
         end
         object Label37: TLabel
           Left = 11
-          Top = 206
+          Top = 176
           Width = 146
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Interest Rate'
           Layout = tlCenter
+          ExplicitTop = 206
           ExplicitWidth = 65
           ExplicitHeight = 13
         end
         object Label40: TLabel
           Left = 277
-          Top = 206
+          Top = 176
           Width = 100
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = '%'
           Layout = tlCenter
+          ExplicitTop = 206
           ExplicitWidth = 11
           ExplicitHeight = 13
         end
         object Label44: TLabel
           Left = 11
-          Top = 247
+          Top = 211
           Width = 146
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Services Fees'
           Layout = tlCenter
+          ExplicitTop = 247
           ExplicitWidth = 66
           ExplicitHeight = 13
         end
         object Label47: TLabel
           Left = 277
-          Top = 247
+          Top = 211
           Width = 100
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = '%'
           Layout = tlCenter
+          ExplicitTop = 247
           ExplicitWidth = 11
           ExplicitHeight = 13
         end
         object editIMinAmount: TEdit
           Left = 157
-          Top = 52
+          Top = 43
           Width = 100
           Height = 21
           Anchors = []
           Enabled = False
           NumbersOnly = True
           TabOrder = 0
+          ExplicitTop = 52
         end
         object editIMaxAmount: TEdit
           Left = 277
-          Top = 52
+          Top = 43
           Width = 100
           Height = 21
           Anchors = []
           Enabled = False
           NumbersOnly = True
           TabOrder = 1
+          ExplicitTop = 52
         end
         object editIMinDura: TEdit
           Left = 157
-          Top = 93
+          Top = 78
           Width = 100
           Height = 21
           Anchors = []
           Enabled = False
           NumbersOnly = True
           TabOrder = 2
+          ExplicitTop = 93
         end
         object editIMaxDura: TEdit
           Left = 277
-          Top = 93
+          Top = 78
           Width = 100
           Height = 21
           Anchors = []
           Enabled = False
           NumbersOnly = True
           TabOrder = 3
+          ExplicitTop = 93
         end
         object editIAmoInter: TEdit
           Left = 157
-          Top = 134
+          Top = 113
           Width = 100
           Height = 21
           Anchors = []
           Enabled = False
           NumbersOnly = True
           TabOrder = 4
+          ExplicitTop = 134
         end
         object editIDuraInter: TEdit
           Left = 157
-          Top = 175
+          Top = 148
           Width = 100
           Height = 21
           Anchors = []
           Enabled = False
           NumbersOnly = True
           TabOrder = 5
+          ExplicitTop = 175
         end
         object editIRate: TEdit
           Left = 157
-          Top = 216
+          Top = 183
           Width = 100
           Height = 21
           Anchors = []
           Enabled = False
           TabOrder = 6
+          ExplicitTop = 216
         end
         object editIFees: TEdit
           Left = 157
-          Top = 257
+          Top = 218
           Width = 100
           Height = 21
           Anchors = []
           Enabled = False
           NumbersOnly = True
           TabOrder = 7
+          ExplicitTop = 257
         end
         object btnIEdit: TButton
           Left = 46
-          Top = 298
+          Top = 252
           Width = 75
           Height = 25
           Anchors = []
           Caption = 'Edit'
           TabOrder = 8
           OnClick = btnIEditClick
+          ExplicitTop = 298
         end
         object btnICancel: TButton
           Left = 169
-          Top = 298
+          Top = 252
           Width = 75
           Height = 25
           Anchors = []
@@ -507,13 +546,14 @@ object SettingFM: TSettingFM
           TabOrder = 9
           Visible = False
           OnClick = btnICancelClick
+          ExplicitTop = 298
         end
       end
       object GroupGrid: TGridPanel
         Left = 439
-        Top = 1
+        Top = 51
         Width = 439
-        Height = 335
+        Height = 285
         Align = alClient
         Alignment = taLeftJustify
         Anchors = []
@@ -694,23 +734,26 @@ object SettingFM: TSettingFM
           end>
         TabOrder = 1
         VerticalAlignment = taAlignTop
+        ExplicitTop = 1
+        ExplicitHeight = 335
         DesignSize = (
           439
-          335)
+          285)
         object Label1: TLabel
           Left = 11
-          Top = 42
+          Top = 36
           Width = 147
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Amount'
           Layout = tlCenter
+          ExplicitTop = 42
           ExplicitWidth = 37
           ExplicitHeight = 13
         end
         object Label2: TLabel
           Left = 266
-          Top = 56
+          Top = 47
           Width = 4
           Height = 13
           Anchors = []
@@ -720,29 +763,31 @@ object SettingFM: TSettingFM
         end
         object Label3: TLabel
           Left = 378
-          Top = 42
+          Top = 36
           Width = 50
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Kyats'
           Layout = tlCenter
+          ExplicitTop = 42
           ExplicitWidth = 27
           ExplicitHeight = 13
         end
         object Label4: TLabel
           Left = 11
-          Top = 83
+          Top = 71
           Width = 147
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Duration'
           Layout = tlCenter
+          ExplicitTop = 83
           ExplicitWidth = 41
           ExplicitHeight = 13
         end
         object Label5: TLabel
           Left = 266
-          Top = 97
+          Top = 82
           Width = 4
           Height = 13
           Anchors = []
@@ -752,195 +797,213 @@ object SettingFM: TSettingFM
         end
         object Label6: TLabel
           Left = 378
-          Top = 83
+          Top = 71
           Width = 50
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Month'
           Layout = tlCenter
+          ExplicitTop = 83
           ExplicitWidth = 30
           ExplicitHeight = 13
         end
         object Label7: TLabel
           Left = 11
-          Top = 124
+          Top = 106
           Width = 147
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Amount Interval'
           Layout = tlCenter
+          ExplicitTop = 124
           ExplicitWidth = 78
           ExplicitHeight = 13
         end
         object Label8: TLabel
           Left = 278
-          Top = 124
+          Top = 106
           Width = 100
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Kyats'
           Layout = tlCenter
+          ExplicitTop = 124
           ExplicitWidth = 27
           ExplicitHeight = 13
         end
         object Label10: TLabel
           Left = 11
-          Top = 165
+          Top = 141
           Width = 147
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Duration Interval'
           Layout = tlCenter
+          ExplicitTop = 165
           ExplicitWidth = 82
           ExplicitHeight = 13
         end
         object Label12: TLabel
           Left = 278
-          Top = 165
+          Top = 141
           Width = 100
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Month'
           Layout = tlCenter
+          ExplicitTop = 165
           ExplicitWidth = 30
           ExplicitHeight = 13
         end
         object Label14: TLabel
           Left = 11
-          Top = 206
+          Top = 176
           Width = 147
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Interest Rate'
           Layout = tlCenter
+          ExplicitTop = 206
           ExplicitWidth = 65
           ExplicitHeight = 13
         end
         object Label15: TLabel
           Left = 278
-          Top = 206
+          Top = 176
           Width = 100
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = '%'
           Layout = tlCenter
+          ExplicitTop = 206
           ExplicitWidth = 11
           ExplicitHeight = 13
         end
         object Label17: TLabel
           Left = 11
-          Top = 247
+          Top = 211
           Width = 147
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = 'Services Fees'
           Layout = tlCenter
+          ExplicitTop = 247
           ExplicitWidth = 66
           ExplicitHeight = 13
         end
         object Label19: TLabel
           Left = 278
-          Top = 247
+          Top = 211
           Width = 100
-          Height = 41
+          Height = 35
           Align = alClient
           Caption = '%'
           Layout = tlCenter
+          ExplicitTop = 247
           ExplicitWidth = 11
           ExplicitHeight = 13
         end
         object editGMinAmount: TEdit
           Left = 158
-          Top = 52
+          Top = 43
           Width = 100
           Height = 21
           Anchors = []
           Enabled = False
           NumbersOnly = True
           TabOrder = 0
+          ExplicitTop = 52
         end
         object editGMaxAmount: TEdit
           Left = 278
-          Top = 52
+          Top = 43
           Width = 100
           Height = 21
           Anchors = []
           Enabled = False
           NumbersOnly = True
           TabOrder = 1
+          ExplicitTop = 52
         end
         object editGMinDura: TEdit
           Left = 158
-          Top = 93
+          Top = 78
           Width = 100
           Height = 21
           Anchors = []
           Enabled = False
           NumbersOnly = True
           TabOrder = 2
+          ExplicitTop = 93
         end
         object editGMaxDura: TEdit
           Left = 278
-          Top = 93
+          Top = 78
           Width = 100
           Height = 21
           Anchors = []
           Enabled = False
           NumbersOnly = True
           TabOrder = 3
+          ExplicitTop = 93
         end
         object editGAmoInter: TEdit
           Left = 158
-          Top = 134
+          Top = 113
           Width = 100
           Height = 21
           Anchors = []
           Enabled = False
           NumbersOnly = True
           TabOrder = 4
+          ExplicitTop = 134
         end
         object editGDuraInter: TEdit
           Left = 158
-          Top = 175
+          Top = 148
           Width = 100
           Height = 21
           Anchors = []
           Enabled = False
           NumbersOnly = True
           TabOrder = 5
+          ExplicitTop = 175
         end
         object editGRate: TEdit
           Left = 158
-          Top = 216
+          Top = 183
           Width = 100
           Height = 21
           Anchors = []
           Enabled = False
           TabOrder = 6
+          ExplicitTop = 216
         end
         object editGFees: TEdit
           Left = 158
-          Top = 257
+          Top = 218
           Width = 100
           Height = 21
           Anchors = []
           Enabled = False
           NumbersOnly = True
           TabOrder = 7
+          ExplicitTop = 257
         end
         object btnGEdit: TButton
           Left = 47
-          Top = 298
+          Top = 252
           Width = 75
           Height = 25
           Anchors = []
           Caption = 'Edit'
           TabOrder = 8
           OnClick = btnGEditClick
+          ExplicitTop = 298
         end
         object btnGCancel: TButton
           Left = 170
-          Top = 298
+          Top = 252
           Width = 75
           Height = 25
           Anchors = []
@@ -948,7 +1011,18 @@ object SettingFM: TSettingFM
           TabOrder = 9
           Visible = False
           OnClick = btnGCancelClick
+          ExplicitTop = 298
         end
+      end
+      object Button1: TButton
+        Left = 155
+        Top = 13
+        Width = 130
+        Height = 25
+        Anchors = []
+        Caption = 'View Loan Edit History'
+        TabOrder = 2
+        ExplicitLeft = 12
       end
     end
     object GridPanel4: TGridPanel

@@ -82,10 +82,6 @@ begin
       ShowMessage('Failed to Save new Record!');
     end;
 
-  end
-  else
-  begin
-
   end;
 end;
 
