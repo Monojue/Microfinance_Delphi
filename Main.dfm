@@ -206,6 +206,8 @@ object MainForm: TMainForm
                 Control = TGroupFM1.btnRefresh
                 Row = 0
               end>
+            ExplicitLeft = 1
+            ExplicitTop = 1
             ExplicitWidth = 1221
             inherited btnNew: TButton
               Left = 892
@@ -237,8 +239,8 @@ object MainForm: TMainForm
         Height = 649
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 1223
-        ExplicitHeight = 649
+        ExplicitLeft = 216
+        ExplicitTop = 160
         inherited GridPanel1: TGridPanel
           Width = 1223
           Height = 649
@@ -249,19 +251,16 @@ object MainForm: TMainForm
               Row = 0
             end
             item
-              Column = 1
-              Control = TSettingFM1.GridPanel3
-              Row = 0
-            end
-            item
               Column = 0
               Control = TSettingFM1.GridPanel4
               Row = 1
+            end
+            item
+              Column = 1
+              Control = TSettingFM1.Panel1
+              Row = 0
+              RowSpan = 2
             end>
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 1223
-          ExplicitHeight = 649
           inherited GridPanel2: TGridPanel
             Width = 871
             Height = 323
@@ -269,20 +268,21 @@ object MainForm: TMainForm
               item
                 Column = 0
                 Control = TSettingFM1.IndiGrid
-                Row = 0
+                Row = 1
               end
               item
                 Column = 1
                 Control = TSettingFM1.GroupGrid
+                Row = 1
+              end
+              item
+                Column = 0
+                Control = TSettingFM1.Button1
                 Row = 0
               end>
-            ExplicitLeft = 1
-            ExplicitTop = 1
-            ExplicitWidth = 871
-            ExplicitHeight = 323
             inherited IndiGrid: TGridPanel
               Width = 434
-              Height = 321
+              Height = 271
               ControlCollection = <
                 item
                   Column = 1
@@ -404,175 +404,129 @@ object MainForm: TMainForm
                   Control = TSettingFM1.btnICancel
                   Row = 7
                 end>
-              ExplicitLeft = 1
-              ExplicitTop = 1
-              ExplicitWidth = 434
-              ExplicitHeight = 321
               inherited Label9: TLabel
-                Top = 40
+                Top = 34
                 Width = 142
-                Height = 39
-                ExplicitLeft = 11
-                ExplicitTop = 40
+                Height = 33
               end
               inherited Label11: TLabel
                 Left = 261
-                Top = 53
-                ExplicitLeft = 261
-                ExplicitTop = 53
+                Top = 44
               end
               inherited Label13: TLabel
                 Left = 373
-                Top = 40
-                Height = 39
-                Alignment = taCenter
-                ExplicitLeft = 373
-                ExplicitTop = 40
+                Top = 34
+                Height = 33
               end
               inherited Label16: TLabel
-                Top = 79
+                Top = 67
                 Width = 142
-                Height = 39
-                ExplicitLeft = 11
-                ExplicitTop = 79
+                Height = 33
               end
               inherited Label18: TLabel
                 Left = 261
-                Top = 92
-                ExplicitLeft = 261
-                ExplicitTop = 92
+                Top = 77
               end
               inherited Label20: TLabel
                 Left = 373
-                Top = 79
-                Height = 39
-                Alignment = taCenter
-                ExplicitLeft = 373
-                ExplicitTop = 79
+                Top = 67
+                Height = 33
               end
               inherited Label23: TLabel
-                Top = 118
+                Top = 100
                 Width = 142
-                Height = 39
-                ExplicitLeft = 11
-                ExplicitTop = 118
+                Height = 33
               end
               inherited Label26: TLabel
                 Left = 273
-                Top = 118
-                Height = 39
-                ExplicitLeft = 273
-                ExplicitTop = 118
+                Top = 100
+                Height = 33
               end
               inherited Label30: TLabel
-                Top = 157
+                Top = 133
                 Width = 142
-                Height = 39
-                ExplicitLeft = 11
-                ExplicitTop = 157
+                Height = 33
               end
               inherited Label33: TLabel
                 Left = 273
-                Top = 157
-                Height = 39
-                ExplicitLeft = 273
-                ExplicitTop = 157
+                Top = 133
+                Height = 33
               end
               inherited Label37: TLabel
-                Top = 196
+                Top = 166
                 Width = 142
-                Height = 39
-                ExplicitLeft = 11
-                ExplicitTop = 196
+                Height = 33
               end
               inherited Label40: TLabel
                 Left = 273
-                Top = 196
-                Height = 39
-                ExplicitLeft = 273
-                ExplicitTop = 196
+                Top = 166
+                Height = 33
               end
               inherited Label44: TLabel
-                Top = 235
+                Top = 199
                 Width = 142
-                Height = 39
-                ExplicitLeft = 11
-                ExplicitTop = 235
+                Height = 33
               end
               inherited Label47: TLabel
                 Left = 273
-                Top = 235
-                Height = 39
-                ExplicitLeft = 273
-                ExplicitTop = 235
+                Top = 199
+                Height = 33
               end
               inherited editIMinAmount: TEdit
                 Left = 153
-                Top = 49
-                ExplicitLeft = 153
-                ExplicitTop = 49
+                Top = 40
+                ExplicitTop = 43
               end
               inherited editIMaxAmount: TEdit
                 Left = 273
-                Top = 49
-                ExplicitLeft = 273
-                ExplicitTop = 49
+                Top = 40
+                ExplicitTop = 43
               end
               inherited editIMinDura: TEdit
                 Left = 153
-                Top = 88
-                ExplicitLeft = 153
-                ExplicitTop = 88
+                Top = 73
+                ExplicitTop = 78
               end
               inherited editIMaxDura: TEdit
                 Left = 273
-                Top = 88
-                ExplicitLeft = 273
-                ExplicitTop = 88
+                Top = 73
+                ExplicitTop = 78
               end
               inherited editIAmoInter: TEdit
                 Left = 153
-                Top = 127
-                ExplicitLeft = 153
-                ExplicitTop = 127
-                ExplicitWidth = 100
+                Top = 106
+                ExplicitTop = 113
               end
               inherited editIDuraInter: TEdit
                 Left = 153
-                Top = 166
-                ExplicitLeft = 153
-                ExplicitTop = 166
+                Top = 139
+                ExplicitTop = 148
               end
               inherited editIRate: TEdit
                 Left = 153
-                Top = 205
-                ExplicitLeft = 153
-                ExplicitTop = 205
+                Top = 172
+                ExplicitTop = 183
               end
               inherited editIFees: TEdit
                 Left = 153
-                Top = 244
-                ExplicitLeft = 153
-                ExplicitTop = 244
+                Top = 205
+                ExplicitTop = 218
               end
               inherited btnIEdit: TButton
                 Left = 44
-                Top = 284
-                OnClick = TSettingFM1btnIEditClick
-                ExplicitLeft = 44
-                ExplicitTop = 284
+                Top = 238
+                ExplicitTop = 252
               end
               inherited btnICancel: TButton
                 Left = 165
-                Top = 284
-                ExplicitLeft = 165
-                ExplicitTop = 284
+                Top = 238
+                ExplicitTop = 252
               end
             end
             inherited GroupGrid: TGridPanel
               Left = 435
               Width = 435
-              Height = 321
+              Height = 271
               ControlCollection = <
                 item
                   Column = 1
@@ -694,169 +648,129 @@ object MainForm: TMainForm
                   Control = TSettingFM1.btnGCancel
                   Row = 7
                 end>
-              ExplicitLeft = 435
-              ExplicitWidth = 435
-              ExplicitHeight = 321
               inherited Label1: TLabel
-                Top = 40
+                Top = 34
                 Width = 143
-                Height = 39
-                ExplicitTop = 40
+                Height = 33
               end
               inherited Label2: TLabel
                 Left = 262
-                Top = 53
-                ExplicitLeft = 262
-                ExplicitTop = 53
+                Top = 44
               end
               inherited Label3: TLabel
                 Left = 374
-                Top = 40
-                Height = 39
-                Alignment = taCenter
-                ExplicitLeft = 374
-                ExplicitTop = 40
+                Top = 34
+                Height = 33
               end
               inherited Label4: TLabel
-                Top = 79
+                Top = 67
                 Width = 143
-                Height = 39
-                ExplicitTop = 79
+                Height = 33
               end
               inherited Label5: TLabel
                 Left = 262
-                Top = 92
-                ExplicitLeft = 262
-                ExplicitTop = 92
+                Top = 77
               end
               inherited Label6: TLabel
                 Left = 374
-                Top = 79
-                Height = 39
-                Alignment = taCenter
-                ExplicitLeft = 374
-                ExplicitTop = 79
+                Top = 67
+                Height = 33
               end
               inherited Label7: TLabel
-                Top = 118
+                Top = 100
                 Width = 143
-                Height = 39
-                ExplicitTop = 118
+                Height = 33
               end
               inherited Label8: TLabel
                 Left = 274
-                Top = 118
-                Height = 39
-                ExplicitLeft = 274
-                ExplicitTop = 118
+                Top = 100
+                Height = 33
               end
               inherited Label10: TLabel
-                Top = 157
+                Top = 133
                 Width = 143
-                Height = 39
-                ExplicitTop = 157
+                Height = 33
               end
               inherited Label12: TLabel
                 Left = 274
-                Top = 157
-                Height = 39
-                ExplicitLeft = 274
-                ExplicitTop = 157
+                Top = 133
+                Height = 33
               end
               inherited Label14: TLabel
-                Top = 196
+                Top = 166
                 Width = 143
-                Height = 39
-                ExplicitTop = 196
+                Height = 33
               end
               inherited Label15: TLabel
                 Left = 274
-                Top = 196
-                Height = 39
-                ExplicitLeft = 274
-                ExplicitTop = 196
+                Top = 166
+                Height = 33
               end
               inherited Label17: TLabel
-                Top = 235
+                Top = 199
                 Width = 143
-                Height = 39
-                ExplicitTop = 235
+                Height = 33
               end
               inherited Label19: TLabel
                 Left = 274
-                Top = 235
-                Height = 39
-                ExplicitLeft = 274
-                ExplicitTop = 235
+                Top = 199
+                Height = 33
               end
               inherited editGMinAmount: TEdit
                 Left = 154
-                Top = 49
-                ExplicitLeft = 154
-                ExplicitTop = 49
+                Top = 40
+                ExplicitTop = 43
               end
               inherited editGMaxAmount: TEdit
                 Left = 274
-                Top = 49
-                ExplicitLeft = 274
-                ExplicitTop = 49
+                Top = 40
+                ExplicitTop = 43
               end
               inherited editGMinDura: TEdit
                 Left = 154
-                Top = 88
-                ExplicitLeft = 154
-                ExplicitTop = 88
+                Top = 73
+                ExplicitTop = 78
               end
               inherited editGMaxDura: TEdit
                 Left = 274
-                Top = 88
-                ExplicitLeft = 274
-                ExplicitTop = 88
+                Top = 73
+                ExplicitTop = 78
               end
               inherited editGAmoInter: TEdit
                 Left = 154
-                Top = 127
-                ExplicitLeft = 154
-                ExplicitTop = 127
+                Top = 106
+                ExplicitTop = 113
               end
               inherited editGDuraInter: TEdit
                 Left = 154
-                Top = 166
-                ExplicitLeft = 154
-                ExplicitTop = 166
+                Top = 139
+                ExplicitTop = 148
               end
               inherited editGRate: TEdit
                 Left = 154
-                Top = 205
-                ExplicitLeft = 154
-                ExplicitTop = 205
+                Top = 172
+                ExplicitTop = 183
               end
               inherited editGFees: TEdit
                 Left = 154
-                Top = 244
-                ExplicitLeft = 154
-                ExplicitTop = 244
+                Top = 205
+                ExplicitTop = 218
               end
               inherited btnGEdit: TButton
                 Left = 45
-                Top = 284
-                ExplicitLeft = 45
-                ExplicitTop = 284
+                Top = 238
+                ExplicitTop = 252
               end
               inherited btnGCancel: TButton
                 Left = 166
-                Top = 284
-                ExplicitLeft = 166
-                ExplicitTop = 284
+                Top = 238
+                ExplicitTop = 252
               end
             end
-          end
-          inherited GridPanel3: TGridPanel
-            Left = 872
-            Height = 323
-            ExplicitLeft = 872
-            ExplicitTop = 1
-            ExplicitHeight = 647
+            inherited Button1: TButton
+              Left = 153
+              ExplicitLeft = 155
+            end
           end
           inherited GridPanel4: TGridPanel
             Top = 324
@@ -873,10 +787,6 @@ object MainForm: TMainForm
                 Control = TSettingFM1.DBGrid1
                 Row = 1
               end>
-            ExplicitLeft = 1
-            ExplicitTop = 324
-            ExplicitWidth = 871
-            ExplicitHeight = 324
             inherited GridPanel5: TGridPanel
               Width = 869
               ControlCollection = <
@@ -887,7 +797,7 @@ object MainForm: TMainForm
                 end
                 item
                   Column = 2
-                  Control = TSettingFM1.Edit17
+                  Control = TSettingFM1.editSearch
                   Row = 0
                 end
                 item
@@ -910,43 +820,24 @@ object MainForm: TMainForm
                   Control = TSettingFM1.btnRefresh
                   Row = 0
                 end>
-              ExplicitLeft = 1
-              ExplicitTop = 1
-              ExplicitWidth = 869
-              ExplicitHeight = 50
-              inherited Label22: TLabel
-                ExplicitLeft = 11
-                ExplicitTop = 1
-              end
-              inherited Edit17: TEdit
-                ExplicitLeft = 91
-                ExplicitTop = 14
-                ExplicitWidth = 120
-              end
-              inherited btnSearch: TButton
-                ExplicitLeft = 213
-                ExplicitTop = 12
-              end
               inherited btnAdd: TButton
                 Left = 620
-                ExplicitLeft = 620
-                ExplicitTop = 12
               end
               inherited btnDelete: TButton
                 Left = 700
-                ExplicitLeft = 700
-                ExplicitTop = 12
               end
               inherited btnRefresh: TButton
                 Left = 780
-                ExplicitLeft = 780
-                ExplicitTop = 12
               end
             end
             inherited DBGrid1: TDBGrid
               Width = 869
               Height = 272
             end
+          end
+          inherited Panel1: TPanel
+            Left = 872
+            Height = 647
           end
         end
       end

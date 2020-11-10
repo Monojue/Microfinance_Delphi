@@ -11,10 +11,10 @@ type
   TClientLoanRequest = class(TForm)
     MainGrid: TGridPanel;
     TopGrip: TGridPanel;
-    Label2: TLabel;
+    lblID: TLabel;
     Label1: TLabel;
     Label4: TLabel;
-    Label5: TLabel;
+    lblDate: TLabel;
     MidGrid: TGridPanel;
     RelativePanel1: TRelativePanel;
     Label3: TLabel;
@@ -77,17 +77,30 @@ type
     Button4: TButton;
     Button5: TButton;
     DBGrid1: TDBGrid;
+    procedure setAutoID;
   private
     { Private declarations }
   public
     { Public declarations }
+
   end;
 
 var
   ClientLoanRequest: TClientLoanRequest;
+  today : TDateTime;
 
 implementation
 
 {$R *.dfm}
+
+uses shareFunction;
+
+{ TClientLoanRequest }
+
+procedure TClientLoanRequest.setAutoID;
+begin
+  lblID.Caption := getAutoID('LoanRequestID', 'LoanRequest', 'LR-');
+  lblDate.Caption := FormatDateTime('dd/MM/yyyy', today);
+end;
 
 end.

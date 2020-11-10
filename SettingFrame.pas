@@ -99,6 +99,7 @@ type
     procedure editSearchChange(Sender: TObject);
     procedure btnRefreshClick(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -116,7 +117,7 @@ implementation
 
 
 
-uses MyQury, shareFunction, OfficerEntry;
+uses MyQury, shareFunction, OfficerEntry, SettingHistory;
 
 { TFrame1 }
 
@@ -155,7 +156,7 @@ begin
       GNewSetting[8] := editGFees.Text;
       GNewSetting[9] := FormatDateTime('yyyy/MM/dd', today);
       GNewSetting[10] := 'Group';
-      GNewSetting[11] := 'OfficerID';
+      GNewSetting[11] := getLoginID;
       if InsertData('Gloansetting', GNewSetting) then
       begin
         GfieldDisable;
@@ -200,7 +201,7 @@ begin
       INewSetting[8] := editIFees.Text;
       INewSetting[9] := FormatDateTime('yyyy/MM/dd', today);
       INewSetting[10] := 'Individual';
-      INewSetting[11] := 'OfficerID';
+      INewSetting[11] := getLoginID;
       if InsertData('Iloansetting', INewSetting) then
       begin
         IfieldDisable;
@@ -244,6 +245,11 @@ begin
   begin
 
   end;
+end;
+
+procedure TSettingFM.Button1Click(Sender: TObject);
+begin
+  frmLoanHistory.Show;
 end;
 
 procedure TSettingFM.editSearchChange(Sender: TObject);

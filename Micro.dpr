@@ -4,7 +4,7 @@ uses
   Vcl.Forms,
   Login in 'Login.pas' {LoginForm},
   GroupFrame in 'GroupFrame.pas' {GroupFM: TFrame},
-  LoanFrame in 'LoanFrame.pas' {LoanFM: TFrame},
+  GroupLoanFrame in 'GroupLoanFrame.pas' {GroupLoanFM: TFrame},
   Main in 'Main.pas' {MainForm},
   ClientEntry in 'ClientEntry.pas' {frmCleintEntry},
   MyQury in 'MyQury.pas',
@@ -15,7 +15,9 @@ uses
   ClientLoanRequestForm in 'ClientLoanRequestForm.pas' {ClientLoanRequest},
   GroupEntry in 'GroupEntry.pas' {frmGroupEntry},
   SettingFrame in 'SettingFrame.pas' {SettingFM: TFrame},
-  OfficerEntry in 'OfficerEntry.pas' {frmOfficerEntry};
+  OfficerEntry in 'OfficerEntry.pas' {frmOfficerEntry},
+  SettingHistory in 'SettingHistory.pas' {frmLoanHistory},
+  ClientLoanFrame in 'ClientLoanFrame.pas' {ClientLoanFM: TFrame};
 
 {$R *.res}
 
@@ -32,6 +34,7 @@ begin
   Application.CreateForm(TClientLoanRequest, ClientLoanRequest);
   Application.CreateForm(TfrmGroupEntry, frmGroupEntry);
   Application.CreateForm(TfrmOfficerEntry, frmOfficerEntry);
+  Application.CreateForm(TfrmLoanHistory, frmLoanHistory);
   Application.Run;
 end;
 

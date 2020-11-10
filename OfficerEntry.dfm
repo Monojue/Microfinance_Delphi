@@ -1,9 +1,10 @@
 object frmOfficerEntry: TfrmOfficerEntry
   Left = 0
   Top = 219
+  BorderStyle = bsDialog
   Caption = 'Officer Entry'
-  ClientHeight = 465
-  ClientWidth = 488
+  ClientHeight = 475
+  ClientWidth = 498
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,17 +12,18 @@ object frmOfficerEntry: TfrmOfficerEntry
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesigned
+  Position = poMainFormCenter
+  OnShow = FormShow
   DesignSize = (
-    488
-    465)
+    498
+    475)
   PixelsPerInch = 96
   TextHeight = 13
   object GridPanel1: TGridPanel
     Left = 0
     Top = 0
-    Width = 488
-    Height = 465
+    Width = 498
+    Height = 475
     Align = alClient
     ColumnCollection = <
       item
@@ -62,7 +64,7 @@ object frmOfficerEntry: TfrmOfficerEntry
     object GridPanel2: TGridPanel
       Left = 1
       Top = 1
-      Width = 486
+      Width = 496
       Height = 40
       Align = alClient
       ColumnCollection = <
@@ -93,7 +95,7 @@ object frmOfficerEntry: TfrmOfficerEntry
         end>
       TabOrder = 0
       DesignSize = (
-        486
+        496
         40)
       object Label1: TLabel
         Left = 12
@@ -107,7 +109,7 @@ object frmOfficerEntry: TfrmOfficerEntry
       object lblID: TLabel
         Left = 41
         Top = 1
-        Width = 222
+        Width = 227
         Height = 38
         Align = alClient
         Layout = tlCenter
@@ -117,8 +119,8 @@ object frmOfficerEntry: TfrmOfficerEntry
     end
     object GridPanel4: TGridPanel
       Left = 1
-      Top = 424
-      Width = 486
+      Top = 434
+      Width = 496
       Height = 40
       Align = alClient
       ColumnCollection = <
@@ -150,10 +152,10 @@ object frmOfficerEntry: TfrmOfficerEntry
         end>
       TabOrder = 1
       DesignSize = (
-        486
+        496
         40)
       object btnAdd: TButton
-        Left = 327
+        Left = 337
         Top = 7
         Width = 75
         Height = 25
@@ -163,20 +165,21 @@ object frmOfficerEntry: TfrmOfficerEntry
         OnClick = btnAddClick
       end
       object btnCancel: TButton
-        Left = 407
+        Left = 417
         Top = 7
         Width = 75
         Height = 25
         Anchors = []
         Caption = 'Cancel'
         TabOrder = 1
+        OnClick = btnCancelClick
       end
     end
     object RelativePanel1: TRelativePanel
       Left = 1
       Top = 41
-      Width = 486
-      Height = 383
+      Width = 496
+      Height = 393
       ControlCollection = <
         item
           Control = editName
@@ -358,8 +361,8 @@ object frmOfficerEntry: TfrmOfficerEntry
       ParentFont = False
       TabOrder = 2
       DesignSize = (
-        486
-        383)
+        496
+        393)
       object editName: TEdit
         Left = 160
         Top = 48
@@ -388,7 +391,7 @@ object frmOfficerEntry: TfrmOfficerEntry
         Width = 241
         Height = 24
         Anchors = []
-        TabOrder = 1
+        TabOrder = 4
       end
       object lable: TLabel
         Left = 71
@@ -424,7 +427,7 @@ object frmOfficerEntry: TfrmOfficerEntry
         Width = 49
         Height = 24
         Anchors = []
-        TabOrder = 2
+        TabOrder = 1
       end
       object cboxR: TComboBox
         Left = 229
@@ -432,7 +435,7 @@ object frmOfficerEntry: TfrmOfficerEntry
         Width = 68
         Height = 24
         Anchors = []
-        TabOrder = 3
+        TabOrder = 2
       end
       object editNRC: TEdit
         Left = 330
@@ -441,7 +444,7 @@ object frmOfficerEntry: TfrmOfficerEntry
         Height = 24
         Anchors = []
         NumbersOnly = True
-        TabOrder = 4
+        TabOrder = 3
       end
       object Label9: TLabel
         Left = 218
@@ -532,7 +535,7 @@ object frmOfficerEntry: TfrmOfficerEntry
         Width = 113
         Height = 24
         Anchors = []
-        TabOrder = 6
+        TabOrder = 7
       end
       object editPassword: TEdit
         Left = 160
@@ -540,8 +543,8 @@ object frmOfficerEntry: TfrmOfficerEntry
         Width = 113
         Height = 24
         Anchors = []
-        NumbersOnly = True
-        TabOrder = 7
+        PasswordChar = '*'
+        TabOrder = 8
       end
       object cboxRole: TComboBox
         Left = 160
@@ -549,8 +552,8 @@ object frmOfficerEntry: TfrmOfficerEntry
         Width = 103
         Height = 24
         Anchors = []
-        ItemIndex = 0
-        TabOrder = 8
+        ItemIndex = 1
+        TabOrder = 6
         Text = 'Manager'
         Items.Strings = (
           'Manager'
@@ -578,7 +581,7 @@ object frmOfficerEntry: TfrmOfficerEntry
     Width = 113
     Height = 21
     Anchors = []
-    NumbersOnly = True
+    PasswordChar = '*'
     TabOrder = 1
   end
 end

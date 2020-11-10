@@ -8,14 +8,29 @@ uses
  type
   resultData = array of string;
 
+
 function getAutoID(field: string; table: string; prefix: string): string;
 function splitDOB(DOB: string) : resultData;
 function splitNRC(NRC: string) : resultData;
+procedure setLoginID (ID : string);
+function getLoginID () : string;
 implementation
 
 uses DataModule, ClientFrame;
 
+var
+loginID : string;
+  loginName : string;
 
+procedure setLoginID (ID : string);
+begin
+  loginID := ID;
+end;
+
+function getLoginID () : string;
+begin
+  Result := loginID;
+end;
 
 function getAutoID(field: string; table: string; prefix: string): string;
 var

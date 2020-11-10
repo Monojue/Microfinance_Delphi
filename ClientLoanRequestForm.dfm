@@ -53,10 +53,6 @@ object ClientLoanRequest: TClientLoanRequest
         Value = 50.000000000000000000
       end>
     TabOrder = 0
-    ExplicitLeft = 536
-    ExplicitTop = 216
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object TopGrip: TGridPanel
       Left = 1
       Top = 1
@@ -86,7 +82,7 @@ object ClientLoanRequest: TClientLoanRequest
       ControlCollection = <
         item
           Column = 1
-          Control = Label2
+          Control = lblID
           Row = 0
         end
         item
@@ -105,7 +101,7 @@ object ClientLoanRequest: TClientLoanRequest
         end
         item
           Column = 4
-          Control = Label5
+          Control = lblDate
           Row = 0
         end>
       Font.Charset = DEFAULT_CHARSET
@@ -122,46 +118,51 @@ object ClientLoanRequest: TClientLoanRequest
           SizeStyle = ssAuto
         end>
       TabOrder = 0
-      ExplicitWidth = 632
-      object Label2: TLabel
+      object lblID: TLabel
         Left = 71
         Top = 1
-        Width = 37
-        Height = 16
+        Width = 4
+        Height = 48
         Margins.Left = 50
         Align = alLeft
-        Caption = 'Label1'
         Layout = tlCenter
+        ExplicitHeight = 16
       end
       object Label1: TLabel
-        Left = 10
+        Left = 1
         Top = 1
-        Width = 61
-        Height = 16
+        Width = 70
+        Height = 48
         Margins.Right = 10
         Align = alClient
         Alignment = taRightJustify
         Caption = 'Client ID : '
         Layout = tlCenter
+        ExplicitLeft = 10
+        ExplicitWidth = 61
+        ExplicitHeight = 16
       end
       object Label4: TLabel
-        Left = 1113
+        Left = 1102
         Top = 1
-        Width = 39
-        Height = 16
+        Width = 50
+        Height = 48
         Align = alClient
         Alignment = taRightJustify
         Caption = 'Date : '
         Layout = tlCenter
+        ExplicitLeft = 1113
+        ExplicitWidth = 39
+        ExplicitHeight = 16
       end
-      object Label5: TLabel
+      object lblDate: TLabel
         Left = 1152
         Top = 1
-        Width = 37
-        Height = 16
+        Width = 4
+        Height = 48
         Align = alLeft
-        Caption = 'Label1'
         Layout = tlCenter
+        ExplicitHeight = 16
       end
     end
     object MidGrid: TGridPanel
@@ -214,9 +215,6 @@ object ClientLoanRequest: TClientLoanRequest
           SizeStyle = ssAuto
         end>
       TabOrder = 1
-      ExplicitTop = 56
-      ExplicitWidth = 1307
-      ExplicitHeight = 612
       object RelativePanel1: TRelativePanel
         Left = 1
         Top = 1
@@ -441,9 +439,6 @@ object ClientLoanRequest: TClientLoanRequest
         ParentFont = False
         TabOrder = 0
         VerticalAlignment = taAlignTop
-        ExplicitTop = 5
-        ExplicitWidth = 435
-        ExplicitHeight = 337
         DesignSize = (
           424
           348)
@@ -875,9 +870,6 @@ object ClientLoanRequest: TClientLoanRequest
         ParentFont = False
         TabOrder = 1
         VerticalAlignment = taAlignTop
-        ExplicitTop = 344
-        ExplicitWidth = 870
-        ExplicitHeight = 249
         DesignSize = (
           740
           257)
@@ -1166,10 +1158,6 @@ object ClientLoanRequest: TClientLoanRequest
         Caption = 'LOAN INFORMATION'
         TabOrder = 2
         VerticalAlignment = taAlignTop
-        ExplicitLeft = 442
-        ExplicitTop = 6
-        ExplicitWidth = 435
-        ExplicitHeight = 351
         DesignSize = (
           316
           348)
@@ -1366,8 +1354,6 @@ object ClientLoanRequest: TClientLoanRequest
         end>
       ShowCaption = False
       TabOrder = 2
-      ExplicitTop = 668
-      ExplicitWidth = 1307
       DesignSize = (
         1293
         50)
@@ -1379,8 +1365,6 @@ object ClientLoanRequest: TClientLoanRequest
         Anchors = []
         Caption = 'Request'
         TabOrder = 0
-        ExplicitLeft = 1118
-        ExplicitTop = 6
       end
       object Button5: TButton
         Left = 1204
@@ -1390,8 +1374,6 @@ object ClientLoanRequest: TClientLoanRequest
         Anchors = []
         Caption = 'Cancel'
         TabOrder = 1
-        ExplicitLeft = 1218
-        ExplicitTop = 6
       end
     end
   end

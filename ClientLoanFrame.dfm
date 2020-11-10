@@ -1,0 +1,393 @@
+object ClientLoanFM: TClientLoanFM
+  Left = 0
+  Top = 0
+  Width = 1231
+  Height = 692
+  TabOrder = 0
+  object GridPanel1: TGridPanel
+    Left = 0
+    Top = 0
+    Width = 1231
+    Height = 692
+    Align = alClient
+    ColumnCollection = <
+      item
+        Value = 100.000000000000000000
+      end>
+    ControlCollection = <
+      item
+        Column = 0
+        Control = GridPanel2
+        Row = 0
+      end
+      item
+        Column = 0
+        Control = clientGrid
+        Row = 1
+      end>
+    RowCollection = <
+      item
+        SizeStyle = ssAbsolute
+        Value = 50.000000000000000000
+      end
+      item
+        Value = 100.000000000000000000
+      end
+      item
+        SizeStyle = ssAuto
+      end
+      item
+        SizeStyle = ssAuto
+      end>
+    TabOrder = 0
+    object GridPanel2: TGridPanel
+      Left = 1
+      Top = 1
+      Width = 1229
+      Height = 50
+      Align = alClient
+      ColumnCollection = <
+        item
+          SizeStyle = ssAbsolute
+          Value = 10.000000000000000000
+        end
+        item
+          SizeStyle = ssAbsolute
+          Value = 70.000000000000000000
+        end
+        item
+          SizeStyle = ssAbsolute
+          Value = 120.000000000000000000
+        end
+        item
+          SizeStyle = ssAbsolute
+          Value = 25.000000000000000000
+        end
+        item
+          SizeStyle = ssAbsolute
+          Value = 130.000000000000000000
+        end
+        item
+          SizeStyle = ssAbsolute
+          Value = 80.000000000000000000
+        end
+        item
+          Value = 100.000000000000000000
+        end
+        item
+          SizeStyle = ssAbsolute
+          Value = 80.000000000000000000
+        end
+        item
+          SizeStyle = ssAbsolute
+          Value = 80.000000000000000000
+        end
+        item
+          SizeStyle = ssAbsolute
+          Value = 80.000000000000000000
+        end
+        item
+          SizeStyle = ssAbsolute
+          Value = 80.000000000000000000
+        end
+        item
+          SizeStyle = ssAbsolute
+          Value = 10.000000000000000000
+        end>
+      ControlCollection = <
+        item
+          Column = 1
+          Control = Label1
+          Row = 0
+        end
+        item
+          Column = 2
+          Control = cboxSearch
+          Row = 0
+        end
+        item
+          Column = 4
+          Control = editSearch
+          Row = 0
+        end
+        item
+          Column = 7
+          Control = btnNew
+          Row = 0
+        end
+        item
+          Column = 8
+          Control = btnPay
+          Row = 0
+        end
+        item
+          Column = 9
+          Control = btnDelete
+          Row = 0
+        end
+        item
+          Column = 10
+          Control = btnRefresh
+          Row = 0
+        end
+        item
+          Column = 5
+          Control = btnSearch
+          Row = 0
+        end
+        item
+          Column = 6
+          Control = Panel1
+          Row = 0
+        end
+        item
+          Column = 3
+          Control = lblPrefix
+          Row = 0
+        end>
+      RowCollection = <
+        item
+          Value = 100.000000000000000000
+        end>
+      TabOrder = 0
+      DesignSize = (
+        1229
+        50)
+      object Label1: TLabel
+        Left = 12
+        Top = 18
+        Width = 68
+        Height = 13
+        Anchors = []
+        Caption = 'Search With : '
+        ExplicitLeft = 36
+        ExplicitTop = 6
+      end
+      object cboxSearch: TComboBox
+        Left = 85
+        Top = 14
+        Width = 112
+        Height = 21
+        Anchors = []
+        ItemIndex = 0
+        TabOrder = 0
+        Text = 'LoanRequest ID'
+        Items.Strings = (
+          'LoanRequest ID'
+          'Client ID')
+      end
+      object editSearch: TEdit
+        Left = 230
+        Top = 14
+        Width = 121
+        Height = 21
+        Anchors = []
+        TabOrder = 1
+      end
+      object btnNew: TButton
+        Left = 900
+        Top = 12
+        Width = 75
+        Height = 25
+        Anchors = []
+        Caption = 'New'
+        TabOrder = 2
+      end
+      object btnPay: TButton
+        Left = 980
+        Top = 12
+        Width = 75
+        Height = 25
+        Anchors = []
+        Caption = 'Pay'
+        Enabled = False
+        TabOrder = 3
+      end
+      object btnDelete: TButton
+        Left = 1060
+        Top = 12
+        Width = 75
+        Height = 25
+        Anchors = []
+        Caption = 'Delete'
+        Enabled = False
+        TabOrder = 4
+      end
+      object btnRefresh: TButton
+        Left = 1140
+        Top = 12
+        Width = 75
+        Height = 25
+        Anchors = []
+        Caption = 'Refresh'
+        TabOrder = 5
+      end
+      object btnSearch: TButton
+        Left = 358
+        Top = 12
+        Width = 75
+        Height = 25
+        Anchors = []
+        Caption = 'Search'
+        Enabled = False
+        TabOrder = 6
+      end
+      object Panel1: TPanel
+        Left = 436
+        Top = 1
+        Width = 462
+        Height = 48
+        Align = alClient
+        TabOrder = 7
+        object RadioGroup: TRadioGroup
+          AlignWithMargins = True
+          Left = 4
+          Top = 4
+          Width = 454
+          Height = 40
+          Align = alClient
+          BiDiMode = bdRightToLeftReadingOnly
+          Caption = 'View Table Of'
+          Columns = 2
+          ItemIndex = 0
+          Items.Strings = (
+            'Accepted'
+            'Rejected')
+          ParentBiDiMode = False
+          TabOrder = 0
+        end
+      end
+      object lblPrefix: TLabel
+        Left = 205
+        Top = 18
+        Width = 16
+        Height = 13
+        Anchors = []
+        Caption = 'LR-'
+        ExplicitLeft = 207
+      end
+    end
+    object clientGrid: TDBGrid
+      Left = 1
+      Top = 51
+      Width = 1229
+      Height = 640
+      Align = alClient
+      DataSource = DataSource1
+      TabOrder = 1
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+    end
+  end
+  object MicrofinanceConnection: TSQLConnection
+    ConnectionName = 'Microfinance'
+    DriverName = 'MySQL'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverName=MySQL'
+      'DriverUnit=Data.DBXMySQL'
+      
+        'DriverPackageLoader=TDBXDynalinkDriverLoader,DbxCommonDriver260.' +
+        'bpl'
+      
+        'DriverAssemblyLoader=Borland.Data.TDBXDynalinkDriverLoader,Borla' +
+        'nd.Data.DbxCommonDriver,Version=24.0.0.0,Culture=neutral,PublicK' +
+        'eyToken=91d62ebb5b0d1b1b'
+      
+        'MetaDataPackageLoader=TDBXMySqlMetaDataCommandFactory,DbxMySQLDr' +
+        'iver260.bpl'
+      
+        'MetaDataAssemblyLoader=Borland.Data.TDBXMySqlMetaDataCommandFact' +
+        'ory,Borland.Data.DbxMySQLDriver,Version=24.0.0.0,Culture=neutral' +
+        ',PublicKeyToken=91d62ebb5b0d1b1b'
+      'LibraryName=dbxmys.dll'
+      'LibraryNameOsx=libsqlmys.dylib'
+      'VendorLib=LIBMYSQL.dll'
+      'VendorLibWin64=libmysql.dll'
+      'VendorLibOsx=libmysqlclient.dylib'
+      'HostName=localhost'
+      'User_Name=root'
+      'MaxBlobSize=-1'
+      'LocaleCode=0000'
+      'Compressed=False'
+      'Encrypted=False'
+      'BlobSize=-1'
+      'ErrorResourceFile='
+      'Database=micro'
+      'Password=root')
+    Connected = True
+    Left = 767
+    Top = 188
+  end
+  object SQLQuery1: TSQLQuery
+    Active = True
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      'select * from clientloanrequest where clientname = '#39'khin ohmar'#39)
+    SQLConnection = MicrofinanceConnection
+    Left = 776
+    Top = 256
+  end
+  object DataSetProvider1: TDataSetProvider
+    DataSet = SQLQuery1
+    Left = 712
+    Top = 296
+  end
+  object ClientDataSet1: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DataSetProvider1'
+    Left = 872
+    Top = 336
+    object ClientDataSet1LoanRequestID: TStringField
+      FieldName = 'LoanRequestID'
+      Required = True
+      Size = 10
+    end
+    object ClientDataSet1ClientID: TStringField
+      FieldName = 'ClientID'
+      Required = True
+      Size = 10
+    end
+    object ClientDataSet1ClientName: TStringField
+      FieldName = 'ClientName'
+      Required = True
+      Size = 45
+    end
+    object ClientDataSet1RequestDate: TStringField
+      FieldName = 'RequestDate'
+      Required = True
+      Size = 11
+    end
+    object ClientDataSet1DueDate: TStringField
+      FieldName = 'DueDate'
+      Size = 11
+    end
+    object ClientDataSet1Amount: TIntegerField
+      FieldName = 'Amount'
+      Required = True
+    end
+    object ClientDataSet1Duration: TIntegerField
+      FieldName = 'Duration'
+      Required = True
+    end
+    object ClientDataSet1InterestRate: TIntegerField
+      FieldName = 'InterestRate'
+      Required = True
+    end
+    object ClientDataSet1Remark: TStringField
+      FieldName = 'Remark'
+      Size = 100
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = ClientDataSet1
+    Left = 968
+    Top = 352
+  end
+end

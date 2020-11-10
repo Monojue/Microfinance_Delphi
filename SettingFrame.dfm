@@ -81,8 +81,6 @@ object SettingFM: TSettingFM
           Value = 100.000000000000000000
         end>
       TabOrder = 0
-      ExplicitLeft = -5
-      ExplicitTop = -3
       DesignSize = (
         879
         337)
@@ -270,8 +268,6 @@ object SettingFM: TSettingFM
           end>
         TabOrder = 0
         VerticalAlignment = taAlignTop
-        ExplicitTop = 1
-        ExplicitHeight = 335
         DesignSize = (
           438
           285)
@@ -283,7 +279,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Amount'
           Layout = tlCenter
-          ExplicitTop = 42
           ExplicitWidth = 37
           ExplicitHeight = 13
         end
@@ -304,7 +299,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Kyats'
           Layout = tlCenter
-          ExplicitTop = 42
           ExplicitWidth = 27
           ExplicitHeight = 13
         end
@@ -316,7 +310,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Duration'
           Layout = tlCenter
-          ExplicitTop = 83
           ExplicitWidth = 41
           ExplicitHeight = 13
         end
@@ -338,7 +331,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Month'
           Layout = tlCenter
-          ExplicitTop = 83
           ExplicitWidth = 30
           ExplicitHeight = 13
         end
@@ -350,7 +342,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Amount Interval'
           Layout = tlCenter
-          ExplicitTop = 124
           ExplicitWidth = 78
           ExplicitHeight = 13
         end
@@ -362,7 +353,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Kyats'
           Layout = tlCenter
-          ExplicitTop = 124
           ExplicitWidth = 27
           ExplicitHeight = 13
         end
@@ -374,7 +364,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Duration Interval'
           Layout = tlCenter
-          ExplicitTop = 165
           ExplicitWidth = 82
           ExplicitHeight = 13
         end
@@ -386,7 +375,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Month'
           Layout = tlCenter
-          ExplicitTop = 165
           ExplicitWidth = 30
           ExplicitHeight = 13
         end
@@ -398,7 +386,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Interest Rate'
           Layout = tlCenter
-          ExplicitTop = 206
           ExplicitWidth = 65
           ExplicitHeight = 13
         end
@@ -410,7 +397,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = '%'
           Layout = tlCenter
-          ExplicitTop = 206
           ExplicitWidth = 11
           ExplicitHeight = 13
         end
@@ -422,7 +408,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Services Fees'
           Layout = tlCenter
-          ExplicitTop = 247
           ExplicitWidth = 66
           ExplicitHeight = 13
         end
@@ -434,7 +419,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = '%'
           Layout = tlCenter
-          ExplicitTop = 247
           ExplicitWidth = 11
           ExplicitHeight = 13
         end
@@ -447,7 +431,6 @@ object SettingFM: TSettingFM
           Enabled = False
           NumbersOnly = True
           TabOrder = 0
-          ExplicitTop = 52
         end
         object editIMaxAmount: TEdit
           Left = 277
@@ -458,7 +441,6 @@ object SettingFM: TSettingFM
           Enabled = False
           NumbersOnly = True
           TabOrder = 1
-          ExplicitTop = 52
         end
         object editIMinDura: TEdit
           Left = 157
@@ -469,7 +451,6 @@ object SettingFM: TSettingFM
           Enabled = False
           NumbersOnly = True
           TabOrder = 2
-          ExplicitTop = 93
         end
         object editIMaxDura: TEdit
           Left = 277
@@ -480,7 +461,6 @@ object SettingFM: TSettingFM
           Enabled = False
           NumbersOnly = True
           TabOrder = 3
-          ExplicitTop = 93
         end
         object editIAmoInter: TEdit
           Left = 157
@@ -491,7 +471,6 @@ object SettingFM: TSettingFM
           Enabled = False
           NumbersOnly = True
           TabOrder = 4
-          ExplicitTop = 134
         end
         object editIDuraInter: TEdit
           Left = 157
@@ -502,7 +481,6 @@ object SettingFM: TSettingFM
           Enabled = False
           NumbersOnly = True
           TabOrder = 5
-          ExplicitTop = 175
         end
         object editIRate: TEdit
           Left = 157
@@ -512,7 +490,6 @@ object SettingFM: TSettingFM
           Anchors = []
           Enabled = False
           TabOrder = 6
-          ExplicitTop = 216
         end
         object editIFees: TEdit
           Left = 157
@@ -523,7 +500,6 @@ object SettingFM: TSettingFM
           Enabled = False
           NumbersOnly = True
           TabOrder = 7
-          ExplicitTop = 257
         end
         object btnIEdit: TButton
           Left = 46
@@ -534,7 +510,6 @@ object SettingFM: TSettingFM
           Caption = 'Edit'
           TabOrder = 8
           OnClick = btnIEditClick
-          ExplicitTop = 298
         end
         object btnICancel: TButton
           Left = 169
@@ -546,7 +521,6 @@ object SettingFM: TSettingFM
           TabOrder = 9
           Visible = False
           OnClick = btnICancelClick
-          ExplicitTop = 298
         end
       end
       object GroupGrid: TGridPanel
@@ -734,8 +708,6 @@ object SettingFM: TSettingFM
           end>
         TabOrder = 1
         VerticalAlignment = taAlignTop
-        ExplicitTop = 1
-        ExplicitHeight = 335
         DesignSize = (
           439
           285)
@@ -747,7 +719,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Amount'
           Layout = tlCenter
-          ExplicitTop = 42
           ExplicitWidth = 37
           ExplicitHeight = 13
         end
@@ -769,7 +740,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Kyats'
           Layout = tlCenter
-          ExplicitTop = 42
           ExplicitWidth = 27
           ExplicitHeight = 13
         end
@@ -781,7 +751,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Duration'
           Layout = tlCenter
-          ExplicitTop = 83
           ExplicitWidth = 41
           ExplicitHeight = 13
         end
@@ -803,7 +772,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Month'
           Layout = tlCenter
-          ExplicitTop = 83
           ExplicitWidth = 30
           ExplicitHeight = 13
         end
@@ -815,7 +783,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Amount Interval'
           Layout = tlCenter
-          ExplicitTop = 124
           ExplicitWidth = 78
           ExplicitHeight = 13
         end
@@ -827,7 +794,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Kyats'
           Layout = tlCenter
-          ExplicitTop = 124
           ExplicitWidth = 27
           ExplicitHeight = 13
         end
@@ -839,7 +805,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Duration Interval'
           Layout = tlCenter
-          ExplicitTop = 165
           ExplicitWidth = 82
           ExplicitHeight = 13
         end
@@ -851,7 +816,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Month'
           Layout = tlCenter
-          ExplicitTop = 165
           ExplicitWidth = 30
           ExplicitHeight = 13
         end
@@ -863,7 +827,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Interest Rate'
           Layout = tlCenter
-          ExplicitTop = 206
           ExplicitWidth = 65
           ExplicitHeight = 13
         end
@@ -875,7 +838,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = '%'
           Layout = tlCenter
-          ExplicitTop = 206
           ExplicitWidth = 11
           ExplicitHeight = 13
         end
@@ -887,7 +849,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = 'Services Fees'
           Layout = tlCenter
-          ExplicitTop = 247
           ExplicitWidth = 66
           ExplicitHeight = 13
         end
@@ -899,7 +860,6 @@ object SettingFM: TSettingFM
           Align = alClient
           Caption = '%'
           Layout = tlCenter
-          ExplicitTop = 247
           ExplicitWidth = 11
           ExplicitHeight = 13
         end
@@ -912,7 +872,6 @@ object SettingFM: TSettingFM
           Enabled = False
           NumbersOnly = True
           TabOrder = 0
-          ExplicitTop = 52
         end
         object editGMaxAmount: TEdit
           Left = 278
@@ -923,7 +882,6 @@ object SettingFM: TSettingFM
           Enabled = False
           NumbersOnly = True
           TabOrder = 1
-          ExplicitTop = 52
         end
         object editGMinDura: TEdit
           Left = 158
@@ -934,7 +892,6 @@ object SettingFM: TSettingFM
           Enabled = False
           NumbersOnly = True
           TabOrder = 2
-          ExplicitTop = 93
         end
         object editGMaxDura: TEdit
           Left = 278
@@ -945,7 +902,6 @@ object SettingFM: TSettingFM
           Enabled = False
           NumbersOnly = True
           TabOrder = 3
-          ExplicitTop = 93
         end
         object editGAmoInter: TEdit
           Left = 158
@@ -956,7 +912,6 @@ object SettingFM: TSettingFM
           Enabled = False
           NumbersOnly = True
           TabOrder = 4
-          ExplicitTop = 134
         end
         object editGDuraInter: TEdit
           Left = 158
@@ -967,7 +922,6 @@ object SettingFM: TSettingFM
           Enabled = False
           NumbersOnly = True
           TabOrder = 5
-          ExplicitTop = 175
         end
         object editGRate: TEdit
           Left = 158
@@ -977,7 +931,6 @@ object SettingFM: TSettingFM
           Anchors = []
           Enabled = False
           TabOrder = 6
-          ExplicitTop = 216
         end
         object editGFees: TEdit
           Left = 158
@@ -988,7 +941,6 @@ object SettingFM: TSettingFM
           Enabled = False
           NumbersOnly = True
           TabOrder = 7
-          ExplicitTop = 257
         end
         object btnGEdit: TButton
           Left = 47
@@ -999,7 +951,6 @@ object SettingFM: TSettingFM
           Caption = 'Edit'
           TabOrder = 8
           OnClick = btnGEditClick
-          ExplicitTop = 298
         end
         object btnGCancel: TButton
           Left = 170
@@ -1011,7 +962,6 @@ object SettingFM: TSettingFM
           TabOrder = 9
           Visible = False
           OnClick = btnGCancelClick
-          ExplicitTop = 298
         end
       end
       object Button1: TButton
@@ -1022,7 +972,7 @@ object SettingFM: TSettingFM
         Anchors = []
         Caption = 'View Loan Edit History'
         TabOrder = 2
-        ExplicitLeft = 12
+        OnClick = Button1Click
       end
     end
     object GridPanel4: TGridPanel

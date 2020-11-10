@@ -109,8 +109,8 @@
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="LoanFrame.pas">
-            <Form>LoanFM</Form>
+        <DCCReference Include="GroupLoanFrame.pas">
+            <Form>GroupLoanFM</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
@@ -154,6 +154,15 @@
         <DCCReference Include="OfficerEntry.pas">
             <Form>frmOfficerEntry</Form>
             <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="SettingHistory.pas">
+            <Form>frmLoanHistory</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="ClientLoanFrame.pas">
+            <Form>ClientLoanFM</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <None Include="ModelSupport_Micro\default.txaPackage"/>
         <BuildConfiguration Include="Release">

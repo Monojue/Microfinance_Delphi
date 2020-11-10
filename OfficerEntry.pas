@@ -39,6 +39,9 @@ type
     btnCancel: TButton;
     procedure btnAddClick(Sender: TObject);
     procedure clearFields;
+    procedure FormShow(Sender: TObject);
+    function check() : boolean;
+    procedure btnCancelClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,16 +55,17 @@ implementation
 
 {$R *.dfm}
 
-uses MyQury;
+uses MyQury, shareFunction;
 
 procedure TfrmOfficerEntry.btnAddClick(Sender: TObject);
 var
 NRC : string;
 data : array of string;
 begin
-  if True then
+  if check then
   begin
     NRC := cboxNo.Text + '/' + cboxR.Text + '(N)'+ editNRC.Text;
+    SetLength(data ,8);
     data[0] := lblID.Caption;
     data[1] := editName.Text;
     data[2] := editAddress.Text;
@@ -71,7 +75,7 @@ begin
     data[6] := editUserName.Text;
     data[7] := editPassword.Text;
 
-    if InsertData('Officer', data) then
+    if InsertData('officer', data) then
     begin
       ShowMessage('Saved Successfully!');
       clearFields;
@@ -83,6 +87,32 @@ begin
     end;
 
   end;
+end;
+
+procedure TfrmOfficerEntry.btnCancelClick(Sender: TObject);
+begin
+  clearFields;
+  Close;
+end;
+
+function TfrmOfficerEntry.check: boolean;
+begin
+
+  if (editName.Text = EmptyStr) or (editAddress.Text = EmptyStr)
+  or (cboxNo.Text = EmptyStr) or (cboxR.Text = EmptyStr)
+  or (editNRC.Text = EmptyStr) or (editPhone.Text = EmptyStr)
+  or (cboxRole.Text = EmptyStr) or (editUserName.Text = EmptyStr)
+  or (editPassword.Text = EmptyStr) or (editCpassword.Text = EmptyStr) then
+  begin
+    ShowMessage('All Fields Cannot be Empty!');
+    Exit(False)
+  end
+  else if editPassword.Text <> editCpassword.Text then
+  begin
+    ShowMessage('Password and Confirm password is not Same!');
+    Exit(False)
+  end;
+  Result := True;
 end;
 
 procedure TfrmOfficerEntry.clearFields;
@@ -97,6 +127,13 @@ begin
     editPassword.Text := '';
     cboxRole.ItemIndex := 0;
     editCpassword.Text := '';
+end;
+
+procedure TfrmOfficerEntry.FormShow(Sender: TObject);
+begin
+  clearFields;
+  editName.SetFocus;
+  lblID.Caption := getAutoID('officerID', 'officer', 'OF-');
 end;
 
 end.
