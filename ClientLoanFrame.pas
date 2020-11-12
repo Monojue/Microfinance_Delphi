@@ -42,6 +42,7 @@ type
     procedure btnSearchClick(Sender: TObject);
     procedure editSearchChange(Sender: TObject);
     procedure btnRefreshClick(Sender: TObject);
+    procedure btnNewClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,9 +53,13 @@ implementation
 
 {$R *.dfm}
 
+uses ClientLoanRequestForm;
 
 
-
+procedure TClientLoanFM.btnNewClick(Sender: TObject);
+begin
+  ClientLoanRequest.Show;
+end;
 
 procedure TClientLoanFM.btnRefreshClick(Sender: TObject);
 begin

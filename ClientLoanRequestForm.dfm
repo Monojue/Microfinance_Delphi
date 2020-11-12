@@ -183,15 +183,15 @@ object ClientLoanRequest: TClientLoanRequest
         end>
       ControlCollection = <
         item
-          Column = 0
-          Control = RelativePanel1
+          Column = 2
+          Control = DBGrid1
           Row = 0
+          RowSpan = 2
         end
         item
           Column = 0
-          ColumnSpan = 2
-          Control = RelativePanel2
-          Row = 1
+          Control = GridPanel2
+          Row = 0
         end
         item
           Column = 1
@@ -199,10 +199,10 @@ object ClientLoanRequest: TClientLoanRequest
           Row = 0
         end
         item
-          Column = 2
-          Control = DBGrid1
-          Row = 0
-          RowSpan = 2
+          Column = 0
+          ColumnSpan = 2
+          Control = RelativePanel2
+          Row = 1
         end>
       RowCollection = <
         item
@@ -215,59 +215,419 @@ object ClientLoanRequest: TClientLoanRequest
           SizeStyle = ssAuto
         end>
       TabOrder = 1
-      object RelativePanel1: TRelativePanel
+      object DBGrid1: TDBGrid
+        Left = 741
+        Top = 1
+        Width = 551
+        Height = 605
+        Align = alClient
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        Columns = <
+          item
+            Expanded = False
+            Title.Alignment = taCenter
+            Title.Caption = 'No'
+            Width = 50
+            Visible = True
+          end
+          item
+            Expanded = False
+            Title.Alignment = taCenter
+            Title.Caption = 'Principal Outstanding'
+            Width = 120
+            Visible = True
+          end
+          item
+            Expanded = False
+            Title.Alignment = taCenter
+            Title.Caption = 'Principal'
+            Width = 120
+            Visible = True
+          end
+          item
+            Expanded = False
+            Title.Alignment = taCenter
+            Title.Caption = 'Interest'
+            Width = 120
+            Visible = True
+          end
+          item
+            Expanded = False
+            Title.Alignment = taCenter
+            Title.Caption = 'Installment'
+            Width = 120
+            Visible = True
+          end>
+      end
+      object GridPanel2: TGridPanel
         Left = 1
         Top = 1
         Width = 424
         Height = 348
+        Align = alClient
+        Alignment = taLeftJustify
+        Caption = 'CLIENT INFROMATION'
+        ColumnCollection = <
+          item
+            SizeStyle = ssAbsolute
+            Value = 10.000000000000000000
+          end
+          item
+            SizeStyle = ssAbsolute
+            Value = 150.000000000000000000
+          end
+          item
+            Value = 33.333333333333340000
+          end
+          item
+            Value = 33.333333333333340000
+          end
+          item
+            Value = 33.333333333333340000
+          end
+          item
+            SizeStyle = ssAbsolute
+            Value = 10.000000000000000000
+          end>
         ControlCollection = <
           item
-            Control = Label3
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = lable
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = Label7
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = Label8
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = Label12
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
+            Column = 1
             Control = Label11
+            Row = 1
+          end
+          item
+            Column = 2
+            ColumnSpan = 2
+            Control = lblCID
+            Row = 1
+          end
+          item
+            Column = 1
+            Control = Label32
+            Row = 2
+          end
+          item
+            Column = 2
+            ColumnSpan = 2
+            Control = lblName
+            Row = 2
+          end
+          item
+            Column = 1
+            Control = Label38
+            Row = 3
+          end
+          item
+            Column = 2
+            ColumnSpan = 2
+            Control = lblNRC
+            Row = 3
+          end
+          item
+            Column = 1
+            Control = Label44
+            Row = 4
+          end
+          item
+            Column = 2
+            ColumnSpan = 2
+            Control = lblDOB
+            Row = 4
+          end
+          item
+            Column = 1
+            Control = Label50
+            Row = 5
+          end
+          item
+            Column = 2
+            ColumnSpan = 3
+            Control = lblAddress
+            Row = 5
+          end
+          item
+            Column = 1
+            Control = Label56
+            Row = 6
+          end
+          item
+            Column = 2
+            ColumnSpan = 2
+            Control = lblPhone
+            Row = 6
+          end
+          item
+            Column = 1
+            Control = Label62
+            Row = 7
+          end
+          item
+            Column = 2
+            ColumnSpan = 2
+            Control = lblHome
+            Row = 7
+          end
+          item
+            Column = 1
+            Control = Label68
+            Row = 8
+          end
+          item
+            Column = 2
+            ColumnSpan = 2
+            Control = lblJob
+            Row = 8
+          end
+          item
+            Column = 1
+            Control = Label74
+            Row = 9
+          end
+          item
+            Column = 2
+            ColumnSpan = 2
+            Control = lblSalary
+            Row = 9
+          end
+          item
+            Column = 4
+            Control = btnSelect
+            Row = 10
+          end>
+        RowCollection = <
+          item
+            Value = 9.090909090909088000
+          end
+          item
+            Value = 9.090909090909088000
+          end
+          item
+            Value = 9.090909090909088000
+          end
+          item
+            Value = 9.090909090909088000
+          end
+          item
+            Value = 9.090909090909088000
+          end
+          item
+            Value = 9.090909090909088000
+          end
+          item
+            Value = 9.090909090909088000
+          end
+          item
+            Value = 9.090909090909088000
+          end
+          item
+            Value = 9.090909090909088000
+          end
+          item
+            Value = 9.090909090909088000
+          end
+          item
+            Value = 9.090909090909088000
+          end>
+        TabOrder = 1
+        VerticalAlignment = taAlignTop
+        DesignSize = (
+          424
+          348)
+        object Label11: TLabel
+          Left = 56
+          Top = 41
+          Width = 60
+          Height = 13
+          Anchors = []
+          Caption = 'Customer ID'
+          ExplicitLeft = 59
+        end
+        object lblCID: TLabel
+          Left = 161
+          Top = 32
+          Width = 168
+          Height = 31
+          Align = alClient
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object Label32: TLabel
+          Left = 72
+          Top = 72
+          Width = 27
+          Height = 13
+          Anchors = []
+          Caption = 'Name'
+          ExplicitLeft = 75
+        end
+        object lblName: TLabel
+          Left = 161
+          Top = 63
+          Width = 168
+          Height = 31
+          Align = alClient
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object Label38: TLabel
+          Left = 75
+          Top = 103
+          Width = 21
+          Height = 13
+          Anchors = []
+          Caption = 'NRC'
+          ExplicitLeft = 79
+        end
+        object lblNRC: TLabel
+          Left = 161
+          Top = 94
+          Width = 168
+          Height = 31
+          Align = alClient
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object Label44: TLabel
+          Left = 75
+          Top = 134
+          Width = 21
+          Height = 13
+          Anchors = []
+          Caption = 'DOB'
+          ExplicitLeft = 76
+        end
+        object lblDOB: TLabel
+          Left = 161
+          Top = 125
+          Width = 168
+          Height = 31
+          Align = alClient
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object Label50: TLabel
+          Left = 66
+          Top = 165
+          Width = 39
+          Height = 13
+          Anchors = []
+          Caption = 'Address'
+          ExplicitLeft = 69
+        end
+        object lblAddress: TLabel
+          Left = 161
+          Top = 156
+          Width = 252
+          Height = 31
+          Align = alClient
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object Label56: TLabel
+          Left = 63
+          Top = 196
+          Width = 46
+          Height = 13
+          Anchors = []
+          Caption = 'Phone No'
+          ExplicitLeft = 66
+        end
+        object lblPhone: TLabel
+          Left = 161
+          Top = 187
+          Width = 168
+          Height = 31
+          Align = alClient
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object Label62: TLabel
+          Left = 72
+          Top = 227
+          Width = 27
+          Height = 13
+          Anchors = []
+          Caption = 'Home'
+          ExplicitLeft = 75
+        end
+        object lblHome: TLabel
+          Left = 161
+          Top = 218
+          Width = 168
+          Height = 31
+          Align = alClient
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object Label68: TLabel
+          Left = 77
+          Top = 258
+          Width = 17
+          Height = 13
+          Anchors = []
+          Caption = 'Job'
+          ExplicitLeft = 80
+        end
+        object lblJob: TLabel
+          Left = 161
+          Top = 249
+          Width = 168
+          Height = 31
+          Align = alClient
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object Label74: TLabel
+          Left = 71
+          Top = 289
+          Width = 30
+          Height = 13
+          Anchors = []
+          Caption = 'Salary'
+          ExplicitLeft = 74
+        end
+        object lblSalary: TLabel
+          Left = 161
+          Top = 280
+          Width = 168
+          Height = 31
+          Align = alClient
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object btnSelect: TButton
+          Left = 333
+          Top = 316
+          Width = 75
+          Height = 25
+          Anchors = []
+          Caption = 'Select'
+          TabOrder = 0
+          OnClick = btnSelectClick
+        end
+      end
+      object RelativePanel3: TRelativePanel
+        Left = 425
+        Top = 1
+        Width = 316
+        Height = 348
+        ControlCollection = <
+          item
+            Control = barAmount
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -276,7 +636,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = JOB
+            Control = Label16
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -285,7 +645,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = Label14
+            Control = Label19
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -294,7 +654,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = Edit6
+            Control = barDuration
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -303,7 +663,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = Edit5
+            Control = Label23
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -312,7 +672,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = CheckBox1
+            Control = Label24
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -321,7 +681,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = Edit3
+            Control = Label25
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -330,7 +690,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = ComboBox3
+            Control = Label26
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -339,7 +699,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = ComboBox1
+            Control = Label27
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -348,7 +708,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = Edit1
+            Control = Label28
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -357,7 +717,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = Label9
+            Control = btnCalculate
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -366,7 +726,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = ComboBox2
+            Control = editAmount
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -375,52 +735,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = ComboBox4
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = Label10
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = Edit2
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = ComboBox5
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = Button1
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = Memo1
+            Control = editDuration
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -430,265 +745,117 @@ object ClientLoanRequest: TClientLoanRequest
           end>
         Align = alClient
         Alignment = taLeftJustify
-        Caption = 'CLIENT INFORMATION'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 0
+        Caption = 'LOAN INFORMATION'
+        TabOrder = 2
         VerticalAlignment = taAlignTop
         DesignSize = (
-          424
+          316
           348)
-        object Label3: TLabel
-          Left = 23
-          Top = 34
-          Width = 33
-          Height = 16
+        object barAmount: TTrackBar
+          Left = 40
+          Top = 33
+          Width = 217
+          Height = 45
           Anchors = []
-          Caption = 'Name'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lable: TLabel
-          Left = 23
-          Top = 76
-          Width = 24
-          Height = 16
-          Anchors = []
-          Caption = 'NRC'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label7: TLabel
-          Left = 23
-          Top = 116
-          Width = 73
-          Height = 16
-          Anchors = []
-          Caption = 'Date Of Birth'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label8: TLabel
-          Left = 23
-          Top = 156
-          Width = 46
-          Height = 16
-          Anchors = []
-          Caption = 'Address'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label12: TLabel
-          Left = 23
-          Top = 236
-          Width = 33
-          Height = 16
-          Anchors = []
-          Caption = 'Home'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label11: TLabel
-          Left = 23
-          Top = 196
-          Width = 39
-          Height = 16
-          Anchors = []
-          Caption = 'Phone '
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object JOB: TLabel
-          Left = 23
-          Top = 278
-          Width = 21
-          Height = 16
-          Anchors = []
-          Caption = 'JOB'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Label14: TLabel
-          Left = 23
-          Top = 316
-          Width = 36
-          Height = 16
-          Anchors = []
-          Caption = 'Salary'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Edit6: TEdit
-          Left = 112
-          Top = 277
-          Width = 113
-          Height = 24
-          Anchors = []
+          LineSize = 100000
           TabOrder = 0
-          Text = 'Edit2'
+          OnChange = barAmountChange
         end
-        object Edit5: TEdit
-          Left = 112
-          Top = 315
-          Width = 113
-          Height = 24
+        object Label16: TLabel
+          Left = 48
+          Top = 87
+          Width = 37
+          Height = 13
+          Anchors = []
+          Caption = 'Amount'
+        end
+        object Label19: TLabel
+          Left = 240
+          Top = 87
+          Width = 27
+          Height = 13
+          Anchors = []
+          Caption = 'Kyats'
+        end
+        object barDuration: TTrackBar
+          Left = 48
+          Top = 127
+          Width = 217
+          Height = 45
           Anchors = []
           TabOrder = 1
-          Text = 'Edit2'
+          OnChange = barDurationChange
         end
-        object CheckBox1: TCheckBox
-          Left = 112
-          Top = 235
-          Width = 97
-          Height = 17
-          Anchors = []
-          Caption = 'CheckBox1'
-          TabOrder = 2
-        end
-        object Edit3: TEdit
-          Left = 112
+        object Label23: TLabel
+          Left = 48
           Top = 193
-          Width = 113
-          Height = 24
+          Width = 41
+          Height = 13
           Anchors = []
-          TabOrder = 3
-          Text = 'Edit2'
+          Caption = 'Duration'
         end
-        object ComboBox3: TComboBox
-          Left = 113
-          Top = 113
-          Width = 51
-          Height = 24
+        object Label24: TLabel
+          Left = 240
+          Top = 193
+          Width = 30
+          Height = 13
           Anchors = []
-          TabOrder = 4
-          Text = 'ComboBox1'
+          Caption = 'Month'
         end
-        object ComboBox1: TComboBox
-          Left = 115
-          Top = 73
-          Width = 49
-          Height = 24
+        object Label25: TLabel
+          Left = 48
+          Top = 236
+          Width = 65
+          Height = 13
           Anchors = []
-          TabOrder = 5
-          Text = 'ComboBox1'
+          Caption = 'Interest Rate'
         end
-        object Edit1: TEdit
-          Left = 112
-          Top = 33
-          Width = 193
-          Height = 24
+        object Label26: TLabel
+          Left = 48
+          Top = 277
+          Width = 61
+          Height = 13
           Anchors = []
-          TabOrder = 6
-          Text = 'Edit1'
+          Caption = 'Service Fees'
         end
-        object Label9: TLabel
-          Left = 170
-          Top = 76
-          Width = 5
-          Height = 16
+        object Label27: TLabel
+          Left = 160
+          Top = 236
+          Width = 30
+          Height = 13
           Anchors = []
-          Caption = '/'
+          Caption = 'Month'
         end
-        object ComboBox2: TComboBox
-          Left = 181
-          Top = 73
-          Width = 68
-          Height = 24
+        object Label28: TLabel
+          Left = 160
+          Top = 277
+          Width = 30
+          Height = 13
           Anchors = []
-          TabOrder = 7
-          Text = 'ComboBox1'
+          Caption = 'Month'
         end
-        object ComboBox4: TComboBox
-          Left = 181
-          Top = 113
-          Width = 85
-          Height = 24
-          Anchors = []
-          TabOrder = 8
-          Text = 'ComboBox1'
-        end
-        object Label10: TLabel
-          Left = 251
-          Top = 76
-          Width = 18
-          Height = 16
-          Margins.Left = 10
-          Margins.Right = 10
-          Anchors = []
-          Caption = '(N)'
-        end
-        object Edit2: TEdit
-          Left = 272
-          Top = 73
-          Width = 121
-          Height = 24
-          Anchors = []
-          TabOrder = 9
-          Text = 'Edit2'
-        end
-        object ComboBox5: TComboBox
-          Left = 272
-          Top = 113
-          Width = 83
-          Height = 24
-          Anchors = []
-          TabOrder = 10
-          Text = 'ComboBox1'
-        end
-        object Button1: TButton
-          Left = 312
+        object btnCalculate: TButton
+          Left = 224
           Top = 312
           Width = 75
           Height = 25
           Anchors = []
-          Caption = 'Button1'
-          TabOrder = 11
+          Caption = 'Calculate'
+          TabOrder = 2
         end
-        object Memo1: TMemo
-          Left = 112
-          Top = 143
-          Width = 222
-          Height = 47
+        object editAmount: TLabel
+          Left = 104
+          Top = 87
+          Width = 3
+          Height = 13
           Anchors = []
-          Lines.Strings = (
-            'Memo1')
-          TabOrder = 12
+        end
+        object editDuration: TLabel
+          Left = 104
+          Top = 193
+          Width = 3
+          Height = 13
+          Anchors = []
         end
       end
       object RelativePanel2: TRelativePanel
@@ -770,7 +937,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = ComboBox6
+            Control = cboxNo
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -779,7 +946,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = ComboBox7
+            Control = cboxR
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -788,7 +955,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = Edit4
+            Control = editNRC
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -797,7 +964,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = Edit7
+            Control = editName
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -806,7 +973,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = Edit9
+            Control = editPhone
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -815,7 +982,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = Edit10
+            Control = editJob
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -824,7 +991,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = Edit11
+            Control = editSalary
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -833,7 +1000,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = Edit12
+            Control = editRelation
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -842,7 +1009,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = Memo2
+            Control = editAddress
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -868,7 +1035,7 @@ object ClientLoanRequest: TClientLoanRequest
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 1
+        TabOrder = 3
         VerticalAlignment = taAlignTop
         DesignSize = (
           740
@@ -923,7 +1090,7 @@ object ClientLoanRequest: TClientLoanRequest
         end
         object Label20: TLabel
           Left = 464
-          Top = 208
+          Top = 200
           Width = 46
           Height = 16
           Anchors = []
@@ -937,79 +1104,71 @@ object ClientLoanRequest: TClientLoanRequest
           Anchors = []
           Caption = '/'
         end
-        object ComboBox6: TComboBox
+        object cboxNo: TComboBox
           Left = 91
           Top = 97
           Width = 49
           Height = 24
           Anchors = []
           TabOrder = 0
-          Text = 'ComboBox1'
         end
-        object ComboBox7: TComboBox
+        object cboxR: TComboBox
           Left = 157
           Top = 97
-          Width = 68
+          Width = 84
           Height = 24
           Anchors = []
           TabOrder = 1
-          Text = 'ComboBox1'
         end
-        object Edit4: TEdit
-          Left = 251
+        object editNRC: TEdit
+          Left = 267
           Top = 97
           Width = 121
           Height = 24
           Anchors = []
           TabOrder = 2
-          Text = 'Edit2'
         end
-        object Edit7: TEdit
+        object editName: TEdit
           Left = 91
           Top = 48
           Width = 121
           Height = 24
           Anchors = []
           TabOrder = 3
-          Text = 'Edit7'
         end
-        object Edit9: TEdit
+        object editPhone: TEdit
           Left = 531
           Top = 48
           Width = 150
           Height = 24
           Anchors = []
           TabOrder = 4
-          Text = 'Edit7'
         end
-        object Edit10: TEdit
+        object editJob: TEdit
           Left = 531
           Top = 96
           Width = 150
           Height = 24
           Anchors = []
           TabOrder = 5
-          Text = 'Edit7'
         end
-        object Edit11: TEdit
+        object editSalary: TEdit
           Left = 531
           Top = 144
           Width = 121
           Height = 24
           Anchors = []
           TabOrder = 6
-          Text = 'Edit7'
         end
-        object Edit12: TEdit
+        object editRelation: TEdit
           Left = 531
-          Top = 200
+          Top = 192
           Width = 121
           Height = 24
           Anchors = []
           TabOrder = 7
-          Text = 'Edit7'
         end
-        object Memo2: TMemo
+        object editAddress: TMemo
           Left = 91
           Top = 144
           Width = 272
@@ -1020,7 +1179,7 @@ object ClientLoanRequest: TClientLoanRequest
           TabOrder = 8
         end
         object Label22: TLabel
-          Left = 227
+          Left = 246
           Top = 100
           Width = 18
           Height = 16
@@ -1029,294 +1188,6 @@ object ClientLoanRequest: TClientLoanRequest
           Anchors = []
           Caption = '(N)'
         end
-      end
-      object RelativePanel3: TRelativePanel
-        Left = 425
-        Top = 1
-        Width = 316
-        Height = 348
-        ControlCollection = <
-          item
-            Control = TrackBar1
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = Label16
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = Edit8
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = Label19
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = TrackBar2
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = Label23
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = Edit13
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = Label24
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = Label25
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = Label26
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = Label27
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = Label28
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end
-          item
-            Control = Button2
-            AlignBottomWithPanel = False
-            AlignHorizontalCenterWithPanel = False
-            AlignLeftWithPanel = False
-            AlignRightWithPanel = False
-            AlignTopWithPanel = False
-            AlignVerticalCenterWithPanel = False
-          end>
-        Align = alClient
-        Alignment = taLeftJustify
-        Caption = 'LOAN INFORMATION'
-        TabOrder = 2
-        VerticalAlignment = taAlignTop
-        DesignSize = (
-          316
-          348)
-        object TrackBar1: TTrackBar
-          Left = 40
-          Top = 33
-          Width = 217
-          Height = 45
-          Anchors = []
-          TabOrder = 0
-        end
-        object Label16: TLabel
-          Left = 48
-          Top = 87
-          Width = 37
-          Height = 13
-          Anchors = []
-          Caption = 'Amount'
-        end
-        object Edit8: TEdit
-          Left = 104
-          Top = 84
-          Width = 121
-          Height = 21
-          Anchors = []
-          TabOrder = 1
-          Text = 'Edit8'
-        end
-        object Label19: TLabel
-          Left = 240
-          Top = 87
-          Width = 27
-          Height = 13
-          Anchors = []
-          Caption = 'Kyats'
-        end
-        object TrackBar2: TTrackBar
-          Left = 48
-          Top = 127
-          Width = 217
-          Height = 45
-          Anchors = []
-          TabOrder = 2
-        end
-        object Label23: TLabel
-          Left = 48
-          Top = 193
-          Width = 41
-          Height = 13
-          Anchors = []
-          Caption = 'Duration'
-        end
-        object Edit13: TEdit
-          Left = 104
-          Top = 190
-          Width = 121
-          Height = 21
-          Anchors = []
-          TabOrder = 3
-          Text = 'Edit8'
-        end
-        object Label24: TLabel
-          Left = 240
-          Top = 193
-          Width = 30
-          Height = 13
-          Anchors = []
-          Caption = 'Month'
-        end
-        object Label25: TLabel
-          Left = 48
-          Top = 236
-          Width = 65
-          Height = 13
-          Anchors = []
-          Caption = 'Interest Rate'
-        end
-        object Label26: TLabel
-          Left = 48
-          Top = 277
-          Width = 61
-          Height = 13
-          Anchors = []
-          Caption = 'Service Fees'
-        end
-        object Label27: TLabel
-          Left = 160
-          Top = 236
-          Width = 30
-          Height = 13
-          Anchors = []
-          Caption = 'Month'
-        end
-        object Label28: TLabel
-          Left = 160
-          Top = 277
-          Width = 30
-          Height = 13
-          Anchors = []
-          Caption = 'Month'
-        end
-        object Button2: TButton
-          Left = 224
-          Top = 312
-          Width = 75
-          Height = 25
-          Anchors = []
-          Caption = 'Button1'
-          TabOrder = 4
-        end
-      end
-      object DBGrid1: TDBGrid
-        Left = 741
-        Top = 1
-        Width = 551
-        Height = 605
-        Align = alClient
-        TabOrder = 3
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -11
-        TitleFont.Name = 'Tahoma'
-        TitleFont.Style = []
-        Columns = <
-          item
-            Expanded = False
-            Title.Alignment = taCenter
-            Title.Caption = 'No'
-            Width = 50
-            Visible = True
-          end
-          item
-            Expanded = False
-            Title.Alignment = taCenter
-            Title.Caption = 'Principal Outstanding'
-            Width = 120
-            Visible = True
-          end
-          item
-            Expanded = False
-            Title.Alignment = taCenter
-            Title.Caption = 'Principal'
-            Width = 120
-            Visible = True
-          end
-          item
-            Expanded = False
-            Title.Alignment = taCenter
-            Title.Caption = 'Interest'
-            Width = 120
-            Visible = True
-          end
-          item
-            Expanded = False
-            Title.Alignment = taCenter
-            Title.Caption = 'Installment'
-            Width = 120
-            Visible = True
-          end>
       end
     end
     object GridPanel1: TGridPanel
@@ -1340,12 +1211,12 @@ object ClientLoanRequest: TClientLoanRequest
       ControlCollection = <
         item
           Column = 1
-          Control = Button4
+          Control = btnRequest
           Row = 0
         end
         item
           Column = 2
-          Control = Button5
+          Control = btnCancel
           Row = 0
         end>
       RowCollection = <
@@ -1357,7 +1228,7 @@ object ClientLoanRequest: TClientLoanRequest
       DesignSize = (
         1293
         50)
-      object Button4: TButton
+      object btnRequest: TButton
         Left = 1104
         Top = 12
         Width = 75
@@ -1365,8 +1236,9 @@ object ClientLoanRequest: TClientLoanRequest
         Anchors = []
         Caption = 'Request'
         TabOrder = 0
+        OnClick = btnRequestClick
       end
-      object Button5: TButton
+      object btnCancel: TButton
         Left = 1204
         Top = 12
         Width = 75
@@ -1374,6 +1246,7 @@ object ClientLoanRequest: TClientLoanRequest
         Anchors = []
         Caption = 'Cancel'
         TabOrder = 1
+        OnClick = btnCancelClick
       end
     end
   end

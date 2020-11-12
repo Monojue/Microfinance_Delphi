@@ -193,6 +193,7 @@ object ClientLoanFM: TClientLoanFM
         Anchors = []
         Caption = 'New'
         TabOrder = 2
+        OnClick = btnNewClick
       end
       object btnPay: TButton
         Left = 980
