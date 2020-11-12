@@ -73,7 +73,7 @@ implementation
 
 {$R *.dfm}
 
-uses ClientEntry, GroupEntry;
+uses ClientEntry, GroupEntry, ClientLoanRequestForm;
 
 procedure TMySelector.btnNewClick(Sender: TObject);
 begin
@@ -99,7 +99,7 @@ begin
       Close;
     end;
   end
-  else if frmtype = 'groupRequest ' then
+  else if frmtype = 'groupRequest' then
   begin
     SetLength(data, 11);
     data[0] := DBGrid.Fields[0].AsString;
@@ -114,7 +114,7 @@ begin
     data[9] := DBGrid.Fields[9].AsString;
     data[10] := DBGrid.Fields[10].AsString;
   end
-  else if frmtype = 'clientRequest ' then
+  else if frmtype = 'clientRequest' then
   begin
     SetLength(data, 9);
     data[0] := DBGrid.Fields[0].AsString;
@@ -126,13 +126,17 @@ begin
     data[6] := DBGrid.Fields[6].AsString;
     data[7] := DBGrid.Fields[7].AsString;
     data[8] := DBGrid.Fields[8].AsString;
+    if ClientLoanRequest.setSelectClient(data) then
+    begin
+      Close;
+    end;
   end;
 end;
 
 procedure TMySelector.btnRefreshClick(Sender: TObject);
 begin
     
-     if frmtype = 'client' then
+  if (frmtype = 'client') or (frmtype = 'clientRequest') then
     begin
     CQuery.Close;
     CQuery.SQL.Clear;
@@ -140,7 +144,7 @@ begin
     CQuery.Open;
     DBGrid.DataSource := ClientDataSource;
     end
-    else if frmtype = 'group' then
+    else if (frmtype = 'group') or (frmtype = 'groupRequest') then
     begin
     GQuery.Close;
     GQuery.SQL.Clear;
@@ -154,7 +158,7 @@ end;
 
 procedure TMySelector.btnSearchClick(Sender: TObject);
 begin
-  if frmtype = 'client' then
+  if (frmtype = 'client') or (frmtype = 'clientRequest') then
   begin
     CQuery.Close;
     CQuery.SQL.Clear;
@@ -168,7 +172,7 @@ begin
     end;
     CQuery.Open;
   end
-  else if frmtype = 'group' then
+  else if (frmtype = 'group') or (frmtype = 'groupRequest') then
   begin
     GQuery.Close;
     GQuery.SQL.Clear;
@@ -215,13 +219,13 @@ end;
 procedure TMySelector.FormShow(Sender: TObject);
 begin
   cboxSearch.Items.Clear;
-  if frmtype = 'client' then
+  if (frmtype = 'client') or (frmtype = 'clientRequest') then
   begin
     cboxSearch.Items.Add('Client Name');
     cboxSearch.Items.Add('Client ID');
     DBGrid.DataSource := ClientDataSource;
   end
-  else
+  else if (frmtype = 'group') or (frmtype = 'groupRequest') then
   begin
     cboxSearch.Items.Add('Leader Name');
     cboxSearch.Items.Add('Group ID');

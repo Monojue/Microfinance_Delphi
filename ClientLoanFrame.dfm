@@ -183,6 +183,7 @@ object ClientLoanFM: TClientLoanFM
         Height = 21
         Anchors = []
         TabOrder = 1
+        OnChange = editSearchChange
       end
       object btnNew: TButton
         Left = 900
@@ -221,6 +222,7 @@ object ClientLoanFM: TClientLoanFM
         Anchors = []
         Caption = 'Refresh'
         TabOrder = 5
+        OnClick = btnRefreshClick
       end
       object btnSearch: TButton
         Left = 358
@@ -231,6 +233,7 @@ object ClientLoanFM: TClientLoanFM
         Caption = 'Search'
         Enabled = False
         TabOrder = 6
+        OnClick = btnSearchClick
       end
       object Panel1: TPanel
         Left = 436
@@ -243,7 +246,7 @@ object ClientLoanFM: TClientLoanFM
           AlignWithMargins = True
           Left = 4
           Top = 4
-          Width = 454
+          Width = 446
           Height = 40
           Align = alClient
           BiDiMode = bdRightToLeftReadingOnly
@@ -255,6 +258,8 @@ object ClientLoanFM: TClientLoanFM
             'Rejected')
           ParentBiDiMode = False
           TabOrder = 0
+          OnClick = RadioGroupClick
+          ExplicitWidth = 454
         end
       end
       object lblPrefix: TLabel
@@ -273,7 +278,7 @@ object ClientLoanFM: TClientLoanFM
       Width = 1229
       Height = 640
       Align = alClient
-      DataSource = DataSource1
+      DataSource = DataSource
       TabOrder = 1
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
@@ -322,71 +327,73 @@ object ClientLoanFM: TClientLoanFM
     Left = 767
     Top = 188
   end
-  object SQLQuery1: TSQLQuery
+  object SQLQuery: TSQLQuery
     Active = True
     MaxBlobSize = -1
     Params = <>
     SQL.Strings = (
-      'select * from clientloanrequest where clientname = '#39'khin ohmar'#39)
+      
+        'Select * from clientloanrequest where approved = 1 and PayDay = ' +
+        '""')
     SQLConnection = MicrofinanceConnection
     Left = 776
     Top = 256
   end
-  object DataSetProvider1: TDataSetProvider
-    DataSet = SQLQuery1
+  object DataSetProvider: TDataSetProvider
+    DataSet = SQLQuery
     Left = 712
     Top = 296
   end
-  object ClientDataSet1: TClientDataSet
+  object ClientDataSet: TClientDataSet
     Active = True
     Aggregates = <>
     Params = <>
-    ProviderName = 'DataSetProvider1'
+    ProviderName = 'DataSetProvider'
     Left = 872
     Top = 336
-    object ClientDataSet1LoanRequestID: TStringField
+    object ClientDataSetLoanRequestID: TStringField
       FieldName = 'LoanRequestID'
       Required = True
       Size = 10
     end
-    object ClientDataSet1ClientID: TStringField
+    object ClientDataSetClientID: TStringField
       FieldName = 'ClientID'
       Required = True
       Size = 10
     end
-    object ClientDataSet1ClientName: TStringField
+    object ClientDataSetClientName: TStringField
       FieldName = 'ClientName'
       Required = True
       Size = 45
     end
-    object ClientDataSet1RequestDate: TStringField
+    object ClientDataSetRequestDate: TStringField
       FieldName = 'RequestDate'
       Required = True
       Size = 11
     end
-    object ClientDataSet1DueDate: TStringField
+    object ClientDataSetDueDate: TStringField
       FieldName = 'DueDate'
       Size = 11
     end
-    object ClientDataSet1Amount: TIntegerField
+    object ClientDataSetAmount: TIntegerField
       FieldName = 'Amount'
       Required = True
     end
-    object ClientDataSet1Duration: TIntegerField
+    object ClientDataSetDuration: TIntegerField
       FieldName = 'Duration'
       Required = True
     end
-    object ClientDataSet1InterestRate: TIntegerField
+    object ClientDataSetInterestRate: TIntegerField
       FieldName = 'InterestRate'
       Required = True
     end
-    object ClientDataSet1Remark: TStringField
+    object ClientDataSetRemark: TStringField
       FieldName = 'Remark'
       Size = 100
     end
   end
-  object DataSource1: TDataSource
-    DataSet = ClientDataSet1
+  object DataSource: TDataSource
+    DataSet = ClientDataSet
     Left = 968
     Top = 352
   end

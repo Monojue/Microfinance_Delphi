@@ -73,7 +73,7 @@ class function TLoginForm.Execute: boolean;
           + txtPassword.Text+'"');
           SQLOfficer.Open;
 
-          if not SQLOfficer.Eof then
+          if SQLOfficer.Eof then
           begin
             setLoginID(SQLOfficer.FieldByName('officerID').AsString);
             ModalResult := mrOK

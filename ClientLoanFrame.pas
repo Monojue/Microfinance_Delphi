@@ -24,20 +24,24 @@ type
     RadioGroup: TRadioGroup;
     lblPrefix: TLabel;
     MicrofinanceConnection: TSQLConnection;
-    SQLQuery1: TSQLQuery;
-    DataSetProvider1: TDataSetProvider;
-    ClientDataSet1: TClientDataSet;
-    DataSource1: TDataSource;
+    SQLQuery: TSQLQuery;
+    DataSetProvider: TDataSetProvider;
+    ClientDataSet: TClientDataSet;
+    DataSource: TDataSource;
     clientGrid: TDBGrid;
-    ClientDataSet1LoanRequestID: TStringField;
-    ClientDataSet1ClientID: TStringField;
-    ClientDataSet1ClientName: TStringField;
-    ClientDataSet1RequestDate: TStringField;
-    ClientDataSet1DueDate: TStringField;
-    ClientDataSet1Amount: TIntegerField;
-    ClientDataSet1Duration: TIntegerField;
-    ClientDataSet1InterestRate: TIntegerField;
-    ClientDataSet1Remark: TStringField;
+    ClientDataSetLoanRequestID: TStringField;
+    ClientDataSetClientID: TStringField;
+    ClientDataSetClientName: TStringField;
+    ClientDataSetRequestDate: TStringField;
+    ClientDataSetDueDate: TStringField;
+    ClientDataSetAmount: TIntegerField;
+    ClientDataSetDuration: TIntegerField;
+    ClientDataSetInterestRate: TIntegerField;
+    ClientDataSetRemark: TStringField;
+    procedure RadioGroupClick(Sender: TObject);
+    procedure btnSearchClick(Sender: TObject);
+    procedure editSearchChange(Sender: TObject);
+    procedure btnRefreshClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,5 +51,65 @@ type
 implementation
 
 {$R *.dfm}
+
+
+
+
+
+procedure TClientLoanFM.btnRefreshClick(Sender: TObject);
+begin
+  RadioGroupClick(Sender);
+end;
+
+procedure TClientLoanFM.btnSearchClick(Sender: TObject);
+begin
+  with SQLQuery do
+  begin
+    Close;
+    SQL.Clear;
+    if cboxSearch.ItemIndex = 0 then
+    begin
+      SQL.Add('select * from clientloanrequest where LoanRequestID = "LR-'+editSearch.Text+'"');
+    end
+    else
+    begin
+      SQL.Add('select * from clientloanrequest where clientID = "CL-'+editSearch.Text+'"');
+    end;
+
+    Open;
+    clientGrid.DataSource.DataSet.Refresh;
+  end;
+end;
+
+procedure TClientLoanFM.editSearchChange(Sender: TObject);
+begin
+  btnSearch.Enabled := True;
+end;
+
+procedure TClientLoanFM.RadioGroupClick(Sender: TObject);
+begin
+
+  if RadioGroup.ItemIndex = 0 then
+  begin
+    with SQLQuery do
+    begin
+      Close;
+      SQL.Clear;
+      SQL.Add('Select * from clientloanrequest where approved = 1 and PayDay = ""');
+      Open;
+    end;
+  end
+  else if RadioGroup.ItemIndex = 2 then
+  begin
+    with SQLQuery do
+    begin
+      Close;
+      SQL.Clear;
+      SQL.Add('Select * from clientloanrequest where approved = "" and PayDay = ""');
+      Open;
+    end;
+  end;
+  clientGrid.DataSource.DataSet.Refresh;
+end;
 
 end.
