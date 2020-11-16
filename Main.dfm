@@ -206,8 +206,6 @@ object MainForm: TMainForm
                 Control = TGroupFM1.btnRefresh
                 Row = 0
               end>
-            ExplicitLeft = 1
-            ExplicitTop = 1
             ExplicitWidth = 1221
             inherited btnNew: TButton
               Left = 892
@@ -931,7 +929,7 @@ object MainForm: TMainForm
         Top = 0
         Width = 1223
         Height = 649
-        ActivePage = TabSheet5
+        ActivePage = TabSheet6
         Align = alClient
         TabOrder = 0
         object TabSheet5: TTabSheet
@@ -1026,9 +1024,6 @@ object MainForm: TMainForm
                 end
                 inherited Panel1: TPanel
                   Width = 446
-                  inherited RadioGroup: TRadioGroup
-                    Width = 438
-                  end
                 end
               end
               inherited clientGrid: TDBGrid
@@ -1041,6 +1036,99 @@ object MainForm: TMainForm
         object TabSheet6: TTabSheet
           Caption = 'GROUP'
           ImageIndex = 1
+          inline TGroupLoanFM1: TGroupLoanFM
+            Left = 0
+            Top = 0
+            Width = 1215
+            Height = 621
+            Align = alClient
+            TabOrder = 0
+            ExplicitLeft = 368
+            ExplicitTop = 176
+            inherited GridPanel1: TGridPanel
+              Width = 1215
+              Height = 621
+              ControlCollection = <
+                item
+                  Column = 0
+                  Control = TGroupLoanFM1.GridPanel2
+                  Row = 0
+                end
+                item
+                  Column = 0
+                  Control = TGroupLoanFM1.GroupGird
+                  Row = 1
+                end>
+              inherited GridPanel2: TGridPanel
+                Width = 1213
+                ControlCollection = <
+                  item
+                    Column = 1
+                    Control = TGroupLoanFM1.Label1
+                    Row = 0
+                  end
+                  item
+                    Column = 2
+                    Control = TGroupLoanFM1.cboxSearch
+                    Row = 0
+                  end
+                  item
+                    Column = 4
+                    Control = TGroupLoanFM1.editSearch
+                    Row = 0
+                  end
+                  item
+                    Column = 7
+                    Control = TGroupLoanFM1.btnNew
+                    Row = 0
+                  end
+                  item
+                    Column = 8
+                    Control = TGroupLoanFM1.btnPay
+                    Row = 0
+                  end
+                  item
+                    Column = 9
+                    Control = TGroupLoanFM1.btnDelete
+                    Row = 0
+                  end
+                  item
+                    Column = 10
+                    Control = TGroupLoanFM1.btnRefresh
+                    Row = 0
+                  end
+                  item
+                    Column = 5
+                    Control = TGroupLoanFM1.btnSearch
+                    Row = 0
+                  end
+                  item
+                    Column = 6
+                    Control = TGroupLoanFM1.Panel1
+                    Row = 0
+                  end>
+                inherited btnNew: TButton
+                  Left = 884
+                end
+                inherited btnPay: TButton
+                  Left = 964
+                end
+                inherited btnDelete: TButton
+                  Left = 1044
+                end
+                inherited btnRefresh: TButton
+                  Left = 1124
+                end
+                inherited Panel1: TPanel
+                  Width = 446
+                end
+              end
+              inherited GroupGird: TDBGrid
+                Width = 1213
+                Height = 569
+              end
+            end
+          end
         end
       end
     end

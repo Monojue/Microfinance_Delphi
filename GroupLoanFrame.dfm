@@ -17,13 +17,13 @@ object GroupLoanFM: TGroupLoanFM
     ControlCollection = <
       item
         Column = 0
-        Control = groupGrid
-        Row = 1
+        Control = GridPanel2
+        Row = 0
       end
       item
         Column = 0
-        Control = GridPanel2
-        Row = 0
+        Control = GroupGird
+        Row = 1
       end>
     RowCollection = <
       item
@@ -40,77 +40,8 @@ object GroupLoanFM: TGroupLoanFM
         SizeStyle = ssAuto
       end>
     TabOrder = 0
-    object groupGrid: TDBGrid
-      AlignWithMargins = True
-      Left = 4
-      Top = 54
-      Width = 1223
-      Height = 634
-      Align = alClient
-      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
-      TabOrder = 0
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'ClientID'
-          Width = 70
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Name'
-          Width = 100
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'NRC'
-          Width = 150
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Address'
-          Width = 430
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Phone'
-          Width = 100
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'DateOfBirth'
-          Width = 100
-          Visible = True
-        end
-        item
-          Alignment = taCenter
-          Expanded = False
-          FieldName = 'Home'
-          Width = 35
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Job'
-          Width = 100
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Salary'
-          Width = 100
-          Visible = True
-        end>
-    end
+    ExplicitLeft = -88
+    ExplicitTop = 3
     object GridPanel2: TGridPanel
       Left = 1
       Top = 1
@@ -215,7 +146,7 @@ object GroupLoanFM: TGroupLoanFM
         item
           Value = 100.000000000000000000
         end>
-      TabOrder = 1
+      TabOrder = 0
       DesignSize = (
         1229
         50)
@@ -249,6 +180,7 @@ object GroupLoanFM: TGroupLoanFM
         Height = 21
         Anchors = []
         TabOrder = 1
+        OnChange = editSearchChange
       end
       object btnNew: TButton
         Left = 900
@@ -258,6 +190,7 @@ object GroupLoanFM: TGroupLoanFM
         Anchors = []
         Caption = 'New'
         TabOrder = 2
+        OnClick = btnNewClick
       end
       object btnPay: TButton
         Left = 980
@@ -287,6 +220,7 @@ object GroupLoanFM: TGroupLoanFM
         Anchors = []
         Caption = 'Refresh'
         TabOrder = 5
+        OnClick = btnRefreshClick
       end
       object btnSearch: TButton
         Left = 358
@@ -297,6 +231,7 @@ object GroupLoanFM: TGroupLoanFM
         Caption = 'Search'
         Enabled = False
         TabOrder = 6
+        OnClick = btnSearchClick
       end
       object Panel1: TPanel
         Left = 436
@@ -309,7 +244,7 @@ object GroupLoanFM: TGroupLoanFM
           AlignWithMargins = True
           Left = 4
           Top = 4
-          Width = 454
+          Width = 438
           Height = 40
           Align = alClient
           BiDiMode = bdRightToLeftReadingOnly
@@ -321,8 +256,94 @@ object GroupLoanFM: TGroupLoanFM
             'Rejected')
           ParentBiDiMode = False
           TabOrder = 0
+          OnClick = RadioGroupClick
+          ExplicitWidth = 454
         end
       end
     end
+    object GroupGird: TDBGrid
+      Left = 1
+      Top = 51
+      Width = 1229
+      Height = 640
+      Align = alClient
+      DataSource = DataSource
+      TabOrder = 1
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+    end
+  end
+  object MicrofinanceConnection: TSQLConnection
+    ConnectionName = 'Microfinance'
+    DriverName = 'MySQL'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverName=MySQL'
+      'DriverUnit=Data.DBXMySQL'
+      
+        'DriverPackageLoader=TDBXDynalinkDriverLoader,DbxCommonDriver260.' +
+        'bpl'
+      
+        'DriverAssemblyLoader=Borland.Data.TDBXDynalinkDriverLoader,Borla' +
+        'nd.Data.DbxCommonDriver,Version=24.0.0.0,Culture=neutral,PublicK' +
+        'eyToken=91d62ebb5b0d1b1b'
+      
+        'MetaDataPackageLoader=TDBXMySqlMetaDataCommandFactory,DbxMySQLDr' +
+        'iver260.bpl'
+      
+        'MetaDataAssemblyLoader=Borland.Data.TDBXMySqlMetaDataCommandFact' +
+        'ory,Borland.Data.DbxMySQLDriver,Version=24.0.0.0,Culture=neutral' +
+        ',PublicKeyToken=91d62ebb5b0d1b1b'
+      'LibraryName=dbxmys.dll'
+      'LibraryNameOsx=libsqlmys.dylib'
+      'VendorLib=LIBMYSQL.dll'
+      'VendorLibWin64=libmysql.dll'
+      'VendorLibOsx=libmysqlclient.dylib'
+      'HostName=localhost'
+      'User_Name=root'
+      'MaxBlobSize=-1'
+      'LocaleCode=0000'
+      'Compressed=False'
+      'Encrypted=False'
+      'BlobSize=-1'
+      'ErrorResourceFile='
+      'Database=micro'
+      'Password=root')
+    Connected = True
+    Left = 787
+    Top = 105
+  end
+  object SQLQuery: TSQLQuery
+    Active = True
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      
+        'Select * from grouploanrequest where approved = 1 and PayDay = "' +
+        '"')
+    SQLConnection = MicrofinanceConnection
+    Left = 792
+    Top = 184
+  end
+  object DataSetProvider: TDataSetProvider
+    DataSet = SQLQuery
+    Left = 776
+    Top = 256
+  end
+  object ClientDataSet: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DataSetProvider'
+    Left = 864
+    Top = 336
+  end
+  object DataSource: TDataSource
+    DataSet = ClientDataSet
+    Left = 984
+    Top = 256
   end
 end

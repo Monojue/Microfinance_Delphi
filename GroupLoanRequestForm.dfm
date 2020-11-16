@@ -12,6 +12,7 @@ object GroupLoanRequest: TGroupLoanRequest
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object MainGrid: TGridPanel
@@ -53,7 +54,6 @@ object GroupLoanRequest: TGroupLoanRequest
         Value = 50.000000000000000000
       end>
     TabOrder = 0
-    ExplicitWidth = 1295
     object TopGrip: TGridPanel
       Left = 1
       Top = 1
@@ -119,7 +119,6 @@ object GroupLoanRequest: TGroupLoanRequest
           SizeStyle = ssAuto
         end>
       TabOrder = 0
-      ExplicitWidth = 1293
       object lblID: TLabel
         Left = 111
         Top = 1
@@ -128,7 +127,6 @@ object GroupLoanRequest: TGroupLoanRequest
         Margins.Left = 50
         Align = alLeft
         Layout = tlCenter
-        ExplicitLeft = 71
         ExplicitHeight = 16
       end
       object Label1: TLabel
@@ -141,7 +139,9 @@ object GroupLoanRequest: TGroupLoanRequest
         Alignment = taRightJustify
         Caption = 'LoanRequest ID : '
         Layout = tlCenter
-        ExplicitLeft = -6
+        ExplicitLeft = 9
+        ExplicitWidth = 102
+        ExplicitHeight = 16
       end
       object Label4: TLabel
         Left = 756
@@ -152,7 +152,7 @@ object GroupLoanRequest: TGroupLoanRequest
         Alignment = taRightJustify
         Caption = 'Date : '
         Layout = tlCenter
-        ExplicitLeft = 1113
+        ExplicitLeft = 767
         ExplicitWidth = 39
         ExplicitHeight = 16
       end
@@ -163,7 +163,6 @@ object GroupLoanRequest: TGroupLoanRequest
         Height = 48
         Align = alLeft
         Layout = tlCenter
-        ExplicitLeft = 1152
         ExplicitHeight = 16
       end
     end
@@ -182,12 +181,6 @@ object GroupLoanRequest: TGroupLoanRequest
         end>
       ControlCollection = <
         item
-          Column = 1
-          Control = DBGrid1
-          Row = 0
-          RowSpan = 2
-        end
-        item
           Column = 0
           Control = RelativePanel3
           Row = 1
@@ -196,6 +189,12 @@ object GroupLoanRequest: TGroupLoanRequest
           Column = 0
           Control = centerGrid
           Row = 0
+        end
+        item
+          Column = 1
+          Control = StringGrid
+          Row = 0
+          RowSpan = 2
         end>
       RowCollection = <
         item
@@ -208,56 +207,6 @@ object GroupLoanRequest: TGroupLoanRequest
           SizeStyle = ssAuto
         end>
       TabOrder = 1
-      ExplicitWidth = 1293
-      object DBGrid1: TDBGrid
-        Left = 473
-        Top = 1
-        Width = 473
-        Height = 605
-        Align = alClient
-        TabOrder = 0
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -11
-        TitleFont.Name = 'Tahoma'
-        TitleFont.Style = []
-        Columns = <
-          item
-            Expanded = False
-            Title.Alignment = taCenter
-            Title.Caption = 'No'
-            Width = 50
-            Visible = True
-          end
-          item
-            Expanded = False
-            Title.Alignment = taCenter
-            Title.Caption = 'Principal Outstanding'
-            Width = 120
-            Visible = True
-          end
-          item
-            Expanded = False
-            Title.Alignment = taCenter
-            Title.Caption = 'Principal'
-            Width = 120
-            Visible = True
-          end
-          item
-            Expanded = False
-            Title.Alignment = taCenter
-            Title.Caption = 'Interest'
-            Width = 120
-            Visible = True
-          end
-          item
-            Expanded = False
-            Title.Alignment = taCenter
-            Title.Caption = 'Installment'
-            Width = 120
-            Visible = True
-          end>
-      end
       object RelativePanel3: TRelativePanel
         Left = 1
         Top = 349
@@ -337,7 +286,7 @@ object GroupLoanRequest: TGroupLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = Label27
+            Control = lblRate
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -346,7 +295,7 @@ object GroupLoanRequest: TGroupLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = Label28
+            Control = lblFees
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -384,12 +333,8 @@ object GroupLoanRequest: TGroupLoanRequest
         Align = alClient
         Alignment = taLeftJustify
         Caption = 'LOAN INFORMATION'
-        TabOrder = 1
+        TabOrder = 0
         VerticalAlignment = taAlignTop
-        ExplicitLeft = 419
-        ExplicitTop = 17
-        ExplicitWidth = 316
-        ExplicitHeight = 348
         DesignSize = (
           472
           257)
@@ -460,7 +405,7 @@ object GroupLoanRequest: TGroupLoanRequest
           Anchors = []
           Caption = 'Service Fees'
         end
-        object Label27: TLabel
+        object lblRate: TLabel
           Left = 152
           Top = 196
           Width = 30
@@ -468,7 +413,7 @@ object GroupLoanRequest: TGroupLoanRequest
           Anchors = []
           Caption = 'Month'
         end
-        object Label28: TLabel
+        object lblFees: TLabel
           Left = 152
           Top = 227
           Width = 30
@@ -484,6 +429,7 @@ object GroupLoanRequest: TGroupLoanRequest
           Anchors = []
           Caption = 'Calculate'
           TabOrder = 2
+          OnClick = btnCalculateClick
         end
         object editAmount: TLabel
           Left = 104
@@ -656,10 +602,7 @@ object GroupLoanRequest: TGroupLoanRequest
           item
             Value = 12.500000000000000000
           end>
-        TabOrder = 2
-        ExplicitLeft = 9
-        ExplicitTop = 9
-        ExplicitWidth = 390
+        TabOrder = 1
         DesignSize = (
           472
           348)
@@ -741,7 +684,6 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitLeft = 97
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -753,7 +695,6 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitLeft = 207
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -765,7 +706,6 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitLeft = 97
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -777,7 +717,6 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitLeft = 207
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -789,7 +728,6 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitLeft = 97
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -801,7 +739,6 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitLeft = 207
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -813,7 +750,6 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitLeft = 97
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -825,7 +761,6 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitLeft = 207
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -837,7 +772,6 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitLeft = 97
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -849,7 +783,6 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitLeft = 207
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -865,9 +798,9 @@ object GroupLoanRequest: TGroupLoanRequest
           Caption = 'Group ID : '
           ParentBiDiMode = False
           Layout = tlCenter
-          ExplicitLeft = 13
-          ExplicitTop = 7
-          ExplicitWidth = 24
+          ExplicitLeft = 60
+          ExplicitWidth = 53
+          ExplicitHeight = 13
         end
         object lblGID: TLabel
           Left = 116
@@ -876,9 +809,8 @@ object GroupLoanRequest: TGroupLoanRequest
           Height = 43
           Align = alClient
           Layout = tlCenter
-          ExplicitLeft = 40
-          ExplicitTop = 4
-          ExplicitWidth = 85
+          ExplicitWidth = 3
+          ExplicitHeight = 13
         end
         object btnSelect: TButton
           Left = 291
@@ -888,9 +820,18 @@ object GroupLoanRequest: TGroupLoanRequest
           Anchors = []
           Caption = 'Select'
           TabOrder = 0
-          ExplicitLeft = 320
-          ExplicitTop = 304
+          OnClick = btnSelectClick
         end
+      end
+      object StringGrid: TStringGrid
+        Left = 473
+        Top = 1
+        Width = 473
+        Height = 605
+        Align = alClient
+        RowCount = 1
+        FixedRows = 0
+        TabOrder = 2
       end
     end
     object GridPanel1: TGridPanel
@@ -928,9 +869,6 @@ object GroupLoanRequest: TGroupLoanRequest
         end>
       ShowCaption = False
       TabOrder = 2
-      ExplicitLeft = 2
-      ExplicitTop = 663
-      ExplicitWidth = 1293
       DesignSize = (
         947
         50)
@@ -943,7 +881,6 @@ object GroupLoanRequest: TGroupLoanRequest
         Caption = 'Request'
         TabOrder = 0
         OnClick = btnRequestClick
-        ExplicitLeft = 1104
       end
       object btnCancel: TButton
         Left = 858
@@ -954,7 +891,6 @@ object GroupLoanRequest: TGroupLoanRequest
         Caption = 'Cancel'
         TabOrder = 1
         OnClick = btnCancelClick
-        ExplicitLeft = 1204
       end
     end
   end

@@ -125,10 +125,7 @@ begin
 end;
 
 procedure TClientLoanRequest.btnCalculateClick(Sender: TObject);
-
 begin
-
-
   if (editAmount.Caption <> EmptyStr) or (editDuration.Caption <> EmptyStr) then
   begin
     with StringGrid do
@@ -211,7 +208,7 @@ begin
     end
     else if not insert1 then
     begin
-      ShowMessage('Failed to Save Client Loan New Request!');
+      ShowMessage('Failed to Save Details!');
     end;
   end
   else
@@ -227,7 +224,7 @@ TotalRows, interest, principal : Integer;
 TotalPrincipal, TotalInterest, TotalInstallment : Integer;
 I : Integer;
 begin
- DeleteRow(StringGrid);
+  DeleteRow(StringGrid);
   TotalPrincipal := 0;
   TotalInterest := 0;
   TotalInstallment := 0;
@@ -346,16 +343,29 @@ end;
 
 function TClientLoanRequest.setSelectClient(data: array of string): boolean;
 begin
-  lblCID.Caption := data[0];
-  lblName.Caption := data[1];
-  lblNRC.Caption := data[2];
-  lblDOB.Caption := data[5];
-  lblAddress.Caption := data[3];
-  lblPhone.Caption := data[4];
-  lblHome.Caption := data[6];
-  lblJob.Caption := data[7];
-  lblSalary.Caption := data[8];
-  Result := True;
+  if CheckAvaliable('Individual', data[0]) then
+  begin
+    ShowMessage('This Client is Already Requested!');
+    Exit(False);
+  end
+  else if CheckClientIsInGroup(data[0]) then
+  begin
+    ShowMessage('This Client is in another Group!');
+    Exit(False);
+  end
+  else
+  begin
+    lblCID.Caption := data[0];
+    lblName.Caption := data[1];
+    lblNRC.Caption := data[2];
+    lblDOB.Caption := data[5];
+    lblAddress.Caption := data[3];
+    lblPhone.Caption := data[4];
+    lblHome.Caption := data[6];
+    lblJob.Caption := data[7];
+    lblSalary.Caption := data[8];
+  end;
+   Result := True;
 end;
 
 procedure TClientLoanRequest.barAmountChange(Sender: TObject);

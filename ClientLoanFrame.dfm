@@ -247,7 +247,7 @@ object ClientLoanFM: TClientLoanFM
           AlignWithMargins = True
           Left = 4
           Top = 4
-          Width = 446
+          Width = 438
           Height = 40
           Align = alClient
           BiDiMode = bdRightToLeftReadingOnly

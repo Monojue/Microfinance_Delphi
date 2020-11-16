@@ -73,7 +73,7 @@ implementation
 
 {$R *.dfm}
 
-uses ClientEntry, GroupEntry, ClientLoanRequestForm;
+uses ClientEntry, GroupEntry, ClientLoanRequestForm, GroupLoanRequestForm;
 
 procedure TMySelector.btnNewClick(Sender: TObject);
 begin
@@ -113,6 +113,10 @@ begin
     data[8] := DBGrid.Fields[8].AsString;
     data[9] := DBGrid.Fields[9].AsString;
     data[10] := DBGrid.Fields[10].AsString;
+    if GroupLoanRequest.setSelectGroup(data) then
+    begin
+      Close;
+    end;
   end
   else if frmtype = 'clientRequest' then
   begin

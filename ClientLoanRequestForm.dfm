@@ -1187,10 +1187,6 @@ object ClientLoanRequest: TClientLoanRequest
         RowCount = 1
         FixedRows = 0
         TabOrder = 3
-        ExplicitLeft = 1016
-        ExplicitTop = 512
-        ExplicitWidth = 320
-        ExplicitHeight = 120
       end
     end
     object GridPanel1: TGridPanel
