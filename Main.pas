@@ -17,14 +17,16 @@ type
     TabSheet2: TTabSheet;
     TGroupFM1: TGroupFM;
     TClientFM1: TClientFM;
-    TabSheet3: TTabSheet;
-    TSettingFM1: TSettingFM;
     TabSheet4: TTabSheet;
+    TSettingFM1: TSettingFM;
+    TabSheet3: TTabSheet;
     PageControl2: TPageControl;
     TabSheet5: TTabSheet;
     TabSheet6: TTabSheet;
     TClientLoanFM1: TClientLoanFM;
     TGroupLoanFM1: TGroupLoanFM;
+    TabSheet7: TTabSheet;
+    TabSheet8: TTabSheet;
     procedure TSettingFM1btnIEditClick(Sender: TObject);
     procedure PageControl1Change(Sender: TObject);
   private

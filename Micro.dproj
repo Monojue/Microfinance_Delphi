@@ -167,6 +167,10 @@
         <DCCReference Include="GroupLoanRequestForm.pas">
             <Form>GroupLoanRequest</Form>
         </DCCReference>
+        <DCCReference Include="ViewDetails.pas">
+            <Form>frmDetails</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_Micro\default.txaPackage"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

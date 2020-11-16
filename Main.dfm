@@ -19,7 +19,7 @@ object MainForm: TMainForm
     Top = 0
     Width = 1231
     Height = 677
-    ActivePage = TabSheet4
+    ActivePage = TabSheet3
     Align = alClient
     TabOrder = 0
     OnChange = PageControl1Change
@@ -228,6 +228,225 @@ object MainForm: TMainForm
       end
     end
     object TabSheet3: TTabSheet
+      Caption = '         LOAN REQUEST     '
+      ImageIndex = 3
+      object PageControl2: TPageControl
+        Left = 0
+        Top = 0
+        Width = 1223
+        Height = 649
+        ActivePage = TabSheet5
+        Align = alClient
+        TabOrder = 0
+        object TabSheet5: TTabSheet
+          Caption = '     INDIVIDUAL     '
+          inline TClientLoanFM1: TClientLoanFM
+            Left = 0
+            Top = 0
+            Width = 1215
+            Height = 621
+            Align = alClient
+            TabOrder = 0
+            ExplicitLeft = 256
+            ExplicitTop = 136
+            inherited GridPanel1: TGridPanel
+              Width = 1215
+              Height = 621
+              ControlCollection = <
+                item
+                  Column = 0
+                  Control = TClientLoanFM1.GridPanel2
+                  Row = 0
+                end
+                item
+                  Column = 0
+                  Control = TClientLoanFM1.clientGrid
+                  Row = 1
+                end>
+              inherited GridPanel2: TGridPanel
+                Width = 1213
+                ControlCollection = <
+                  item
+                    Column = 1
+                    Control = TClientLoanFM1.Label1
+                    Row = 0
+                  end
+                  item
+                    Column = 2
+                    Control = TClientLoanFM1.cboxSearch
+                    Row = 0
+                  end
+                  item
+                    Column = 4
+                    Control = TClientLoanFM1.editSearch
+                    Row = 0
+                  end
+                  item
+                    Column = 7
+                    Control = TClientLoanFM1.btnNew
+                    Row = 0
+                  end
+                  item
+                    Column = 8
+                    Control = TClientLoanFM1.btnPay
+                    Row = 0
+                  end
+                  item
+                    Column = 9
+                    Control = TClientLoanFM1.btnDelete
+                    Row = 0
+                  end
+                  item
+                    Column = 10
+                    Control = TClientLoanFM1.btnRefresh
+                    Row = 0
+                  end
+                  item
+                    Column = 5
+                    Control = TClientLoanFM1.btnSearch
+                    Row = 0
+                  end
+                  item
+                    Column = 6
+                    Control = TClientLoanFM1.Panel1
+                    Row = 0
+                  end
+                  item
+                    Column = 3
+                    Control = TClientLoanFM1.lblPrefix
+                    Row = 0
+                  end>
+                inherited btnNew: TButton
+                  Left = 884
+                end
+                inherited btnPay: TButton
+                  Left = 964
+                end
+                inherited btnDelete: TButton
+                  Left = 1044
+                end
+                inherited btnRefresh: TButton
+                  Left = 1124
+                end
+                inherited Panel1: TPanel
+                  Width = 446
+                end
+              end
+              inherited clientGrid: TDBGrid
+                Width = 1213
+                Height = 569
+              end
+            end
+          end
+        end
+        object TabSheet6: TTabSheet
+          Caption = '     GROUP     '
+          ImageIndex = 1
+          inline TGroupLoanFM1: TGroupLoanFM
+            Left = 0
+            Top = 0
+            Width = 1215
+            Height = 621
+            Align = alClient
+            TabOrder = 0
+            ExplicitLeft = 368
+            ExplicitTop = 176
+            inherited GridPanel1: TGridPanel
+              Width = 1215
+              Height = 621
+              ControlCollection = <
+                item
+                  Column = 0
+                  Control = TGroupLoanFM1.GridPanel2
+                  Row = 0
+                end
+                item
+                  Column = 0
+                  Control = TGroupLoanFM1.GroupGird
+                  Row = 1
+                end>
+              inherited GridPanel2: TGridPanel
+                Width = 1213
+                ControlCollection = <
+                  item
+                    Column = 1
+                    Control = TGroupLoanFM1.Label1
+                    Row = 0
+                  end
+                  item
+                    Column = 2
+                    Control = TGroupLoanFM1.cboxSearch
+                    Row = 0
+                  end
+                  item
+                    Column = 4
+                    Control = TGroupLoanFM1.editSearch
+                    Row = 0
+                  end
+                  item
+                    Column = 7
+                    Control = TGroupLoanFM1.btnNew
+                    Row = 0
+                  end
+                  item
+                    Column = 8
+                    Control = TGroupLoanFM1.btnPay
+                    Row = 0
+                  end
+                  item
+                    Column = 9
+                    Control = TGroupLoanFM1.btnDelete
+                    Row = 0
+                  end
+                  item
+                    Column = 10
+                    Control = TGroupLoanFM1.btnRefresh
+                    Row = 0
+                  end
+                  item
+                    Column = 5
+                    Control = TGroupLoanFM1.btnSearch
+                    Row = 0
+                  end
+                  item
+                    Column = 6
+                    Control = TGroupLoanFM1.Panel1
+                    Row = 0
+                  end>
+                inherited btnNew: TButton
+                  Left = 884
+                end
+                inherited btnPay: TButton
+                  Left = 964
+                end
+                inherited btnDelete: TButton
+                  Left = 1044
+                end
+                inherited btnRefresh: TButton
+                  Left = 1124
+                end
+                inherited Panel1: TPanel
+                  Width = 446
+                end
+              end
+              inherited GroupGird: TDBGrid
+                Width = 1213
+                Height = 569
+              end
+            end
+          end
+        end
+      end
+    end
+    object TabSheet7: TTabSheet
+      Caption = '          REPAYMENT        '
+      ImageIndex = 4
+    end
+    object TabSheet8: TTabSheet
+      Caption = '                REPORT          '
+      ImageIndex = 5
+    end
+    object TabSheet4: TTabSheet
       Caption = '               SETTING           '
       ImageIndex = 2
       inline TSettingFM1: TSettingFM
@@ -917,217 +1136,6 @@ object MainForm: TMainForm
             Height = 323
             ExplicitLeft = 872
             ExplicitHeight = 323
-          end
-        end
-      end
-    end
-    object TabSheet4: TTabSheet
-      Caption = 'LOAN REQUEST'
-      ImageIndex = 3
-      object PageControl2: TPageControl
-        Left = 0
-        Top = 0
-        Width = 1223
-        Height = 649
-        ActivePage = TabSheet6
-        Align = alClient
-        TabOrder = 0
-        object TabSheet5: TTabSheet
-          Caption = 'INDIVIDUAL'
-          inline TClientLoanFM1: TClientLoanFM
-            Left = 0
-            Top = 0
-            Width = 1215
-            Height = 621
-            Align = alClient
-            TabOrder = 0
-            ExplicitLeft = 256
-            ExplicitTop = 136
-            inherited GridPanel1: TGridPanel
-              Width = 1215
-              Height = 621
-              ControlCollection = <
-                item
-                  Column = 0
-                  Control = TClientLoanFM1.GridPanel2
-                  Row = 0
-                end
-                item
-                  Column = 0
-                  Control = TClientLoanFM1.clientGrid
-                  Row = 1
-                end>
-              inherited GridPanel2: TGridPanel
-                Width = 1213
-                ControlCollection = <
-                  item
-                    Column = 1
-                    Control = TClientLoanFM1.Label1
-                    Row = 0
-                  end
-                  item
-                    Column = 2
-                    Control = TClientLoanFM1.cboxSearch
-                    Row = 0
-                  end
-                  item
-                    Column = 4
-                    Control = TClientLoanFM1.editSearch
-                    Row = 0
-                  end
-                  item
-                    Column = 7
-                    Control = TClientLoanFM1.btnNew
-                    Row = 0
-                  end
-                  item
-                    Column = 8
-                    Control = TClientLoanFM1.btnPay
-                    Row = 0
-                  end
-                  item
-                    Column = 9
-                    Control = TClientLoanFM1.btnDelete
-                    Row = 0
-                  end
-                  item
-                    Column = 10
-                    Control = TClientLoanFM1.btnRefresh
-                    Row = 0
-                  end
-                  item
-                    Column = 5
-                    Control = TClientLoanFM1.btnSearch
-                    Row = 0
-                  end
-                  item
-                    Column = 6
-                    Control = TClientLoanFM1.Panel1
-                    Row = 0
-                  end
-                  item
-                    Column = 3
-                    Control = TClientLoanFM1.lblPrefix
-                    Row = 0
-                  end>
-                inherited btnNew: TButton
-                  Left = 884
-                end
-                inherited btnPay: TButton
-                  Left = 964
-                end
-                inherited btnDelete: TButton
-                  Left = 1044
-                end
-                inherited btnRefresh: TButton
-                  Left = 1124
-                end
-                inherited Panel1: TPanel
-                  Width = 446
-                end
-              end
-              inherited clientGrid: TDBGrid
-                Width = 1213
-                Height = 569
-              end
-            end
-          end
-        end
-        object TabSheet6: TTabSheet
-          Caption = 'GROUP'
-          ImageIndex = 1
-          inline TGroupLoanFM1: TGroupLoanFM
-            Left = 0
-            Top = 0
-            Width = 1215
-            Height = 621
-            Align = alClient
-            TabOrder = 0
-            ExplicitLeft = 368
-            ExplicitTop = 176
-            inherited GridPanel1: TGridPanel
-              Width = 1215
-              Height = 621
-              ControlCollection = <
-                item
-                  Column = 0
-                  Control = TGroupLoanFM1.GridPanel2
-                  Row = 0
-                end
-                item
-                  Column = 0
-                  Control = TGroupLoanFM1.GroupGird
-                  Row = 1
-                end>
-              inherited GridPanel2: TGridPanel
-                Width = 1213
-                ControlCollection = <
-                  item
-                    Column = 1
-                    Control = TGroupLoanFM1.Label1
-                    Row = 0
-                  end
-                  item
-                    Column = 2
-                    Control = TGroupLoanFM1.cboxSearch
-                    Row = 0
-                  end
-                  item
-                    Column = 4
-                    Control = TGroupLoanFM1.editSearch
-                    Row = 0
-                  end
-                  item
-                    Column = 7
-                    Control = TGroupLoanFM1.btnNew
-                    Row = 0
-                  end
-                  item
-                    Column = 8
-                    Control = TGroupLoanFM1.btnPay
-                    Row = 0
-                  end
-                  item
-                    Column = 9
-                    Control = TGroupLoanFM1.btnDelete
-                    Row = 0
-                  end
-                  item
-                    Column = 10
-                    Control = TGroupLoanFM1.btnRefresh
-                    Row = 0
-                  end
-                  item
-                    Column = 5
-                    Control = TGroupLoanFM1.btnSearch
-                    Row = 0
-                  end
-                  item
-                    Column = 6
-                    Control = TGroupLoanFM1.Panel1
-                    Row = 0
-                  end>
-                inherited btnNew: TButton
-                  Left = 884
-                end
-                inherited btnPay: TButton
-                  Left = 964
-                end
-                inherited btnDelete: TButton
-                  Left = 1044
-                end
-                inherited btnRefresh: TButton
-                  Left = 1124
-                end
-                inherited Panel1: TPanel
-                  Width = 446
-                end
-              end
-              inherited GroupGird: TDBGrid
-                Width = 1213
-                Height = 569
-              end
-            end
           end
         end
       end

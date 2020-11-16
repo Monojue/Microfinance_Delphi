@@ -18,7 +18,8 @@ uses
   OfficerEntry in 'OfficerEntry.pas' {frmOfficerEntry},
   SettingHistory in 'SettingHistory.pas' {frmLoanHistory},
   ClientLoanFrame in 'ClientLoanFrame.pas' {ClientLoanFM: TFrame},
-  GroupLoanRequestForm in 'GroupLoanRequestForm.pas' {GroupLoanRequest};
+  GroupLoanRequestForm in 'GroupLoanRequestForm.pas' {GroupLoanRequest},
+  ViewDetails in 'ViewDetails.pas' {frmDetails};
 
 {$R *.res}
 
@@ -37,6 +38,7 @@ begin
   Application.CreateForm(TfrmOfficerEntry, frmOfficerEntry);
   Application.CreateForm(TfrmLoanHistory, frmLoanHistory);
   Application.CreateForm(TGroupLoanRequest, GroupLoanRequest);
+  Application.CreateForm(TfrmDetails, frmDetails);
   Application.Run;
 end;
 
