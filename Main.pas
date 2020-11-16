@@ -19,6 +19,9 @@ type
     TabSheet3: TTabSheet;
     TSettingFM1: TSettingFM;
     TabSheet4: TTabSheet;
+    PageControl2: TPageControl;
+    TabSheet5: TTabSheet;
+    TabSheet6: TTabSheet;
     TClientLoanFM1: TClientLoanFM;
     procedure TSettingFM1btnIEditClick(Sender: TObject);
     procedure PageControl1Change(Sender: TObject);

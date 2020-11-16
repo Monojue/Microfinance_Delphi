@@ -14,6 +14,7 @@ function splitDOB(DOB: string) : resultData;
 function splitNRC(NRC: string) : resultData;
 procedure setLoginID (ID : string);
 function getLoginID () : string;
+//function addComma(amount : string) : string;
 implementation
 
 uses DataModule, ClientFrame;
@@ -31,6 +32,24 @@ function getLoginID () : string;
 begin
   Result := loginID;
 end;
+
+//function addComma(amount : string) : string;
+//var
+//value : string;
+//reverse : string;
+//I : integer;
+//begin
+//  for I := amount.Length to 1 do
+//  begin
+//     reverse := amount.Substring(I-1,I);
+//  end;
+//
+//  for I := reverse.Length to 1 do
+//  begin
+//    if I mo and I<> reverse.Length then
+//
+//  end;
+//end;
 
 function getAutoID(field: string; table: string; prefix: string): string;
 var

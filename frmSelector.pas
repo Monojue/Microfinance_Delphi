@@ -77,12 +77,12 @@ uses ClientEntry, GroupEntry, ClientLoanRequestForm;
 
 procedure TMySelector.btnNewClick(Sender: TObject);
 begin
-  if frmtype = 'client' then
+  if (frmtype = 'client') or (frmtype = 'clientRequest') then
   begin
     frmCleintEntry.prepareNew;
     frmCleintEntry.Show;
   end
-  else if frmtype = 'group' then
+  else if (frmtype = 'group') or (frmtype = 'groupRequest') then
   begin
     frmGroupEntry.Show;
   end;

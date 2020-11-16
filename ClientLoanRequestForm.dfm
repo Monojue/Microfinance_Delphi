@@ -12,6 +12,7 @@ object ClientLoanRequest: TClientLoanRequest
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object MainGrid: TGridPanel
@@ -62,7 +63,7 @@ object ClientLoanRequest: TClientLoanRequest
       ColumnCollection = <
         item
           SizeStyle = ssAbsolute
-          Value = 70.000000000000000000
+          Value = 110.000000000000000000
         end
         item
           SizeStyle = ssAbsolute
@@ -119,7 +120,7 @@ object ClientLoanRequest: TClientLoanRequest
         end>
       TabOrder = 0
       object lblID: TLabel
-        Left = 71
+        Left = 111
         Top = 1
         Width = 4
         Height = 48
@@ -131,15 +132,15 @@ object ClientLoanRequest: TClientLoanRequest
       object Label1: TLabel
         Left = 1
         Top = 1
-        Width = 70
+        Width = 110
         Height = 48
         Margins.Right = 10
         Align = alClient
         Alignment = taRightJustify
-        Caption = 'Client ID : '
+        Caption = 'LoanRequest ID : '
         Layout = tlCenter
-        ExplicitLeft = 10
-        ExplicitWidth = 61
+        ExplicitLeft = 9
+        ExplicitWidth = 102
         ExplicitHeight = 16
       end
       object Label4: TLabel
@@ -183,12 +184,6 @@ object ClientLoanRequest: TClientLoanRequest
         end>
       ControlCollection = <
         item
-          Column = 2
-          Control = DBGrid1
-          Row = 0
-          RowSpan = 2
-        end
-        item
           Column = 0
           Control = GridPanel2
           Row = 0
@@ -203,6 +198,12 @@ object ClientLoanRequest: TClientLoanRequest
           ColumnSpan = 2
           Control = RelativePanel2
           Row = 1
+        end
+        item
+          Column = 2
+          Control = StringGrid
+          Row = 0
+          RowSpan = 2
         end>
       RowCollection = <
         item
@@ -215,55 +216,6 @@ object ClientLoanRequest: TClientLoanRequest
           SizeStyle = ssAuto
         end>
       TabOrder = 1
-      object DBGrid1: TDBGrid
-        Left = 741
-        Top = 1
-        Width = 551
-        Height = 605
-        Align = alClient
-        TabOrder = 0
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -11
-        TitleFont.Name = 'Tahoma'
-        TitleFont.Style = []
-        Columns = <
-          item
-            Expanded = False
-            Title.Alignment = taCenter
-            Title.Caption = 'No'
-            Width = 50
-            Visible = True
-          end
-          item
-            Expanded = False
-            Title.Alignment = taCenter
-            Title.Caption = 'Principal Outstanding'
-            Width = 120
-            Visible = True
-          end
-          item
-            Expanded = False
-            Title.Alignment = taCenter
-            Title.Caption = 'Principal'
-            Width = 120
-            Visible = True
-          end
-          item
-            Expanded = False
-            Title.Alignment = taCenter
-            Title.Caption = 'Interest'
-            Width = 120
-            Visible = True
-          end
-          item
-            Expanded = False
-            Title.Alignment = taCenter
-            Title.Caption = 'Installment'
-            Width = 120
-            Visible = True
-          end>
-      end
       object GridPanel2: TGridPanel
         Left = 1
         Top = 1
@@ -433,7 +385,7 @@ object ClientLoanRequest: TClientLoanRequest
           item
             Value = 9.090909090909088000
           end>
-        TabOrder = 1
+        TabOrder = 0
         VerticalAlignment = taAlignTop
         DesignSize = (
           424
@@ -699,7 +651,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = Label27
+            Control = lblRate
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -708,7 +660,7 @@ object ClientLoanRequest: TClientLoanRequest
             AlignVerticalCenterWithPanel = False
           end
           item
-            Control = Label28
+            Control = lblFees
             AlignBottomWithPanel = False
             AlignHorizontalCenterWithPanel = False
             AlignLeftWithPanel = False
@@ -742,18 +694,36 @@ object ClientLoanRequest: TClientLoanRequest
             AlignRightWithPanel = False
             AlignTopWithPanel = False
             AlignVerticalCenterWithPanel = False
+          end
+          item
+            Control = Label2
+            AlignBottomWithPanel = False
+            AlignHorizontalCenterWithPanel = False
+            AlignLeftWithPanel = False
+            AlignRightWithPanel = False
+            AlignTopWithPanel = False
+            AlignVerticalCenterWithPanel = False
+          end
+          item
+            Control = Label3
+            AlignBottomWithPanel = False
+            AlignHorizontalCenterWithPanel = False
+            AlignLeftWithPanel = False
+            AlignRightWithPanel = False
+            AlignTopWithPanel = False
+            AlignVerticalCenterWithPanel = False
           end>
         Align = alClient
         Alignment = taLeftJustify
         Caption = 'LOAN INFORMATION'
-        TabOrder = 2
+        TabOrder = 1
         VerticalAlignment = taAlignTop
         DesignSize = (
           316
           348)
         object barAmount: TTrackBar
           Left = 40
-          Top = 33
+          Top = 36
           Width = 217
           Height = 45
           Anchors = []
@@ -818,16 +788,16 @@ object ClientLoanRequest: TClientLoanRequest
           Anchors = []
           Caption = 'Service Fees'
         end
-        object Label27: TLabel
-          Left = 160
+        object lblRate: TLabel
+          Left = 144
           Top = 236
           Width = 30
           Height = 13
           Anchors = []
           Caption = 'Month'
         end
-        object Label28: TLabel
-          Left = 160
+        object lblFees: TLabel
+          Left = 144
           Top = 277
           Width = 30
           Height = 13
@@ -842,20 +812,39 @@ object ClientLoanRequest: TClientLoanRequest
           Anchors = []
           Caption = 'Calculate'
           TabOrder = 2
+          OnClick = btnCalculateClick
         end
         object editAmount: TLabel
-          Left = 104
+          Left = 144
           Top = 87
-          Width = 3
+          Width = 43
           Height = 13
           Anchors = []
+          Caption = 'AMoount'
         end
         object editDuration: TLabel
-          Left = 104
+          Left = 144
           Top = 193
-          Width = 3
+          Width = 41
           Height = 13
           Anchors = []
+          Caption = 'Duration'
+        end
+        object Label2: TLabel
+          Left = 192
+          Top = 236
+          Width = 11
+          Height = 13
+          Anchors = []
+          Caption = '%'
+        end
+        object Label3: TLabel
+          Left = 192
+          Top = 277
+          Width = 11
+          Height = 13
+          Anchors = []
+          Caption = '%'
         end
       end
       object RelativePanel2: TRelativePanel
@@ -1035,7 +1024,7 @@ object ClientLoanRequest: TClientLoanRequest
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 3
+        TabOrder = 2
         VerticalAlignment = taAlignTop
         DesignSize = (
           740
@@ -1188,6 +1177,20 @@ object ClientLoanRequest: TClientLoanRequest
           Anchors = []
           Caption = '(N)'
         end
+      end
+      object StringGrid: TStringGrid
+        Left = 741
+        Top = 1
+        Width = 551
+        Height = 605
+        Align = alClient
+        RowCount = 1
+        FixedRows = 0
+        TabOrder = 3
+        ExplicitLeft = 1016
+        ExplicitTop = 512
+        ExplicitWidth = 320
+        ExplicitHeight = 120
       end
     end
     object GridPanel1: TGridPanel

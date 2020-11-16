@@ -159,7 +159,7 @@ begin
     end
     else if btnSave.Caption = 'Update' then
     begin
-        save := UpdateData('Client', data);
+        save := UpdateData('client', data);
          if save then
          begin
              ShowMessage('Update Successfully!');

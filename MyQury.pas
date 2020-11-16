@@ -52,6 +52,26 @@ begin
   begin
   SQLQuery.SQL.Add('Insert into Officer(officerID, Name, Address, Phone, NRC, Role, UserName, Password) ');
   SQLQuery.SQL.Add('values("'+data[0]+'","'+data[1]+'","'+data[2]+'","'+data[3]+'","'+data[4]+'","'+data[5]+'","'+data[6]+'","'+data[7]+'")');
+  end
+  else if table = 'loanrequest' then
+  begin
+  SQLQuery.SQL.Add('insert into loanrequest(LoanRequestID,LoanType,Amount,Duration,InterestRate) ');
+  SQLQuery.SQL.Add('values("'+data[0]+'","'+data[1]+'",'+data[2]+','+data[3]+','+data[4]+')');
+  end
+  else if table = 'clientdetails' then
+  begin
+  SQLQuery.SQL.Add('insert into clientdetails(ClientID,LoanRequestID,RequestDate) ');
+  SQLQuery.SQL.Add('values("'+data[0]+'","'+data[1]+'","'+data[2]+'")');
+  end
+  else if table = 'groupdetails' then
+  begin
+  SQLQuery.SQL.Add('insert into groupdetails(GroupID,LoanRequestID,RequestDate) ');
+  SQLQuery.SQL.Add('values("'+data[0]+'","'+data[1]+'","'+data[2]+'")');
+  end
+  else if table = 'repayment' then
+  begin
+  SQLQuery.SQL.Add('insert into repayment(RepaymentID,LoanRequestID,PaymentDate,Amount) ');
+  SQLQuery.SQL.Add('values("'+data[0]+'","'+data[1]+'","'+data[2]+'",'+data[3]+')');
   end;
   if  SQLQuery.ExecSQL >0 then
   begin
@@ -75,6 +95,26 @@ begin
   if table = 'client' then
   begin
   SQLQuery.SQL.Add('update client set Name= "'+data[1]+'",NRC= "'+data[2]+'",Address= "'+data[3]+'" ,Phone= "'+data[4]+'" ,DateOfBirth= "'+data[5]+'" ,Home= "'+data[6]+'" ,Job= "'+data[7]+'",Salary= '+data[8]+' where ClientID= "'+data[0]+'"');
+  end
+  else if table = 'guarantor' then
+  begin
+  SQLQuery.SQL.Add('update client set GName= "'+data[1]+'",GJob= "'+data[2]+'",GSalary= '+data[3]+' ,Relationship= "'+data[4]+'" ,GAddress= "'+data[5]+'" ,GPhone= "'+data[6]+'" ,GNRC= "'+data[7]+'" where ClientID= "'+data[0]+'"');
+  end
+   else if table = 'loanrequest' then
+  begin
+  SQLQuery.SQL.Add('update loanrequest set Approved= "'+data[1]+'" where LoanrequestID= "'+data[0]+'"');
+  end
+   else if table = 'loanrequestDecline' then
+  begin
+  SQLQuery.SQL.Add('update loanrequest set Approved= "'+data[1]+'",Remark= "'+data[2]+'" where LoanrequestID= "'+data[0]+'"');
+  end
+   else if table = 'paidday' then
+  begin
+  SQLQuery.SQL.Add('update loanrequest set PayDay= "'+data[1]+'" where LoanrequestID= "'+data[0]+'"');
+  end
+  else if table = 'groupColumn' then
+  begin
+  SQLQuery.SQL.Add('Update clientGroup set '+data[0]+'= "'+data[1]+'" where GroupID="'+data[2]+'"');
   end
   else if table = 'group' then
   begin

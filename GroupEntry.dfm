@@ -379,6 +379,7 @@ object frmGroupEntry: TfrmGroupEntry
           Value = 12.500000000000000000
         end>
       TabOrder = 2
+      ExplicitTop = 53
       DesignSize = (
         528
         284)

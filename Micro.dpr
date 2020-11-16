@@ -17,7 +17,8 @@ uses
   SettingFrame in 'SettingFrame.pas' {SettingFM: TFrame},
   OfficerEntry in 'OfficerEntry.pas' {frmOfficerEntry},
   SettingHistory in 'SettingHistory.pas' {frmLoanHistory},
-  ClientLoanFrame in 'ClientLoanFrame.pas' {ClientLoanFM: TFrame};
+  ClientLoanFrame in 'ClientLoanFrame.pas' {ClientLoanFM: TFrame},
+  GroupLoanRequestForm in 'GroupLoanRequestForm.pas' {GroupLoanRequest};
 
 {$R *.res}
 
@@ -35,6 +36,7 @@ begin
   Application.CreateForm(TfrmGroupEntry, frmGroupEntry);
   Application.CreateForm(TfrmOfficerEntry, frmOfficerEntry);
   Application.CreateForm(TfrmLoanHistory, frmLoanHistory);
+  Application.CreateForm(TGroupLoanRequest, GroupLoanRequest);
   Application.Run;
 end;
 
