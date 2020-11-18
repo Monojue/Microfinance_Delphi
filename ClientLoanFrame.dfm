@@ -202,8 +202,8 @@ object ClientLoanFM: TClientLoanFM
         Height = 25
         Anchors = []
         Caption = 'Pay'
-        Enabled = False
         TabOrder = 3
+        OnClick = btnPayClick
       end
       object btnDelete: TButton
         Left = 1060
@@ -329,13 +329,12 @@ object ClientLoanFM: TClientLoanFM
     Top = 188
   end
   object SQLQuery: TSQLQuery
-    Active = True
     MaxBlobSize = -1
     Params = <>
     SQL.Strings = (
       
-        'Select * from clientloanrequest where approved = 1 and PayDay = ' +
-        '""')
+        'Select * from clientloanrequest where approved = 1  and payday i' +
+        's null')
     SQLConnection = MicrofinanceConnection
     Left = 776
     Top = 256

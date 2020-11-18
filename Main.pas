@@ -8,7 +8,7 @@ uses
   LoanFrame, Vcl.ExtCtrls, Data.DB, Data.DBXMySQL,
   Data.FMTBcd, Data.SqlExpr, Datasnap.DBClient, Datasnap.Provider, Vcl.StdCtrls,
   Vcl.Grids, Vcl.DBGrids, ClientFrame, GroupFrame, SettingFrame, ClientLoanFrame,
-  GroupLoanFrame;
+  GroupLoanFrame, ReportFrame;
 
 type
   TMainForm = class(TForm)
@@ -27,6 +27,7 @@ type
     TGroupLoanFM1: TGroupLoanFM;
     TabSheet7: TTabSheet;
     TabSheet8: TTabSheet;
+    TReportFM1: TReportFM;
     procedure TSettingFM1btnIEditClick(Sender: TObject);
     procedure PageControl1Change(Sender: TObject);
   private

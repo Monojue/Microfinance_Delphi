@@ -15,10 +15,14 @@ function GetIndividualLoanSetting() : Resultdata;
 function GetIndividualLoanSettingID() : string;
 function GetGroupLoanSetting() : Resultdata;
 function GetGroupLoanSettingID() : string;
+function GetGroupDetailsFromID(id : string): Resultdata;
+function GetClientDetailsFromID(id : string): Resultdata;
 
 implementation
 
 uses DataModule;
+
+
 
 
 
@@ -271,4 +275,62 @@ begin
   end;
 end;
 
+function GetGroupDetailsFromID(id : string): Resultdata;
+begin
+  SetLength(Result, 10);
+  with DMMicro.SQLQuery do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('select * from clientgroup where groupID="'+ID+'"');
+    Open;
+
+    if not Eof then
+    begin
+      Result[0] := Fields[1].AsString;
+			Result[1] := Fields[6].AsString;
+			Result[2] := Fields[2].AsString;
+			Result[3] := Fields[7].AsString;
+			Result[4] := Fields[3].AsString;
+			Result[5] := Fields[8].AsString;
+			Result[6] := Fields[4].AsString;
+			Result[7] := Fields[9].AsString;
+			Result[8] := Fields[5].AsString;
+			Result[9] := Fields[10].AsString;
+    end;
+  end;
+
+end;
+
+function GetClientDetailsFromID(id : string): Resultdata;
+begin
+  SetLength(Result, 8);
+  with DMMicro.SQLQuery do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('select * from client where clientID="'+ID+'"');
+    Open;
+
+    if not Eof then
+    begin
+      Result[0] := Fields[1].AsString;
+			Result[1] := Fields[2].AsString;
+			Result[2] := Fields[5].AsString;
+			Result[3] := Fields[3].AsString;
+			Result[4] := Fields[4].AsString;
+			Result[5] := Fields[6].AsString;
+			Result[6] := Fields[7].AsString;
+			Result[7] := Fields[8].AsString;
+    end;
+  end;
+
+end;
+
 end.
+
+
+
+
+
+

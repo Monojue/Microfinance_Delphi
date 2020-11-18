@@ -40,8 +40,6 @@ object GroupLoanFM: TGroupLoanFM
         SizeStyle = ssAuto
       end>
     TabOrder = 0
-    ExplicitLeft = -88
-    ExplicitTop = 3
     object GridPanel2: TGridPanel
       Left = 1
       Top = 1
@@ -199,8 +197,8 @@ object GroupLoanFM: TGroupLoanFM
         Height = 25
         Anchors = []
         Caption = 'Pay'
-        Enabled = False
         TabOrder = 3
+        OnClick = btnPayClick
       end
       object btnDelete: TButton
         Left = 1060
@@ -313,8 +311,8 @@ object GroupLoanFM: TGroupLoanFM
       'Database=micro'
       'Password=root')
     Connected = True
-    Left = 787
-    Top = 105
+    Left = 571
+    Top = 174
   end
   object SQLQuery: TSQLQuery
     Active = True
@@ -322,28 +320,89 @@ object GroupLoanFM: TGroupLoanFM
     Params = <>
     SQL.Strings = (
       
-        'Select * from grouploanrequest where approved = 1 and PayDay = "' +
-        '"')
+        'Select * from grouploanrequest where approved = 1 and PayDay is ' +
+        'null'
+      '')
     SQLConnection = MicrofinanceConnection
-    Left = 792
-    Top = 184
+    Left = 560
+    Top = 256
   end
   object DataSetProvider: TDataSetProvider
     DataSet = SQLQuery
-    Left = 776
-    Top = 256
+    Left = 600
+    Top = 352
   end
   object ClientDataSet: TClientDataSet
     Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider'
-    Left = 864
-    Top = 336
+    Left = 736
+    Top = 400
+    object ClientDataSetLoanRequestID: TStringField
+      FieldName = 'LoanRequestID'
+      Required = True
+      Size = 10
+    end
+    object ClientDataSetGroupID: TStringField
+      FieldName = 'GroupID'
+      Required = True
+      Size = 10
+    end
+    object ClientDataSetLeaderName: TStringField
+      FieldName = 'Leader Name'
+      Required = True
+      Size = 45
+    end
+    object ClientDataSetMember1Name: TStringField
+      FieldName = 'Member1 Name'
+      Required = True
+      Size = 45
+    end
+    object ClientDataSetMember2Name: TStringField
+      FieldName = 'Member2 Name'
+      Required = True
+      Size = 45
+    end
+    object ClientDataSetMember3Name: TStringField
+      FieldName = 'Member3 Name'
+      Required = True
+      Size = 45
+    end
+    object ClientDataSetMember4Name: TStringField
+      FieldName = 'Member4 Name'
+      Required = True
+      Size = 45
+    end
+    object ClientDataSetRequestDate: TStringField
+      FieldName = 'RequestDate'
+      Required = True
+      Size = 15
+    end
+    object ClientDataSetDueDate: TStringField
+      FieldName = 'DueDate'
+      Size = 15
+    end
+    object ClientDataSetAmount: TIntegerField
+      FieldName = 'Amount'
+      Required = True
+    end
+    object ClientDataSetDuration: TIntegerField
+      FieldName = 'Duration'
+      Required = True
+    end
+    object ClientDataSetInterestRate: TIntegerField
+      FieldName = 'InterestRate'
+      Required = True
+    end
+    object ClientDataSetRemark: TStringField
+      FieldName = 'Remark'
+      Size = 100
+    end
   end
   object DataSource: TDataSource
     DataSet = ClientDataSet
-    Left = 984
-    Top = 256
+    Left = 872
+    Top = 440
   end
 end

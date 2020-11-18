@@ -43,6 +43,7 @@ type
     procedure editSearchChange(Sender: TObject);
     procedure btnRefreshClick(Sender: TObject);
     procedure btnNewClick(Sender: TObject);
+    procedure btnPayClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -53,12 +54,18 @@ implementation
 
 {$R *.dfm}
 
-uses ClientLoanRequestForm;
+uses ClientLoanRequestForm, ViewDetails;
 
 
 procedure TClientLoanFM.btnNewClick(Sender: TObject);
 begin
   ClientLoanRequest.Show;
+end;
+
+procedure TClientLoanFM.btnPayClick(Sender: TObject);
+begin
+//  frmDetails.setformType('client');
+  frmDetails.Show;
 end;
 
 procedure TClientLoanFM.btnRefreshClick(Sender: TObject);
@@ -100,17 +107,17 @@ begin
     begin
       Close;
       SQL.Clear;
-      SQL.Add('Select * from clientloanrequest where approved = 1 and PayDay = ""');
+      SQL.Add('Select * from clientloanrequest where approved = 1 and PayDay is null');
       Open;
     end;
   end
-  else if RadioGroup.ItemIndex = 2 then
+  else if RadioGroup.ItemIndex = 1 then
   begin
     with SQLQuery do
     begin
       Close;
       SQL.Clear;
-      SQL.Add('Select * from clientloanrequest where approved = "" and PayDay = ""');
+      SQL.Add('Select * from clientloanrequest where approved = "" and PayDay is null');
       Open;
     end;
   end;

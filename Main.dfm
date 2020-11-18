@@ -19,7 +19,7 @@ object MainForm: TMainForm
     Top = 0
     Width = 1231
     Height = 677
-    ActivePage = TabSheet3
+    ActivePage = TabSheet8
     Align = alClient
     TabOrder = 0
     OnChange = PageControl1Change
@@ -206,6 +206,8 @@ object MainForm: TMainForm
                 Control = TGroupFM1.btnRefresh
                 Row = 0
               end>
+            ExplicitLeft = 1
+            ExplicitTop = 1
             ExplicitWidth = 1221
             inherited btnNew: TButton
               Left = 892
@@ -247,8 +249,8 @@ object MainForm: TMainForm
             Height = 621
             Align = alClient
             TabOrder = 0
-            ExplicitLeft = 256
-            ExplicitTop = 136
+            ExplicitWidth = 1215
+            ExplicitHeight = 621
             inherited GridPanel1: TGridPanel
               Width = 1215
               Height = 621
@@ -263,6 +265,8 @@ object MainForm: TMainForm
                   Control = TClientLoanFM1.clientGrid
                   Row = 1
                 end>
+              ExplicitWidth = 1215
+              ExplicitHeight = 621
               inherited GridPanel2: TGridPanel
                 Width = 1213
                 ControlCollection = <
@@ -316,20 +320,26 @@ object MainForm: TMainForm
                     Control = TClientLoanFM1.lblPrefix
                     Row = 0
                   end>
+                ExplicitWidth = 1213
                 inherited btnNew: TButton
                   Left = 884
+                  ExplicitLeft = 884
                 end
                 inherited btnPay: TButton
                   Left = 964
+                  ExplicitLeft = 964
                 end
                 inherited btnDelete: TButton
                   Left = 1044
+                  ExplicitLeft = 1044
                 end
                 inherited btnRefresh: TButton
                   Left = 1124
+                  ExplicitLeft = 1124
                 end
                 inherited Panel1: TPanel
                   Width = 446
+                  ExplicitWidth = 446
                 end
               end
               inherited clientGrid: TDBGrid
@@ -349,8 +359,8 @@ object MainForm: TMainForm
             Height = 621
             Align = alClient
             TabOrder = 0
-            ExplicitLeft = 368
-            ExplicitTop = 176
+            ExplicitWidth = 1215
+            ExplicitHeight = 621
             inherited GridPanel1: TGridPanel
               Width = 1215
               Height = 621
@@ -365,6 +375,8 @@ object MainForm: TMainForm
                   Control = TGroupLoanFM1.GroupGird
                   Row = 1
                 end>
+              ExplicitWidth = 1215
+              ExplicitHeight = 621
               inherited GridPanel2: TGridPanel
                 Width = 1213
                 ControlCollection = <
@@ -413,20 +425,26 @@ object MainForm: TMainForm
                     Control = TGroupLoanFM1.Panel1
                     Row = 0
                   end>
+                ExplicitWidth = 1213
                 inherited btnNew: TButton
                   Left = 884
+                  ExplicitLeft = 884
                 end
                 inherited btnPay: TButton
                   Left = 964
+                  ExplicitLeft = 964
                 end
                 inherited btnDelete: TButton
                   Left = 1044
+                  ExplicitLeft = 1044
                 end
                 inherited btnRefresh: TButton
                   Left = 1124
+                  ExplicitLeft = 1124
                 end
                 inherited Panel1: TPanel
                   Width = 446
+                  ExplicitWidth = 446
                 end
               end
               inherited GroupGird: TDBGrid
@@ -441,10 +459,77 @@ object MainForm: TMainForm
     object TabSheet7: TTabSheet
       Caption = '          REPAYMENT        '
       ImageIndex = 4
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
     end
     object TabSheet8: TTabSheet
       Caption = '                REPORT          '
       ImageIndex = 5
+      inline TReportFM1: TReportFM
+        Left = 0
+        Top = 0
+        Width = 1223
+        Height = 649
+        Align = alClient
+        TabOrder = 0
+        ExplicitLeft = 200
+        ExplicitTop = 96
+        inherited MainGrid: TGridPanel
+          Width = 1223
+          Height = 649
+          ControlCollection = <
+            item
+              Column = 0
+              Control = TReportFM1.GridPanel2
+              Row = 0
+            end
+            item
+              Column = 0
+              Control = TReportFM1.IndividualPanel
+              Row = 1
+            end
+            item
+              Column = 0
+              Control = TReportFM1.GroupPanel
+              Row = 2
+            end>
+          inherited GridPanel2: TGridPanel
+            Width = 1221
+            ControlCollection = <
+              item
+                Column = 1
+                Control = TReportFM1.btnViewDetails
+                Row = 0
+              end
+              item
+                Column = 2
+                Control = TReportFM1.btnRefresh
+                Row = 0
+              end>
+            inherited btnViewDetails: TButton
+              Left = 1052
+              ExplicitLeft = 629
+              ExplicitTop = 7
+            end
+            inherited btnRefresh: TButton
+              Left = 1132
+              ExplicitLeft = 709
+              ExplicitTop = 7
+            end
+          end
+          inherited IndividualPanel: TPanel
+            Width = 1215
+            Height = 297
+          end
+          inherited GroupPanel: TPanel
+            Top = 347
+            Width = 1215
+            Height = 298
+          end
+        end
+      end
     end
     object TabSheet4: TTabSheet
       Caption = '               SETTING           '

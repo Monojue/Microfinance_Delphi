@@ -19,7 +19,8 @@ uses
   SettingHistory in 'SettingHistory.pas' {frmLoanHistory},
   ClientLoanFrame in 'ClientLoanFrame.pas' {ClientLoanFM: TFrame},
   GroupLoanRequestForm in 'GroupLoanRequestForm.pas' {GroupLoanRequest},
-  ViewDetails in 'ViewDetails.pas' {frmDetails};
+  ViewDetails in 'ViewDetails.pas' {frmDetails},
+  ReportFrame in 'ReportFrame.pas' {ReportFM: TFrame};
 
 {$R *.res}
 

@@ -28,26 +28,50 @@ type
     DataSetProvider: TDataSetProvider;
     ClientDataSet: TClientDataSet;
     DataSource: TDataSource;
+    ClientDataSetLoanRequestID: TStringField;
+    ClientDataSetGroupID: TStringField;
+    ClientDataSetLeaderName: TStringField;
+    ClientDataSetMember1Name: TStringField;
+    ClientDataSetMember2Name: TStringField;
+    ClientDataSetMember3Name: TStringField;
+    ClientDataSetMember4Name: TStringField;
+    ClientDataSetRequestDate: TStringField;
+    ClientDataSetDueDate: TStringField;
+    ClientDataSetAmount: TIntegerField;
+    ClientDataSetDuration: TIntegerField;
+    ClientDataSetInterestRate: TIntegerField;
+    ClientDataSetRemark: TStringField;
     procedure RadioGroupClick(Sender: TObject);
     procedure btnNewClick(Sender: TObject);
     procedure btnRefreshClick(Sender: TObject);
     procedure editSearchChange(Sender: TObject);
     procedure btnSearchClick(Sender: TObject);
+    procedure btnPayClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
   end;
 
+
+var
+data  : array of string;
+
 implementation
 
 {$R *.dfm}
 
-uses GroupLoanRequestForm;
+uses GroupLoanRequestForm, ViewDetails;
 
 procedure TGroupLoanFM.btnNewClick(Sender: TObject);
 begin
   GroupLoanRequest.Show;
+end;
+
+procedure TGroupLoanFM.btnPayClick(Sender: TObject);
+begin
+//  frmDetails.setformType('grouploan', data);
+  frmDetails.Show;
 end;
 
 procedure TGroupLoanFM.btnRefreshClick(Sender: TObject);
@@ -88,17 +112,17 @@ begin
     begin
       Close;
       SQL.Clear;
-      SQL.Add('Select * from grouploanrequest where approved = 1 and PayDay = ""');
+      SQL.Add('Select * from grouploanrequest where approved = 1 and PayDay is null');
       Open;
     end;
   end
-  else if RadioGroup.ItemIndex = 2 then
+  else if RadioGroup.ItemIndex = 1 then
   begin
     with SQLQuery do
     begin
       Close;
       SQL.Clear;
-      SQL.Add('Select * from grouploanrequest where approved = "" and PayDay = ""');
+      SQL.Add('Select * from grouploanrequest where approved is null and PayDay is null');
       Open;
     end;
   end;
