@@ -71,10 +71,6 @@ object frmDetails: TfrmDetails
       end>
     ShowCaption = False
     TabOrder = 0
-    ExplicitLeft = 320
-    ExplicitTop = 312
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object TopGrip: TGridPanel
       Left = 1
       Top = 1
@@ -140,10 +136,6 @@ object frmDetails: TfrmDetails
           SizeStyle = ssAuto
         end>
       TabOrder = 0
-      ExplicitLeft = 172
-      ExplicitTop = 5
-      ExplicitWidth = 185
-      ExplicitHeight = 41
       object lblID: TLabel
         Left = 111
         Top = 1
@@ -198,467 +190,6 @@ object frmDetails: TfrmDetails
       Height = 264
       Align = alClient
       TabOrder = 1
-      ExplicitLeft = 120
-      ExplicitTop = 176
-      ExplicitWidth = 185
-      ExplicitHeight = 41
-      object groupGrid: TGridPanel
-        Left = 1
-        Top = 1
-        Width = 526
-        Height = 262
-        Align = alClient
-        Alignment = taLeftJustify
-        Caption = 'GROUP INFROMATION'
-        ColumnCollection = <
-          item
-            SizeStyle = ssAbsolute
-            Value = 30.000000000000000000
-          end
-          item
-            Value = 23.076923076923080000
-          end
-          item
-            Value = 38.461538461538460000
-          end
-          item
-            Value = 38.461538461538460000
-          end
-          item
-            SizeStyle = ssAbsolute
-            Value = 60.000000000000000000
-          end
-          item
-            SizeStyle = ssAbsolute
-            Value = 30.000000000000000000
-          end>
-        ControlCollection = <
-          item
-            Column = 2
-            Control = Label2
-            Row = 2
-          end
-          item
-            Column = 3
-            Control = Label12
-            Row = 2
-          end
-          item
-            Column = 1
-            Control = Label16
-            Row = 3
-          end
-          item
-            Column = 1
-            Control = Label22
-            Row = 4
-          end
-          item
-            Column = 1
-            Control = Label28
-            Row = 5
-          end
-          item
-            Column = 1
-            Control = Label34
-            Row = 6
-          end
-          item
-            Column = 1
-            Control = Label40
-            Row = 7
-          end
-          item
-            Column = 2
-            Control = lblLeadName
-            Row = 3
-          end
-          item
-            Column = 3
-            Control = lblLeadID
-            Row = 3
-          end
-          item
-            Column = 2
-            Control = lblM1Name
-            Row = 4
-          end
-          item
-            Column = 3
-            Control = lblM1ID
-            Row = 4
-          end
-          item
-            Column = 2
-            Control = lblM2Name
-            Row = 5
-          end
-          item
-            Column = 3
-            Control = lblM2ID
-            Row = 5
-          end
-          item
-            Column = 2
-            Control = lblM3Name
-            Row = 6
-          end
-          item
-            Column = 3
-            Control = lblM3ID
-            Row = 6
-          end
-          item
-            Column = 2
-            Control = lblM4Name
-            Row = 7
-          end
-          item
-            Column = 4
-            Control = btnAdd1
-            Row = 3
-          end
-          item
-            Column = 4
-            Control = btnAdd2
-            Row = 4
-          end
-          item
-            Column = 4
-            Control = btnAdd3
-            Row = 5
-          end
-          item
-            Column = 4
-            Control = btnAdd4
-            Row = 6
-          end
-          item
-            Column = 3
-            Control = lblM4ID
-            Row = 7
-          end
-          item
-            Column = 4
-            Control = btnAdd5
-            Row = 7
-          end
-          item
-            Column = 1
-            Control = Label3
-            Row = 1
-          end
-          item
-            Column = 2
-            Control = lblGID
-            Row = 1
-          end>
-        RowCollection = <
-          item
-            SizeStyle = ssAbsolute
-            Value = 15.000000000000000000
-          end
-          item
-            Value = 14.893617021276600000
-          end
-          item
-            Value = 14.184397163120570000
-          end
-          item
-            Value = 14.184397163120570000
-          end
-          item
-            Value = 14.184397163120570000
-          end
-          item
-            Value = 14.184397163120570000
-          end
-          item
-            Value = 14.184397163120570000
-          end
-          item
-            Value = 14.184397163120570000
-          end>
-        TabOrder = 0
-        VerticalAlignment = taAlignTop
-        ExplicitLeft = 2
-        ExplicitTop = 5
-        DesignSize = (
-          526
-          262)
-        object Label2: TLabel
-          Left = 188
-          Top = 62
-          Width = 27
-          Height = 13
-          Anchors = []
-          Caption = 'Name'
-          ExplicitLeft = 195
-          ExplicitTop = 47
-        end
-        object Label12: TLabel
-          Left = 336
-          Top = 62
-          Width = 41
-          Height = 13
-          Anchors = []
-          Caption = 'Client ID'
-          ExplicitLeft = 358
-          ExplicitTop = 47
-        end
-        object Label16: TLabel
-          Left = 61
-          Top = 96
-          Width = 33
-          Height = 13
-          Anchors = []
-          Caption = 'Leader'
-          ExplicitLeft = 64
-          ExplicitTop = 82
-        end
-        object Label22: TLabel
-          Left = 54
-          Top = 130
-          Width = 47
-          Height = 13
-          Anchors = []
-          Caption = 'Member 1'
-          ExplicitLeft = 64
-          ExplicitTop = 117
-        end
-        object Label28: TLabel
-          Left = 54
-          Top = 164
-          Width = 47
-          Height = 13
-          Anchors = []
-          Caption = 'Member 2'
-          ExplicitLeft = 64
-          ExplicitTop = 152
-        end
-        object Label34: TLabel
-          Left = 54
-          Top = 198
-          Width = 47
-          Height = 13
-          Anchors = []
-          Caption = 'Member 3'
-          ExplicitLeft = 64
-          ExplicitTop = 187
-        end
-        object Label40: TLabel
-          Left = 54
-          Top = 235
-          Width = 47
-          Height = 13
-          Anchors = []
-          Caption = 'Member 4'
-          ExplicitLeft = 64
-          ExplicitTop = 222
-        end
-        object lblLeadName: TLabel
-          Left = 124
-          Top = 86
-          Width = 155
-          Height = 34
-          Align = alClient
-          Alignment = taCenter
-          Layout = tlCenter
-          ExplicitTop = 53
-        end
-        object lblLeadID: TLabel
-          Left = 279
-          Top = 86
-          Width = 155
-          Height = 34
-          Align = alClient
-          Alignment = taCenter
-          Layout = tlCenter
-          ExplicitLeft = 291
-          ExplicitTop = 65
-          ExplicitWidth = 3
-          ExplicitHeight = 13
-        end
-        object lblM1Name: TLabel
-          Left = 124
-          Top = 120
-          Width = 155
-          Height = 34
-          Align = alClient
-          Layout = tlCenter
-          ExplicitLeft = 128
-          ExplicitTop = 97
-          ExplicitWidth = 3
-          ExplicitHeight = 13
-        end
-        object lblM1ID: TLabel
-          Left = 279
-          Top = 120
-          Width = 155
-          Height = 34
-          Align = alClient
-          Alignment = taCenter
-          Layout = tlCenter
-          ExplicitLeft = 291
-          ExplicitTop = 97
-          ExplicitWidth = 3
-          ExplicitHeight = 13
-        end
-        object lblM2Name: TLabel
-          Left = 124
-          Top = 154
-          Width = 155
-          Height = 34
-          Align = alClient
-          Alignment = taCenter
-          Layout = tlCenter
-          ExplicitLeft = 128
-          ExplicitTop = 129
-          ExplicitWidth = 3
-          ExplicitHeight = 13
-        end
-        object lblM2ID: TLabel
-          Left = 279
-          Top = 154
-          Width = 155
-          Height = 34
-          Align = alClient
-          Alignment = taCenter
-          Layout = tlCenter
-          ExplicitLeft = 291
-          ExplicitTop = 129
-          ExplicitWidth = 3
-          ExplicitHeight = 13
-        end
-        object lblM3Name: TLabel
-          Left = 124
-          Top = 188
-          Width = 155
-          Height = 34
-          Align = alClient
-          Alignment = taCenter
-          Layout = tlCenter
-          ExplicitLeft = 128
-          ExplicitTop = 161
-          ExplicitWidth = 3
-          ExplicitHeight = 13
-        end
-        object lblM3ID: TLabel
-          Left = 279
-          Top = 188
-          Width = 155
-          Height = 34
-          Align = alClient
-          Alignment = taCenter
-          Layout = tlCenter
-          ExplicitLeft = 291
-          ExplicitTop = 161
-          ExplicitWidth = 3
-          ExplicitHeight = 13
-        end
-        object lblM4Name: TLabel
-          Left = 124
-          Top = 222
-          Width = 155
-          Height = 39
-          Align = alClient
-          Alignment = taCenter
-          Layout = tlCenter
-          ExplicitLeft = 128
-          ExplicitTop = 193
-          ExplicitWidth = 3
-          ExplicitHeight = 13
-        end
-        object btnAdd1: TButton
-          Left = 448
-          Top = 90
-          Width = 31
-          Height = 25
-          Anchors = []
-          Caption = 'View'
-          TabOrder = 0
-          ExplicitLeft = 449
-          ExplicitTop = 68
-        end
-        object btnAdd2: TButton
-          Left = 448
-          Top = 124
-          Width = 31
-          Height = 25
-          Anchors = []
-          Caption = 'View'
-          TabOrder = 1
-          ExplicitLeft = 449
-          ExplicitTop = 100
-        end
-        object btnAdd3: TButton
-          Left = 448
-          Top = 158
-          Width = 31
-          Height = 25
-          Anchors = []
-          Caption = 'View'
-          TabOrder = 2
-          ExplicitLeft = 449
-          ExplicitTop = 132
-        end
-        object btnAdd4: TButton
-          Left = 448
-          Top = 192
-          Width = 31
-          Height = 25
-          Anchors = []
-          Caption = 'View'
-          TabOrder = 3
-          ExplicitLeft = 449
-          ExplicitTop = 164
-        end
-        object lblM4ID: TLabel
-          Left = 279
-          Top = 222
-          Width = 155
-          Height = 39
-          Align = alClient
-          Alignment = taCenter
-          Layout = tlCenter
-          ExplicitLeft = 291
-          ExplicitTop = 193
-          ExplicitWidth = 3
-          ExplicitHeight = 13
-        end
-        object btnAdd5: TButton
-          Left = 448
-          Top = 229
-          Width = 31
-          Height = 25
-          Anchors = []
-          Caption = 'View'
-          TabOrder = 4
-          ExplicitLeft = 449
-          ExplicitTop = 196
-        end
-        object Label3: TLabel
-          Left = 52
-          Top = 27
-          Width = 50
-          Height = 13
-          Anchors = []
-          Caption = 'Group ID :'
-          ExplicitLeft = 188
-        end
-        object lblGID: TLabel
-          Left = 124
-          Top = 16
-          Width = 155
-          Height = 36
-          Align = alClient
-          Caption = 'ID'
-          Layout = tlCenter
-          ExplicitLeft = 279
-          ExplicitWidth = 11
-          ExplicitHeight = 13
-        end
-      end
       object clientGrid: TGridPanel
         Left = 1
         Top = 1
@@ -795,42 +326,40 @@ object frmDetails: TfrmDetails
         ParentFont = False
         RowCollection = <
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end>
         TabOrder = 1
         VerticalAlignment = taAlignTop
-        ExplicitWidth = 30
-        ExplicitHeight = 32
         DesignSize = (
           526
           262)
@@ -1014,6 +543,434 @@ object frmDetails: TfrmDetails
           ExplicitHeight = 16
         end
       end
+      object groupGrid: TGridPanel
+        Left = 1
+        Top = 1
+        Width = 526
+        Height = 262
+        Align = alClient
+        Alignment = taLeftJustify
+        Caption = 'GROUP INFROMATION'
+        ColumnCollection = <
+          item
+            SizeStyle = ssAbsolute
+            Value = 30.000000000000000000
+          end
+          item
+            Value = 23.076923076923080000
+          end
+          item
+            Value = 38.461538461538460000
+          end
+          item
+            Value = 38.461538461538460000
+          end
+          item
+            SizeStyle = ssAbsolute
+            Value = 60.000000000000000000
+          end
+          item
+            SizeStyle = ssAbsolute
+            Value = 30.000000000000000000
+          end>
+        ControlCollection = <
+          item
+            Column = 2
+            Control = Label2
+            Row = 2
+          end
+          item
+            Column = 3
+            Control = Label12
+            Row = 2
+          end
+          item
+            Column = 1
+            Control = Label16
+            Row = 3
+          end
+          item
+            Column = 1
+            Control = Label22
+            Row = 4
+          end
+          item
+            Column = 1
+            Control = Label28
+            Row = 5
+          end
+          item
+            Column = 1
+            Control = Label34
+            Row = 6
+          end
+          item
+            Column = 1
+            Control = Label40
+            Row = 7
+          end
+          item
+            Column = 2
+            Control = lblLeadName
+            Row = 3
+          end
+          item
+            Column = 3
+            Control = lblLeadID
+            Row = 3
+          end
+          item
+            Column = 2
+            Control = lblM1Name
+            Row = 4
+          end
+          item
+            Column = 3
+            Control = lblM1ID
+            Row = 4
+          end
+          item
+            Column = 2
+            Control = lblM2Name
+            Row = 5
+          end
+          item
+            Column = 3
+            Control = lblM2ID
+            Row = 5
+          end
+          item
+            Column = 2
+            Control = lblM3Name
+            Row = 6
+          end
+          item
+            Column = 3
+            Control = lblM3ID
+            Row = 6
+          end
+          item
+            Column = 2
+            Control = lblM4Name
+            Row = 7
+          end
+          item
+            Column = 4
+            Control = btnAdd1
+            Row = 3
+          end
+          item
+            Column = 4
+            Control = btnAdd2
+            Row = 4
+          end
+          item
+            Column = 4
+            Control = btnAdd3
+            Row = 5
+          end
+          item
+            Column = 4
+            Control = btnAdd4
+            Row = 6
+          end
+          item
+            Column = 3
+            Control = lblM4ID
+            Row = 7
+          end
+          item
+            Column = 4
+            Control = btnAdd5
+            Row = 7
+          end
+          item
+            Column = 1
+            Control = Label3
+            Row = 1
+          end
+          item
+            Column = 2
+            Control = lblGID
+            Row = 1
+          end>
+        RowCollection = <
+          item
+            SizeStyle = ssAbsolute
+            Value = 15.000000000000000000
+          end
+          item
+            Value = 14.893617021276600000
+          end
+          item
+            Value = 14.184397163120570000
+          end
+          item
+            Value = 14.184397163120570000
+          end
+          item
+            Value = 14.184397163120570000
+          end
+          item
+            Value = 14.184397163120570000
+          end
+          item
+            Value = 14.184397163120570000
+          end
+          item
+            Value = 14.184397163120570000
+          end>
+        TabOrder = 0
+        VerticalAlignment = taAlignTop
+        DesignSize = (
+          526
+          262)
+        object Label2: TLabel
+          Left = 188
+          Top = 62
+          Width = 27
+          Height = 13
+          Anchors = []
+          Caption = 'Name'
+          ExplicitLeft = 195
+          ExplicitTop = 47
+        end
+        object Label12: TLabel
+          Left = 336
+          Top = 62
+          Width = 41
+          Height = 13
+          Anchors = []
+          Caption = 'Client ID'
+          ExplicitLeft = 358
+          ExplicitTop = 47
+        end
+        object Label16: TLabel
+          Left = 61
+          Top = 96
+          Width = 33
+          Height = 13
+          Anchors = []
+          Caption = 'Leader'
+          ExplicitLeft = 64
+          ExplicitTop = 82
+        end
+        object Label22: TLabel
+          Left = 54
+          Top = 130
+          Width = 47
+          Height = 13
+          Anchors = []
+          Caption = 'Member 1'
+          ExplicitLeft = 64
+          ExplicitTop = 117
+        end
+        object Label28: TLabel
+          Left = 54
+          Top = 164
+          Width = 47
+          Height = 13
+          Anchors = []
+          Caption = 'Member 2'
+          ExplicitLeft = 64
+          ExplicitTop = 152
+        end
+        object Label34: TLabel
+          Left = 54
+          Top = 198
+          Width = 47
+          Height = 13
+          Anchors = []
+          Caption = 'Member 3'
+          ExplicitLeft = 64
+          ExplicitTop = 187
+        end
+        object Label40: TLabel
+          Left = 54
+          Top = 235
+          Width = 47
+          Height = 13
+          Anchors = []
+          Caption = 'Member 4'
+          ExplicitLeft = 64
+          ExplicitTop = 222
+        end
+        object lblLeadName: TLabel
+          Left = 124
+          Top = 86
+          Width = 155
+          Height = 34
+          Align = alClient
+          Alignment = taCenter
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object lblLeadID: TLabel
+          Left = 279
+          Top = 86
+          Width = 155
+          Height = 34
+          Align = alClient
+          Alignment = taCenter
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object lblM1Name: TLabel
+          Left = 124
+          Top = 120
+          Width = 155
+          Height = 34
+          Align = alClient
+          Alignment = taCenter
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object lblM1ID: TLabel
+          Left = 279
+          Top = 120
+          Width = 155
+          Height = 34
+          Align = alClient
+          Alignment = taCenter
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object lblM2Name: TLabel
+          Left = 124
+          Top = 154
+          Width = 155
+          Height = 34
+          Align = alClient
+          Alignment = taCenter
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object lblM2ID: TLabel
+          Left = 279
+          Top = 154
+          Width = 155
+          Height = 34
+          Align = alClient
+          Alignment = taCenter
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object lblM3Name: TLabel
+          Left = 124
+          Top = 188
+          Width = 155
+          Height = 34
+          Align = alClient
+          Alignment = taCenter
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object lblM3ID: TLabel
+          Left = 279
+          Top = 188
+          Width = 155
+          Height = 34
+          Align = alClient
+          Alignment = taCenter
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object lblM4Name: TLabel
+          Left = 124
+          Top = 222
+          Width = 155
+          Height = 39
+          Align = alClient
+          Alignment = taCenter
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object btnAdd1: TButton
+          Left = 448
+          Top = 90
+          Width = 31
+          Height = 25
+          Anchors = []
+          Caption = 'View'
+          TabOrder = 0
+        end
+        object btnAdd2: TButton
+          Left = 448
+          Top = 124
+          Width = 31
+          Height = 25
+          Anchors = []
+          Caption = 'View'
+          TabOrder = 1
+        end
+        object btnAdd3: TButton
+          Left = 448
+          Top = 158
+          Width = 31
+          Height = 25
+          Anchors = []
+          Caption = 'View'
+          TabOrder = 2
+        end
+        object btnAdd4: TButton
+          Left = 448
+          Top = 192
+          Width = 31
+          Height = 25
+          Anchors = []
+          Caption = 'View'
+          TabOrder = 3
+        end
+        object lblM4ID: TLabel
+          Left = 279
+          Top = 222
+          Width = 155
+          Height = 39
+          Align = alClient
+          Alignment = taCenter
+          Layout = tlCenter
+          ExplicitWidth = 3
+          ExplicitHeight = 13
+        end
+        object btnAdd5: TButton
+          Left = 448
+          Top = 229
+          Width = 31
+          Height = 25
+          Anchors = []
+          Caption = 'View'
+          TabOrder = 4
+        end
+        object Label3: TLabel
+          Left = 52
+          Top = 27
+          Width = 50
+          Height = 13
+          Anchors = []
+          Caption = 'Group ID :'
+          ExplicitLeft = 188
+        end
+        object lblGID: TLabel
+          Left = 124
+          Top = 16
+          Width = 155
+          Height = 36
+          Align = alClient
+          Caption = 'ID'
+          Layout = tlCenter
+          ExplicitWidth = 11
+          ExplicitHeight = 13
+        end
+      end
     end
     object GridPanel2: TGridPanel
       Left = 1
@@ -1096,21 +1053,6 @@ object frmDetails: TfrmDetails
           Row = 2
         end
         item
-          Column = 1
-          Control = Label41
-          Row = 3
-        end
-        item
-          Column = 2
-          Control = lblFees
-          Row = 3
-        end
-        item
-          Column = 3
-          Control = Label43
-          Row = 3
-        end
-        item
           Column = 6
           Control = lblDuration
           Row = 1
@@ -1132,13 +1074,10 @@ object frmDetails: TfrmDetails
           Value = 15.000000000000000000
         end
         item
-          Value = 33.333333333333340000
+          Value = 50.000000000000000000
         end
         item
-          Value = 33.333333333333340000
-        end
-        item
-          Value = 33.333333333333340000
+          Value = 50.000000000000000000
         end
         item
           SizeStyle = ssAbsolute
@@ -1146,16 +1085,12 @@ object frmDetails: TfrmDetails
         end>
       TabOrder = 2
       VerticalAlignment = taAlignTop
-      ExplicitLeft = 312
-      ExplicitTop = 360
-      ExplicitWidth = 185
-      ExplicitHeight = 41
       DesignSize = (
         528
         105)
       object Label17: TLabel
         Left = 29
-        Top = 21
+        Top = 27
         Width = 44
         Height = 16
         Anchors = []
@@ -1167,7 +1102,7 @@ object frmDetails: TfrmDetails
         Left = 91
         Top = 16
         Width = 120
-        Height = 26
+        Height = 39
         Align = alClient
         Alignment = taCenter
         Caption = 'Label3'
@@ -1177,7 +1112,7 @@ object frmDetails: TfrmDetails
       end
       object Label19: TLabel
         Left = 216
-        Top = 21
+        Top = 27
         Width = 30
         Height = 16
         Anchors = []
@@ -1187,7 +1122,7 @@ object frmDetails: TfrmDetails
       end
       object Label21: TLabel
         Left = 293
-        Top = 21
+        Top = 27
         Width = 48
         Height = 16
         Anchors = []
@@ -1197,7 +1132,7 @@ object frmDetails: TfrmDetails
       end
       object Label27: TLabel
         Left = 14
-        Top = 47
+        Top = 66
         Width = 74
         Height = 16
         Anchors = []
@@ -1207,9 +1142,9 @@ object frmDetails: TfrmDetails
       end
       object lblRate: TLabel
         Left = 91
-        Top = 42
+        Top = 55
         Width = 120
-        Height = 26
+        Height = 39
         Align = alClient
         Alignment = taCenter
         Caption = 'Label3'
@@ -1222,57 +1157,13 @@ object frmDetails: TfrmDetails
         ParentColor = False
         ParentFont = False
         Layout = tlCenter
+        ExplicitTop = 42
         ExplicitWidth = 31
         ExplicitHeight = 13
       end
       object Label30: TLabel
         Left = 225
-        Top = 48
-        Width = 11
-        Height = 13
-        Anchors = []
-        Caption = '%'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clHotLight
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        ExplicitLeft = 215
-      end
-      object Label41: TLabel
-        Left = 14
-        Top = 73
-        Width = 73
-        Height = 16
-        Anchors = []
-        Caption = 'Service Fees'
-        ExplicitLeft = 20
-        ExplicitTop = 74
-      end
-      object lblFees: TLabel
-        Left = 91
         Top = 68
-        Width = 120
-        Height = 26
-        Align = alClient
-        Alignment = taCenter
-        Caption = 'Label3'
-        Color = clHighlight
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clHotLight
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentColor = False
-        ParentFont = False
-        Layout = tlCenter
-        ExplicitWidth = 31
-        ExplicitHeight = 13
-      end
-      object Label43: TLabel
-        Left = 225
-        Top = 74
         Width = 11
         Height = 13
         Anchors = []
@@ -1284,12 +1175,13 @@ object frmDetails: TfrmDetails
         Font.Style = []
         ParentFont = False
         ExplicitLeft = 215
+        ExplicitTop = 48
       end
       object lblDuration: TLabel
         Left = 357
         Top = 16
         Width = 120
-        Height = 26
+        Height = 39
         Align = alClient
         Alignment = taCenter
         Caption = 'Label3'
@@ -1299,7 +1191,7 @@ object frmDetails: TfrmDetails
       end
       object Label36: TLabel
         Left = 479
-        Top = 21
+        Top = 27
         Width = 35
         Height = 16
         Anchors = []
@@ -1342,10 +1234,6 @@ object frmDetails: TfrmDetails
         end>
       TabOrder = 3
       VerticalAlignment = taAlignTop
-      ExplicitLeft = 16
-      ExplicitTop = 464
-      ExplicitWidth = 185
-      ExplicitHeight = 41
       object memoRemark: TMemo
         Left = 1
         Top = 16
@@ -1359,10 +1247,6 @@ object frmDetails: TfrmDetails
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        ExplicitLeft = 171
-        ExplicitTop = 59
-        ExplicitWidth = 185
-        ExplicitHeight = 89
       end
     end
     object GridPanel4: TGridPanel
@@ -1409,10 +1293,6 @@ object frmDetails: TfrmDetails
         end>
       ShowCaption = False
       TabOrder = 4
-      ExplicitLeft = 172
-      ExplicitTop = 572
-      ExplicitWidth = 185
-      ExplicitHeight = 41
       DesignSize = (
         528
         50)
@@ -1425,8 +1305,6 @@ object frmDetails: TfrmDetails
         Caption = 'Accept'
         TabOrder = 0
         OnClick = btnAcceptClick
-        ExplicitLeft = 337
-        ExplicitTop = 6
       end
       object btnDecline: TButton
         Left = 339
@@ -1436,7 +1314,7 @@ object frmDetails: TfrmDetails
         Anchors = []
         Caption = 'Decline'
         TabOrder = 1
-        ExplicitLeft = 858
+        OnClick = btnDeclineClick
       end
       object btnCancel: TButton
         Left = 439
@@ -1446,7 +1324,7 @@ object frmDetails: TfrmDetails
         Anchors = []
         Caption = 'Cancel'
         TabOrder = 2
-        ExplicitLeft = 858
+        OnClick = btnCancelClick
       end
     end
   end

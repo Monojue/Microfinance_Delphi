@@ -284,8 +284,9 @@ end;
 
 procedure TGroupLoanRequest.setAutoID;
 begin
+  today := Now;
   lblID.Caption := getAutoID('LoanRequestID', 'LoanRequest', 'LR-');
-  lblDate.Caption := FormatDateTime('dd/MM/yyyy', today);
+  lblDate.Caption := FormatDateTime('yyyy/MM/dd', today);
 end;
 
 procedure TGroupLoanRequest.btnSelectClick(Sender: TObject);

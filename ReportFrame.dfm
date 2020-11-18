@@ -227,6 +227,58 @@ object ReportFM: TReportFM
     ProviderName = 'DataSetProvider2'
     Left = 420
     Top = 404
+    object ClientDataSet2LoanRequestID: TStringField
+      FieldName = 'LoanRequestID'
+      Required = True
+      Size = 10
+    end
+    object ClientDataSet2GroupID: TStringField
+      FieldName = 'GroupID'
+      Required = True
+      Size = 10
+    end
+    object ClientDataSet2LeaderName: TStringField
+      FieldName = 'Leader Name'
+      Required = True
+      Size = 45
+    end
+    object ClientDataSet2Member1Name: TStringField
+      FieldName = 'Member1 Name'
+      Required = True
+      Size = 45
+    end
+    object ClientDataSet2Member2Name: TStringField
+      FieldName = 'Member2 Name'
+      Required = True
+      Size = 45
+    end
+    object ClientDataSet2Member3Name: TStringField
+      FieldName = 'Member3 Name'
+      Required = True
+      Size = 45
+    end
+    object ClientDataSet2Member4Name: TStringField
+      FieldName = 'Member4 Name'
+      Required = True
+      Size = 45
+    end
+    object ClientDataSet2RequestDate: TStringField
+      FieldName = 'RequestDate'
+      Required = True
+      Size = 15
+    end
+    object ClientDataSet2Amount: TIntegerField
+      FieldName = 'Amount'
+      Required = True
+    end
+    object ClientDataSet2Duration: TIntegerField
+      FieldName = 'Duration'
+      Required = True
+    end
+    object ClientDataSet2InterestRate: TIntegerField
+      FieldName = 'InterestRate'
+      Required = True
+    end
   end
   object DataSource2: TDataSource
     DataSet = ClientDataSet2

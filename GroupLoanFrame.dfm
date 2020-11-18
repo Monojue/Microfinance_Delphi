@@ -197,6 +197,7 @@ object GroupLoanFM: TGroupLoanFM
         Height = 25
         Anchors = []
         Caption = 'Pay'
+        Enabled = False
         TabOrder = 3
         OnClick = btnPayClick
       end
@@ -237,13 +238,14 @@ object GroupLoanFM: TGroupLoanFM
         Width = 462
         Height = 48
         Align = alClient
+        BevelOuter = bvNone
         TabOrder = 7
         object RadioGroup: TRadioGroup
           AlignWithMargins = True
-          Left = 4
-          Top = 4
-          Width = 438
-          Height = 40
+          Left = 3
+          Top = 3
+          Width = 440
+          Height = 42
           Align = alClient
           BiDiMode = bdRightToLeftReadingOnly
           Caption = 'View Table Of'
@@ -255,7 +257,10 @@ object GroupLoanFM: TGroupLoanFM
           ParentBiDiMode = False
           TabOrder = 0
           OnClick = RadioGroupClick
+          ExplicitLeft = 4
+          ExplicitTop = 4
           ExplicitWidth = 454
+          ExplicitHeight = 40
         end
       end
     end
@@ -272,6 +277,7 @@ object GroupLoanFM: TGroupLoanFM
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
+      OnCellClick = GroupGirdCellClick
     end
   end
   object MicrofinanceConnection: TSQLConnection

@@ -17,12 +17,38 @@ function GetGroupLoanSetting() : Resultdata;
 function GetGroupLoanSettingID() : string;
 function GetGroupDetailsFromID(id : string): Resultdata;
 function GetClientDetailsFromID(id : string): Resultdata;
+function UpdateDueDate(tbName,Date, LoanRequestID : string) : boolean;
 
 implementation
 
 uses DataModule;
 
+function UpdateDueDate(tbName,Date, LoanRequestID : string) : boolean;
+begin
+  with DMMicro do
+  begin
+  DMMicro.SQLQuery.Close;
+  SQLQuery.SQL.Clear;
+    if tbName = 'clientloan' then
+    begin
+      SQLQuery.SQL.Add('update clientDetails set DueDate= "'+Date+'" where LoanrequestID= "'+LoanRequestID+'"');
+    end
+    else if tbName = 'grouploan' then
+    begin
+      SQLQuery.SQL.Add('update groupDetails set DueDate= "'+Date+'" where LoanrequestID= "'+LoanRequestID+'"');
+    end;
 
+
+    if  SQLQuery.ExecSQL >0 then
+    begin
+      Exit(True);
+    end
+    else
+    begin
+      Exit(False);
+    end;
+  end;
+end;
 
 
 
@@ -93,7 +119,7 @@ end;
 function UpdateData(table : string; data :array of string) : boolean;
 begin
   with DMMicro do
-begin
+  begin
   DMMicro.SQLQuery.Close;
   SQLQuery.SQL.Clear;
   if table = 'client' then
@@ -106,12 +132,12 @@ begin
   end
    else if table = 'loanrequest' then
   begin
-  SQLQuery.SQL.Add('update loanrequest set Approved= "'+data[1]+'" where LoanrequestID= "'+data[0]+'"');
-  end
-   else if table = 'loanrequestDecline' then
-  begin
   SQLQuery.SQL.Add('update loanrequest set Approved= "'+data[1]+'",Remark= "'+data[2]+'" where LoanrequestID= "'+data[0]+'"');
   end
+//   else if table = 'loanrequestDecline' then
+//  begin
+//  SQLQuery.SQL.Add('update loanrequest set Approved= "'+data[1]+'",Remark= "'+data[2]+'" where LoanrequestID= "'+data[0]+'"');
+//  end
    else if table = 'paidday' then
   begin
   SQLQuery.SQL.Add('update loanrequest set PayDay= "'+data[1]+'" where LoanrequestID= "'+data[0]+'"');
@@ -133,7 +159,7 @@ begin
   begin
     Exit(False);
   end;
-end;
+  end;
 end;
 
 

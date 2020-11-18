@@ -34,6 +34,17 @@ type
     ClientDataSet1InterestRate: TIntegerField;
     ClientDataSet1Remark: TStringField;
     MicrofinanceConnection: TSQLConnection;
+    ClientDataSet2LoanRequestID: TStringField;
+    ClientDataSet2GroupID: TStringField;
+    ClientDataSet2LeaderName: TStringField;
+    ClientDataSet2Member1Name: TStringField;
+    ClientDataSet2Member2Name: TStringField;
+    ClientDataSet2Member3Name: TStringField;
+    ClientDataSet2Member4Name: TStringField;
+    ClientDataSet2RequestDate: TStringField;
+    ClientDataSet2Amount: TIntegerField;
+    ClientDataSet2Duration: TIntegerField;
+    ClientDataSet2InterestRate: TIntegerField;
     procedure btnViewDetailsClick(Sender: TObject);
     procedure ClientGridCellClick(Column: TColumn);
     procedure GroupGridCellClick(Column: TColumn);
@@ -60,6 +71,22 @@ procedure TReportFM.btnRefreshClick(Sender: TObject);
 begin
   btnViewDetails.Enabled := False;
   gridType := EmptyStr;
+  with SQLQuery1 do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM clientloanrequest where approved is null');
+    Open;
+    clientGrid.DataSource.DataSet.Refresh;
+  end;
+  with SQLQuery2 do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM grouploanrequest where approved is null');
+    Open;
+    GroupGrid.DataSource.DataSet.Refresh;
+  end;
 end;
 
 procedure TReportFM.btnViewDetailsClick(Sender: TObject);
@@ -79,7 +106,7 @@ begin
   data[2] :=  ClientGrid.Fields[3].AsString;
   data[3] :=  ClientGrid.Fields[4].AsString;
   data[4] :=  ClientGrid.Fields[5].AsString;
-  data[5] :=  ClientGrid.Fields[6].AsString;
+  data[5] :=  '';
 end;
 
 procedure TReportFM.GroupGridCellClick(Column: TColumn);
@@ -93,7 +120,7 @@ begin
   data[2] :=  GroupGrid.Fields[8].AsString;
   data[3] :=  GroupGrid.Fields[9].AsString;
   data[4] :=  GroupGrid.Fields[10].AsString;
-  data[5] :=  GroupGrid.Fields[11].AsString;
+  data[5] :=  '';
 end;
 
 end.

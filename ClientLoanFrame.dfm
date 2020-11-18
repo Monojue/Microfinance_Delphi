@@ -202,6 +202,7 @@ object ClientLoanFM: TClientLoanFM
         Height = 25
         Anchors = []
         Caption = 'Pay'
+        Enabled = False
         TabOrder = 3
         OnClick = btnPayClick
       end
@@ -242,13 +243,14 @@ object ClientLoanFM: TClientLoanFM
         Width = 462
         Height = 48
         Align = alClient
+        BevelOuter = bvNone
         TabOrder = 7
         object RadioGroup: TRadioGroup
           AlignWithMargins = True
-          Left = 4
-          Top = 4
-          Width = 438
-          Height = 40
+          Left = 3
+          Top = 3
+          Width = 440
+          Height = 42
           Align = alClient
           BiDiMode = bdRightToLeftReadingOnly
           Caption = 'View Table Of'
@@ -260,7 +262,10 @@ object ClientLoanFM: TClientLoanFM
           ParentBiDiMode = False
           TabOrder = 0
           OnClick = RadioGroupClick
+          ExplicitLeft = 4
+          ExplicitTop = 4
           ExplicitWidth = 454
+          ExplicitHeight = 40
         end
       end
       object lblPrefix: TLabel
@@ -280,12 +285,14 @@ object ClientLoanFM: TClientLoanFM
       Height = 640
       Align = alClient
       DataSource = DataSource
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleHotTrack]
       TabOrder = 1
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
+      OnCellClick = clientGridCellClick
     end
   end
   object MicrofinanceConnection: TSQLConnection
@@ -325,32 +332,33 @@ object ClientLoanFM: TClientLoanFM
       'Database=micro'
       'Password=root')
     Connected = True
-    Left = 767
-    Top = 188
+    Left = 794
+    Top = 288
   end
   object SQLQuery: TSQLQuery
+    Active = True
     MaxBlobSize = -1
     Params = <>
     SQL.Strings = (
       
-        'Select * from clientloanrequest where approved = 1  and payday i' +
-        's null')
+        'Select * from clientloanrequest where approved = 1 and PayDay is' +
+        ' null')
     SQLConnection = MicrofinanceConnection
-    Left = 776
-    Top = 256
+    Left = 816
+    Top = 368
   end
   object DataSetProvider: TDataSetProvider
     DataSet = SQLQuery
-    Left = 712
-    Top = 296
+    Left = 832
+    Top = 464
   end
   object ClientDataSet: TClientDataSet
     Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider'
-    Left = 872
-    Top = 336
+    Left = 888
+    Top = 552
     object ClientDataSetLoanRequestID: TStringField
       FieldName = 'LoanRequestID'
       Required = True
@@ -369,10 +377,6 @@ object ClientLoanFM: TClientLoanFM
     object ClientDataSetRequestDate: TStringField
       FieldName = 'RequestDate'
       Required = True
-      Size = 11
-    end
-    object ClientDataSetDueDate: TStringField
-      FieldName = 'DueDate'
       Size = 11
     end
     object ClientDataSetAmount: TIntegerField
@@ -394,7 +398,7 @@ object ClientLoanFM: TClientLoanFM
   end
   object DataSource: TDataSource
     DataSet = ClientDataSet
-    Left = 968
-    Top = 352
+    Left = 1016
+    Top = 488
   end
 end

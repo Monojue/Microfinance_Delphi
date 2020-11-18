@@ -15,6 +15,7 @@ function splitNRC(NRC: string) : resultData;
 procedure setLoginID (ID : string);
 function getLoginID () : string;
 //function addComma(amount : string) : string;
+function CalculateDueDate(DateNow : TDateTime) : string;
 implementation
 
 uses DataModule, ClientFrame;
@@ -51,6 +52,11 @@ end;
 //  end;
 //end;
 
+function CalculateDueDate(DateNow : TDateTime) : string;
+begin
+  Result := FormatDateTime('yyyy/MM/dd',IncMonth(DateNow,1));
+end;
+
 function getAutoID(field: string; table: string; prefix: string): string;
 var
 current : integer;
@@ -60,22 +66,25 @@ begin
     DMMicro.SQLQuery.SQL.Add('Select * from '+table+' order by '+field+' desc');
     DMMicro.SQLQuery.Open;
 
-      current := StrToInt(DMMicro.SQLQuery.FieldByName(field).AsString.Substring(3,10))+1;
-      if (current > 0) and (current <= 9) then
+    try
+        current := StrToInt(DMMicro.SQLQuery.FieldByName(field).AsString.Substring(3,10))+1;
+        if (current > 0) and (current <= 9) then
         Exit(prefix + '000000'+ current.ToString)
-      else if (current > 9) and (current <= 99) then
+        else if (current > 9) and (current <= 99) then
         Exit(prefix + '00000'+ current.ToString)
-      else if (current > 99) and (current <= 999) then
+        else if (current > 99) and (current <= 999) then
         Exit(prefix + '0000'+ current.ToString)
-      else if (current > 999) and (current <= 9999) then
+        else if (current > 999) and (current <= 9999) then
         Exit(prefix + '000'+ current.ToString)
-      else if (current > 9999) and (current <= 99999) then
+        else if (current > 9999) and (current <= 99999) then
         Exit(prefix + '00'+ current.ToString)
-      else if (current > 99999) and (current <= 999999) then
+        else if (current > 99999) and (current <= 999999) then
         Exit(prefix + '0'+ current.ToString)
-      else if (current > 999999) and (current <= 9999999) then
-        Exit(prefix + current.ToString)
-
+        else if (current > 999999) and (current <= 9999999) then
+        Exit(prefix + current.ToString);
+      except on E: Exception do
+        Exit(prefix + '0000001')
+      end;
 end;
 
 function splitDOB(DOB: string) : resultData;

@@ -47,6 +47,7 @@ type
     procedure editSearchChange(Sender: TObject);
     procedure btnSearchClick(Sender: TObject);
     procedure btnPayClick(Sender: TObject);
+    procedure GroupGirdCellClick(Column: TColumn);
   private
     { Private declarations }
   public
@@ -70,7 +71,15 @@ end;
 
 procedure TGroupLoanFM.btnPayClick(Sender: TObject);
 begin
-//  frmDetails.setformType('grouploan', data);
+  if btnPay.Caption = 'Pay' then
+  begin
+    frmDetails.setAD('accept');
+  end
+  else if btnPay.Caption = 'Inform' then
+  begin
+     frmDetails.setAD('decline');
+  end;
+  frmDetails.setformType('grouploan', data);
   frmDetails.Show;
 end;
 
@@ -96,18 +105,41 @@ begin
 
       Open;
       GroupGird.DataSource.DataSet.Refresh;
+      btnPay.Enabled := False;
+      btnDelete.Enabled := False;
   end;
 end;
 
 procedure TGroupLoanFM.editSearchChange(Sender: TObject);
 begin
-  btnSearch.Enabled := True;
+ if editSearch.Text <> EmptyStr then
+  begin
+    btnSearch.Enabled := True;
+  end
+  else
+  begin
+    btnSearch.Enabled := False;
+  end;
+end;
+
+procedure TGroupLoanFM.GroupGirdCellClick(Column: TColumn);
+begin
+  SetLength(data, 6);
+  data[0] :=  GroupGird.Fields[0].AsString;
+  data[1] :=  GroupGird.Fields[1].AsString;
+  data[2] :=  GroupGird.Fields[9].AsString;
+  data[3] :=  GroupGird.Fields[10].AsString;
+  data[4] :=  GroupGird.Fields[11].AsString;
+  data[5] :=  GroupGird.Fields[12].AsString;
+  btnPay.Enabled := True;
+  btnDelete.Enabled := True;
 end;
 
 procedure TGroupLoanFM.RadioGroupClick(Sender: TObject);
 begin
    if RadioGroup.ItemIndex = 0 then
   begin
+    btnPay.Caption := 'Pay';
     with SQLQuery do
     begin
       Close;
@@ -118,11 +150,12 @@ begin
   end
   else if RadioGroup.ItemIndex = 1 then
   begin
+    btnPay.Caption := 'Inform';
     with SQLQuery do
     begin
       Close;
       SQL.Clear;
-      SQL.Add('Select * from grouploanrequest where approved is null and PayDay is null');
+      SQL.Add('Select * from grouploanrequest where approved = 2 and PayDay is null');
       Open;
     end;
   end;
