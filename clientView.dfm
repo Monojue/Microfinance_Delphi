@@ -1,7 +1,7 @@
-object frmCleintEntry: TfrmCleintEntry
+object frmClientView: TfrmClientView
   Left = 0
   Top = 0
-  Caption = 'ClientEntry'
+  Caption = 'Client View'
   ClientHeight = 460
   ClientWidth = 501
   Color = clBtnFace
@@ -11,7 +11,6 @@ object frmCleintEntry: TfrmCleintEntry
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poMainFormCenter
   PixelsPerInch = 96
   TextHeight = 13
   object MainGrip: TGridPanel
@@ -32,13 +31,13 @@ object frmCleintEntry: TfrmCleintEntry
       end
       item
         Column = 0
-        Control = TopGrip
-        Row = 0
+        Control = RelativePanel1
+        Row = 1
       end
       item
         Column = 0
-        Control = RelativePanel1
-        Row = 1
+        Control = TopGrip
+        Row = 0
       end>
     RowCollection = <
       item
@@ -76,11 +75,6 @@ object frmCleintEntry: TfrmCleintEntry
         end>
       ControlCollection = <
         item
-          Column = 1
-          Control = btnSave
-          Row = 0
-        end
-        item
           Column = 2
           Control = btnClose
           Row = 0
@@ -93,16 +87,6 @@ object frmCleintEntry: TfrmCleintEntry
       DesignSize = (
         499
         40)
-      object btnSave: TButton
-        Left = 310
-        Top = 7
-        Width = 75
-        Height = 25
-        Anchors = []
-        Caption = 'Save'
-        TabOrder = 0
-        OnClick = btnSaveClick
-      end
       object btnClose: TButton
         Left = 410
         Top = 7
@@ -110,120 +94,7 @@ object frmCleintEntry: TfrmCleintEntry
         Height = 25
         Anchors = []
         Caption = 'Cancel'
-        TabOrder = 1
-      end
-    end
-    object TopGrip: TGridPanel
-      Left = 1
-      Top = 1
-      Width = 499
-      Height = 40
-      Align = alClient
-      ColumnCollection = <
-        item
-          SizeStyle = ssAbsolute
-          Value = 70.000000000000000000
-        end
-        item
-          SizeStyle = ssAbsolute
-          Value = 140.000000000000000000
-        end
-        item
-          Value = 100.000000000000000000
-        end
-        item
-          SizeStyle = ssAbsolute
-          Value = 50.000000000000000000
-        end
-        item
-          SizeStyle = ssAbsolute
-          Value = 140.000000000000000000
-        end>
-      ControlCollection = <
-        item
-          Column = 1
-          Control = lblID
-          Row = 0
-        end
-        item
-          Column = -1
-          Row = -1
-        end
-        item
-          Column = 0
-          Control = Label1
-          Row = 0
-        end
-        item
-          Column = 3
-          Control = Label4
-          Row = 0
-        end
-        item
-          Column = 4
-          Control = lblDate
-          Row = 0
-        end>
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-      RowCollection = <
-        item
-          Value = 100.000000000000000000
-        end
-        item
-          SizeStyle = ssAuto
-        end>
-      TabOrder = 1
-      ExplicitTop = 0
-      object lblID: TLabel
-        Left = 71
-        Top = 1
-        Width = 4
-        Height = 38
-        Margins.Left = 50
-        Align = alLeft
-        Layout = tlCenter
-        ExplicitHeight = 16
-      end
-      object Label1: TLabel
-        Left = 1
-        Top = 1
-        Width = 70
-        Height = 38
-        Margins.Right = 10
-        Align = alClient
-        Alignment = taRightJustify
-        Caption = 'Client ID : '
-        Layout = tlCenter
-        ExplicitLeft = 10
-        ExplicitWidth = 61
-        ExplicitHeight = 16
-      end
-      object Label4: TLabel
-        Left = 308
-        Top = 1
-        Width = 50
-        Height = 38
-        Align = alClient
-        Alignment = taRightJustify
-        Caption = 'Date : '
-        Layout = tlCenter
-        ExplicitLeft = 319
-        ExplicitWidth = 39
-        ExplicitHeight = 16
-      end
-      object lblDate: TLabel
-        Left = 358
-        Top = 1
-        Width = 4
-        Height = 38
-        Align = alLeft
-        Layout = tlCenter
-        ExplicitHeight = 16
+        TabOrder = 0
       end
     end
     object RelativePanel1: TRelativePanel
@@ -233,25 +104,7 @@ object frmCleintEntry: TfrmCleintEntry
       Height = 378
       ControlCollection = <
         item
-          Control = editName
-          AlignBottomWithPanel = False
-          AlignHorizontalCenterWithPanel = False
-          AlignLeftWithPanel = False
-          AlignRightWithPanel = False
-          AlignTopWithPanel = False
-          AlignVerticalCenterWithPanel = False
-        end
-        item
           Control = Label3
-          AlignBottomWithPanel = False
-          AlignHorizontalCenterWithPanel = False
-          AlignLeftWithPanel = False
-          AlignRightWithPanel = False
-          AlignTopWithPanel = False
-          AlignVerticalCenterWithPanel = False
-        end
-        item
-          Control = editAddress
           AlignBottomWithPanel = False
           AlignHorizontalCenterWithPanel = False
           AlignLeftWithPanel = False
@@ -287,78 +140,6 @@ object frmCleintEntry: TfrmCleintEntry
           AlignVerticalCenterWithPanel = False
         end
         item
-          Control = cboxNo
-          AlignBottomWithPanel = False
-          AlignHorizontalCenterWithPanel = False
-          AlignLeftWithPanel = False
-          AlignRightWithPanel = False
-          AlignTopWithPanel = False
-          AlignVerticalCenterWithPanel = False
-        end
-        item
-          Control = cboxR
-          AlignBottomWithPanel = False
-          AlignHorizontalCenterWithPanel = False
-          AlignLeftWithPanel = False
-          AlignRightWithPanel = False
-          AlignTopWithPanel = False
-          AlignVerticalCenterWithPanel = False
-        end
-        item
-          Control = editNRC
-          AlignBottomWithPanel = False
-          AlignHorizontalCenterWithPanel = False
-          AlignLeftWithPanel = False
-          AlignRightWithPanel = False
-          AlignTopWithPanel = False
-          AlignVerticalCenterWithPanel = False
-        end
-        item
-          Control = Label9
-          AlignBottomWithPanel = False
-          AlignHorizontalCenterWithPanel = False
-          AlignLeftWithPanel = False
-          AlignRightWithPanel = False
-          AlignTopWithPanel = False
-          AlignVerticalCenterWithPanel = False
-        end
-        item
-          Control = Label10
-          AlignBottomWithPanel = False
-          AlignHorizontalCenterWithPanel = False
-          AlignLeftWithPanel = False
-          AlignRightWithPanel = False
-          AlignTopWithPanel = False
-          AlignVerticalCenterWithPanel = False
-        end
-        item
-          Control = cboxDate
-          AlignBottomWithPanel = False
-          AlignHorizontalCenterWithPanel = False
-          AlignLeftWithPanel = False
-          AlignRightWithPanel = False
-          AlignTopWithPanel = False
-          AlignVerticalCenterWithPanel = False
-        end
-        item
-          Control = cboxMonth
-          AlignBottomWithPanel = False
-          AlignHorizontalCenterWithPanel = False
-          AlignLeftWithPanel = False
-          AlignRightWithPanel = False
-          AlignTopWithPanel = False
-          AlignVerticalCenterWithPanel = False
-        end
-        item
-          Control = cboxYear
-          AlignBottomWithPanel = False
-          AlignHorizontalCenterWithPanel = False
-          AlignLeftWithPanel = False
-          AlignRightWithPanel = False
-          AlignTopWithPanel = False
-          AlignVerticalCenterWithPanel = False
-        end
-        item
           Control = Label11
           AlignBottomWithPanel = False
           AlignHorizontalCenterWithPanel = False
@@ -369,24 +150,6 @@ object frmCleintEntry: TfrmCleintEntry
         end
         item
           Control = Label12
-          AlignBottomWithPanel = False
-          AlignHorizontalCenterWithPanel = False
-          AlignLeftWithPanel = False
-          AlignRightWithPanel = False
-          AlignTopWithPanel = False
-          AlignVerticalCenterWithPanel = False
-        end
-        item
-          Control = editPhone
-          AlignBottomWithPanel = False
-          AlignHorizontalCenterWithPanel = False
-          AlignLeftWithPanel = False
-          AlignRightWithPanel = False
-          AlignTopWithPanel = False
-          AlignVerticalCenterWithPanel = False
-        end
-        item
-          Control = checkHome
           AlignBottomWithPanel = False
           AlignHorizontalCenterWithPanel = False
           AlignLeftWithPanel = False
@@ -413,7 +176,7 @@ object frmCleintEntry: TfrmCleintEntry
           AlignVerticalCenterWithPanel = False
         end
         item
-          Control = editJOB
+          Control = lblName
           AlignBottomWithPanel = False
           AlignHorizontalCenterWithPanel = False
           AlignLeftWithPanel = False
@@ -422,7 +185,61 @@ object frmCleintEntry: TfrmCleintEntry
           AlignVerticalCenterWithPanel = False
         end
         item
-          Control = editSalary
+          Control = lblNRC
+          AlignBottomWithPanel = False
+          AlignHorizontalCenterWithPanel = False
+          AlignLeftWithPanel = False
+          AlignRightWithPanel = False
+          AlignTopWithPanel = False
+          AlignVerticalCenterWithPanel = False
+        end
+        item
+          Control = lblDOB
+          AlignBottomWithPanel = False
+          AlignHorizontalCenterWithPanel = False
+          AlignLeftWithPanel = False
+          AlignRightWithPanel = False
+          AlignTopWithPanel = False
+          AlignVerticalCenterWithPanel = False
+        end
+        item
+          Control = lblAddress
+          AlignBottomWithPanel = False
+          AlignHorizontalCenterWithPanel = False
+          AlignLeftWithPanel = False
+          AlignRightWithPanel = False
+          AlignTopWithPanel = False
+          AlignVerticalCenterWithPanel = False
+        end
+        item
+          Control = lblPhone
+          AlignBottomWithPanel = False
+          AlignHorizontalCenterWithPanel = False
+          AlignLeftWithPanel = False
+          AlignRightWithPanel = False
+          AlignTopWithPanel = False
+          AlignVerticalCenterWithPanel = False
+        end
+        item
+          Control = lblJob
+          AlignBottomWithPanel = False
+          AlignHorizontalCenterWithPanel = False
+          AlignLeftWithPanel = False
+          AlignRightWithPanel = False
+          AlignTopWithPanel = False
+          AlignVerticalCenterWithPanel = False
+        end
+        item
+          Control = lblSalary
+          AlignBottomWithPanel = False
+          AlignHorizontalCenterWithPanel = False
+          AlignLeftWithPanel = False
+          AlignRightWithPanel = False
+          AlignTopWithPanel = False
+          AlignVerticalCenterWithPanel = False
+        end
+        item
+          Control = lblHome
           AlignBottomWithPanel = False
           AlignHorizontalCenterWithPanel = False
           AlignLeftWithPanel = False
@@ -437,18 +254,10 @@ object frmCleintEntry: TfrmCleintEntry
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 2
+      TabOrder = 1
       DesignSize = (
         499
         378)
-      object editName: TEdit
-        Left = 160
-        Top = 48
-        Width = 193
-        Height = 24
-        Anchors = []
-        TabOrder = 0
-      end
       object Label3: TLabel
         Left = 71
         Top = 48
@@ -462,14 +271,6 @@ object frmCleintEntry: TfrmCleintEntry
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-      end
-      object editAddress: TEdit
-        Left = 160
-        Top = 168
-        Width = 241
-        Height = 24
-        Anchors = []
-        TabOrder = 1
       end
       object lable: TLabel
         Left = 71
@@ -513,73 +314,6 @@ object frmCleintEntry: TfrmCleintEntry
         Font.Style = []
         ParentFont = False
       end
-      object cboxNo: TComboBox
-        Left = 163
-        Top = 88
-        Width = 49
-        Height = 24
-        Anchors = []
-        TabOrder = 2
-      end
-      object cboxR: TComboBox
-        Left = 229
-        Top = 88
-        Width = 68
-        Height = 24
-        Anchors = []
-        TabOrder = 3
-      end
-      object editNRC: TEdit
-        Left = 322
-        Top = 88
-        Width = 121
-        Height = 24
-        Anchors = []
-        NumbersOnly = True
-        TabOrder = 4
-      end
-      object Label9: TLabel
-        Left = 218
-        Top = 91
-        Width = 5
-        Height = 16
-        Anchors = []
-        Caption = '/'
-      end
-      object Label10: TLabel
-        Left = 299
-        Top = 91
-        Width = 18
-        Height = 16
-        Margins.Left = 10
-        Margins.Right = 10
-        Anchors = []
-        Caption = '(N)'
-      end
-      object cboxDate: TComboBox
-        Left = 161
-        Top = 128
-        Width = 51
-        Height = 24
-        Anchors = []
-        TabOrder = 5
-      end
-      object cboxMonth: TComboBox
-        Left = 229
-        Top = 128
-        Width = 85
-        Height = 24
-        Anchors = []
-        TabOrder = 6
-      end
-      object cboxYear: TComboBox
-        Left = 322
-        Top = 128
-        Width = 83
-        Height = 24
-        Anchors = []
-        TabOrder = 7
-      end
       object Label11: TLabel
         Left = 71
         Top = 211
@@ -607,24 +341,6 @@ object frmCleintEntry: TfrmCleintEntry
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-      end
-      object editPhone: TEdit
-        Left = 160
-        Top = 208
-        Width = 113
-        Height = 24
-        Anchors = []
-        NumbersOnly = True
-        TabOrder = 8
-      end
-      object checkHome: TCheckBox
-        Left = 160
-        Top = 250
-        Width = 97
-        Height = 17
-        Anchors = []
-        Caption = 'Owned'
-        TabOrder = 9
       end
       object JOB: TLabel
         Left = 71
@@ -654,22 +370,151 @@ object frmCleintEntry: TfrmCleintEntry
         Font.Style = []
         ParentFont = False
       end
-      object editJOB: TEdit
+      object lblName: TLabel
         Left = 160
-        Top = 288
-        Width = 113
-        Height = 24
+        Top = 48
+        Width = 46
+        Height = 16
         Anchors = []
-        TabOrder = 10
+        Caption = 'lblName'
       end
-      object editSalary: TEdit
+      object lblNRC: TLabel
         Left = 160
-        Top = 325
-        Width = 113
-        Height = 24
+        Top = 91
+        Width = 37
+        Height = 16
         Anchors = []
-        NumbersOnly = True
-        TabOrder = 11
+        Caption = 'lblNRC'
+      end
+      object lblDOB: TLabel
+        Left = 160
+        Top = 131
+        Width = 37
+        Height = 16
+        Anchors = []
+        Caption = 'lblDOB'
+      end
+      object lblAddress: TLabel
+        Left = 160
+        Top = 171
+        Width = 59
+        Height = 16
+        Anchors = []
+        Caption = 'lblAddress'
+      end
+      object lblPhone: TLabel
+        Left = 160
+        Top = 211
+        Width = 37
+        Height = 16
+        Anchors = []
+        Caption = 'Label2'
+      end
+      object lblJob: TLabel
+        Left = 160
+        Top = 291
+        Width = 37
+        Height = 16
+        Anchors = []
+        Caption = 'Label2'
+      end
+      object lblSalary: TLabel
+        Left = 160
+        Top = 328
+        Width = 37
+        Height = 16
+        Anchors = []
+        Caption = 'Label2'
+      end
+      object lblHome: TLabel
+        Left = 160
+        Top = 251
+        Width = 37
+        Height = 16
+        Anchors = []
+        Caption = 'Label2'
+      end
+    end
+    object TopGrip: TGridPanel
+      Left = 1
+      Top = 1
+      Width = 499
+      Height = 40
+      Align = alClient
+      ColumnCollection = <
+        item
+          SizeStyle = ssAbsolute
+          Value = 70.000000000000000000
+        end
+        item
+          SizeStyle = ssAbsolute
+          Value = 140.000000000000000000
+        end
+        item
+          Value = 100.000000000000000000
+        end
+        item
+          SizeStyle = ssAbsolute
+          Value = 50.000000000000000000
+        end
+        item
+          SizeStyle = ssAbsolute
+          Value = 140.000000000000000000
+        end>
+      ControlCollection = <
+        item
+          Column = 1
+          Control = lblID
+          Row = 0
+        end
+        item
+          Column = -1
+          Row = -1
+        end
+        item
+          Column = 0
+          Control = Label1
+          Row = 0
+        end>
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      RowCollection = <
+        item
+          Value = 100.000000000000000000
+        end
+        item
+          SizeStyle = ssAuto
+        end>
+      TabOrder = 2
+      ExplicitLeft = 0
+      ExplicitTop = -5
+      object lblID: TLabel
+        Left = 71
+        Top = 1
+        Width = 4
+        Height = 38
+        Margins.Left = 50
+        Align = alLeft
+        Layout = tlCenter
+        ExplicitHeight = 16
+      end
+      object Label1: TLabel
+        Left = 1
+        Top = 1
+        Width = 70
+        Height = 38
+        Margins.Right = 10
+        Align = alClient
+        Alignment = taRightJustify
+        Caption = 'Client ID : '
+        Layout = tlCenter
+        ExplicitLeft = 10
+        ExplicitWidth = 61
+        ExplicitHeight = 16
       end
     end
   end

@@ -719,6 +719,10 @@ object frmDetails: TfrmDetails
           end
           item
             Value = 14.184397163120570000
+          end
+          item
+            SizeStyle = ssAbsolute
+            Value = 10.000000000000000000
           end>
         TabOrder = 0
         VerticalAlignment = taAlignTop
@@ -727,7 +731,7 @@ object frmDetails: TfrmDetails
           262)
         object Label2: TLabel
           Left = 188
-          Top = 62
+          Top = 61
           Width = 27
           Height = 13
           Anchors = []
@@ -737,7 +741,7 @@ object frmDetails: TfrmDetails
         end
         object Label12: TLabel
           Left = 336
-          Top = 62
+          Top = 61
           Width = 41
           Height = 13
           Anchors = []
@@ -747,7 +751,7 @@ object frmDetails: TfrmDetails
         end
         object Label16: TLabel
           Left = 61
-          Top = 96
+          Top = 94
           Width = 33
           Height = 13
           Anchors = []
@@ -757,7 +761,7 @@ object frmDetails: TfrmDetails
         end
         object Label22: TLabel
           Left = 54
-          Top = 130
+          Top = 127
           Width = 47
           Height = 13
           Anchors = []
@@ -767,7 +771,7 @@ object frmDetails: TfrmDetails
         end
         object Label28: TLabel
           Left = 54
-          Top = 164
+          Top = 160
           Width = 47
           Height = 13
           Anchors = []
@@ -777,7 +781,7 @@ object frmDetails: TfrmDetails
         end
         object Label34: TLabel
           Left = 54
-          Top = 198
+          Top = 193
           Width = 47
           Height = 13
           Anchors = []
@@ -787,7 +791,7 @@ object frmDetails: TfrmDetails
         end
         object Label40: TLabel
           Left = 54
-          Top = 235
+          Top = 226
           Width = 47
           Height = 13
           Anchors = []
@@ -797,158 +801,178 @@ object frmDetails: TfrmDetails
         end
         object lblLeadName: TLabel
           Left = 124
-          Top = 86
+          Top = 84
           Width = 155
-          Height = 34
+          Height = 33
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
+          ExplicitTop = 86
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
         object lblLeadID: TLabel
           Left = 279
-          Top = 86
+          Top = 84
           Width = 155
-          Height = 34
+          Height = 33
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
+          ExplicitTop = 86
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
         object lblM1Name: TLabel
           Left = 124
-          Top = 120
+          Top = 117
           Width = 155
-          Height = 34
+          Height = 33
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
+          ExplicitTop = 120
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
         object lblM1ID: TLabel
           Left = 279
-          Top = 120
+          Top = 117
           Width = 155
-          Height = 34
+          Height = 33
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
+          ExplicitTop = 120
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
         object lblM2Name: TLabel
           Left = 124
-          Top = 154
+          Top = 150
           Width = 155
-          Height = 34
+          Height = 33
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
+          ExplicitTop = 154
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
         object lblM2ID: TLabel
           Left = 279
-          Top = 154
+          Top = 150
           Width = 155
-          Height = 34
+          Height = 33
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
+          ExplicitTop = 154
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
         object lblM3Name: TLabel
           Left = 124
-          Top = 188
+          Top = 183
           Width = 155
-          Height = 34
+          Height = 33
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
+          ExplicitTop = 188
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
         object lblM3ID: TLabel
           Left = 279
-          Top = 188
+          Top = 183
           Width = 155
-          Height = 34
+          Height = 33
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
+          ExplicitTop = 188
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
         object lblM4Name: TLabel
           Left = 124
-          Top = 222
+          Top = 216
           Width = 155
-          Height = 39
+          Height = 33
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
+          ExplicitTop = 222
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
         object btnAdd1: TButton
           Left = 448
-          Top = 90
+          Top = 88
           Width = 31
           Height = 25
           Anchors = []
           Caption = 'View'
           TabOrder = 0
+          OnClick = btnAdd1Click
+          ExplicitTop = 90
         end
         object btnAdd2: TButton
           Left = 448
-          Top = 124
+          Top = 121
           Width = 31
           Height = 25
           Anchors = []
           Caption = 'View'
           TabOrder = 1
+          OnClick = btnAdd2Click
+          ExplicitTop = 124
         end
         object btnAdd3: TButton
           Left = 448
-          Top = 158
+          Top = 154
           Width = 31
           Height = 25
           Anchors = []
           Caption = 'View'
           TabOrder = 2
+          OnClick = btnAdd3Click
+          ExplicitTop = 158
         end
         object btnAdd4: TButton
           Left = 448
-          Top = 192
+          Top = 187
           Width = 31
           Height = 25
           Anchors = []
           Caption = 'View'
           TabOrder = 3
+          OnClick = btnAdd4Click
+          ExplicitTop = 192
         end
         object lblM4ID: TLabel
           Left = 279
-          Top = 222
+          Top = 216
           Width = 155
-          Height = 39
+          Height = 33
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
+          ExplicitTop = 222
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
         object btnAdd5: TButton
           Left = 448
-          Top = 229
+          Top = 220
           Width = 31
           Height = 25
           Anchors = []
           Caption = 'View'
           TabOrder = 4
+          OnClick = btnAdd5Click
+          ExplicitTop = 229
         end
         object Label3: TLabel
           Left = 52
@@ -963,7 +987,7 @@ object frmDetails: TfrmDetails
           Left = 124
           Top = 16
           Width = 155
-          Height = 36
+          Height = 35
           Align = alClient
           Caption = 'ID'
           Layout = tlCenter
@@ -1157,7 +1181,6 @@ object frmDetails: TfrmDetails
         ParentColor = False
         ParentFont = False
         Layout = tlCenter
-        ExplicitTop = 42
         ExplicitWidth = 31
         ExplicitHeight = 13
       end

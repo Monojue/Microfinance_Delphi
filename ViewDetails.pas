@@ -84,6 +84,12 @@ type
     procedure btnDeclineClick(Sender: TObject);
     procedure paidDay(ID : string; amount:string);
     procedure btnCancelClick(Sender: TObject);
+    procedure ViewClientDetails(ID : string);
+    procedure btnAdd1Click(Sender: TObject);
+    procedure btnAdd2Click(Sender: TObject);
+    procedure btnAdd3Click(Sender: TObject);
+    procedure btnAdd4Click(Sender: TObject);
+    procedure btnAdd5Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -102,7 +108,7 @@ implementation
 
 {$R *.dfm}
 
-uses MyQury, shareFunction;
+uses MyQury, shareFunction, ClientEntry, clientView;
 
 { TfrmDetails }
 
@@ -122,6 +128,31 @@ begin
   begin
     ShowMessage('Failed to Approve Request!');
   end;
+end;
+
+procedure TfrmDetails.btnAdd1Click(Sender: TObject);
+begin
+  ViewClientDetails(lblLeadID.Caption);
+end;
+
+procedure TfrmDetails.btnAdd2Click(Sender: TObject);
+begin
+  ViewClientDetails(lblM1ID.Caption);
+end;
+
+procedure TfrmDetails.btnAdd3Click(Sender: TObject);
+begin
+  ViewClientDetails(lblM2ID.Caption);
+end;
+
+procedure TfrmDetails.btnAdd4Click(Sender: TObject);
+begin
+  ViewClientDetails(lblM3ID.Caption);
+end;
+
+procedure TfrmDetails.btnAdd5Click(Sender: TObject);
+begin
+  ViewClientDetails(lblM4ID.Caption);
 end;
 
 procedure TfrmDetails.btnCancelClick(Sender: TObject);
@@ -306,6 +337,12 @@ begin
     lblM3Name.Caption := GetGroupDetailsFromID(data[1])[7];
     lblM4ID.Caption := GetGroupDetailsFromID(data[1])[8];
     lblM4Name.Caption := GetGroupDetailsFromID(data[1])[9];
+end;
+
+procedure TfrmDetails.ViewClientDetails(ID: string);
+begin
+  frmClientView.prepareView(ID);
+  frmClientView.Show;
 end;
 
 end.

@@ -1,14 +1,14 @@
-object ClientLoanFM: TClientLoanFM
+object RepaymentFM: TRepaymentFM
   Left = 0
   Top = 0
   Width = 1231
-  Height = 692
+  Height = 581
   TabOrder = 0
   object GridPanel1: TGridPanel
     Left = 0
     Top = 0
     Width = 1231
-    Height = 692
+    Height = 581
     Align = alClient
     ColumnCollection = <
       item
@@ -40,6 +40,9 @@ object ClientLoanFM: TClientLoanFM
         SizeStyle = ssAuto
       end>
     TabOrder = 0
+    ExplicitLeft = -351
+    ExplicitTop = -111
+    ExplicitHeight = 692
     object GridPanel2: TGridPanel
       Left = 1
       Top = 1
@@ -111,13 +114,8 @@ object ClientLoanFM: TClientLoanFM
           Row = 0
         end
         item
-          Column = 7
-          Control = btnNew
-          Row = 0
-        end
-        item
           Column = 8
-          Control = btnPay
+          Control = btnViewDetails
           Row = 0
         end
         item
@@ -169,12 +167,12 @@ object ClientLoanFM: TClientLoanFM
         Width = 112
         Height = 21
         Anchors = []
-        ItemIndex = 0
         TabOrder = 0
         Text = 'LoanRequest ID'
         Items.Strings = (
           'LoanRequest ID'
-          'Client ID')
+          'Client ID'
+          'Date')
       end
       object editSearch: TEdit
         Left = 230
@@ -183,28 +181,17 @@ object ClientLoanFM: TClientLoanFM
         Height = 21
         Anchors = []
         TabOrder = 1
-        OnChange = editSearchChange
       end
-      object btnNew: TButton
-        Left = 900
-        Top = 12
-        Width = 75
-        Height = 25
-        Anchors = []
-        Caption = 'New'
-        TabOrder = 2
-        OnClick = btnNewClick
-      end
-      object btnPay: TButton
+      object btnViewDetails: TButton
         Left = 980
         Top = 12
         Width = 75
         Height = 25
         Anchors = []
-        Caption = 'Pay'
+        Caption = 'View Details'
         Enabled = False
-        TabOrder = 3
-        OnClick = btnPayClick
+        TabOrder = 2
+        OnClick = btnViewDetailsClick
       end
       object btnDelete: TButton
         Left = 1060
@@ -214,7 +201,7 @@ object ClientLoanFM: TClientLoanFM
         Anchors = []
         Caption = 'Delete'
         Enabled = False
-        TabOrder = 4
+        TabOrder = 3
       end
       object btnRefresh: TButton
         Left = 1140
@@ -223,8 +210,7 @@ object ClientLoanFM: TClientLoanFM
         Height = 25
         Anchors = []
         Caption = 'Refresh'
-        TabOrder = 5
-        OnClick = btnRefreshClick
+        TabOrder = 4
       end
       object btnSearch: TButton
         Left = 358
@@ -234,8 +220,7 @@ object ClientLoanFM: TClientLoanFM
         Anchors = []
         Caption = 'Search'
         Enabled = False
-        TabOrder = 6
-        OnClick = btnSearchClick
+        TabOrder = 5
       end
       object Panel1: TPanel
         Left = 436
@@ -244,12 +229,12 @@ object ClientLoanFM: TClientLoanFM
         Height = 48
         Align = alClient
         BevelOuter = bvNone
-        TabOrder = 7
+        TabOrder = 6
         object RadioGroup: TRadioGroup
           AlignWithMargins = True
           Left = 3
           Top = 3
-          Width = 440
+          Width = 456
           Height = 42
           Align = alClient
           BiDiMode = bdRightToLeftReadingOnly
@@ -257,12 +242,10 @@ object ClientLoanFM: TClientLoanFM
           Columns = 2
           ItemIndex = 0
           Items.Strings = (
-            'Accepted'
-            'Rejected')
+            'Individual'
+            'Group')
           ParentBiDiMode = False
           TabOrder = 0
-          OnClick = RadioGroupClick
-          ExplicitWidth = 456
         end
       end
       object lblPrefix: TLabel
@@ -279,7 +262,7 @@ object ClientLoanFM: TClientLoanFM
       Left = 1
       Top = 51
       Width = 1229
-      Height = 640
+      Height = 529
       Align = alClient
       DataSource = DataSource
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleHotTrack]
@@ -338,8 +321,8 @@ object ClientLoanFM: TClientLoanFM
     Params = <>
     SQL.Strings = (
       
-        'Select * from clientloanrequest where approved = 1 and PayDay is' +
-        ' null')
+        'Select * from grouploanrequest where approved = 1 and PayDay is ' +
+        'not null')
     SQLConnection = MicrofinanceConnection
     Left = 816
     Top = 368
@@ -349,32 +332,61 @@ object ClientLoanFM: TClientLoanFM
     Left = 832
     Top = 464
   end
+  object DataSource: TDataSource
+    DataSet = ClientDataSet
+    Left = 1016
+    Top = 488
+  end
   object ClientDataSet: TClientDataSet
     Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider'
-    Left = 888
-    Top = 552
+    Left = 968
+    Top = 440
     object ClientDataSetLoanRequestID: TStringField
       FieldName = 'LoanRequestID'
       Required = True
       Size = 10
     end
-    object ClientDataSetClientID: TStringField
-      FieldName = 'ClientID'
+    object ClientDataSetGroupID: TStringField
+      FieldName = 'GroupID'
       Required = True
       Size = 10
     end
-    object ClientDataSetClientName: TStringField
-      FieldName = 'ClientName'
+    object ClientDataSetLeaderName: TStringField
+      FieldName = 'Leader Name'
+      Required = True
+      Size = 45
+    end
+    object ClientDataSetMember1Name: TStringField
+      FieldName = 'Member1 Name'
+      Required = True
+      Size = 45
+    end
+    object ClientDataSetMember2Name: TStringField
+      FieldName = 'Member2 Name'
+      Required = True
+      Size = 45
+    end
+    object ClientDataSetMember3Name: TStringField
+      FieldName = 'Member3 Name'
+      Required = True
+      Size = 45
+    end
+    object ClientDataSetMember4Name: TStringField
+      FieldName = 'Member4 Name'
       Required = True
       Size = 45
     end
     object ClientDataSetRequestDate: TStringField
       FieldName = 'RequestDate'
       Required = True
-      Size = 11
+      Size = 15
+    end
+    object ClientDataSetDueDate: TStringField
+      FieldName = 'DueDate'
+      Size = 15
     end
     object ClientDataSetAmount: TIntegerField
       FieldName = 'Amount'
@@ -388,14 +400,8 @@ object ClientLoanFM: TClientLoanFM
       FieldName = 'InterestRate'
       Required = True
     end
-    object ClientDataSetRemark: TStringField
-      FieldName = 'Remark'
-      Size = 100
+    object ClientDataSetPayDay: TStringField
+      FieldName = 'PayDay'
     end
-  end
-  object DataSource: TDataSource
-    DataSet = ClientDataSet
-    Left = 1016
-    Top = 488
   end
 end

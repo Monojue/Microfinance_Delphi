@@ -20,7 +20,10 @@ uses
   ClientLoanFrame in 'ClientLoanFrame.pas' {ClientLoanFM: TFrame},
   GroupLoanRequestForm in 'GroupLoanRequestForm.pas' {GroupLoanRequest},
   ViewDetails in 'ViewDetails.pas' {frmDetails},
-  ReportFrame in 'ReportFrame.pas' {ReportFM: TFrame};
+  ReportFrame in 'ReportFrame.pas' {ReportFM: TFrame},
+  RepaymentFrame in 'RepaymentFrame.pas' {RepaymentFM: TFrame},
+  Repayment_u in 'Repayment_u.pas' {frmRepayment},
+  clientView in 'clientView.pas' {frmClientView};
 
 {$R *.res}
 
@@ -40,6 +43,8 @@ begin
   Application.CreateForm(TfrmLoanHistory, frmLoanHistory);
   Application.CreateForm(TGroupLoanRequest, GroupLoanRequest);
   Application.CreateForm(TfrmDetails, frmDetails);
+  Application.CreateForm(TfrmRepayment, frmRepayment);
+  Application.CreateForm(TfrmClientView, frmClientView);
   Application.Run;
 end;
 

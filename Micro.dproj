@@ -176,6 +176,19 @@
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
+        <DCCReference Include="RepaymentFrame.pas">
+            <Form>RepaymentFM</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Repayment_u.pas">
+            <Form>frmRepayment</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="clientView.pas">
+            <Form>frmClientView</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_Micro\default.txaPackage"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
