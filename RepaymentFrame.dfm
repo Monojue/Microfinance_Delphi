@@ -22,7 +22,7 @@ object RepaymentFM: TRepaymentFM
       end
       item
         Column = 0
-        Control = clientGrid
+        Control = DBGrid
         Row = 1
       end>
     RowCollection = <
@@ -40,9 +40,6 @@ object RepaymentFM: TRepaymentFM
         SizeStyle = ssAuto
       end>
     TabOrder = 0
-    ExplicitLeft = -351
-    ExplicitTop = -111
-    ExplicitHeight = 692
     object GridPanel2: TGridPanel
       Left = 1
       Top = 1
@@ -181,6 +178,7 @@ object RepaymentFM: TRepaymentFM
         Height = 21
         Anchors = []
         TabOrder = 1
+        OnChange = editSearchChange
       end
       object btnViewDetails: TButton
         Left = 980
@@ -192,6 +190,8 @@ object RepaymentFM: TRepaymentFM
         Enabled = False
         TabOrder = 2
         OnClick = btnViewDetailsClick
+        ExplicitLeft = 979
+        ExplicitTop = 19
       end
       object btnDelete: TButton
         Left = 1060
@@ -211,6 +211,7 @@ object RepaymentFM: TRepaymentFM
         Anchors = []
         Caption = 'Refresh'
         TabOrder = 4
+        OnClick = btnRefreshClick
       end
       object btnSearch: TButton
         Left = 358
@@ -221,6 +222,7 @@ object RepaymentFM: TRepaymentFM
         Caption = 'Search'
         Enabled = False
         TabOrder = 5
+        OnClick = btnSearchClick
       end
       object Panel1: TPanel
         Left = 436
@@ -234,7 +236,7 @@ object RepaymentFM: TRepaymentFM
           AlignWithMargins = True
           Left = 3
           Top = 3
-          Width = 456
+          Width = 448
           Height = 42
           Align = alClient
           BiDiMode = bdRightToLeftReadingOnly
@@ -246,6 +248,8 @@ object RepaymentFM: TRepaymentFM
             'Group')
           ParentBiDiMode = False
           TabOrder = 0
+          OnClick = RadioGroupClick
+          ExplicitWidth = 456
         end
       end
       object lblPrefix: TLabel
@@ -258,13 +262,13 @@ object RepaymentFM: TRepaymentFM
         ExplicitLeft = 207
       end
     end
-    object clientGrid: TDBGrid
+    object DBGrid: TDBGrid
       Left = 1
       Top = 51
       Width = 1229
       Height = 529
       Align = alClient
-      DataSource = DataSource
+      DataSource = GroupDataSource
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleHotTrack]
       TabOrder = 1
       TitleFont.Charset = DEFAULT_CHARSET
@@ -272,7 +276,7 @@ object RepaymentFM: TRepaymentFM
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
-      OnCellClick = clientGridCellClick
+      OnCellClick = DBGridCellClick
     end
   end
   object MicrofinanceConnection: TSQLConnection
@@ -312,11 +316,68 @@ object RepaymentFM: TRepaymentFM
       'Database=micro'
       'Password=root')
     Connected = True
-    Left = 794
-    Top = 288
+    Left = 386
+    Top = 120
   end
-  object SQLQuery: TSQLQuery
+  object CQuery: TSQLQuery
     Active = True
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      
+        'Select * from clientloanrequest where approved = 1 and PayDay is' +
+        ' not null')
+    SQLConnection = MicrofinanceConnection
+    Left = 320
+    Top = 192
+    object CQueryLoanRequestID: TStringField
+      FieldName = 'LoanRequestID'
+      Required = True
+      Size = 10
+    end
+    object CQueryClientID: TStringField
+      FieldName = 'ClientID'
+      Required = True
+      Size = 10
+    end
+    object CQueryClientName: TStringField
+      FieldName = 'ClientName'
+      Required = True
+      Size = 45
+    end
+    object CQueryRequestDate: TStringField
+      FieldName = 'RequestDate'
+      Required = True
+      Size = 11
+    end
+    object CQueryDueDate: TStringField
+      FieldName = 'DueDate'
+      Size = 11
+    end
+    object CQueryAmount: TIntegerField
+      FieldName = 'Amount'
+      Required = True
+    end
+    object CQueryDuration: TIntegerField
+      FieldName = 'Duration'
+      Required = True
+    end
+    object CQueryInterestRate: TIntegerField
+      FieldName = 'InterestRate'
+      Required = True
+    end
+    object CQueryPayDay: TStringField
+      FieldName = 'PayDay'
+    end
+    object CQueryRemark: TStringField
+      FieldName = 'Remark'
+      Size = 100
+    end
+    object CQueryApproved: TShortintField
+      FieldName = 'Approved'
+    end
+  end
+  object GQuery: TSQLQuery
     MaxBlobSize = -1
     Params = <>
     SQL.Strings = (
@@ -324,84 +385,207 @@ object RepaymentFM: TRepaymentFM
         'Select * from grouploanrequest where approved = 1 and PayDay is ' +
         'not null')
     SQLConnection = MicrofinanceConnection
-    Left = 816
-    Top = 368
-  end
-  object DataSetProvider: TDataSetProvider
-    DataSet = SQLQuery
-    Left = 832
-    Top = 464
-  end
-  object DataSource: TDataSource
-    DataSet = ClientDataSet
-    Left = 1016
-    Top = 488
-  end
-  object ClientDataSet: TClientDataSet
-    Active = True
-    Aggregates = <>
-    Params = <>
-    ProviderName = 'DataSetProvider'
-    Left = 968
-    Top = 440
-    object ClientDataSetLoanRequestID: TStringField
+    Left = 440
+    Top = 192
+    object GQueryLoanRequestID: TStringField
       FieldName = 'LoanRequestID'
       Required = True
       Size = 10
     end
-    object ClientDataSetGroupID: TStringField
+    object GQueryGroupID: TStringField
       FieldName = 'GroupID'
       Required = True
       Size = 10
     end
-    object ClientDataSetLeaderName: TStringField
+    object GQueryLeaderName: TStringField
       FieldName = 'Leader Name'
       Required = True
       Size = 45
     end
-    object ClientDataSetMember1Name: TStringField
+    object GQueryMember1Name: TStringField
       FieldName = 'Member1 Name'
       Required = True
       Size = 45
     end
-    object ClientDataSetMember2Name: TStringField
+    object GQueryMember2Name: TStringField
       FieldName = 'Member2 Name'
       Required = True
       Size = 45
     end
-    object ClientDataSetMember3Name: TStringField
+    object GQueryMember3Name: TStringField
       FieldName = 'Member3 Name'
       Required = True
       Size = 45
     end
-    object ClientDataSetMember4Name: TStringField
+    object GQueryMember4Name: TStringField
       FieldName = 'Member4 Name'
       Required = True
       Size = 45
     end
-    object ClientDataSetRequestDate: TStringField
+    object GQueryRequestDate: TStringField
       FieldName = 'RequestDate'
       Required = True
       Size = 15
     end
-    object ClientDataSetDueDate: TStringField
+    object GQueryDueDate: TStringField
       FieldName = 'DueDate'
       Size = 15
     end
-    object ClientDataSetAmount: TIntegerField
+    object GQueryAmount: TIntegerField
       FieldName = 'Amount'
       Required = True
     end
-    object ClientDataSetDuration: TIntegerField
+    object GQueryDuration: TIntegerField
       FieldName = 'Duration'
       Required = True
     end
-    object ClientDataSetInterestRate: TIntegerField
+    object GQueryInterestRate: TIntegerField
       FieldName = 'InterestRate'
       Required = True
     end
-    object ClientDataSetPayDay: TStringField
+    object GQueryRemark: TStringField
+      FieldName = 'Remark'
+      Size = 100
+    end
+    object GQueryPayDay: TStringField
       FieldName = 'PayDay'
     end
+    object GQueryApproved: TShortintField
+      FieldName = 'Approved'
+    end
+  end
+  object Cprovider: TDataSetProvider
+    DataSet = CQuery
+    Left = 320
+    Top = 256
+  end
+  object Gprovider: TDataSetProvider
+    DataSet = GQuery
+    Left = 440
+    Top = 256
+  end
+  object ClientDataSet1: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'Cprovider'
+    Left = 320
+    Top = 328
+    object ClientDataSet1LoanRequestID: TStringField
+      FieldName = 'LoanRequestID'
+      Required = True
+      Size = 10
+    end
+    object ClientDataSet1ClientID: TStringField
+      FieldName = 'ClientID'
+      Required = True
+      Size = 10
+    end
+    object ClientDataSet1ClientName: TStringField
+      FieldName = 'ClientName'
+      Required = True
+      Size = 45
+    end
+    object ClientDataSet1RequestDate: TStringField
+      FieldName = 'RequestDate'
+      Required = True
+      Size = 11
+    end
+    object ClientDataSet1DueDate: TStringField
+      FieldName = 'DueDate'
+      Size = 11
+    end
+    object ClientDataSet1PayDay: TStringField
+      FieldName = 'PayDay'
+    end
+    object ClientDataSet1Amount: TIntegerField
+      FieldName = 'Amount'
+      Required = True
+    end
+    object ClientDataSet1Duration: TIntegerField
+      FieldName = 'Duration'
+      Required = True
+    end
+    object ClientDataSet1InterestRate: TIntegerField
+      FieldName = 'InterestRate'
+      Required = True
+    end
+  end
+  object GroupDataSet: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'Gprovider'
+    Left = 440
+    Top = 328
+    object GroupDataSetLoanRequestID: TStringField
+      FieldName = 'LoanRequestID'
+      Required = True
+      Size = 10
+    end
+    object GroupDataSetGroupID: TStringField
+      FieldName = 'GroupID'
+      Required = True
+      Size = 10
+    end
+    object GroupDataSetLeaderName: TStringField
+      FieldName = 'Leader Name'
+      Required = True
+      Size = 45
+    end
+    object GroupDataSetMember1Name: TStringField
+      FieldName = 'Member1 Name'
+      Required = True
+      Size = 45
+    end
+    object GroupDataSetMember2Name: TStringField
+      FieldName = 'Member2 Name'
+      Required = True
+      Size = 45
+    end
+    object GroupDataSetMember3Name: TStringField
+      FieldName = 'Member3 Name'
+      Required = True
+      Size = 45
+    end
+    object GroupDataSetMember4Name: TStringField
+      FieldName = 'Member4 Name'
+      Required = True
+      Size = 45
+    end
+    object GroupDataSetRequestDate: TStringField
+      FieldName = 'RequestDate'
+      Required = True
+      Size = 15
+    end
+    object GroupDataSetDueDate: TStringField
+      FieldName = 'DueDate'
+      Size = 15
+    end
+    object GroupDataSetPayDay: TStringField
+      FieldName = 'PayDay'
+    end
+    object GroupDataSetAmount: TIntegerField
+      FieldName = 'Amount'
+      Required = True
+    end
+    object GroupDataSetDuration: TIntegerField
+      FieldName = 'Duration'
+      Required = True
+    end
+    object GroupDataSetInterestRate: TIntegerField
+      FieldName = 'InterestRate'
+      Required = True
+    end
+  end
+  object ClientDataSource: TDataSource
+    DataSet = ClientDataSet1
+    Left = 320
+    Top = 408
+  end
+  object GroupDataSource: TDataSource
+    DataSet = GroupDataSet
+    Left = 440
+    Top = 408
   end
 end

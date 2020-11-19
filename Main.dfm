@@ -19,7 +19,7 @@ object MainForm: TMainForm
     Top = 0
     Width = 1231
     Height = 677
-    ActivePage = TabSheet1
+    ActivePage = TabSheet7
     Align = alClient
     TabOrder = 0
     OnChange = PageControl1Change
@@ -468,6 +468,96 @@ object MainForm: TMainForm
     object TabSheet7: TTabSheet
       Caption = '          REPAYMENT        '
       ImageIndex = 4
+      inline TRepaymentFM1: TRepaymentFM
+        Left = 0
+        Top = 0
+        Width = 1223
+        Height = 649
+        Align = alClient
+        TabOrder = 0
+        ExplicitLeft = 384
+        ExplicitTop = 192
+        inherited GridPanel1: TGridPanel
+          Width = 1223
+          Height = 649
+          ControlCollection = <
+            item
+              Column = 0
+              Control = TRepaymentFM1.GridPanel2
+              Row = 0
+            end
+            item
+              Column = 0
+              Control = TRepaymentFM1.clientGrid
+              Row = 1
+            end>
+          inherited GridPanel2: TGridPanel
+            Width = 1221
+            ControlCollection = <
+              item
+                Column = 1
+                Control = TRepaymentFM1.Label1
+                Row = 0
+              end
+              item
+                Column = 2
+                Control = TRepaymentFM1.cboxSearch
+                Row = 0
+              end
+              item
+                Column = 4
+                Control = TRepaymentFM1.editSearch
+                Row = 0
+              end
+              item
+                Column = 8
+                Control = TRepaymentFM1.btnViewDetails
+                Row = 0
+              end
+              item
+                Column = 9
+                Control = TRepaymentFM1.btnDelete
+                Row = 0
+              end
+              item
+                Column = 10
+                Control = TRepaymentFM1.btnRefresh
+                Row = 0
+              end
+              item
+                Column = 5
+                Control = TRepaymentFM1.btnSearch
+                Row = 0
+              end
+              item
+                Column = 6
+                Control = TRepaymentFM1.Panel1
+                Row = 0
+              end
+              item
+                Column = 3
+                Control = TRepaymentFM1.lblPrefix
+                Row = 0
+              end>
+            inherited btnViewDetails: TButton
+              Left = 972
+            end
+            inherited btnDelete: TButton
+              Left = 1052
+            end
+            inherited btnRefresh: TButton
+              Left = 1132
+            end
+            inherited Panel1: TPanel
+              Width = 454
+            end
+          end
+          inherited clientGrid: TDBGrid
+            Width = 1221
+            Height = 597
+          end
+        end
+      end
     end
     object TabSheet8: TTabSheet
       Caption = '                REPORT          '
