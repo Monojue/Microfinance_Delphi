@@ -69,7 +69,7 @@ class function TLoginForm.Execute: boolean;
         begin
           SQLOfficer.Close;
           SQLOfficer.SQL.Clear;
-          SQLOfficer.SQL.Add('Select * from officer where UserName= "'+txtUserName.Text+'" and Password= "'
+          SQLOfficer.SQL.Add('Select * from officer where BINARY UserName= "'+txtUserName.Text+'" and BINARY Password= "'
           + txtPassword.Text+'"');
           SQLOfficer.Open;
 

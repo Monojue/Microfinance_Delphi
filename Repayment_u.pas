@@ -15,7 +15,6 @@ type
     Label4: TLabel;
     lblDate: TLabel;
     MidGrid: TGridPanel;
-    StringGrid: TStringGrid;
     GridPanel1: TGridPanel;
     btnPay: TButton;
     btnCancel: TButton;
@@ -66,25 +65,34 @@ type
     lblGID: TLabel;
     GridPanel2: TGridPanel;
     Label13: TLabel;
-    Label14: TLabel;
+    lblDueDate: TLabel;
     Label17: TLabel;
-    Label18: TLabel;
+    lblPO: TLabel;
     Label21: TLabel;
-    Label23: TLabel;
+    lblP: TLabel;
     Label26: TLabel;
-    Label27: TLabel;
+    lblInterest: TLabel;
     Label31: TLabel;
-    Label33: TLabel;
+    lblInstallment: TLabel;
+    StringGrid: TStringGrid;
     procedure setAutoID();
     procedure setClientData();
     procedure setGroupData();
     procedure calculator();
     procedure DeleteRow(Grid: TStringGrid);
+    procedure ViewClientDetails(ID : string);
+    procedure btnAdd1Click(Sender: TObject);
+    procedure btnAdd2Click(Sender: TObject);
+    procedure btnAdd3Click(Sender: TObject);
+    procedure btnAdd4Click(Sender: TObject);
+    procedure btnAdd5Click(Sender: TObject);
+    procedure PaymentSetData();
+    procedure btnPayClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
-    procedure prepareView(sform, sID, sloanID, samount, sduration, srate : string);
+    procedure prepareView(sform, sID, sloanID, samount, sduration, srate, sduedate: string);
   end;
 
 var
@@ -96,23 +104,26 @@ var
   duration : Integer;
   frmtype : string;
   rate : Float64;
+  duedate : string;
 
 implementation
 
 {$R *.dfm}
 
-uses shareFunction, MyQury;
+uses shareFunction, MyQury, clientView, ViewDetails;
 
 { TfrmRepayment }
 
-procedure TfrmRepayment.prepareView(sform, sID, sloanID, samount, sduration, srate : string);
+procedure TfrmRepayment.prepareView(sform, sID, sloanID, samount, sduration, srate, sduedate : string);
 begin
+  today := Now;
   frmtype := sform;
   ID := sID;
   loanrequestID := sloanID;
   amount := StrToInt(samount);
   duration := StrToInt(sduration);
   rate := StrToFloat(srate);
+  duedate := sduedate;
   if frmtype = 'client' then
   begin
     clientGrid.Visible := True;
@@ -125,7 +136,9 @@ begin
     groupGrid.Visible := True;
     setGroupData;
   end;
+  setAutoID;
   calculator;
+  PaymentSetData;
 end;
 
 procedure TfrmRepayment.setAutoID;
@@ -135,10 +148,9 @@ begin
    lblDate.Caption := FormatDateTime('yyyy/MM/dd', today);
 end;
 
-
-
 procedure TfrmRepayment.setClientData;
 begin
+    lblCID.Caption := ID;
     lblName.Caption := GetClientDetailsFromID(ID)[0];
     lblNRC.Caption := GetClientDetailsFromID(ID)[1];
     lblDOB.Caption := GetClientDetailsFromID(ID)[2];
@@ -151,6 +163,7 @@ end;
 
 procedure TfrmRepayment.setGroupData;
 begin
+    lblGID.Caption := ID;
     lblLeadID.Caption := GetGroupDetailsFromID(ID)[0];
     lblLeadName.Caption := GetGroupDetailsFromID(ID)[1];
     lblM1ID.Caption := GetGroupDetailsFromID(ID)[2];
@@ -169,7 +182,81 @@ var
 begin
   for i := 1 to Grid.RowCount -1 do
     Grid.Rows[i] := Grid.Rows[i + Grid.RowCount];
-  Grid.RowCount := 0;
+     Grid.RowCount := 0;
+end;
+
+procedure TfrmRepayment.PaymentSetData();
+var
+num : Integer;
+begin
+  num := GetPaymentNumber(loanrequestID);
+  lblDueDate.Caption := duedate;
+  lblPO.Caption := StringGrid.Cells[1,num];
+  lblP.Caption := StringGrid.Cells[2,num];
+  lblInterest.Caption := StringGrid.Cells[3,num];
+  lblInstallment.Caption := StringGrid.Cells[4,num];
+end;
+
+procedure TfrmRepayment.btnAdd1Click(Sender: TObject);
+begin
+  ViewClientDetails(lblLeadID.Caption);
+end;
+
+procedure TfrmRepayment.btnAdd2Click(Sender: TObject);
+begin
+  ViewClientDetails(lblM1ID.Caption);
+end;
+
+procedure TfrmRepayment.btnAdd3Click(Sender: TObject);
+begin
+  ViewClientDetails(lblM2ID.Caption);
+end;
+
+procedure TfrmRepayment.btnAdd4Click(Sender: TObject);
+begin
+  ViewClientDetails(lblM3ID.Caption);
+end;
+
+procedure TfrmRepayment.btnAdd5Click(Sender: TObject);
+begin
+  ViewClientDetails(lblM4ID.Caption);
+end;
+
+procedure TfrmRepayment.btnPayClick(Sender: TObject);
+var
+data : array of string;
+fs: TFormatSettings;
+begin
+  fs := TFormatSettings.Create;
+  fs.DateSeparator := '/';
+  fs.ShortDateFormat := 'yyyy/MM/dd';
+  fs.TimeSeparator := ':';
+  fs.ShortTimeFormat := 'hh:mm';
+  fs.LongTimeFormat := 'hh:mm:ss';
+
+  SetLength(data, 4);
+  data[0] := lblID.Caption;
+  data[1] := loanrequestID;
+  data[2] := lblDate.Caption;
+  data[3] := lblInstallment.Caption;
+  if InsertData('repayment', data) then
+  begin
+    if UpdateDueDate(frmtype, CalculateDueDate(StrToDate(duedate,fs)), loanrequestID) then
+    begin
+      ShowMessage(lblInstallment.Caption+ ' is Paid Successfully!');
+      Close;
+    end
+    else
+    begin
+       ShowMessage('Failed to Save new Pay Record!');
+    end;
+  end;
+end;
+
+procedure TfrmRepayment.ViewClientDetails(ID: string);
+begin
+  frmClientView.prepareView(ID);
+  frmClientView.Show;
 end;
 
 procedure TfrmRepayment.calculator();
@@ -183,6 +270,19 @@ begin
   TotalInterest := 0;
   TotalInstallment := 0;
   principal := Round(amount/duration);
+  with StringGrid do
+    begin
+      Cols[0].Add('No');
+      Cols[1].Add('Principal Outstanding');
+      Cols[2].Add('Principal');
+      Cols[3].Add('Interest');
+      Cols[4].Add('Installment');
+      ColWidths[0] := 50;
+      ColWidths[1] := 120;
+      ColWidths[2] := 120;
+      ColWidths[3] := 120;
+      ColWidths[4] := 120;
+    end;
 
   for I := 0 to duration - 1 do
   begin

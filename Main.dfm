@@ -475,8 +475,8 @@ object MainForm: TMainForm
         Height = 649
         Align = alClient
         TabOrder = 0
-        ExplicitLeft = 384
-        ExplicitTop = 192
+        ExplicitLeft = 352
+        ExplicitTop = 200
         inherited GridPanel1: TGridPanel
           Width = 1223
           Height = 649
@@ -488,7 +488,7 @@ object MainForm: TMainForm
             end
             item
               Column = 0
-              Control = TRepaymentFM1.clientGrid
+              Control = TRepaymentFM1.DBGrid
               Row = 1
             end>
           inherited GridPanel2: TGridPanel
@@ -541,6 +541,8 @@ object MainForm: TMainForm
               end>
             inherited btnViewDetails: TButton
               Left = 972
+              ExplicitLeft = 980
+              ExplicitTop = 12
             end
             inherited btnDelete: TButton
               Left = 1052
@@ -552,7 +554,7 @@ object MainForm: TMainForm
               Width = 454
             end
           end
-          inherited clientGrid: TDBGrid
+          inherited DBGrid: TDBGrid
             Width = 1221
             Height = 597
           end

@@ -94,7 +94,7 @@ type
 
 var
   frmtype, ID, loanID, amount, duration, rate, radioSelect : string;
-
+  duedate, payday, requestdate : string;
 implementation
 
 {$R *.dfm}
@@ -150,7 +150,7 @@ end;
 
 procedure TRepaymentFM.btnViewDetailsClick(Sender: TObject);
 begin
-  frmRepayment.prepareView(frmtype, ID, loanID, amount, duration, rate);
+  frmRepayment.prepareView(frmtype, ID, loanID, amount, duration, rate, duedate);
   frmRepayment.Show;
 end;
 
@@ -160,14 +160,20 @@ begin
   begin
   loanID := DBGrid.Fields[0].AsString;
   ID := DBGrid.Fields[1].AsString;
-  amount := DBGrid.Fields[2].AsString;
-  duration := DBGrid.Fields[3].AsString;
-  rate := DBGrid.Fields[4].AsString;
+  requestdate :=  DBGrid.Fields[3].AsString;
+  duedate :=  DBGrid.Fields[4].AsString;
+  payday :=  DBGrid.Fields[5].AsString;
+  amount := DBGrid.Fields[6].AsString;
+  duration := DBGrid.Fields[7].AsString;
+  rate := DBGrid.Fields[8].AsString;
   end
   else if RadioGroup.ItemIndex = 1 then
   begin
   loanID := DBGrid.Fields[0].AsString;
   ID := DBGrid.Fields[1].AsString;
+  requestdate :=  DBGrid.Fields[7].AsString;
+  duedate :=  DBGrid.Fields[8].AsString;
+  payday :=  DBGrid.Fields[9].AsString;
   amount := DBGrid.Fields[10].AsString;
   duration := DBGrid.Fields[11].AsString;
   rate := DBGrid.Fields[12].AsString;

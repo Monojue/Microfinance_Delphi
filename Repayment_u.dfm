@@ -52,8 +52,6 @@ object frmRepayment: TfrmRepayment
         Value = 50.000000000000000000
       end>
     TabOrder = 0
-    ExplicitWidth = 1231
-    ExplicitHeight = 512
     object TopGrip: TGridPanel
       Left = 1
       Top = 1
@@ -181,12 +179,6 @@ object frmRepayment: TfrmRepayment
         end>
       ControlCollection = <
         item
-          Column = 1
-          Control = StringGrid
-          Row = 0
-          RowSpan = 2
-        end
-        item
           Column = 0
           Control = Panel
           Row = 0
@@ -195,6 +187,12 @@ object frmRepayment: TfrmRepayment
           Column = 0
           Control = GridPanel2
           Row = 1
+        end
+        item
+          Column = 1
+          Control = StringGrid
+          Row = 0
+          RowSpan = 2
         end>
       RowCollection = <
         item
@@ -207,25 +205,13 @@ object frmRepayment: TfrmRepayment
           SizeStyle = ssAuto
         end>
       TabOrder = 1
-      object StringGrid: TStringGrid
-        Left = 473
-        Top = 1
-        Width = 473
-        Height = 605
-        Align = alClient
-        RowCount = 1
-        FixedRows = 0
-        TabOrder = 0
-      end
       object Panel: TPanel
         Left = 1
         Top = 1
         Width = 472
         Height = 348
         Align = alClient
-        TabOrder = 1
-        ExplicitLeft = 9
-        ExplicitTop = 9
+        TabOrder = 0
         object clientGrid: TGridPanel
           Left = 1
           Top = 1
@@ -362,37 +348,37 @@ object frmRepayment: TfrmRepayment
           ParentFont = False
           RowCollection = <
             item
-              Value = 9.090909090909091000
+              Value = 9.090909090909088000
             end
             item
-              Value = 9.090909090909091000
+              Value = 9.090909090909088000
             end
             item
-              Value = 9.090909090909091000
+              Value = 9.090909090909088000
             end
             item
-              Value = 9.090909090909091000
+              Value = 9.090909090909088000
             end
             item
-              Value = 9.090909090909091000
+              Value = 9.090909090909088000
             end
             item
-              Value = 9.090909090909091000
+              Value = 9.090909090909088000
             end
             item
-              Value = 9.090909090909091000
+              Value = 9.090909090909088000
             end
             item
-              Value = 9.090909090909091000
+              Value = 9.090909090909088000
             end
             item
-              Value = 9.090909090909091000
+              Value = 9.090909090909088000
             end
             item
-              Value = 9.090909090909091000
+              Value = 9.090909090909088000
             end
             item
-              Value = 9.090909090909091000
+              Value = 9.090909090909088000
             end>
           TabOrder = 1
           VerticalAlignment = taAlignTop
@@ -844,7 +830,6 @@ object frmRepayment: TfrmRepayment
             Align = alClient
             Alignment = taCenter
             Layout = tlCenter
-            ExplicitTop = 111
             ExplicitWidth = 3
             ExplicitHeight = 13
           end
@@ -856,7 +841,6 @@ object frmRepayment: TfrmRepayment
             Align = alClient
             Alignment = taCenter
             Layout = tlCenter
-            ExplicitTop = 111
             ExplicitWidth = 3
             ExplicitHeight = 13
           end
@@ -868,7 +852,6 @@ object frmRepayment: TfrmRepayment
             Align = alClient
             Alignment = taCenter
             Layout = tlCenter
-            ExplicitTop = 157
             ExplicitWidth = 3
             ExplicitHeight = 13
           end
@@ -880,7 +863,6 @@ object frmRepayment: TfrmRepayment
             Align = alClient
             Alignment = taCenter
             Layout = tlCenter
-            ExplicitTop = 157
             ExplicitWidth = 3
             ExplicitHeight = 13
           end
@@ -892,7 +874,6 @@ object frmRepayment: TfrmRepayment
             Align = alClient
             Alignment = taCenter
             Layout = tlCenter
-            ExplicitTop = 203
             ExplicitWidth = 3
             ExplicitHeight = 13
           end
@@ -904,7 +885,6 @@ object frmRepayment: TfrmRepayment
             Align = alClient
             Alignment = taCenter
             Layout = tlCenter
-            ExplicitTop = 203
             ExplicitWidth = 3
             ExplicitHeight = 13
           end
@@ -916,7 +896,6 @@ object frmRepayment: TfrmRepayment
             Align = alClient
             Alignment = taCenter
             Layout = tlCenter
-            ExplicitTop = 249
             ExplicitWidth = 3
             ExplicitHeight = 13
           end
@@ -928,7 +907,6 @@ object frmRepayment: TfrmRepayment
             Align = alClient
             Alignment = taCenter
             Layout = tlCenter
-            ExplicitTop = 249
             ExplicitWidth = 3
             ExplicitHeight = 13
           end
@@ -940,7 +918,6 @@ object frmRepayment: TfrmRepayment
             Align = alClient
             Alignment = taCenter
             Layout = tlCenter
-            ExplicitTop = 295
             ExplicitWidth = 3
             ExplicitHeight = 13
           end
@@ -952,8 +929,7 @@ object frmRepayment: TfrmRepayment
             Anchors = []
             Caption = 'View'
             TabOrder = 0
-            ExplicitLeft = 448
-            ExplicitTop = 90
+            OnClick = btnAdd1Click
           end
           object btnAdd2: TButton
             Left = 391
@@ -963,8 +939,7 @@ object frmRepayment: TfrmRepayment
             Anchors = []
             Caption = 'View'
             TabOrder = 1
-            ExplicitLeft = 448
-            ExplicitTop = 124
+            OnClick = btnAdd2Click
           end
           object btnAdd3: TButton
             Left = 391
@@ -974,8 +949,7 @@ object frmRepayment: TfrmRepayment
             Anchors = []
             Caption = 'View'
             TabOrder = 2
-            ExplicitLeft = 448
-            ExplicitTop = 158
+            OnClick = btnAdd3Click
           end
           object btnAdd4: TButton
             Left = 391
@@ -985,8 +959,7 @@ object frmRepayment: TfrmRepayment
             Anchors = []
             Caption = 'View'
             TabOrder = 3
-            ExplicitLeft = 448
-            ExplicitTop = 192
+            OnClick = btnAdd4Click
           end
           object lblM4ID: TLabel
             Left = 244
@@ -996,7 +969,6 @@ object frmRepayment: TfrmRepayment
             Align = alClient
             Alignment = taCenter
             Layout = tlCenter
-            ExplicitTop = 295
             ExplicitWidth = 3
             ExplicitHeight = 13
           end
@@ -1008,8 +980,7 @@ object frmRepayment: TfrmRepayment
             Anchors = []
             Caption = 'View'
             TabOrder = 4
-            ExplicitLeft = 448
-            ExplicitTop = 229
+            OnClick = btnAdd5Click
           end
           object Label5: TLabel
             Left = 46
@@ -1051,7 +1022,7 @@ object frmRepayment: TfrmRepayment
             Value = 33.729087965461410000
           end
           item
-            Value = 66.270912034538590000
+            Value = 66.270912034538600000
           end
           item
             SizeStyle = ssAbsolute
@@ -1065,7 +1036,7 @@ object frmRepayment: TfrmRepayment
           end
           item
             Column = 2
-            Control = Label14
+            Control = lblDueDate
             Row = 1
           end
           item
@@ -1075,7 +1046,7 @@ object frmRepayment: TfrmRepayment
           end
           item
             Column = 2
-            Control = Label18
+            Control = lblPO
             Row = 2
           end
           item
@@ -1085,7 +1056,7 @@ object frmRepayment: TfrmRepayment
           end
           item
             Column = 2
-            Control = Label23
+            Control = lblP
             Row = 3
           end
           item
@@ -1095,7 +1066,7 @@ object frmRepayment: TfrmRepayment
           end
           item
             Column = 2
-            Control = Label27
+            Control = lblInterest
             Row = 4
           end
           item
@@ -1105,35 +1076,33 @@ object frmRepayment: TfrmRepayment
           end
           item
             Column = 2
-            Control = Label33
+            Control = lblInstallment
             Row = 5
           end>
         RowCollection = <
           item
-            Value = 14.285714285714290000
+            Value = 14.285714285714280000
           end
           item
-            Value = 14.285714285714290000
+            Value = 14.285714285714280000
           end
           item
-            Value = 14.285714285714290000
+            Value = 14.285714285714280000
           end
           item
-            Value = 14.285714285714290000
+            Value = 14.285714285714280000
           end
           item
-            Value = 14.285714285714290000
+            Value = 14.285714285714280000
           end
           item
-            Value = 14.285714285714290000
+            Value = 14.285714285714280000
           end
           item
-            Value = 14.285714285714290000
+            Value = 14.285714285714280000
           end>
-        TabOrder = 2
+        TabOrder = 1
         VerticalAlignment = taAlignTop
-        ExplicitLeft = -5
-        ExplicitTop = 345
         DesignSize = (
           472
           257)
@@ -1146,7 +1115,7 @@ object frmRepayment: TfrmRepayment
           Caption = 'Due Date'
           ExplicitLeft = 71
         end
-        object Label14: TLabel
+        object lblDueDate: TLabel
           Left = 162
           Top = 37
           Width = 298
@@ -1154,8 +1123,6 @@ object frmRepayment: TfrmRepayment
           Align = alClient
           Caption = 'Label6'
           Layout = tlCenter
-          ExplicitLeft = 278
-          ExplicitTop = 48
           ExplicitWidth = 31
           ExplicitHeight = 13
         end
@@ -1168,7 +1135,7 @@ object frmRepayment: TfrmRepayment
           Caption = 'Principal Oustanding'
           ExplicitLeft = 71
         end
-        object Label18: TLabel
+        object lblPO: TLabel
           Left = 162
           Top = 73
           Width = 298
@@ -1176,8 +1143,6 @@ object frmRepayment: TfrmRepayment
           Align = alClient
           Caption = 'Label6'
           Layout = tlCenter
-          ExplicitLeft = 278
-          ExplicitTop = 84
           ExplicitWidth = 31
           ExplicitHeight = 13
         end
@@ -1190,7 +1155,7 @@ object frmRepayment: TfrmRepayment
           Caption = 'Principal'
           ExplicitLeft = 71
         end
-        object Label23: TLabel
+        object lblP: TLabel
           Left = 162
           Top = 109
           Width = 298
@@ -1198,8 +1163,6 @@ object frmRepayment: TfrmRepayment
           Align = alClient
           Caption = 'Label6'
           Layout = tlCenter
-          ExplicitLeft = 278
-          ExplicitTop = 120
           ExplicitWidth = 31
           ExplicitHeight = 13
         end
@@ -1212,7 +1175,7 @@ object frmRepayment: TfrmRepayment
           Caption = 'Interest'
           ExplicitLeft = 71
         end
-        object Label27: TLabel
+        object lblInterest: TLabel
           Left = 162
           Top = 145
           Width = 298
@@ -1220,8 +1183,6 @@ object frmRepayment: TfrmRepayment
           Align = alClient
           Caption = 'Label6'
           Layout = tlCenter
-          ExplicitLeft = 278
-          ExplicitTop = 156
           ExplicitWidth = 31
           ExplicitHeight = 13
         end
@@ -1234,7 +1195,7 @@ object frmRepayment: TfrmRepayment
           Caption = 'Installment'
           ExplicitLeft = 71
         end
-        object Label33: TLabel
+        object lblInstallment: TLabel
           Left = 162
           Top = 181
           Width = 298
@@ -1242,11 +1203,17 @@ object frmRepayment: TfrmRepayment
           Align = alClient
           Caption = 'Label6'
           Layout = tlCenter
-          ExplicitLeft = 278
-          ExplicitTop = 192
           ExplicitWidth = 31
           ExplicitHeight = 13
         end
+      end
+      object StringGrid: TStringGrid
+        Left = 473
+        Top = 1
+        Width = 473
+        Height = 605
+        Align = alClient
+        TabOrder = 2
       end
     end
     object GridPanel1: TGridPanel
@@ -1295,6 +1262,7 @@ object frmRepayment: TfrmRepayment
         Anchors = []
         Caption = 'Pay Now'
         TabOrder = 0
+        OnClick = btnPayClick
       end
       object btnCancel: TButton
         Left = 858

@@ -18,10 +18,32 @@ function GetGroupLoanSettingID() : string;
 function GetGroupDetailsFromID(id : string): Resultdata;
 function GetClientDetailsFromID(id : string): Resultdata;
 function UpdateDueDate(tbName,Date, LoanRequestID : string) : boolean;
+function GetPaymentNumber(ID : string) : Integer;
 
 implementation
 
 uses DataModule;
+
+function GetPaymentNumber(ID : string) : Integer;
+var
+num : integer;
+begin
+  num := 1;
+  with DMMicro.SQLQuery do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('Select * from repayment where LoanRequestID= "'+ID+'"');
+    Open;
+    while not Eof do
+    begin
+      num := num + 1;
+      Next;
+    end;
+  end;
+  Result := num;
+end;
+
 
 function UpdateDueDate(tbName,Date, LoanRequestID : string) : boolean;
 begin
@@ -29,11 +51,11 @@ begin
   begin
   DMMicro.SQLQuery.Close;
   SQLQuery.SQL.Clear;
-    if tbName = 'clientloan' then
+    if (tbName = 'clientloan') or (tbName = 'client') then
     begin
       SQLQuery.SQL.Add('update clientDetails set DueDate= "'+Date+'" where LoanrequestID= "'+LoanRequestID+'"');
     end
-    else if tbName = 'grouploan' then
+    else if (tbName = 'grouploan') or (tbName = 'group') then
     begin
       SQLQuery.SQL.Add('update groupDetails set DueDate= "'+Date+'" where LoanrequestID= "'+LoanRequestID+'"');
     end;
