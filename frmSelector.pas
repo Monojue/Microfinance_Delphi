@@ -84,6 +84,7 @@ begin
   end
   else if (frmtype = 'group') or (frmtype = 'groupRequest') then
   begin
+    frmGroupEntry.prepareNew;
     frmGroupEntry.Show;
   end;
 end;

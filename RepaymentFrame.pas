@@ -86,6 +86,7 @@ type
     procedure btnRefreshClick(Sender: TObject);
     procedure editSearchChange(Sender: TObject);
     procedure btnSearchClick(Sender: TObject);
+    procedure btnDeleteClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -99,7 +100,55 @@ implementation
 
 {$R *.dfm}
 
-uses Repayment_u;
+uses Repayment_u, MyQury, shareFunction;
+
+procedure TRepaymentFM.btnDeleteClick(Sender: TObject);
+var
+password, msg, LoanID : string;
+data : array of string;
+I : Integer;
+begin
+  msg :=  'Are you sure want to Delete!';
+  LoanID := DBGrid.Fields[0].AsString;
+
+
+    while password = EmptyStr do
+    begin
+      password := InputBox('Warning!', msg, EmptyStr);
+    end;
+
+    if CheckPassword(getLoginName, password) then
+    begin
+
+    if RadioGroup.ItemIndex = 0 then
+      begin
+        if (deletePayment(LoanID)) or (deleteclientLoanRequestLoanID(LoanID)) then
+        begin
+          ShowMessage('Successfully Deleted!');
+        end
+        else
+        begin
+          ShowMessage('Error Occoured!');
+        end;
+      end
+      else if RadioGroup.ItemIndex = 1 then
+      begin
+        if (deletePayment(LoanID)) or (deleteGroupLoanRequestLoanID(LoanID)) then
+        begin
+          ShowMessage('Successfully Deleted!');
+        end
+        else
+        begin
+          ShowMessage('Error Occoured!');
+        end;
+      end;
+
+    end
+    else
+    begin
+      ShowMessage('Wrong Password!');
+    end;
+end;
 
 procedure TRepaymentFM.btnRefreshClick(Sender: TObject);
 begin
@@ -158,6 +207,7 @@ procedure TRepaymentFM.DBGridCellClick(Column: TColumn);
 begin
   if RadioGroup.ItemIndex = 0 then
   begin
+  frmtype := 'client';
   loanID := DBGrid.Fields[0].AsString;
   ID := DBGrid.Fields[1].AsString;
   requestdate :=  DBGrid.Fields[3].AsString;
@@ -169,6 +219,7 @@ begin
   end
   else if RadioGroup.ItemIndex = 1 then
   begin
+  frmtype := 'group';
   loanID := DBGrid.Fields[0].AsString;
   ID := DBGrid.Fields[1].AsString;
   requestdate :=  DBGrid.Fields[7].AsString;

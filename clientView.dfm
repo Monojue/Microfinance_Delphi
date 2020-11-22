@@ -7,12 +7,12 @@ object frmClientView: TfrmClientView
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
+  Font.Height = -15
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 18
   object MainGrip: TGridPanel
     Left = 0
     Top = 0
@@ -95,6 +95,7 @@ object frmClientView: TfrmClientView
         Anchors = []
         Caption = 'Cancel'
         TabOrder = 0
+        OnClick = btnCloseClick
       end
     end
     object RelativePanel1: TRelativePanel
@@ -250,7 +251,7 @@ object frmClientView: TfrmClientView
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -13
+      Font.Height = -15
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
@@ -373,64 +374,64 @@ object frmClientView: TfrmClientView
       object lblName: TLabel
         Left = 160
         Top = 48
-        Width = 46
-        Height = 16
+        Width = 51
+        Height = 18
         Anchors = []
         Caption = 'lblName'
       end
       object lblNRC: TLabel
         Left = 160
         Top = 91
-        Width = 37
-        Height = 16
+        Width = 40
+        Height = 18
         Anchors = []
         Caption = 'lblNRC'
       end
       object lblDOB: TLabel
         Left = 160
         Top = 131
-        Width = 37
-        Height = 16
+        Width = 42
+        Height = 18
         Anchors = []
         Caption = 'lblDOB'
       end
       object lblAddress: TLabel
         Left = 160
         Top = 171
-        Width = 59
-        Height = 16
+        Width = 64
+        Height = 18
         Anchors = []
         Caption = 'lblAddress'
       end
       object lblPhone: TLabel
         Left = 160
         Top = 211
-        Width = 37
-        Height = 16
+        Width = 41
+        Height = 18
         Anchors = []
         Caption = 'Label2'
       end
       object lblJob: TLabel
         Left = 160
         Top = 291
-        Width = 37
-        Height = 16
+        Width = 41
+        Height = 18
         Anchors = []
         Caption = 'Label2'
       end
       object lblSalary: TLabel
         Left = 160
         Top = 328
-        Width = 37
-        Height = 16
+        Width = 41
+        Height = 18
         Anchors = []
         Caption = 'Label2'
       end
       object lblHome: TLabel
         Left = 160
         Top = 251
-        Width = 37
-        Height = 16
+        Width = 41
+        Height = 18
         Anchors = []
         Caption = 'Label2'
       end
@@ -478,7 +479,7 @@ object frmClientView: TfrmClientView
         end>
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -13
+      Font.Height = -15
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
@@ -490,17 +491,15 @@ object frmClientView: TfrmClientView
           SizeStyle = ssAuto
         end>
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = -5
       object lblID: TLabel
         Left = 71
         Top = 1
-        Width = 4
+        Width = 5
         Height = 38
         Margins.Left = 50
         Align = alLeft
         Layout = tlCenter
-        ExplicitHeight = 16
+        ExplicitHeight = 18
       end
       object Label1: TLabel
         Left = 1
@@ -512,9 +511,7 @@ object frmClientView: TfrmClientView
         Alignment = taRightJustify
         Caption = 'Client ID : '
         Layout = tlCenter
-        ExplicitLeft = 10
-        ExplicitWidth = 61
-        ExplicitHeight = 16
+        ExplicitHeight = 18
       end
     end
   end

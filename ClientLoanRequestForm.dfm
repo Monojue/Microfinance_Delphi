@@ -7,14 +7,14 @@ object ClientLoanRequest: TClientLoanRequest
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
+  Font.Height = -15
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
   OnShow = FormShow
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 18
   object MainGrid: TGridPanel
     Left = 0
     Top = 0
@@ -353,37 +353,37 @@ object ClientLoanRequest: TClientLoanRequest
           end>
         RowCollection = <
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end>
         TabOrder = 0
         VerticalAlignment = taAlignTop
@@ -391,13 +391,14 @@ object ClientLoanRequest: TClientLoanRequest
           424
           348)
         object Label11: TLabel
-          Left = 56
-          Top = 41
-          Width = 60
-          Height = 13
+          Left = 44
+          Top = 38
+          Width = 84
+          Height = 18
           Anchors = []
           Caption = 'Customer ID'
-          ExplicitLeft = 59
+          ExplicitLeft = 56
+          ExplicitTop = 41
         end
         object lblCID: TLabel
           Left = 161
@@ -406,17 +407,18 @@ object ClientLoanRequest: TClientLoanRequest
           Height = 31
           Align = alClient
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object Label32: TLabel
-          Left = 72
-          Top = 72
-          Width = 27
-          Height = 13
+          Left = 66
+          Top = 69
+          Width = 39
+          Height = 18
           Anchors = []
           Caption = 'Name'
-          ExplicitLeft = 75
+          ExplicitLeft = 72
+          ExplicitTop = 72
         end
         object lblName: TLabel
           Left = 161
@@ -425,17 +427,18 @@ object ClientLoanRequest: TClientLoanRequest
           Height = 31
           Align = alClient
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object Label38: TLabel
-          Left = 75
-          Top = 103
-          Width = 21
-          Height = 13
+          Left = 72
+          Top = 100
+          Width = 28
+          Height = 18
           Anchors = []
           Caption = 'NRC'
-          ExplicitLeft = 79
+          ExplicitLeft = 75
+          ExplicitTop = 103
         end
         object lblNRC: TLabel
           Left = 161
@@ -444,17 +447,18 @@ object ClientLoanRequest: TClientLoanRequest
           Height = 31
           Align = alClient
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object Label44: TLabel
-          Left = 75
-          Top = 134
-          Width = 21
-          Height = 13
+          Left = 71
+          Top = 131
+          Width = 30
+          Height = 18
           Anchors = []
           Caption = 'DOB'
-          ExplicitLeft = 76
+          ExplicitLeft = 75
+          ExplicitTop = 134
         end
         object lblDOB: TLabel
           Left = 161
@@ -463,17 +467,18 @@ object ClientLoanRequest: TClientLoanRequest
           Height = 31
           Align = alClient
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object Label50: TLabel
-          Left = 66
-          Top = 165
-          Width = 39
-          Height = 13
+          Left = 60
+          Top = 162
+          Width = 52
+          Height = 18
           Anchors = []
           Caption = 'Address'
-          ExplicitLeft = 69
+          ExplicitLeft = 66
+          ExplicitTop = 165
         end
         object lblAddress: TLabel
           Left = 161
@@ -482,17 +487,18 @@ object ClientLoanRequest: TClientLoanRequest
           Height = 31
           Align = alClient
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object Label56: TLabel
-          Left = 63
-          Top = 196
-          Width = 46
-          Height = 13
+          Left = 54
+          Top = 193
+          Width = 63
+          Height = 18
           Anchors = []
           Caption = 'Phone No'
-          ExplicitLeft = 66
+          ExplicitLeft = 63
+          ExplicitTop = 196
         end
         object lblPhone: TLabel
           Left = 161
@@ -501,17 +507,18 @@ object ClientLoanRequest: TClientLoanRequest
           Height = 31
           Align = alClient
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object Label62: TLabel
-          Left = 72
-          Top = 227
-          Width = 27
-          Height = 13
+          Left = 66
+          Top = 224
+          Width = 39
+          Height = 18
           Anchors = []
           Caption = 'Home'
-          ExplicitLeft = 75
+          ExplicitLeft = 72
+          ExplicitTop = 227
         end
         object lblHome: TLabel
           Left = 161
@@ -520,17 +527,18 @@ object ClientLoanRequest: TClientLoanRequest
           Height = 31
           Align = alClient
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object Label68: TLabel
-          Left = 77
-          Top = 258
-          Width = 17
-          Height = 13
+          Left = 75
+          Top = 255
+          Width = 22
+          Height = 18
           Anchors = []
           Caption = 'Job'
-          ExplicitLeft = 80
+          ExplicitLeft = 77
+          ExplicitTop = 258
         end
         object lblJob: TLabel
           Left = 161
@@ -539,17 +547,18 @@ object ClientLoanRequest: TClientLoanRequest
           Height = 31
           Align = alClient
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object Label74: TLabel
-          Left = 71
-          Top = 289
-          Width = 30
-          Height = 13
+          Left = 66
+          Top = 286
+          Width = 39
+          Height = 18
           Anchors = []
           Caption = 'Salary'
-          ExplicitLeft = 74
+          ExplicitLeft = 71
+          ExplicitTop = 289
         end
         object lblSalary: TLabel
           Left = 161
@@ -558,8 +567,8 @@ object ClientLoanRequest: TClientLoanRequest
           Height = 31
           Align = alClient
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object btnSelect: TButton
           Left = 333
@@ -718,6 +727,8 @@ object ClientLoanRequest: TClientLoanRequest
         Caption = 'LOAN INFORMATION'
         TabOrder = 1
         VerticalAlignment = taAlignTop
+        ExplicitLeft = 420
+        ExplicitTop = 6
         DesignSize = (
           316
           348)
@@ -734,16 +745,16 @@ object ClientLoanRequest: TClientLoanRequest
         object Label16: TLabel
           Left = 48
           Top = 87
-          Width = 37
-          Height = 13
+          Width = 51
+          Height = 18
           Anchors = []
           Caption = 'Amount'
         end
         object Label19: TLabel
           Left = 240
           Top = 87
-          Width = 27
-          Height = 13
+          Width = 37
+          Height = 18
           Anchors = []
           Caption = 'Kyats'
         end
@@ -759,48 +770,48 @@ object ClientLoanRequest: TClientLoanRequest
         object Label23: TLabel
           Left = 48
           Top = 193
-          Width = 41
-          Height = 13
+          Width = 54
+          Height = 18
           Anchors = []
           Caption = 'Duration'
         end
         object Label24: TLabel
           Left = 240
           Top = 193
-          Width = 30
-          Height = 13
+          Width = 41
+          Height = 18
           Anchors = []
           Caption = 'Month'
         end
         object Label25: TLabel
           Left = 48
           Top = 236
-          Width = 65
-          Height = 13
+          Width = 87
+          Height = 18
           Anchors = []
           Caption = 'Interest Rate'
         end
         object Label26: TLabel
           Left = 48
           Top = 277
-          Width = 61
-          Height = 13
+          Width = 82
+          Height = 18
           Anchors = []
           Caption = 'Service Fees'
         end
         object lblRate: TLabel
-          Left = 144
+          Left = 141
           Top = 236
-          Width = 30
-          Height = 13
+          Width = 41
+          Height = 18
           Anchors = []
           Caption = 'Month'
         end
         object lblFees: TLabel
           Left = 144
           Top = 277
-          Width = 30
-          Height = 13
+          Width = 41
+          Height = 18
           Anchors = []
           Caption = 'Month'
         end
@@ -817,32 +828,32 @@ object ClientLoanRequest: TClientLoanRequest
         object editAmount: TLabel
           Left = 144
           Top = 87
-          Width = 43
-          Height = 13
+          Width = 58
+          Height = 18
           Anchors = []
           Caption = 'AMoount'
         end
         object editDuration: TLabel
           Left = 144
           Top = 193
-          Width = 41
-          Height = 13
+          Width = 54
+          Height = 18
           Anchors = []
           Caption = 'Duration'
         end
         object Label2: TLabel
-          Left = 192
+          Left = 279
           Top = 236
-          Width = 11
-          Height = 13
+          Width = 15
+          Height = 18
           Anchors = []
           Caption = '%'
         end
         object Label3: TLabel
-          Left = 192
+          Left = 280
           Top = 277
-          Width = 11
-          Height = 13
+          Width = 15
+          Height = 18
           Anchors = []
           Caption = '%'
         end

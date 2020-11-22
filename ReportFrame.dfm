@@ -54,7 +54,7 @@ object ReportFM: TReportFM
         end
         item
           SizeStyle = ssAbsolute
-          Value = 80.000000000000000000
+          Value = 120.000000000000000000
         end
         item
           SizeStyle = ssAbsolute
@@ -84,15 +84,16 @@ object ReportFM: TReportFM
         798
         40)
       object btnViewDetails: TButton
-        Left = 629
+        Left = 587
         Top = 7
-        Width = 75
+        Width = 120
         Height = 25
         Anchors = []
         Caption = 'View Details'
         Enabled = False
         TabOrder = 0
         OnClick = btnViewDetailsClick
+        ExplicitLeft = 609
       end
       object btnRefresh: TButton
         Left = 709
@@ -122,7 +123,7 @@ object ReportFM: TReportFM
         Left = 2
         Top = 17
         Width = 1211
-        Height = 278
+        Height = 276
         Align = alClient
         DataSource = DataSource1
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
@@ -152,7 +153,7 @@ object ReportFM: TReportFM
         Left = 2
         Top = 17
         Width = 1211
-        Height = 279
+        Height = 276
         Align = alClient
         DataSource = DataSource2
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]

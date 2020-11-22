@@ -4,8 +4,14 @@ object ClientFM: TClientFM
   Width = 1231
   Height = 677
   Color = clWindow
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -15
+  Font.Name = 'Tahoma'
+  Font.Style = []
   ParentBackground = False
   ParentColor = False
+  ParentFont = False
   TabOrder = 0
   object GridPanel1: TGridPanel
     Left = 0
@@ -55,7 +61,7 @@ object ClientFM: TClientFM
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
-      TitleFont.Height = -11
+      TitleFont.Height = -15
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
       OnCellClick = clientGridCellClick
@@ -128,7 +134,7 @@ object ClientFM: TClientFM
           Value = 10.000000000000000000
         end
         item
-          SizeStyle = ssAbsolute
+          SizeStyle = ssAuto
           Value = 70.000000000000000000
         end
         item
@@ -225,20 +231,18 @@ object ClientFM: TClientFM
         1229
         50)
       object Label1: TLabel
-        Left = 12
-        Top = 18
-        Width = 68
-        Height = 13
+        Left = 11
+        Top = 16
+        Width = 70
+        Height = 18
         Anchors = []
         Caption = 'Search With : '
-        ExplicitLeft = 36
-        ExplicitTop = 6
       end
       object cboxSearch: TComboBox
         Left = 85
-        Top = 14
+        Top = 12
         Width = 112
-        Height = 21
+        Height = 26
         Anchors = []
         ItemIndex = 0
         TabOrder = 0
@@ -248,20 +252,20 @@ object ClientFM: TClientFM
           'Client ID')
       end
       object Label2: TLabel
-        Left = 205
-        Top = 18
-        Width = 16
-        Height = 13
+        Left = 203
+        Top = 16
+        Width = 21
+        Height = 18
         Anchors = []
         Caption = 'CL-'
-        ExplicitLeft = 201
-        ExplicitTop = 6
+        ExplicitLeft = 205
+        ExplicitTop = 18
       end
       object editSearch: TEdit
         Left = 230
-        Top = 14
+        Top = 12
         Width = 121
-        Height = 21
+        Height = 26
         Anchors = []
         TabOrder = 1
         OnChange = editSearchChange
@@ -296,6 +300,7 @@ object ClientFM: TClientFM
         Caption = 'Delete'
         Enabled = False
         TabOrder = 4
+        OnClick = btnDeleteClick
       end
       object btnRefresh: TButton
         Left = 1140

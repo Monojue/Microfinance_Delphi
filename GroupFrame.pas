@@ -47,6 +47,7 @@ type
     procedure btnRefreshClick(Sender: TObject);
     procedure btnSearchClick(Sender: TObject);
     procedure editSearchChange(Sender: TObject);
+    procedure btnDeleteClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -58,10 +59,81 @@ implementation
 
 {$R *.dfm}
 
-uses GroupEntry;
+uses GroupEntry, shareFunction, MyQury;
 
 var
  seldata : array of string;
+
+procedure TGroupFM.btnDeleteClick(Sender: TObject);
+var
+password, msg, groupID : string;
+data : array of string;
+alength, I : Integer;
+begin
+  msg :=  'This Group is founded in ';
+  groupID := GroupGrid.Fields[0].AsString;
+  alength := Length(checkBeforeDelete('group', groupID));
+
+  if alength >0 then
+  begin
+    for I := 0 to alength -1 do
+    begin
+      msg := msg + '>>'+ checkBeforeDelete('group', groupID)[I];
+    end;
+
+    while password = EmptyStr do
+    begin
+      password := InputBox('Warning!', msg, EmptyStr);
+    end;
+
+    if CheckPassword(getLoginName, password) then
+    begin
+      for I := 0 to alength-1 do
+      begin
+        AutoDelete('group', checkBeforeDelete('group', groupID)[(alength-1)-I], groupID);
+      end;
+
+      if deleteGroupFromGroupID(groupID) then
+      begin
+        ShowMessage('Successfully Deleted!');
+      end
+      else
+      begin
+        ShowMessage('Error Occoured!');
+      end;
+
+    end
+    else
+    begin
+      ShowMessage('Wrong Password!');
+    end;
+
+  end
+  else
+  begin
+    while password = EmptyStr do
+    begin
+      password := InputBox('Warning!', 'Are you sure Want to Delete!', EmptyStr);
+    end;
+    if CheckPassword(getLoginName, password) then
+    begin
+      if deleteGroupFromGroupID(GroupID) then
+      begin
+        ShowMessage('Successfully Deleted!');
+      end
+      else
+      begin
+        ShowMessage('Error Occoured!');
+      end;
+    end
+    else
+    begin
+      ShowMessage('Wrong Password!');
+    end;
+  end;
+
+
+end;
 
 procedure TGroupFM.btnEditClick(Sender: TObject);
 begin

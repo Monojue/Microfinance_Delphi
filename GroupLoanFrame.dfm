@@ -210,6 +210,7 @@ object GroupLoanFM: TGroupLoanFM
         Caption = 'Delete'
         Enabled = False
         TabOrder = 4
+        OnClick = btnDeleteClick
       end
       object btnRefresh: TButton
         Left = 1140
@@ -244,7 +245,7 @@ object GroupLoanFM: TGroupLoanFM
           AlignWithMargins = True
           Left = 3
           Top = 3
-          Width = 440
+          Width = 420
           Height = 42
           Align = alClient
           BiDiMode = bdRightToLeftReadingOnly
@@ -257,10 +258,7 @@ object GroupLoanFM: TGroupLoanFM
           ParentBiDiMode = False
           TabOrder = 0
           OnClick = RadioGroupClick
-          ExplicitLeft = 4
-          ExplicitTop = 4
-          ExplicitWidth = 454
-          ExplicitHeight = 40
+          ExplicitWidth = 456
         end
       end
     end

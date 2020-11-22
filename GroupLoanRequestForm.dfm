@@ -7,14 +7,14 @@ object GroupLoanRequest: TGroupLoanRequest
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
+  Font.Height = -15
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
   OnShow = FormShow
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 18
   object MainGrid: TGridPanel
     Left = 0
     Top = 0
@@ -351,16 +351,16 @@ object GroupLoanRequest: TGroupLoanRequest
         object Label16: TLabel
           Left = 48
           Top = 85
-          Width = 37
-          Height = 13
+          Width = 51
+          Height = 18
           Anchors = []
           Caption = 'Amount'
         end
         object Label19: TLabel
           Left = 240
           Top = 85
-          Width = 27
-          Height = 13
+          Width = 37
+          Height = 18
           Anchors = []
           Caption = 'Kyats'
         end
@@ -376,48 +376,48 @@ object GroupLoanRequest: TGroupLoanRequest
         object Label23: TLabel
           Left = 48
           Top = 162
-          Width = 41
-          Height = 13
+          Width = 54
+          Height = 18
           Anchors = []
           Caption = 'Duration'
         end
         object Label24: TLabel
           Left = 240
           Top = 162
-          Width = 30
-          Height = 13
+          Width = 41
+          Height = 18
           Anchors = []
           Caption = 'Month'
         end
         object Label25: TLabel
           Left = 48
           Top = 196
-          Width = 65
-          Height = 13
+          Width = 87
+          Height = 18
           Anchors = []
           Caption = 'Interest Rate'
         end
         object Label26: TLabel
           Left = 48
           Top = 227
-          Width = 61
-          Height = 13
+          Width = 82
+          Height = 18
           Anchors = []
           Caption = 'Service Fees'
         end
         object lblRate: TLabel
           Left = 152
           Top = 196
-          Width = 30
-          Height = 13
+          Width = 41
+          Height = 18
           Anchors = []
           Caption = 'Month'
         end
         object lblFees: TLabel
           Left = 152
           Top = 227
-          Width = 30
-          Height = 13
+          Width = 41
+          Height = 18
           Anchors = []
           Caption = 'Month'
         end
@@ -434,16 +434,16 @@ object GroupLoanRequest: TGroupLoanRequest
         object editAmount: TLabel
           Left = 104
           Top = 85
-          Width = 22
-          Height = 13
+          Width = 28
+          Height = 18
           Anchors = []
           Caption = 'label'
         end
         object editDuration: TLabel
           Left = 104
           Top = 162
-          Width = 22
-          Height = 13
+          Width = 28
+          Height = 18
           Anchors = []
           Caption = 'label'
         end
@@ -607,74 +607,74 @@ object GroupLoanRequest: TGroupLoanRequest
           472
           348)
         object Label11: TLabel
-          Left = 173
-          Top = 59
-          Width = 27
-          Height = 13
+          Left = 167
+          Top = 56
+          Width = 39
+          Height = 18
           Anchors = []
           Caption = 'Name'
-          ExplicitLeft = 195
-          ExplicitTop = 47
+          ExplicitLeft = 173
+          ExplicitTop = 59
         end
         object Label12: TLabel
-          Left = 308
-          Top = 59
-          Width = 41
-          Height = 13
+          Left = 301
+          Top = 56
+          Width = 55
+          Height = 18
           Anchors = []
           Caption = 'Client ID'
-          ExplicitLeft = 358
-          ExplicitTop = 47
+          ExplicitLeft = 308
+          ExplicitTop = 59
         end
         object Label2: TLabel
-          Left = 57
-          Top = 102
-          Width = 33
-          Height = 13
+          Left = 51
+          Top = 99
+          Width = 44
+          Height = 18
           Anchors = []
           Caption = 'Leader'
-          ExplicitLeft = 64
-          ExplicitTop = 82
+          ExplicitLeft = 57
+          ExplicitTop = 102
         end
         object Label22: TLabel
-          Left = 50
-          Top = 145
-          Width = 47
-          Height = 13
+          Left = 40
+          Top = 142
+          Width = 67
+          Height = 18
           Anchors = []
           Caption = 'Member 1'
-          ExplicitLeft = 64
-          ExplicitTop = 117
+          ExplicitLeft = 50
+          ExplicitTop = 145
         end
         object Label3: TLabel
-          Left = 50
-          Top = 188
-          Width = 47
-          Height = 13
+          Left = 40
+          Top = 185
+          Width = 67
+          Height = 18
           Anchors = []
           Caption = 'Member 2'
-          ExplicitLeft = 64
-          ExplicitTop = 152
+          ExplicitLeft = 50
+          ExplicitTop = 188
         end
         object Label34: TLabel
-          Left = 50
-          Top = 231
-          Width = 47
-          Height = 13
+          Left = 40
+          Top = 228
+          Width = 67
+          Height = 18
           Anchors = []
           Caption = 'Member 3'
-          ExplicitLeft = 64
-          ExplicitTop = 187
+          ExplicitLeft = 50
+          ExplicitTop = 231
         end
         object Label40: TLabel
-          Left = 50
-          Top = 274
-          Width = 47
-          Height = 13
+          Left = 40
+          Top = 271
+          Width = 67
+          Height = 18
           Anchors = []
           Caption = 'Member 4'
-          ExplicitLeft = 64
-          ExplicitTop = 222
+          ExplicitLeft = 50
+          ExplicitTop = 274
         end
         object lblLeadName: TLabel
           Left = 116
@@ -684,8 +684,8 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object lblLeadID: TLabel
           Left = 258
@@ -695,8 +695,8 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object lblM1Name: TLabel
           Left = 116
@@ -706,8 +706,8 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object lblM1ID: TLabel
           Left = 258
@@ -717,8 +717,8 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object lblM2Name: TLabel
           Left = 116
@@ -728,8 +728,8 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object lblM2ID: TLabel
           Left = 258
@@ -739,8 +739,8 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object lblM3Name: TLabel
           Left = 116
@@ -750,8 +750,8 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object lblM3ID: TLabel
           Left = 258
@@ -761,8 +761,8 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object lblM4Name: TLabel
           Left = 116
@@ -772,8 +772,8 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object lblM4ID: TLabel
           Left = 258
@@ -783,8 +783,8 @@ object GroupLoanRequest: TGroupLoanRequest
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object Label5: TLabel
           AlignWithMargins = True
@@ -798,9 +798,9 @@ object GroupLoanRequest: TGroupLoanRequest
           Caption = 'Group ID : '
           ParentBiDiMode = False
           Layout = tlCenter
-          ExplicitLeft = 60
-          ExplicitWidth = 53
-          ExplicitHeight = 13
+          ExplicitLeft = 38
+          ExplicitWidth = 75
+          ExplicitHeight = 18
         end
         object lblGID: TLabel
           Left = 116
@@ -809,8 +809,8 @@ object GroupLoanRequest: TGroupLoanRequest
           Height = 43
           Align = alClient
           Layout = tlCenter
-          ExplicitWidth = 3
-          ExplicitHeight = 13
+          ExplicitWidth = 5
+          ExplicitHeight = 18
         end
         object btnSelect: TButton
           Left = 291

@@ -44,6 +44,7 @@ type
     procedure btnNewClick(Sender: TObject);
     procedure btnPayClick(Sender: TObject);
     procedure clientGridCellClick(Column: TColumn);
+    procedure btnDeleteClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -57,8 +58,42 @@ implementation
 
 {$R *.dfm}
 
-uses ClientLoanRequestForm, ViewDetails;
+uses ClientLoanRequestForm, ViewDetails, MyQury, shareFunction;
 
+
+procedure TClientLoanFM.btnDeleteClick(Sender: TObject);
+var
+password, msg, LoanID : string;
+data : array of string;
+I : Integer;
+begin
+
+  msg :=  'This Client is founded in ';
+  LoanID := clientGrid.Fields[0].AsString;
+
+    while password = EmptyStr do
+    begin
+      password := InputBox('Warning!', msg, EmptyStr);
+    end;
+
+    if CheckPassword(getLoginName, password) then
+    begin
+
+      if deleteclientLoanRequestLoanID(LoanID) then
+      begin
+        ShowMessage('Successfully Deleted!');
+      end
+      else
+      begin
+        ShowMessage('Error Occoured!');
+      end;
+
+    end
+    else
+    begin
+      ShowMessage('Wrong Password!');
+    end;
+end;
 
 procedure TClientLoanFM.btnNewClick(Sender: TObject);
 begin

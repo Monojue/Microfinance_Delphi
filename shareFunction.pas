@@ -16,6 +16,9 @@ procedure setLoginID (ID : string);
 function getLoginID () : string;
 //function addComma(amount : string) : string;
 function CalculateDueDate(DateNow : TDateTime) : string;
+
+procedure setLoginName (ID : string);
+function getLoginName () : string;
 implementation
 
 uses DataModule, ClientFrame;
@@ -29,10 +32,21 @@ begin
   loginID := ID;
 end;
 
+procedure setLoginName (ID : string);
+begin
+  loginName := ID;
+end;
+
 function getLoginID () : string;
 begin
   Result := loginID;
 end;
+
+function getLoginName () : string;
+begin
+  Result := loginName;
+end;
+
 
 //function addComma(amount : string) : string;
 //var

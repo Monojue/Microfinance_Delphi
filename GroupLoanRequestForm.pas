@@ -179,6 +179,7 @@ begin
     if insert and insert1 then
     begin
       ShowMessage('Saved Successfully!');
+      Close;
     end
     else if not insert then
     begin

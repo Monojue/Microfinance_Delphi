@@ -215,6 +215,7 @@ object ClientLoanFM: TClientLoanFM
         Caption = 'Delete'
         Enabled = False
         TabOrder = 4
+        OnClick = btnDeleteClick
       end
       object btnRefresh: TButton
         Left = 1140
@@ -249,7 +250,7 @@ object ClientLoanFM: TClientLoanFM
           AlignWithMargins = True
           Left = 3
           Top = 3
-          Width = 440
+          Width = 420
           Height = 42
           Align = alClient
           BiDiMode = bdRightToLeftReadingOnly

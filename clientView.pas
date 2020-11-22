@@ -33,6 +33,7 @@ type
     lblSalary: TLabel;
     lblHome: TLabel;
     procedure prepareView(ID : string);
+    procedure btnCloseClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -49,6 +50,11 @@ implementation
 uses MyQury;
 
 { TfrmClientView }
+
+procedure TfrmClientView.btnCloseClick(Sender: TObject);
+begin
+  Close;
+end;
 
 procedure TfrmClientView.prepareView(ID: string);
 begin

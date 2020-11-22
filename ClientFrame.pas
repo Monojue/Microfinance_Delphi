@@ -47,6 +47,7 @@ type
     procedure btnRefreshClick(Sender: TObject);
     procedure btnSearchClick(Sender: TObject);
     procedure editSearchChange(Sender: TObject);
+    procedure btnDeleteClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -58,10 +59,96 @@ implementation
 
 {$R *.dfm}
 
-uses ClientEntry, MyQury, frmSelector;
+uses ClientEntry, MyQury, frmSelector, shareFunction;
 
 var
  selData : array of string;
+
+procedure TClientFM.btnDeleteClick(Sender: TObject);
+var
+password, msg, clientID : string;
+data : array of string;
+alength, I : Integer;
+begin
+//    try
+//    with CQuery do
+//      begin
+//        Close;
+//        SQL.Clear;
+//        SQL.Add('Delete from client where clientID = "'+ selData[0]+ '"');
+//        Open;
+//      end;
+//  except on E: Exception do
+//  begin
+//
+//
+//  end;
+
+//  end;
+  msg :=  'This Client is founded in ';
+  clientID := clientGrid.Fields[0].AsString;
+  alength := Length(checkBeforeDelete('client', clientID));
+
+  if alength >0 then
+  begin
+    for I := 0 to alength -1 do
+    begin
+      msg := msg + '>>'+ checkBeforeDelete('client', clientID)[I];
+    end;
+
+    while password = EmptyStr do
+    begin
+      password := InputBox('Warning!', msg, EmptyStr);
+    end;
+
+    if CheckPassword(getLoginName, password) then
+    begin
+      for I := 0 to alength-1 do
+      begin
+        AutoDelete('client', checkBeforeDelete('client', clientID)[(alength-1)-I], clientID);
+      end;
+
+      if deleteClient(clientID) then
+      begin
+        ShowMessage('Successfully Deleted!');
+      end
+      else
+      begin
+        ShowMessage('Error Occoured!');
+      end;
+
+    end
+    else
+    begin
+      ShowMessage('Wrong Password!');
+    end;
+    
+  end
+  else
+  begin
+    while password = EmptyStr do
+    begin
+      password := InputBox('Warning!', 'Are you sure Want to Delete!', EmptyStr);
+    end;
+    if CheckPassword(getLoginName, password) then
+    begin
+      if deleteClient(clientID) then
+      begin
+        ShowMessage('Successfully Deleted!');
+      end
+      else
+      begin
+        ShowMessage('Error Occoured!');
+      end;
+    end
+    else
+    begin
+      ShowMessage('Wrong Password!');
+    end;
+  end;
+
+
+end;
 
 procedure TClientFM.btnEditClick(Sender: TObject);
 begin

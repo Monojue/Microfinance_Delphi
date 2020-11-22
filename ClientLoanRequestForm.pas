@@ -197,6 +197,7 @@ begin
     if update and insert and insert1 then
     begin
       ShowMessage('Saved Successfully!');
+      Close;
     end
     else if not update then
     begin

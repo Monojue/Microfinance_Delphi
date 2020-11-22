@@ -218,8 +218,6 @@ object GroupFM: TGroupFM
           Value = 100.000000000000000000
         end>
       TabOrder = 1
-      ExplicitLeft = 2
-      ExplicitTop = 0
       DesignSize = (
         1229
         50)
@@ -287,7 +285,6 @@ object GroupFM: TGroupFM
         Caption = 'New'
         TabOrder = 3
         OnClick = btnNewClick
-        ExplicitLeft = 980
       end
       object btnEdit: TButton
         Left = 980
@@ -299,7 +296,6 @@ object GroupFM: TGroupFM
         Enabled = False
         TabOrder = 4
         OnClick = btnEditClick
-        ExplicitLeft = 1060
       end
       object btnDelete: TButton
         Left = 1060
@@ -310,7 +306,7 @@ object GroupFM: TGroupFM
         Caption = 'Delete'
         Enabled = False
         TabOrder = 5
-        ExplicitLeft = 1140
+        OnClick = btnDeleteClick
       end
       object btnRefresh: TButton
         Left = 1140
@@ -321,7 +317,6 @@ object GroupFM: TGroupFM
         Caption = 'Refresh'
         TabOrder = 6
         OnClick = btnRefreshClick
-        ExplicitLeft = 1154
       end
     end
   end

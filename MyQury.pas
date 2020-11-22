@@ -19,10 +19,381 @@ function GetGroupDetailsFromID(id : string): Resultdata;
 function GetClientDetailsFromID(id : string): Resultdata;
 function UpdateDueDate(tbName,Date, LoanRequestID : string) : boolean;
 function GetPaymentNumber(ID : string) : Integer;
+function checkBeforeDelete(tbName, ID : string) : Resultdata;
+function checkInTable(tbName, ID : string) : boolean;
+function getGroupIDFormClientID(CID : string) : string;
+function getLoanIDfromGroupID(groupID : string) : string;
+function getLoanIDfromClientID(ClientID : string) :string;
+function CheckPassword(username, password : string) : boolean;
+
+function AutoDelete(tbName, key, ID : string) : boolean;
+function deletePayment(LoanRequestID : string) : boolean;
+function deleteclientLoanRequest(clientID : string) : boolean;
+function deleteclientLoanRequestLoanID(LoanID : string) : boolean;
+function deleteClientDetailsLoanID(LoanID : string) : boolean;
+function deleteGroupFromGroupID(ID : string) : boolean;
+function deleteGroupLoanRequest(GroupID : string) : boolean;
+function deleteGroupLoanRequestLoanID(LoanID : string) : boolean;
+function deleteGroupDetailsLoanID(LoanID : string) : boolean;
+
+function deleteClient(ID : string) : boolean;
 
 implementation
 
 uses DataModule;
+
+function deleteClient(ID : string) : boolean;
+begin
+  with DMMicro do
+  begin
+  DMMicro.SQLQuery.Close;
+  SQLQuery.SQL.Clear;
+  SQLQuery.SQL.Add('Delete from client where clientID="'+ID+'"');
+
+    if  SQLQuery.ExecSQL >0 then
+    begin
+      Exit(True);
+    end
+    else
+    begin
+      Exit(False);
+    end;
+  end;
+end;
+
+function deleteclientLoanRequest(clientID : string) : boolean;
+begin
+
+  Result := deleteclientLoanRequestLoanID(getLoanIDfromClientID(clientID));
+end;
+
+function deleteGroupDetailsLoanID(LoanID : string) : boolean;
+begin
+  with DMMicro do
+  begin
+  DMMicro.SQLQuery.Close;
+  SQLQuery.SQL.Clear;
+  SQLQuery.SQL.Add('Delete from GroupDetails where LoanRequestID="'+LoanID+'"');
+
+    if  SQLQuery.ExecSQL >0 then
+    begin
+      Exit(True);
+    end
+    else
+    begin
+      Exit(False);
+    end;
+  end;
+end;
+
+function deleteGroupLoanRequestLoanID(LoanID : string) : boolean;
+begin
+  deleteGroupDetailsLoanID(LoanID);
+  with DMMicro do
+  begin
+  DMMicro.SQLQuery.Close;
+  SQLQuery.SQL.Clear;
+  SQLQuery.SQL.Add('Delete from LoanRequest where LoanRequestID="'+LoanID+'"');
+
+    if  SQLQuery.ExecSQL >0 then
+    begin
+      Exit(True);
+    end
+    else
+    begin
+      Exit(False);
+    end;
+  end;
+end;
+
+function deleteclientLoanRequestLoanID(LoanID : string) : boolean;
+begin
+  deleteClientDetailsLoanID(LoanID);
+  with DMMicro do
+  begin
+  DMMicro.SQLQuery.Close;
+  SQLQuery.SQL.Clear;
+  SQLQuery.SQL.Add('Delete from LoanRequest where LoanRequestID="'+LoanID+'"');
+
+    if  SQLQuery.ExecSQL >0 then
+    begin
+      Exit(True);
+    end
+    else
+    begin
+      Exit(False);
+    end;
+  end;
+end;
+
+function deleteGroupLoanRequest(GroupID : string) : boolean;
+begin
+  Result := deleteGroupLoanRequestLoanID(getLoanIDfromGroupID(GroupID));
+end;
+
+function deleteClientDetailsLoanID(LoanID : string) : boolean;
+begin
+  with DMMicro do
+  begin
+  DMMicro.SQLQuery.Close;
+  SQLQuery.SQL.Clear;
+  SQLQuery.SQL.Add('Delete from ClientDetails where LoanRequestID="'+LoanID+'"');
+
+    if  SQLQuery.ExecSQL >0 then
+    begin
+      Exit(True);
+    end
+    else
+    begin
+      Exit(False);
+    end;
+  end;
+end;
+
+function deletePayment(LoanRequestID : string) : boolean;
+begin
+  with DMMicro do
+  begin
+  DMMicro.SQLQuery.Close;
+  SQLQuery.SQL.Clear;
+  SQLQuery.SQL.Add('Delete from repayment where LoanRequestID="'+LoanRequestID+'"');
+
+    if  SQLQuery.ExecSQL >0 then
+    begin
+      Exit(True);
+    end
+    else
+    begin
+      Exit(False);
+    end;
+  end;
+end;
+
+function AutoDelete(tbName, key, ID : string) : boolean;
+begin
+  if tbName = 'client' then
+  begin
+    if key = 'Individual Repayment' then
+    begin
+      if deletePayment(getLoanIDfromClientID(ID)) then
+        Exit(True);
+    end;
+    if key = 'Group Repayment' then
+    begin
+      if deletePayment(getLoanIDfromGroupID(getGroupIDFormClientID(ID))) then
+        Exit(True);
+    end
+    else if key = 'Group Loan' then
+    begin
+      if deleteGroupLoanRequest(getGroupIDFormClientID(ID)) then
+        Exit(True);
+    end
+    else if key = 'Client Loan' then
+    begin
+      if deleteclientLoanRequest(ID) then
+        Exit(True);
+    end
+    else if key = 'Group' then
+    begin
+      if deleteGroupFromGroupID(getGroupIDFormClientID(ID)) then
+        Exit(True);
+    end;
+    
+  end
+  else if tbName = 'group' then
+  begin
+    if key = 'Group Repayment' then
+    begin
+      if deletePayment(getLoanIDfromGroupID(ID)) then
+        Exit(True);
+    end
+    else if key = 'Group Loan' then
+    begin
+      if deleteGroupLoanRequest(ID) then
+        Exit(True);
+    end;
+  end
+  else if tbName = 'loanrequest' then
+  begin
+    if key = 'Repayment' then
+    begin
+      if deletePayment(ID) then
+        Exit(True);
+    end;
+  end;
+end;
+
+function deleteGroupFromGroupID(ID : string) : boolean;
+begin
+  with DMMicro do
+  begin
+  DMMicro.SQLQuery.Close;
+  SQLQuery.SQL.Clear;
+  SQLQuery.SQL.Add('Delete from clientgroup where GroupID="'+ID+'"');
+
+    if  SQLQuery.ExecSQL >0 then
+    begin
+      Exit(True);
+    end
+    else
+    begin
+      Exit(False);
+    end;
+  end;
+end;
+
+function CheckPassword(username, password : string) : boolean;
+begin
+  with DMMicro.SQLQuery do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('Select * from officer where binary username ="'+username+'" and binary password="'+password+'"');
+    Open;
+    if  not Eof then
+    begin
+      Exit(True);
+    end
+    else
+    begin
+      Exit(False);
+    end;
+  end;
+end;
+
+function checkBeforeDelete(tbName, ID : string) : Resultdata;
+begin
+  
+  if tbName = 'client' then
+  begin
+    if checkInTable('group', ID) then
+    begin
+      SetLength(Result ,1);
+      Result[0] := 'Group';
+      if checkInTable('groupdetails',getGroupIDFormClientID(ID)) then
+      begin
+        SetLength(Result ,2);
+        Result[1] := 'Group Loan';
+        if checkInTable('repayment', getLoanIDfromGroupID(getGroupIDFormClientID(ID))) then
+        begin
+          SetLength(Result ,3);
+          Result[2] := 'Group Repayment';
+        end;
+      end;
+    end
+    else
+    begin
+      if checkInTable('clientdetails', ID) then
+      begin
+        SetLength(Result ,1);
+        Result[0] := 'Client Loan';
+        if checkInTable('repayment', getLoanIDfromClientID(ID)) then
+        begin
+          SetLength(Result ,2);
+          Result[1] :=  'Individual Repayment';
+        end;
+      end;
+    end;
+  end
+  else if tbName = 'group' then
+  begin
+    if checkInTable('groupdetails', ID) then
+    begin
+      SetLength(Result ,1);
+      Result[0] := 'Group Loan';
+      if checkInTable('repayment', getLoanIDfromGroupID(ID)) then
+      begin
+        SetLength(Result ,2);
+        Result[1] := 'Group Repayment';
+      end;
+    end;
+  end
+  else if tbName = 'loanrequest' then
+  begin
+    if checkInTable('repayment', ID) then
+    begin
+      SetLength(Result ,1);
+      Result[0] := 'Repayment';
+    end;
+  end;
+end;
+
+function getLoanIDfromClientID(ClientID : string) :string;
+begin
+  with DMMicro.SQLQuery do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('Select * from ClientDetails where clientID="'+ClientID+'"');
+    Open;
+    Result := Fields[1].AsString;
+  end;
+end;
+
+function getLoanIDfromGroupID(groupID : string) : string;
+begin
+  with DMMicro.SQLQuery do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('Select * from GroupDetails where GroupID="'+GroupID+'"');
+    Open;
+    Result := Fields[1].AsString;
+   
+  end;
+end;
+
+function getGroupIDFormClientID(CID : string) : string;
+begin
+  with DMMicro.SQLQuery do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM clientgroup where Leader="'+CID+'" or Member_1="'+CID+'" or Member_2="'+CID+'" or Member_3="'+CID+'" or Member_4="'+CID+'"');
+    Open;
+    Result := Fields[0].AsString;
+ 
+  end;
+end;
+
+function checkInTable(tbName, ID : string) : boolean;
+begin
+  with DMMicro.SQLQuery do
+  begin
+    Close;
+    SQL.Clear;
+    if tbName = 'client' then
+    begin
+      SQL.Add('Select * from client where clientID='+ID+'"');
+    end
+    else if tbName = 'group' then
+    begin
+      SQL.Add('SELECT * FROM clientgroup where Leader="'+ID+'" or Member_1="'+ID+'" or Member_2="'+ID+'" or Member_3="'+ID+'" or Member_4="'+ID+'"');
+    end
+    else if tbName = 'groupdetails' then
+    begin
+      SQL.Add('Select * from groupdetails where GroupID="'+ID+'"');
+    end
+    else if tbName = 'clientdetails' then
+    begin
+     SQL.Add('Select * from clientdetails where ClientID="'+ID+'"');
+    end
+    else if tbName = 'repayment' then
+    begin
+     SQL.Add('Select * from repayment where LoanRequestID="'+ID+'"');
+    end;
+    Open;
+    if  not Eof then
+    begin
+      Exit(True);
+    end
+    else
+    begin
+      Exit(False);
+    end;
+  end;
+end;
+
 
 function GetPaymentNumber(ID : string) : Integer;
 var

@@ -29,16 +29,18 @@ type
     TabSheet8: TTabSheet;
     TReportFM1: TReportFM;
     TRepaymentFM1: TRepaymentFM;
-    procedure TSettingFM1btnIEditClick(Sender: TObject);
     procedure PageControl1Change(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
+
   end;
 
 var
   MainForm: TMainForm;
+  loginRole : string;
 
 implementation
 
@@ -47,16 +49,19 @@ implementation
 uses DataModule;
 
 
+procedure TMainForm.FormCreate(Sender: TObject);
+begin
+  if loginRole = 'Staff' then
+  begin
+    PageControl1.Pages[4].TabVisible := false;
+    PageControl1.Pages[5].TabVisible := false;
+  end;
+end;
+
 procedure TMainForm.PageControl1Change(Sender: TObject);
 begin
   TSettingFM1.GetIData;
   TSettingFM1.GetGData;
-end;
-
-procedure TMainForm.TSettingFM1btnIEditClick(Sender: TObject);
-begin
-  TSettingFM1.btnIEditClick(Sender);
-
 end;
 
 end.

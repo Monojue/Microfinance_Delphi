@@ -7,13 +7,13 @@ object frmCleintEntry: TfrmCleintEntry
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
+  Font.Height = -15
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 18
   object MainGrip: TGridPanel
     Left = 0
     Top = 0
@@ -111,6 +111,7 @@ object frmCleintEntry: TfrmCleintEntry
         Anchors = []
         Caption = 'Cancel'
         TabOrder = 1
+        OnClick = btnCloseClick
       end
     end
     object TopGrip: TGridPanel
@@ -166,7 +167,7 @@ object frmCleintEntry: TfrmCleintEntry
         end>
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -13
+      Font.Height = -15
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
@@ -178,16 +179,15 @@ object frmCleintEntry: TfrmCleintEntry
           SizeStyle = ssAuto
         end>
       TabOrder = 1
-      ExplicitTop = 0
       object lblID: TLabel
         Left = 71
         Top = 1
-        Width = 4
+        Width = 5
         Height = 38
         Margins.Left = 50
         Align = alLeft
         Layout = tlCenter
-        ExplicitHeight = 16
+        ExplicitHeight = 18
       end
       object Label1: TLabel
         Left = 1
@@ -199,9 +199,7 @@ object frmCleintEntry: TfrmCleintEntry
         Alignment = taRightJustify
         Caption = 'Client ID : '
         Layout = tlCenter
-        ExplicitLeft = 10
-        ExplicitWidth = 61
-        ExplicitHeight = 16
+        ExplicitHeight = 18
       end
       object Label4: TLabel
         Left = 308
@@ -212,18 +210,18 @@ object frmCleintEntry: TfrmCleintEntry
         Alignment = taRightJustify
         Caption = 'Date : '
         Layout = tlCenter
-        ExplicitLeft = 319
-        ExplicitWidth = 39
-        ExplicitHeight = 16
+        ExplicitLeft = 312
+        ExplicitWidth = 46
+        ExplicitHeight = 18
       end
       object lblDate: TLabel
         Left = 358
         Top = 1
-        Width = 4
+        Width = 5
         Height = 38
         Align = alLeft
         Layout = tlCenter
-        ExplicitHeight = 16
+        ExplicitHeight = 18
       end
     end
     object RelativePanel1: TRelativePanel
@@ -433,7 +431,7 @@ object frmCleintEntry: TfrmCleintEntry
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -13
+      Font.Height = -15
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
@@ -445,7 +443,7 @@ object frmCleintEntry: TfrmCleintEntry
         Left = 160
         Top = 48
         Width = 193
-        Height = 24
+        Height = 26
         Anchors = []
         TabOrder = 0
       end
@@ -467,7 +465,7 @@ object frmCleintEntry: TfrmCleintEntry
         Left = 160
         Top = 168
         Width = 241
-        Height = 24
+        Height = 26
         Anchors = []
         TabOrder = 1
       end
@@ -517,7 +515,7 @@ object frmCleintEntry: TfrmCleintEntry
         Left = 163
         Top = 88
         Width = 49
-        Height = 24
+        Height = 26
         Anchors = []
         TabOrder = 2
       end
@@ -525,7 +523,7 @@ object frmCleintEntry: TfrmCleintEntry
         Left = 229
         Top = 88
         Width = 68
-        Height = 24
+        Height = 26
         Anchors = []
         TabOrder = 3
       end
@@ -533,7 +531,7 @@ object frmCleintEntry: TfrmCleintEntry
         Left = 322
         Top = 88
         Width = 121
-        Height = 24
+        Height = 26
         Anchors = []
         NumbersOnly = True
         TabOrder = 4
@@ -541,16 +539,16 @@ object frmCleintEntry: TfrmCleintEntry
       object Label9: TLabel
         Left = 218
         Top = 91
-        Width = 5
-        Height = 16
+        Width = 6
+        Height = 18
         Anchors = []
         Caption = '/'
       end
       object Label10: TLabel
         Left = 299
         Top = 91
-        Width = 18
-        Height = 16
+        Width = 22
+        Height = 18
         Margins.Left = 10
         Margins.Right = 10
         Anchors = []
@@ -560,7 +558,7 @@ object frmCleintEntry: TfrmCleintEntry
         Left = 161
         Top = 128
         Width = 51
-        Height = 24
+        Height = 26
         Anchors = []
         TabOrder = 5
       end
@@ -568,7 +566,7 @@ object frmCleintEntry: TfrmCleintEntry
         Left = 229
         Top = 128
         Width = 85
-        Height = 24
+        Height = 26
         Anchors = []
         TabOrder = 6
       end
@@ -576,7 +574,7 @@ object frmCleintEntry: TfrmCleintEntry
         Left = 322
         Top = 128
         Width = 83
-        Height = 24
+        Height = 26
         Anchors = []
         TabOrder = 7
       end
@@ -612,7 +610,7 @@ object frmCleintEntry: TfrmCleintEntry
         Left = 160
         Top = 208
         Width = 113
-        Height = 24
+        Height = 26
         Anchors = []
         NumbersOnly = True
         TabOrder = 8
@@ -658,7 +656,7 @@ object frmCleintEntry: TfrmCleintEntry
         Left = 160
         Top = 288
         Width = 113
-        Height = 24
+        Height = 26
         Anchors = []
         TabOrder = 10
       end
@@ -666,7 +664,7 @@ object frmCleintEntry: TfrmCleintEntry
         Left = 160
         Top = 325
         Width = 113
-        Height = 24
+        Height = 26
         Anchors = []
         NumbersOnly = True
         TabOrder = 11

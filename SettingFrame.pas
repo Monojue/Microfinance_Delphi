@@ -84,6 +84,7 @@ type
     ClientDataSetNRC: TStringField;
     ClientDataSetRole: TStringField;
     Button1: TButton;
+    Panel2: TPanel;
     procedure IndividualfieldEnable;
     procedure GroupfieldEnable;
     procedure IfieldDisable;

@@ -33,7 +33,11 @@ object SettingFM: TSettingFM
         Column = 1
         Control = Panel1
         Row = 0
-        RowSpan = 2
+      end
+      item
+        Column = 1
+        Control = Panel2
+        Row = 1
       end>
     RowCollection = <
       item
@@ -1167,11 +1171,26 @@ object SettingFM: TSettingFM
       Left = 880
       Top = 1
       Width = 350
-      Height = 675
+      Height = 337
       Align = alClient
       Color = clHighlight
       ParentBackground = False
       TabOrder = 2
+      ExplicitHeight = 675
+    end
+    object Panel2: TPanel
+      Left = 880
+      Top = 338
+      Width = 350
+      Height = 338
+      Align = alClient
+      Color = clHighlight
+      ParentBackground = False
+      TabOrder = 3
+      ExplicitLeft = 962
+      ExplicitTop = 486
+      ExplicitWidth = 185
+      ExplicitHeight = 675
     end
   end
   object MicrofinanceConnection: TSQLConnection

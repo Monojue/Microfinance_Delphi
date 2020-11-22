@@ -41,7 +41,7 @@ implementation
 
 {$R *.dfm}
 
-uses shareFunction;
+uses shareFunction, Main;
 
 
 procedure TLoginForm.btnCancelClick(Sender: TObject);
@@ -73,10 +73,12 @@ class function TLoginForm.Execute: boolean;
           + txtPassword.Text+'"');
           SQLOfficer.Open;
 
-          if SQLOfficer.Eof then
+          if not SQLOfficer.Eof then
           begin
             setLoginID(SQLOfficer.FieldByName('officerID').AsString);
-            ModalResult := mrOK
+            setLoginName(SQLOfficer.FieldByName('UserName').AsString);
+            loginRole := SQLOfficer.FieldByName('Role').AsString;
+            ModalResult := mrOK ;
           end
           else
             ShowMessage('Wrong UserName or Password!');

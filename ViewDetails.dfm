@@ -140,47 +140,39 @@ object frmDetails: TfrmDetails
         Left = 111
         Top = 1
         Width = 4
-        Height = 48
+        Height = 16
         Margins.Left = 50
         Align = alLeft
         Layout = tlCenter
-        ExplicitHeight = 16
       end
       object Label1: TLabel
-        Left = 1
+        Left = 9
         Top = 1
-        Width = 110
-        Height = 48
+        Width = 102
+        Height = 16
         Margins.Right = 10
         Align = alClient
         Alignment = taRightJustify
         Caption = 'LoanRequest ID : '
         Layout = tlCenter
-        ExplicitLeft = 9
-        ExplicitWidth = 102
-        ExplicitHeight = 16
       end
       object Label4: TLabel
-        Left = 337
+        Left = 348
         Top = 1
-        Width = 50
-        Height = 48
+        Width = 39
+        Height = 16
         Align = alClient
         Alignment = taRightJustify
         Caption = 'Date : '
         Layout = tlCenter
-        ExplicitLeft = 348
-        ExplicitWidth = 39
-        ExplicitHeight = 16
       end
       object lblDate: TLabel
         Left = 387
         Top = 1
         Width = 4
-        Height = 48
+        Height = 16
         Align = alLeft
         Layout = tlCenter
-        ExplicitHeight = 16
       end
     end
     object Panel: TPanel
@@ -807,7 +799,6 @@ object frmDetails: TfrmDetails
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitTop = 86
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -819,7 +810,6 @@ object frmDetails: TfrmDetails
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitTop = 86
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -831,7 +821,6 @@ object frmDetails: TfrmDetails
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitTop = 120
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -843,7 +832,6 @@ object frmDetails: TfrmDetails
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitTop = 120
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -855,7 +843,6 @@ object frmDetails: TfrmDetails
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitTop = 154
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -867,7 +854,6 @@ object frmDetails: TfrmDetails
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitTop = 154
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -879,7 +865,6 @@ object frmDetails: TfrmDetails
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitTop = 188
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -891,7 +876,6 @@ object frmDetails: TfrmDetails
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitTop = 188
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -903,7 +887,6 @@ object frmDetails: TfrmDetails
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitTop = 222
           ExplicitWidth = 3
           ExplicitHeight = 13
         end
@@ -959,7 +942,6 @@ object frmDetails: TfrmDetails
           Align = alClient
           Alignment = taCenter
           Layout = tlCenter
-          ExplicitTop = 222
           ExplicitWidth = 3
           ExplicitHeight = 13
         end

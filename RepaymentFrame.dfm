@@ -3,6 +3,12 @@ object RepaymentFM: TRepaymentFM
   Top = 0
   Width = 1231
   Height = 581
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -15
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  ParentFont = False
   TabOrder = 0
   object GridPanel1: TGridPanel
     Left = 0
@@ -72,15 +78,15 @@ object RepaymentFM: TRepaymentFM
           Value = 80.000000000000000000
         end
         item
+          SizeStyle = ssAbsolute
+          Value = 500.000000000000000000
+        end
+        item
           Value = 100.000000000000000000
         end
         item
           SizeStyle = ssAbsolute
-          Value = 80.000000000000000000
-        end
-        item
-          SizeStyle = ssAbsolute
-          Value = 80.000000000000000000
+          Value = 120.000000000000000000
         end
         item
           SizeStyle = ssAbsolute
@@ -149,20 +155,18 @@ object RepaymentFM: TRepaymentFM
         1229
         50)
       object Label1: TLabel
-        Left = 12
-        Top = 18
-        Width = 68
-        Height = 13
+        Left = 11
+        Top = 16
+        Width = 70
+        Height = 18
         Anchors = []
         Caption = 'Search With : '
-        ExplicitLeft = 36
-        ExplicitTop = 6
       end
       object cboxSearch: TComboBox
         Left = 85
-        Top = 14
+        Top = 12
         Width = 112
-        Height = 21
+        Height = 26
         Anchors = []
         TabOrder = 0
         Text = 'LoanRequest ID'
@@ -173,25 +177,23 @@ object RepaymentFM: TRepaymentFM
       end
       object editSearch: TEdit
         Left = 230
-        Top = 14
+        Top = 12
         Width = 121
-        Height = 21
+        Height = 26
         Anchors = []
         TabOrder = 1
         OnChange = editSearchChange
       end
       object btnViewDetails: TButton
-        Left = 980
+        Left = 938
         Top = 12
-        Width = 75
+        Width = 120
         Height = 25
         Anchors = []
         Caption = 'View Details'
         Enabled = False
         TabOrder = 2
         OnClick = btnViewDetailsClick
-        ExplicitLeft = 979
-        ExplicitTop = 19
       end
       object btnDelete: TButton
         Left = 1060
@@ -202,6 +204,7 @@ object RepaymentFM: TRepaymentFM
         Caption = 'Delete'
         Enabled = False
         TabOrder = 3
+        OnClick = btnDeleteClick
       end
       object btnRefresh: TButton
         Left = 1140
@@ -227,7 +230,7 @@ object RepaymentFM: TRepaymentFM
       object Panel1: TPanel
         Left = 436
         Top = 1
-        Width = 462
+        Width = 500
         Height = 48
         Align = alClient
         BevelOuter = bvNone
@@ -236,7 +239,7 @@ object RepaymentFM: TRepaymentFM
           AlignWithMargins = True
           Left = 3
           Top = 3
-          Width = 448
+          Width = 456
           Height = 42
           Align = alClient
           BiDiMode = bdRightToLeftReadingOnly
@@ -249,17 +252,18 @@ object RepaymentFM: TRepaymentFM
           ParentBiDiMode = False
           TabOrder = 0
           OnClick = RadioGroupClick
-          ExplicitWidth = 456
+          ExplicitWidth = 494
         end
       end
       object lblPrefix: TLabel
-        Left = 205
-        Top = 18
-        Width = 16
-        Height = 13
+        Left = 203
+        Top = 16
+        Width = 21
+        Height = 18
         Anchors = []
         Caption = 'LR-'
-        ExplicitLeft = 207
+        ExplicitLeft = 205
+        ExplicitTop = 18
       end
     end
     object DBGrid: TDBGrid
@@ -268,12 +272,12 @@ object RepaymentFM: TRepaymentFM
       Width = 1229
       Height = 529
       Align = alClient
-      DataSource = GroupDataSource
+      DataSource = ClientDataSource
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleHotTrack]
       TabOrder = 1
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
-      TitleFont.Height = -11
+      TitleFont.Height = -15
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
       OnCellClick = DBGridCellClick

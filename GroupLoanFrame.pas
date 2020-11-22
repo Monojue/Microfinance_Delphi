@@ -48,6 +48,7 @@ type
     procedure btnSearchClick(Sender: TObject);
     procedure btnPayClick(Sender: TObject);
     procedure GroupGirdCellClick(Column: TColumn);
+    procedure btnDeleteClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -62,7 +63,41 @@ implementation
 
 {$R *.dfm}
 
-uses GroupLoanRequestForm, ViewDetails;
+uses GroupLoanRequestForm, ViewDetails, MyQury, shareFunction;
+
+procedure TGroupLoanFM.btnDeleteClick(Sender: TObject);
+var
+password, msg, LoanID : string;
+data : array of string;
+I : Integer;
+begin
+  msg :=  'This Group is founded in ';
+  LoanID := GroupGird.Fields[0].AsString;
+
+
+    while password = EmptyStr do
+    begin
+      password := InputBox('Warning!', msg, EmptyStr);
+    end;
+
+    if CheckPassword(getLoginName, password) then
+    begin
+
+      if deleteGroupLoanRequestLoanID(LoanID) then
+      begin
+        ShowMessage('Successfully Deleted!');
+      end
+      else
+      begin
+        ShowMessage('Error Occoured!');
+      end;
+
+    end
+    else
+    begin
+      ShowMessage('Wrong Password!');
+    end;
+end;
 
 procedure TGroupLoanFM.btnNewClick(Sender: TObject);
 begin

@@ -46,6 +46,7 @@ type
     procedure prepareupdate(data : array of String);
     procedure prepareNew;
     procedure setAutoID;
+    procedure btnCloseClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -111,6 +112,11 @@ begin
   btnSave.Caption := 'Save';
 end;
 
+procedure TfrmCleintEntry.btnCloseClick(Sender: TObject);
+begin
+  Close;
+end;
+
 procedure TfrmCleintEntry.btnSaveClick(Sender: TObject);
 var
   NRC : string;
@@ -146,7 +152,7 @@ begin
     if btnSave.Caption = 'Save' then
     begin
 //       
-        save := InsertData('Client', data);
+        save := InsertData('client', data);
          if save then
          begin
              ShowMessage('Save Successfully!');
