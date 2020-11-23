@@ -29,7 +29,7 @@ uses
 
 begin
 
-if TLoginForm.Execute then
+if True then
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
