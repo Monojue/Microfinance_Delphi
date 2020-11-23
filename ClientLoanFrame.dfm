@@ -216,6 +216,7 @@ object ClientLoanFM: TClientLoanFM
         Enabled = False
         TabOrder = 4
         OnClick = btnDeleteClick
+        ExplicitLeft = 1059
       end
       object btnRefresh: TButton
         Left = 1140

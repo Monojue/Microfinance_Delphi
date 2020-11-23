@@ -518,6 +518,7 @@ object frmCleintEntry: TfrmCleintEntry
         Height = 26
         Anchors = []
         TabOrder = 2
+        OnChange = cboxNoChange
       end
       object cboxR: TComboBox
         Left = 229
@@ -670,5 +671,11 @@ object frmCleintEntry: TfrmCleintEntry
         TabOrder = 11
       end
     end
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 5
   end
 end

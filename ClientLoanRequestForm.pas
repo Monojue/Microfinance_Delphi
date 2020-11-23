@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.WinXCtrls, Vcl.Grids,
-  Vcl.ExtCtrls, Vcl.ComCtrls, Data.DB, Vcl.DBGrids, Datasnap.DBClient;
+  Vcl.ExtCtrls, Vcl.ComCtrls, Data.DB, Vcl.DBGrids, Datasnap.DBClient,
+  Data.FMTBcd, Data.SqlExpr;
 
 type
   TClientLoanRequest = class(TForm)
@@ -87,6 +88,8 @@ type
     procedure FormShow(Sender: TObject);
     procedure calculator(amount : Integer; duration : Integer; rate : Double);
     procedure DeleteRow(Grid: TStringGrid);
+    procedure SelCombo(sql:String;Q:TSQLQuery; var Combo:TComboBox);
+    procedure cboxNoChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -110,7 +113,7 @@ implementation
 
 {$R *.dfm}
 
-uses shareFunction, frmSelector, GroupLoanRequestForm, MyQury;
+uses shareFunction, frmSelector, GroupLoanRequestForm, MyQury, DataModule;
 
 { TClientLoanRequest }
 
@@ -255,6 +258,11 @@ begin
 
 end;
 
+procedure TClientLoanRequest.cboxNoChange(Sender: TObject);
+begin
+  SelCombo('SELECT code FROM nrc where Number = "'+ cboxNo.Text+'"', DMMicro.SQLQuery, cboxR);
+end;
+
 function TClientLoanRequest.check: boolean;
 begin
   if lblCID.Caption = '' then
@@ -293,6 +301,7 @@ begin
   barDuration.SetTick(DurationInterval);
   lblRate.Caption :=  Rate.ToString;
   lblFees.Caption :=  Fees.ToString;
+  SelCombo('SELECT Number FROM nrc group by Number;', DMMicro.SQLQuery, cboxNo);
 end;
 
 procedure TClientLoanRequest.GetILoanSetting;
@@ -327,6 +336,22 @@ begin
       GetILoanSetting;
    end;
   end;
+end;
+
+procedure TClientLoanRequest.SelCombo(sql: String; Q: TSQLQuery;
+  var Combo: TComboBox);
+var i: integer;
+begin
+  Q.Close;
+  Q.SQL.Clear;
+  Q.SQL.Add(sql);
+  Q.Open;
+  Combo.Text:='';
+  while not Q.Eof do begin
+    Combo.Items.Add(Q.Fields.Fields[0].AsString);
+    Q.Next;
+  end;
+  Q.Close;
 end;
 
 procedure TClientLoanRequest.setAutoID;

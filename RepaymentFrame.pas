@@ -107,14 +107,19 @@ var
 password, msg, LoanID : string;
 data : array of string;
 I : Integer;
+OK : boolean;
 begin
   msg :=  'Are you sure want to Delete!';
   LoanID := DBGrid.Fields[0].AsString;
 
 
-    while password = EmptyStr do
+    while (password = EmptyStr) do
     begin
-      password := InputBox('Warning!', msg, EmptyStr);
+      OK := InputQuery('Warning!', msg, password);
+      if not OK then
+      begin
+        Break;
+      end;
     end;
 
     if CheckPassword(getLoginName, password) then
@@ -144,7 +149,7 @@ begin
       end;
 
     end
-    else
+    else if Ok then
     begin
       ShowMessage('Wrong Password!');
     end;

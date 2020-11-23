@@ -5,7 +5,9 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Vcl.WinXCtrls, Vcl.ComCtrls;
+  Vcl.WinXCtrls, Vcl.ComCtrls, Data.DBXMySQL, Data.FMTBcd, System.Rtti,
+  System.Bindings.Outputs, Vcl.Bind.Editors, Data.Bind.EngExt,
+  Vcl.Bind.DBEngExt, Data.Bind.Components, Data.DB, Data.SqlExpr;
 
 type
   TfrmCleintEntry = class(TForm)
@@ -41,12 +43,15 @@ type
     editSalary: TEdit;
     btnSave: TButton;
     btnClose: TButton;
+    BindingsList1: TBindingsList;
     procedure FormCreate(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
     procedure prepareupdate(data : array of String);
     procedure prepareNew;
     procedure setAutoID;
     procedure btnCloseClick(Sender: TObject);
+    procedure SelCombo(sql:String;Q:TSQLQuery; var Combo:TComboBox);
+    procedure cboxNoChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -70,12 +75,27 @@ begin
   setAutoID;
 end;
 
+procedure TfrmCleintEntry.SelCombo(sql:String;Q:TSQLQuery; var Combo:TComboBox);
+var i: integer;
+begin
+  Q.Close;
+  Q.SQL.Clear;
+  Q.SQL.Add(sql);
+  Q.Open;
+  Combo.Text:='';
+  while not Q.Eof do begin
+    Combo.Items.Add(Q.Fields.Fields[0].AsString);
+    Q.Next;
+  end;
+  Q.Close;
+end;
 
 procedure TfrmCleintEntry.prepareNew;
 begin
   ClearFields;
   setAutoID;
   btnSave.Caption := 'Save';
+  SelCombo('SELECT Number FROM nrc group by Number;', DMMicro.SQLQuery, cboxNo);
 end;
 
 procedure TfrmCleintEntry.prepareupdate(data: array of String);
@@ -178,6 +198,11 @@ begin
     end;
 
   end;
+end;
+
+procedure TfrmCleintEntry.cboxNoChange(Sender: TObject);
+begin
+  SelCombo('SELECT code FROM nrc where Number = "'+ cboxNo.Text+'"', DMMicro.SQLQuery, cboxR);
 end;
 
 function TfrmCleintEntry.check: boolean;

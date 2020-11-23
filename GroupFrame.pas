@@ -69,6 +69,7 @@ var
 password, msg, groupID : string;
 data : array of string;
 alength, I : Integer;
+OK : boolean;
 begin
   msg :=  'This Group is founded in ';
   groupID := GroupGrid.Fields[0].AsString;
@@ -81,9 +82,13 @@ begin
       msg := msg + '>>'+ checkBeforeDelete('group', groupID)[I];
     end;
 
-    while password = EmptyStr do
+    while (password = EmptyStr) do
     begin
-      password := InputBox('Warning!', msg, EmptyStr);
+      OK := InputQuery('Warning!', msg, password);
+      if not OK then
+      begin
+        Break;
+      end;
     end;
 
     if CheckPassword(getLoginName, password) then
@@ -103,7 +108,7 @@ begin
       end;
 
     end
-    else
+    else if Ok then
     begin
       ShowMessage('Wrong Password!');
     end;

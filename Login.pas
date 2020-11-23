@@ -78,7 +78,7 @@ class function TLoginForm.Execute: boolean;
             setLoginID(SQLOfficer.FieldByName('officerID').AsString);
             setLoginName(SQLOfficer.FieldByName('UserName').AsString);
             loginRole := SQLOfficer.FieldByName('Role').AsString;
-            ModalResult := mrOK ;
+            ModalResult := mrOK
           end
           else
             ShowMessage('Wrong UserName or Password!');

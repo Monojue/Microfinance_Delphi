@@ -34,7 +34,6 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TMainForm, MainForm);
-  Application.CreateForm(TDMMicro, DMMicro);
   Application.CreateForm(TfrmCleintEntry, frmCleintEntry);
   Application.CreateForm(TMySelector, MySelector);
   Application.CreateForm(TClientLoanRequest, ClientLoanRequest);
@@ -45,6 +44,7 @@ begin
   Application.CreateForm(TfrmDetails, frmDetails);
   Application.CreateForm(TfrmRepayment, frmRepayment);
   Application.CreateForm(TfrmClientView, frmClientView);
+  Application.CreateForm(TDMMicro, DMMicro);
   Application.Run;
 end;
 

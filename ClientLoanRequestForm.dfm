@@ -353,37 +353,37 @@ object ClientLoanRequest: TClientLoanRequest
           end>
         RowCollection = <
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end
           item
-            Value = 9.090909090909090000
+            Value = 9.090909090909088000
           end>
         TabOrder = 0
         VerticalAlignment = taAlignTop
@@ -727,8 +727,6 @@ object ClientLoanRequest: TClientLoanRequest
         Caption = 'LOAN INFORMATION'
         TabOrder = 1
         VerticalAlignment = taAlignTop
-        ExplicitLeft = 420
-        ExplicitTop = 6
         DesignSize = (
           316
           348)
@@ -1111,6 +1109,7 @@ object ClientLoanRequest: TClientLoanRequest
           Height = 24
           Anchors = []
           TabOrder = 0
+          OnChange = cboxNoChange
         end
         object cboxR: TComboBox
           Left = 157

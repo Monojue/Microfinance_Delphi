@@ -7,13 +7,13 @@ object LoginForm: TLoginForm
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -13
+  Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
   PixelsPerInch = 96
-  TextHeight = 16
+  TextHeight = 13
   object Label1: TLabel
     AlignWithMargins = True
     Left = 96
@@ -84,17 +84,16 @@ object LoginForm: TLoginForm
     Left = 153
     Top = 114
     Width = 157
-    Height = 24
+    Height = 21
     TabOrder = 0
   end
   object txtPassword: TEdit
     Left = 153
     Top = 150
     Width = 157
-    Height = 24
+    Height = 21
     PasswordChar = '*'
     TabOrder = 1
-    OnExit = btnCancelClick
   end
   object btnLogin: TButton
     Left = 153

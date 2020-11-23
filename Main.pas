@@ -18,7 +18,6 @@ type
     TGroupFM1: TGroupFM;
     TClientFM1: TClientFM;
     TabSheet4: TTabSheet;
-    TSettingFM1: TSettingFM;
     TabSheet3: TTabSheet;
     PageControl2: TPageControl;
     TabSheet5: TTabSheet;
@@ -29,6 +28,7 @@ type
     TabSheet8: TTabSheet;
     TReportFM1: TReportFM;
     TRepaymentFM1: TRepaymentFM;
+    TSettingFM1: TSettingFM;
     procedure PageControl1Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private

@@ -69,22 +69,8 @@ var
 password, msg, clientID : string;
 data : array of string;
 alength, I : Integer;
+OK : boolean;
 begin
-//    try
-//    with CQuery do
-//      begin
-//        Close;
-//        SQL.Clear;
-//        SQL.Add('Delete from client where clientID = "'+ selData[0]+ '"');
-//        Open;
-//      end;
-//  except on E: Exception do
-//  begin
-//
-//
-//  end;
-
-//  end;
   msg :=  'This Client is founded in ';
   clientID := clientGrid.Fields[0].AsString;
   alength := Length(checkBeforeDelete('client', clientID));
@@ -96,9 +82,13 @@ begin
       msg := msg + '>>'+ checkBeforeDelete('client', clientID)[I];
     end;
 
-    while password = EmptyStr do
+    while (password = EmptyStr) do
     begin
-      password := InputBox('Warning!', msg, EmptyStr);
+      OK := InputQuery('Warning!', msg, password);
+      if not OK then
+      begin
+        Break;
+      end;
     end;
 
     if CheckPassword(getLoginName, password) then
@@ -118,7 +108,7 @@ begin
       end;
 
     end
-    else
+    else if Ok then
     begin
       ShowMessage('Wrong Password!');
     end;
