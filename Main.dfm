@@ -20,7 +20,7 @@ object MainForm: TMainForm
     Top = 0
     Width = 1231
     Height = 677
-    ActivePage = TabSheet7
+    ActivePage = TabSheet4
     Align = alClient
     TabOrder = 0
     OnChange = PageControl1Change
@@ -1079,8 +1079,8 @@ object MainForm: TMainForm
         Height = 644
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 1223
-        ExplicitHeight = 644
+        ExplicitLeft = 784
+        ExplicitTop = 120
         inherited GridPanel1: TGridPanel
           Width = 1223
           Height = 644
@@ -1099,9 +1099,12 @@ object MainForm: TMainForm
               Column = 1
               Control = TSettingFM1.Panel1
               Row = 0
+            end
+            item
+              Column = 1
+              Control = TSettingFM1.Panel2
+              Row = 1
             end>
-          ExplicitWidth = 1223
-          ExplicitHeight = 644
           inherited GridPanel2: TGridPanel
             Width = 871
             Height = 321
@@ -1121,8 +1124,6 @@ object MainForm: TMainForm
                 Control = TSettingFM1.Button1
                 Row = 0
               end>
-            ExplicitWidth = 871
-            ExplicitHeight = 321
             inherited IndiGrid: TGridPanel
               Width = 434
               Height = 269
@@ -1247,13 +1248,10 @@ object MainForm: TMainForm
                   Control = TSettingFM1.btnICancel
                   Row = 7
                 end>
-              ExplicitWidth = 434
-              ExplicitHeight = 269
               inherited Label9: TLabel
                 Top = 34
                 Width = 142
                 Height = 33
-                ExplicitTop = 34
                 ExplicitWidth = 51
                 ExplicitHeight = 18
               end
@@ -1262,8 +1260,7 @@ object MainForm: TMainForm
                 Top = 41
                 Width = 5
                 Height = 18
-                ExplicitLeft = 261
-                ExplicitTop = 44
+                ExplicitTop = 47
                 ExplicitWidth = 5
                 ExplicitHeight = 18
               end
@@ -1271,8 +1268,6 @@ object MainForm: TMainForm
                 Left = 373
                 Top = 34
                 Height = 33
-                ExplicitLeft = 373
-                ExplicitTop = 34
                 ExplicitWidth = 37
                 ExplicitHeight = 18
               end
@@ -1280,7 +1275,6 @@ object MainForm: TMainForm
                 Top = 67
                 Width = 142
                 Height = 33
-                ExplicitTop = 67
                 ExplicitWidth = 54
                 ExplicitHeight = 18
               end
@@ -1289,8 +1283,8 @@ object MainForm: TMainForm
                 Top = 74
                 Width = 5
                 Height = 18
-                ExplicitLeft = 261
-                ExplicitTop = 77
+                ExplicitLeft = 265
+                ExplicitTop = 82
                 ExplicitWidth = 5
                 ExplicitHeight = 18
               end
@@ -1298,8 +1292,6 @@ object MainForm: TMainForm
                 Left = 373
                 Top = 67
                 Height = 33
-                ExplicitLeft = 373
-                ExplicitTop = 67
                 ExplicitWidth = 41
                 ExplicitHeight = 18
               end
@@ -1307,7 +1299,6 @@ object MainForm: TMainForm
                 Top = 100
                 Width = 142
                 Height = 33
-                ExplicitTop = 100
                 ExplicitWidth = 106
                 ExplicitHeight = 18
               end
@@ -1315,8 +1306,6 @@ object MainForm: TMainForm
                 Left = 273
                 Top = 100
                 Height = 33
-                ExplicitLeft = 273
-                ExplicitTop = 100
                 ExplicitWidth = 37
                 ExplicitHeight = 18
               end
@@ -1324,7 +1313,6 @@ object MainForm: TMainForm
                 Top = 133
                 Width = 142
                 Height = 33
-                ExplicitTop = 133
                 ExplicitWidth = 109
                 ExplicitHeight = 18
               end
@@ -1332,8 +1320,6 @@ object MainForm: TMainForm
                 Left = 273
                 Top = 133
                 Height = 33
-                ExplicitLeft = 273
-                ExplicitTop = 133
                 ExplicitWidth = 41
                 ExplicitHeight = 18
               end
@@ -1341,7 +1327,6 @@ object MainForm: TMainForm
                 Top = 166
                 Width = 142
                 Height = 33
-                ExplicitTop = 166
                 ExplicitWidth = 87
                 ExplicitHeight = 18
               end
@@ -1349,8 +1334,6 @@ object MainForm: TMainForm
                 Left = 273
                 Top = 166
                 Height = 33
-                ExplicitLeft = 273
-                ExplicitTop = 166
                 ExplicitWidth = 15
                 ExplicitHeight = 18
               end
@@ -1358,7 +1341,6 @@ object MainForm: TMainForm
                 Top = 199
                 Width = 142
                 Height = 33
-                ExplicitTop = 199
                 ExplicitWidth = 89
                 ExplicitHeight = 18
               end
@@ -1366,8 +1348,6 @@ object MainForm: TMainForm
                 Left = 273
                 Top = 199
                 Height = 33
-                ExplicitLeft = 273
-                ExplicitTop = 199
                 ExplicitWidth = 15
                 ExplicitHeight = 18
               end
@@ -1375,77 +1355,65 @@ object MainForm: TMainForm
                 Left = 153
                 Top = 37
                 Height = 26
-                ExplicitLeft = 153
-                ExplicitTop = 37
+                ExplicitTop = 40
                 ExplicitHeight = 26
               end
               inherited editIMaxAmount: TEdit
                 Left = 273
                 Top = 37
                 Height = 26
-                ExplicitLeft = 273
-                ExplicitTop = 37
+                ExplicitTop = 40
                 ExplicitHeight = 26
               end
               inherited editIMinDura: TEdit
                 Left = 153
                 Top = 70
                 Height = 26
-                ExplicitLeft = 153
-                ExplicitTop = 70
+                ExplicitTop = 75
                 ExplicitHeight = 26
               end
               inherited editIMaxDura: TEdit
                 Left = 273
                 Top = 70
                 Height = 26
-                ExplicitLeft = 273
-                ExplicitTop = 70
+                ExplicitTop = 75
                 ExplicitHeight = 26
               end
               inherited editIAmoInter: TEdit
                 Left = 153
                 Top = 103
                 Height = 26
-                ExplicitLeft = 153
-                ExplicitTop = 103
+                ExplicitTop = 110
                 ExplicitHeight = 26
               end
               inherited editIDuraInter: TEdit
                 Left = 153
                 Top = 136
                 Height = 26
-                ExplicitLeft = 153
-                ExplicitTop = 136
+                ExplicitTop = 145
                 ExplicitHeight = 26
               end
               inherited editIRate: TEdit
                 Left = 153
                 Top = 169
                 Height = 26
-                ExplicitLeft = 153
-                ExplicitTop = 169
+                ExplicitTop = 180
                 ExplicitHeight = 26
               end
               inherited editIFees: TEdit
                 Left = 153
                 Top = 202
                 Height = 26
-                ExplicitLeft = 153
-                ExplicitTop = 202
+                ExplicitTop = 215
                 ExplicitHeight = 26
               end
               inherited btnIEdit: TButton
                 Left = 44
                 Top = 237
-                ExplicitLeft = 44
-                ExplicitTop = 237
               end
               inherited btnICancel: TButton
                 Left = 165
                 Top = 237
-                ExplicitLeft = 165
-                ExplicitTop = 237
               end
             end
             inherited GroupGrid: TGridPanel
@@ -1573,14 +1541,10 @@ object MainForm: TMainForm
                   Control = TSettingFM1.btnGCancel
                   Row = 7
                 end>
-              ExplicitLeft = 435
-              ExplicitWidth = 435
-              ExplicitHeight = 269
               inherited Label1: TLabel
                 Top = 34
                 Width = 143
                 Height = 33
-                ExplicitTop = 34
                 ExplicitWidth = 51
                 ExplicitHeight = 18
               end
@@ -1589,8 +1553,8 @@ object MainForm: TMainForm
                 Top = 41
                 Width = 5
                 Height = 18
-                ExplicitLeft = 262
-                ExplicitTop = 44
+                ExplicitLeft = 266
+                ExplicitTop = 47
                 ExplicitWidth = 5
                 ExplicitHeight = 18
               end
@@ -1598,8 +1562,6 @@ object MainForm: TMainForm
                 Left = 374
                 Top = 34
                 Height = 33
-                ExplicitLeft = 374
-                ExplicitTop = 34
                 ExplicitWidth = 37
                 ExplicitHeight = 18
               end
@@ -1607,7 +1569,6 @@ object MainForm: TMainForm
                 Top = 67
                 Width = 143
                 Height = 33
-                ExplicitTop = 67
                 ExplicitWidth = 54
                 ExplicitHeight = 18
               end
@@ -1616,8 +1577,8 @@ object MainForm: TMainForm
                 Top = 74
                 Width = 5
                 Height = 18
-                ExplicitLeft = 262
-                ExplicitTop = 77
+                ExplicitLeft = 266
+                ExplicitTop = 82
                 ExplicitWidth = 5
                 ExplicitHeight = 18
               end
@@ -1625,8 +1586,6 @@ object MainForm: TMainForm
                 Left = 374
                 Top = 67
                 Height = 33
-                ExplicitLeft = 374
-                ExplicitTop = 67
                 ExplicitWidth = 41
                 ExplicitHeight = 18
               end
@@ -1634,7 +1593,6 @@ object MainForm: TMainForm
                 Top = 100
                 Width = 143
                 Height = 33
-                ExplicitTop = 100
                 ExplicitWidth = 106
                 ExplicitHeight = 18
               end
@@ -1642,8 +1600,6 @@ object MainForm: TMainForm
                 Left = 274
                 Top = 100
                 Height = 33
-                ExplicitLeft = 274
-                ExplicitTop = 100
                 ExplicitWidth = 37
                 ExplicitHeight = 18
               end
@@ -1651,7 +1607,6 @@ object MainForm: TMainForm
                 Top = 133
                 Width = 143
                 Height = 33
-                ExplicitTop = 133
                 ExplicitWidth = 109
                 ExplicitHeight = 18
               end
@@ -1659,8 +1614,6 @@ object MainForm: TMainForm
                 Left = 274
                 Top = 133
                 Height = 33
-                ExplicitLeft = 274
-                ExplicitTop = 133
                 ExplicitWidth = 41
                 ExplicitHeight = 18
               end
@@ -1668,7 +1621,6 @@ object MainForm: TMainForm
                 Top = 166
                 Width = 143
                 Height = 33
-                ExplicitTop = 166
                 ExplicitWidth = 87
                 ExplicitHeight = 18
               end
@@ -1676,8 +1628,6 @@ object MainForm: TMainForm
                 Left = 274
                 Top = 166
                 Height = 33
-                ExplicitLeft = 274
-                ExplicitTop = 166
                 ExplicitWidth = 15
                 ExplicitHeight = 18
               end
@@ -1685,7 +1635,6 @@ object MainForm: TMainForm
                 Top = 199
                 Width = 143
                 Height = 33
-                ExplicitTop = 199
                 ExplicitWidth = 89
                 ExplicitHeight = 18
               end
@@ -1693,8 +1642,6 @@ object MainForm: TMainForm
                 Left = 274
                 Top = 199
                 Height = 33
-                ExplicitLeft = 274
-                ExplicitTop = 199
                 ExplicitWidth = 15
                 ExplicitHeight = 18
               end
@@ -1702,84 +1649,69 @@ object MainForm: TMainForm
                 Left = 154
                 Top = 37
                 Height = 26
-                ExplicitLeft = 154
-                ExplicitTop = 37
+                ExplicitTop = 40
                 ExplicitHeight = 26
               end
               inherited editGMaxAmount: TEdit
                 Left = 274
                 Top = 37
                 Height = 26
-                ExplicitLeft = 274
-                ExplicitTop = 37
+                ExplicitTop = 40
                 ExplicitHeight = 26
               end
               inherited editGMinDura: TEdit
                 Left = 154
                 Top = 70
                 Height = 26
-                ExplicitLeft = 154
-                ExplicitTop = 70
+                ExplicitTop = 75
                 ExplicitHeight = 26
               end
               inherited editGMaxDura: TEdit
                 Left = 274
                 Top = 70
                 Height = 26
-                ExplicitLeft = 274
-                ExplicitTop = 70
+                ExplicitTop = 75
                 ExplicitHeight = 26
               end
               inherited editGAmoInter: TEdit
                 Left = 154
                 Top = 103
                 Height = 26
-                ExplicitLeft = 154
-                ExplicitTop = 103
+                ExplicitTop = 110
                 ExplicitHeight = 26
               end
               inherited editGDuraInter: TEdit
                 Left = 154
                 Top = 136
                 Height = 26
-                ExplicitLeft = 154
-                ExplicitTop = 136
+                ExplicitTop = 145
                 ExplicitHeight = 26
               end
               inherited editGRate: TEdit
                 Left = 154
                 Top = 169
                 Height = 26
-                ExplicitLeft = 154
-                ExplicitTop = 169
+                ExplicitTop = 180
                 ExplicitHeight = 26
               end
               inherited editGFees: TEdit
                 Left = 154
                 Top = 202
                 Height = 26
-                ExplicitLeft = 154
-                ExplicitTop = 202
+                ExplicitTop = 215
                 ExplicitHeight = 26
               end
               inherited btnGEdit: TButton
                 Left = 45
                 Top = 237
-                ExplicitLeft = 45
-                ExplicitTop = 237
               end
               inherited btnGCancel: TButton
                 Left = 166
                 Top = 237
-                ExplicitLeft = 166
-                ExplicitTop = 237
               end
             end
             inherited Button1: TButton
-              Left = 134
-              Width = 168
-              ExplicitLeft = 134
-              ExplicitWidth = 168
+              Left = 153
             end
           end
           inherited GridPanel4: TGridPanel
@@ -1797,9 +1729,6 @@ object MainForm: TMainForm
                 Control = TSettingFM1.DBGrid1
                 Row = 1
               end>
-            ExplicitTop = 322
-            ExplicitWidth = 871
-            ExplicitHeight = 321
             inherited GridPanel5: TGridPanel
               Width = 869
               ControlCollection = <
@@ -1833,7 +1762,6 @@ object MainForm: TMainForm
                   Control = TSettingFM1.btnRefresh
                   Row = 0
                 end>
-              ExplicitWidth = 869
               inherited Label22: TLabel
                 ExplicitWidth = 54
                 ExplicitHeight = 18
@@ -1846,15 +1774,12 @@ object MainForm: TMainForm
               end
               inherited btnAdd: TButton
                 Left = 620
-                ExplicitLeft = 620
               end
               inherited btnDelete: TButton
                 Left = 700
-                ExplicitLeft = 700
               end
               inherited btnRefresh: TButton
                 Left = 780
-                ExplicitLeft = 780
               end
             end
             inherited DBGrid1: TDBGrid
@@ -1866,8 +1791,16 @@ object MainForm: TMainForm
           inherited Panel1: TPanel
             Left = 872
             Height = 321
-            ExplicitLeft = 872
-            ExplicitHeight = 321
+            ExplicitHeight = 337
+          end
+          inherited Panel2: TPanel
+            Left = 872
+            Top = 322
+            Height = 321
+            ExplicitLeft = 880
+            ExplicitTop = 338
+            ExplicitWidth = 350
+            ExplicitHeight = 338
           end
         end
       end
