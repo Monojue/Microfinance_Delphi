@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
   Vcl.WinXCtrls, Vcl.ComCtrls, Data.DBXMySQL, Data.FMTBcd, System.Rtti,
   System.Bindings.Outputs, Vcl.Bind.Editors, Data.Bind.EngExt,
-  Vcl.Bind.DBEngExt, Data.Bind.Components, Data.DB, Data.SqlExpr;
+  Vcl.Bind.DBEngExt, Data.Bind.Components, Data.DB, Data.SqlExpr, DateUtils;
 
 type
   TfrmCleintEntry = class(TForm)
@@ -52,6 +52,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure SelCombo(sql:String;Q:TSQLQuery; var Combo:TComboBox);
     procedure cboxNoChange(Sender: TObject);
+    procedure addDobbox();
   private
     { Private declarations }
   public
@@ -94,6 +95,7 @@ procedure TfrmCleintEntry.prepareNew;
 begin
   ClearFields;
   setAutoID;
+  addDobbox;
   btnSave.Caption := 'Save';
   SelCombo('SELECT Number FROM nrc group by Number;', DMMicro.SQLQuery, cboxNo);
 end;
@@ -102,7 +104,9 @@ procedure TfrmCleintEntry.prepareupdate(data: array of String);
 begin
   lblID.Caption := data[0] ;
   editName.Text := data[1] ;
+  SelCombo('SELECT Number FROM nrc group by Number;', DMMicro.SQLQuery, cboxNo);
   cboxNo.Text := shareFunction.splitNRC(data[2])[0];
+  cboxNoChange(Self.cboxNo);
   cboxR.Text := shareFunction.splitNRC(data[2])[1];
   editNRC.Text := shareFunction.splitNRC(data[2])[2];
   editAddress.Text	:= data[3];
@@ -110,6 +114,7 @@ begin
   cboxDate.Text := shareFunction.splitDOB(data[5])[0];
   cboxMonth.Text := shareFunction.splitDOB(data[5])[1];
   cboxYear.Text := shareFunction.splitDOB(data[5])[2];
+
   if data[6].Equals('Owned') then
   begin
      checkHome.Checked := True;
@@ -130,6 +135,41 @@ begin
   lblDate.Caption := FormatDateTime('yyyy/MM/dd', today);
   lblID.Caption := shareFunction.getAutoID('clientID','Client','CL-');
   btnSave.Caption := 'Save';
+end;
+
+procedure TfrmCleintEntry.addDobbox;
+var
+I : Integer;
+MN : array[1..12] of string;
+begin
+  for I := 1 to 31 do
+  begin
+    cboxDate.Items.Add(I.ToString);
+  end;
+
+  MN[ 1] := 'Jan';
+  MN[ 2] := 'Feb';
+  MN[ 3] := 'Mar';
+  MN[ 4] := 'Apr';
+  MN[ 5] := 'May';
+  MN[ 6] := 'Jun';
+  MN[ 7] := 'Jul';
+  MN[ 8] := 'Aug';
+  MN[ 9] := 'Sep';
+  MN[10] := 'Oct';
+  MN[11] := 'Nov';
+  MN[12] := 'Dec';
+
+  for I := 1 to 12 do
+  begin
+    cboxMonth.Items.Add(MN[I]);
+  end;
+
+
+  for I := YearOf(today) - 18 downto YearOf(today) - 120  do
+  begin
+    cboxYear.Items.Add(I.ToString);
+  end;
 end;
 
 procedure TfrmCleintEntry.btnCloseClick(Sender: TObject);
@@ -180,7 +220,7 @@ begin
          end
          else
          begin
-           ShowMessage('Error!');
+           ShowMessage('Error Occoured!');
          end;
     end
     else if btnSave.Caption = 'Update' then
@@ -193,7 +233,7 @@ begin
          end
          else
          begin
-           ShowMessage('Error!');
+           ShowMessage('Error Occoured!');
          end;
     end;
 
@@ -216,6 +256,11 @@ begin
   begin
     ShowMessage('All fields Required!');
     Exit(False)
+  end
+  else if duplicateNRC(cboxNo.Text+'/'+ cboxR.Text +'(N)'+ editNRC.Text) then
+  begin
+    ShowMessage('This client is already Exit!');
+    Exit(False)
   end;
   Result := True;
 end;
@@ -231,6 +276,9 @@ begin
   cboxDate.Text := '';
   cboxMonth.Text := '';
   cboxYear.Text := '';
+  checkHome.Checked := False;
+  editJOB.Text  := '';
+  editSalary.Clear;
 end;
 
 end.

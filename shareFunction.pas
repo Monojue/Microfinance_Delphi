@@ -16,6 +16,7 @@ procedure setLoginID (ID : string);
 function getLoginID () : string;
 //function addComma(amount : string) : string;
 function CalculateDueDate(DateNow : TDateTime) : string;
+function duplicateNRC(NRC : string) : boolean;
 
 procedure setLoginName (ID : string);
 function getLoginName () : string;
@@ -47,6 +48,24 @@ begin
   Result := loginName;
 end;
 
+function duplicateNRC(NRC : string) : boolean;
+begin
+  with DMMicro.SQLQuery do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('Select * from client where NRC = "'+NRC+'"');
+    Open;
+    if Eof then
+    begin
+     Exit(False);
+    end
+    else
+    begin
+     Exit(True);
+    end;
+  end;
+end;
 
 //function addComma(amount : string) : string;
 //var
