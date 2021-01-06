@@ -25,6 +25,7 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure btnLoginClick(Sender: TObject);
     function check : boolean;
+    procedure txtPasswordKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
     procedure clear;
@@ -59,7 +60,17 @@ class function TLoginForm.Execute: boolean;
      end;
   end;
 
-  procedure TLoginForm.btnLoginClick(Sender: TObject);
+  procedure TLoginForm.txtPasswordKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    Key := #0;
+    btnLoginClick(Sender);
+    // do something with S...
+  end;
+end;
+
+procedure TLoginForm.btnLoginClick(Sender: TObject);
     begin
       if not check then
         begin

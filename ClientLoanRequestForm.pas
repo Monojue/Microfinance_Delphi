@@ -164,6 +164,8 @@ NRC : string;
 data : array of string;
 update, insert, insert1 : boolean;
 begin
+  insert := False;
+  insert1 := False;
   if check then
   begin
     SetLength(data, 8);
@@ -260,7 +262,7 @@ end;
 
 procedure TClientLoanRequest.cboxNoChange(Sender: TObject);
 begin
-  SelCombo('SELECT code FROM nrc where Number = "'+ cboxNo.Text+'"', DMMicro.SQLQuery, cboxR);
+  SelCombo('SELECT code FROM nrc where Number = "'+ cboxNo.Text+'" order by code asc', DMMicro.SQLQuery, cboxR);
 end;
 
 function TClientLoanRequest.check: boolean;
@@ -340,7 +342,6 @@ end;
 
 procedure TClientLoanRequest.SelCombo(sql: String; Q: TSQLQuery;
   var Combo: TComboBox);
-var i: integer;
 begin
   Q.Close;
   Q.SQL.Clear;

@@ -20,7 +20,7 @@ type
     GridPanel2: TGridPanel;
     Label1: TLabel;
     cboxSearch: TComboBox;
-    Label2: TLabel;
+    lblPrefix: TLabel;
     editSearch: TEdit;
     btnNew: TButton;
     btnEdit: TButton;
@@ -48,6 +48,7 @@ type
     procedure btnSearchClick(Sender: TObject);
     procedure editSearchChange(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
+    procedure cboxSearchChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -67,14 +68,13 @@ var
 procedure TClientFM.btnDeleteClick(Sender: TObject);
 var
 password, msg, clientID : string;
-data : array of string;
 alength, I : Integer;
 OK : boolean;
 begin
   msg :=  'This Client is founded in ';
   clientID := clientGrid.Fields[0].AsString;
   alength := Length(checkBeforeDelete('client', clientID));
-
+  OK := False;
   if alength >0 then
   begin
     for I := 0 to alength -1 do
@@ -186,10 +186,18 @@ begin
   end;
 end;
 
+procedure TClientFM.cboxSearchChange(Sender: TObject);
+begin
+  if cboxSearch.ItemIndex = 0 then
+    lblPrefix.Caption := '';
+
+  if cboxSearch.ItemIndex = 1 then
+    lblPrefix.Caption := 'CL-'
+end;
+
 procedure TClientFM.clientGridCellClick(Column: TColumn);
 begin
-  btnEdit.Enabled := True;
-  btnDelete.Enabled := True;
+
   SetLength(selData , 9);
   selData[0] := clientGrid.Fields[0].AsString;
   selData[1] := clientGrid.Fields[1].AsString;
@@ -200,6 +208,12 @@ begin
   selData[6] := clientGrid.Fields[6].AsString;
   selData[7] := clientGrid.Fields[7].AsString;
   selData[8] := clientGrid.Fields[8].AsString;
+
+  if selData[0] <> EmptyStr then
+  begin
+    btnEdit.Enabled := True;
+  btnDelete.Enabled := True;
+  end;
 end;
 
 procedure TClientFM.editSearchChange(Sender: TObject);

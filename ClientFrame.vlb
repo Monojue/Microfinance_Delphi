@@ -20,9 +20,6 @@ Coordinates=209,211,70,58
 [GridPanel1]
 Coordinates=209,1,79,58
 
-[Label2]
-Coordinates=160,213,53,58
-
 [btnNew]
 Coordinates=209,71,58,58
 
@@ -87,4 +84,7 @@ Coordinates=172,316,71,256
 
 [CDataset1Job]
 Coordinates=664,111,96,36
+
+[lblPrefix]
+Coordinates=160,213,53,58
 

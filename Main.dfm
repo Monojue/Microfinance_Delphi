@@ -127,7 +127,7 @@ object MainForm: TMainForm
               end
               item
                 Column = 3
-                Control = TClientFM1.Label2
+                Control = TClientFM1.lblPrefix
                 Row = 0
               end
               item
@@ -165,10 +165,9 @@ object MainForm: TMainForm
               Left = 81
               ExplicitLeft = 81
             end
-            inherited Label2: TLabel
-              Left = 195
-              ExplicitLeft = 201
-              ExplicitTop = 15
+            inherited lblPrefix: TLabel
+              Left = 203
+              ExplicitLeft = 195
             end
             inherited editSearch: TEdit
               Left = 222
@@ -294,7 +293,7 @@ object MainForm: TMainForm
               end
               item
                 Column = 3
-                Control = TGroupFM1.Label2
+                Control = TGroupFM1.lblPrefix
                 Row = 0
               end
               item
@@ -346,14 +345,14 @@ object MainForm: TMainForm
               ExplicitTop = 12
               ExplicitHeight = 26
             end
-            inherited Label2: TLabel
-              Left = 195
+            inherited lblPrefix: TLabel
+              Left = 203
               Top = 16
-              Width = 21
+              Width = 5
               Height = 18
               ExplicitLeft = 195
-              ExplicitTop = 15
-              ExplicitWidth = 21
+              ExplicitTop = 16
+              ExplicitWidth = 5
               ExplicitHeight = 18
             end
             inherited editSearch: TEdit
@@ -727,7 +726,14 @@ object MainForm: TMainForm
                     Column = 6
                     Control = TGroupLoanFM1.Panel1
                     Row = 0
+                  end
+                  item
+                    Column = 3
+                    Control = TGroupLoanFM1.lblPrefix
+                    Row = 0
                   end>
+                ExplicitLeft = 1
+                ExplicitTop = 1
                 ExplicitWidth = 1213
                 inherited Label1: TLabel
                   Left = 11
@@ -786,6 +792,16 @@ object MainForm: TMainForm
                   inherited RadioGroup: TRadioGroup
                     ExplicitWidth = 420
                   end
+                end
+                inherited lblPrefix: TLabel
+                  Left = 223
+                  Top = 16
+                  Width = 21
+                  Height = 18
+                  ExplicitLeft = 225
+                  ExplicitTop = 16
+                  ExplicitWidth = 21
+                  ExplicitHeight = 18
                 end
               end
               inherited GroupGird: TDBGrid
@@ -894,11 +910,6 @@ object MainForm: TMainForm
                 Row = 0
               end
               item
-                Column = 4
-                Control = TRepaymentFM1.editSearch
-                Row = 0
-              end
-              item
                 Column = 8
                 Control = TRepaymentFM1.btnViewDetails
                 Row = 0
@@ -927,15 +938,18 @@ object MainForm: TMainForm
                 Column = 3
                 Control = TRepaymentFM1.lblPrefix
                 Row = 0
+              end
+              item
+                Column = 4
+                Control = TRepaymentFM1.Panel2
+                Row = 0
               end>
+            ExplicitLeft = 1
+            ExplicitTop = 1
             ExplicitWidth = 1221
             inherited cboxSearch: TComboBox
               Left = 81
               ExplicitLeft = 81
-            end
-            inherited editSearch: TEdit
-              Left = 222
-              ExplicitLeft = 222
             end
             inherited btnViewDetails: TButton
               Left = 970
@@ -960,11 +974,18 @@ object MainForm: TMainForm
               Width = 462
               ExplicitLeft = 428
               ExplicitWidth = 462
+              inherited RadioGroup: TRadioGroup
+                ExplicitWidth = 456
+              end
             end
             inherited lblPrefix: TLabel
               Left = 195
               ExplicitLeft = 201
               ExplicitTop = 15
+            end
+            inherited Panel2: TPanel
+              Left = 218
+              ExplicitLeft = 218
             end
           end
           inherited DBGrid: TDBGrid
@@ -1079,8 +1100,8 @@ object MainForm: TMainForm
         Height = 644
         Align = alClient
         TabOrder = 0
-        ExplicitLeft = 832
-        ExplicitTop = 120
+        ExplicitLeft = 576
+        ExplicitTop = 88
         inherited GridPanel1: TGridPanel
           Width = 1223
           Height = 644
@@ -1726,7 +1747,7 @@ object MainForm: TMainForm
               end
               item
                 Column = 0
-                Control = TSettingFM1.DBGrid1
+                Control = TSettingFM1.DBGrid
                 Row = 1
               end>
             inherited GridPanel5: TGridPanel
@@ -1782,7 +1803,7 @@ object MainForm: TMainForm
                 Left = 780
               end
             end
-            inherited DBGrid1: TDBGrid
+            inherited DBGrid: TDBGrid
               Width = 869
               Height = 269
               TitleFont.Height = -15
@@ -1791,16 +1812,11 @@ object MainForm: TMainForm
           inherited Panel1: TPanel
             Left = 872
             Height = 321
-            ExplicitHeight = 337
           end
           inherited Panel2: TPanel
             Left = 872
             Top = 322
             Height = 321
-            ExplicitLeft = 880
-            ExplicitTop = 338
-            ExplicitWidth = 350
-            ExplicitHeight = 338
           end
         end
       end

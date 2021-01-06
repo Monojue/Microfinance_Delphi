@@ -180,7 +180,7 @@ object GroupFM: TGroupFM
         end
         item
           Column = 3
-          Control = Label2
+          Control = lblPrefix
           Row = 0
         end
         item
@@ -237,24 +237,22 @@ object GroupFM: TGroupFM
         Width = 112
         Height = 21
         Anchors = []
-        ItemIndex = 0
         TabOrder = 0
         Text = 'Leader Name'
+        OnChange = cboxSearchChange
         Items.Strings = (
           'Leader Name'
           'Group ID'
           'Client Name'
           'Client ID')
       end
-      object Label2: TLabel
-        Left = 205
+      object lblPrefix: TLabel
+        Left = 212
         Top = 18
-        Width = 16
+        Width = 3
         Height = 13
         Anchors = []
-        Caption = 'CL-'
-        ExplicitLeft = 201
-        ExplicitTop = 6
+        ExplicitLeft = 205
       end
       object editSearch: TEdit
         Left = 230

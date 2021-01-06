@@ -969,14 +969,15 @@ object SettingFM: TSettingFM
         end
       end
       object Button1: TButton
-        Left = 155
+        Left = 140
         Top = 13
-        Width = 130
+        Width = 160
         Height = 25
         Anchors = []
         Caption = 'View Loan Edit History'
         TabOrder = 2
         OnClick = Button1Click
+        ExplicitLeft = 145
       end
     end
     object GridPanel4: TGridPanel
@@ -997,7 +998,7 @@ object SettingFM: TSettingFM
         end
         item
           Column = 0
-          Control = DBGrid1
+          Control = DBGrid
           Row = 1
         end>
       RowCollection = <
@@ -1140,6 +1141,7 @@ object SettingFM: TSettingFM
           Anchors = []
           Caption = 'Delete'
           TabOrder = 3
+          OnClick = btnDeleteClick
         end
         object btnRefresh: TButton
           Left = 788
@@ -1152,7 +1154,7 @@ object SettingFM: TSettingFM
           OnClick = btnRefreshClick
         end
       end
-      object DBGrid1: TDBGrid
+      object DBGrid: TDBGrid
         Left = 1
         Top = 51
         Width = 877
@@ -1174,9 +1176,42 @@ object SettingFM: TSettingFM
       Height = 337
       Align = alClient
       Color = clHighlight
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -27
+      Font.Name = 'Tahoma'
+      Font.Style = []
       ParentBackground = False
+      ParentFont = False
       TabOrder = 2
-      ExplicitHeight = 675
+      ExplicitLeft = 936
+      ExplicitTop = -5
+      object Label21: TLabel
+        Left = 24
+        Top = 13
+        Width = 297
+        Height = 33
+        Caption = 'MICROFINANCE'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -27
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label24: TLabel
+        Left = 168
+        Top = 48
+        Width = 148
+        Height = 18
+        Caption = 'Management Software'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
     end
     object Panel2: TPanel
       Left = 880
@@ -1187,10 +1222,6 @@ object SettingFM: TSettingFM
       Color = clHighlight
       ParentBackground = False
       TabOrder = 3
-      ExplicitLeft = 962
-      ExplicitTop = 486
-      ExplicitWidth = 185
-      ExplicitHeight = 675
     end
   end
   object MicrofinanceConnection: TSQLConnection

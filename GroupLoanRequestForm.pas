@@ -156,6 +156,7 @@ var
 data : array of string;
 insert, insert1 : boolean;
 begin
+  insert1 := False;
   if check then
   begin
 

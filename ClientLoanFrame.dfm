@@ -169,9 +169,9 @@ object ClientLoanFM: TClientLoanFM
         Width = 112
         Height = 21
         Anchors = []
-        ItemIndex = 0
         TabOrder = 0
         Text = 'LoanRequest ID'
+        OnChange = cboxSearchChange
         Items.Strings = (
           'LoanRequest ID'
           'Client ID')
@@ -216,7 +216,6 @@ object ClientLoanFM: TClientLoanFM
         Enabled = False
         TabOrder = 4
         OnClick = btnDeleteClick
-        ExplicitLeft = 1059
       end
       object btnRefresh: TButton
         Left = 1140

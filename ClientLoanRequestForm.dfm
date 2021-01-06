@@ -353,37 +353,37 @@ object ClientLoanRequest: TClientLoanRequest
           end>
         RowCollection = <
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end
           item
-            Value = 9.090909090909088000
+            Value = 9.090909090909090000
           end>
         TabOrder = 0
         VerticalAlignment = taAlignTop
@@ -1174,7 +1174,7 @@ object ClientLoanRequest: TClientLoanRequest
           Height = 89
           Anchors = []
           Lines.Strings = (
-            'Memo2')
+            '')
           TabOrder = 8
         end
         object Label22: TLabel

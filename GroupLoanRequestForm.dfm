@@ -123,47 +123,39 @@ object GroupLoanRequest: TGroupLoanRequest
         Left = 111
         Top = 1
         Width = 4
-        Height = 48
+        Height = 16
         Margins.Left = 50
         Align = alLeft
         Layout = tlCenter
-        ExplicitHeight = 16
       end
       object Label1: TLabel
-        Left = 1
+        Left = 9
         Top = 1
-        Width = 110
-        Height = 48
+        Width = 102
+        Height = 16
         Margins.Right = 10
         Align = alClient
         Alignment = taRightJustify
         Caption = 'LoanRequest ID : '
         Layout = tlCenter
-        ExplicitLeft = 9
-        ExplicitWidth = 102
-        ExplicitHeight = 16
       end
       object Label4: TLabel
-        Left = 756
+        Left = 767
         Top = 1
-        Width = 50
-        Height = 48
+        Width = 39
+        Height = 16
         Align = alClient
         Alignment = taRightJustify
         Caption = 'Date : '
         Layout = tlCenter
-        ExplicitLeft = 767
-        ExplicitWidth = 39
-        ExplicitHeight = 16
       end
       object lblDate: TLabel
         Left = 806
         Top = 1
         Width = 4
-        Height = 48
+        Height = 16
         Align = alLeft
         Layout = tlCenter
-        ExplicitHeight = 16
       end
     end
     object MidGrid: TGridPanel

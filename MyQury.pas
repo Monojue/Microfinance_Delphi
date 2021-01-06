@@ -37,6 +37,7 @@ function deleteGroupLoanRequestLoanID(LoanID : string) : boolean;
 function deleteGroupDetailsLoanID(LoanID : string) : boolean;
 
 function deleteClient(ID : string) : boolean;
+function deleteOfficer(ID : string) : boolean;
 
 implementation
 
@@ -49,6 +50,25 @@ begin
   DMMicro.SQLQuery.Close;
   SQLQuery.SQL.Clear;
   SQLQuery.SQL.Add('Delete from client where clientID="'+ID+'"');
+
+    if  SQLQuery.ExecSQL >0 then
+    begin
+      Exit(True);
+    end
+    else
+    begin
+      Exit(False);
+    end;
+  end;
+end;
+
+function deleteOfficer(ID : string) : boolean;
+begin
+  with DMMicro do
+  begin
+  DMMicro.SQLQuery.Close;
+  SQLQuery.SQL.Clear;
+  SQLQuery.SQL.Add('Delete from officer where officerID="'+ID+'" and Role="Staff"');
 
     if  SQLQuery.ExecSQL >0 then
     begin
@@ -221,6 +241,7 @@ begin
         Exit(True);
     end;
   end;
+  Result := False;
 end;
 
 function deleteGroupFromGroupID(ID : string) : boolean;

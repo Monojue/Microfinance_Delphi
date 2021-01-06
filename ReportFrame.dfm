@@ -93,7 +93,6 @@ object ReportFM: TReportFM
         Enabled = False
         TabOrder = 0
         OnClick = btnViewDetailsClick
-        ExplicitLeft = 609
       end
       object btnRefresh: TButton
         Left = 709

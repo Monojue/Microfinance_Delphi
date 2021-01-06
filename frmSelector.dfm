@@ -28,7 +28,7 @@ object MySelector: TMySelector
       Height = 13
       Caption = 'Search With :'
     end
-    object Label2: TLabel
+    object lblPrefix: TLabel
       Left = 225
       Top = 14
       Width = 17
@@ -43,6 +43,7 @@ object MySelector: TMySelector
       ItemIndex = 0
       TabOrder = 0
       Text = 'ID'
+      OnChange = cboxSearchChange
       Items.Strings = (
         'ID')
     end

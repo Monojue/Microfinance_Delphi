@@ -62,6 +62,12 @@ procedure TMainForm.PageControl1Change(Sender: TObject);
 begin
   TSettingFM1.GetIData;
   TSettingFM1.GetGData;
+  TRepaymentFM1.RadioGroupClick(Sender);
+  TGroupFM1.btnRefreshClick(Sender);
+  TClientFM1.btnRefreshClick(Sender);
+  TClientLoanFM1.btnRefreshClick(Sender);
+  TGroupLoanFM1.btnRefreshClick(Sender);
+  TReportFM1.btnRefreshClick(Sender);
 end;
 
 end.

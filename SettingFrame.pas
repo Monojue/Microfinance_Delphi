@@ -70,7 +70,7 @@ type
     btnAdd: TButton;
     btnDelete: TButton;
     btnRefresh: TButton;
-    DBGrid1: TDBGrid;
+    DBGrid: TDBGrid;
     Panel1: TPanel;
     MicrofinanceConnection: TSQLConnection;
     SQLQuery: TSQLQuery;
@@ -85,6 +85,8 @@ type
     ClientDataSetRole: TStringField;
     Button1: TButton;
     Panel2: TPanel;
+    Label21: TLabel;
+    Label24: TLabel;
     procedure IndividualfieldEnable;
     procedure GroupfieldEnable;
     procedure IfieldDisable;
@@ -101,6 +103,7 @@ type
     procedure btnRefreshClick(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure btnDeleteClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -125,6 +128,41 @@ uses MyQury, shareFunction, OfficerEntry, SettingHistory;
 procedure TSettingFM.btnAddClick(Sender: TObject);
 begin
   frmOfficerEntry.Show;
+end;
+
+procedure TSettingFM.btnDeleteClick(Sender: TObject);
+var
+password, msg, ID : string;
+OK : boolean;
+begin
+  msg :=  'Are you sure want to Delete!';
+  ID := DBGrid.Fields[0].AsString;
+  OK := False;
+
+    while (password = EmptyStr) do
+    begin
+      OK := InputQuery('Warning!', msg, password);
+      if not OK then
+      begin
+        Break;
+      end;
+    end;
+
+    if CheckPassword(getLoginName, password) then
+    begin
+      if deleteOfficer(ID) then
+      begin
+      ShowMessage('Successfully Delete!');
+      end
+      else
+      begin
+      ShowMessage('Denied to Delete Manager!');
+      end;
+    end
+    else if Ok then
+    begin
+      ShowMessage('Wrong Password!');
+    end;
 end;
 
 procedure TSettingFM.btnGCancelClick(Sender: TObject);
@@ -225,7 +263,7 @@ begin
       SQL.Clear;
       SQL.Add('Select * from officer');
       Open;
-      DBGrid1.DataSource.DataSet.Refresh;
+      DBGrid.DataSource.DataSet.Refresh;
     end;
 end;
 
@@ -239,7 +277,7 @@ begin
       SQL.Clear;
       SQL.Add('Select * from officer where Name like "'+editSearch.Text+'%"');
       Open;
-      DBGrid1.DataSource.DataSet.Refresh;
+      DBGrid.DataSource.DataSet.Refresh;
     end;
   end
   else

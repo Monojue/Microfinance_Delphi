@@ -41,6 +41,7 @@ type
     ClientDataSetDuration: TIntegerField;
     ClientDataSetInterestRate: TIntegerField;
     ClientDataSetRemark: TStringField;
+    lblPrefix: TLabel;
     procedure RadioGroupClick(Sender: TObject);
     procedure btnNewClick(Sender: TObject);
     procedure btnRefreshClick(Sender: TObject);
@@ -49,6 +50,7 @@ type
     procedure btnPayClick(Sender: TObject);
     procedure GroupGirdCellClick(Column: TColumn);
     procedure btnDeleteClick(Sender: TObject);
+    procedure cboxSearchChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -68,13 +70,11 @@ uses GroupLoanRequestForm, ViewDetails, MyQury, shareFunction;
 procedure TGroupLoanFM.btnDeleteClick(Sender: TObject);
 var
 password, msg, LoanID : string;
-data : array of string;
-I : Integer;
 OK : boolean;
 begin
   msg :=  'Are you sure want to Delete!';
   LoanID := GroupGird.Fields[0].AsString;
-
+  OK := False;
 
     while (password = EmptyStr) do
     begin
@@ -150,6 +150,15 @@ begin
   end;
 end;
 
+procedure TGroupLoanFM.cboxSearchChange(Sender: TObject);
+begin
+    if cboxSearch.ItemIndex = 0 then
+    lblPrefix.Caption := 'LR-';
+
+  if cboxSearch.ItemIndex = 1 then
+    lblPrefix.Caption := 'GP-';
+end;
+
 procedure TGroupLoanFM.editSearchChange(Sender: TObject);
 begin
  if editSearch.Text <> EmptyStr then
@@ -171,8 +180,13 @@ begin
   data[3] :=  GroupGird.Fields[10].AsString;
   data[4] :=  GroupGird.Fields[11].AsString;
   data[5] :=  GroupGird.Fields[12].AsString;
-  btnPay.Enabled := True;
-  btnDelete.Enabled := True;
+
+  if data[0] <> EmptyStr then
+  begin
+    btnPay.Enabled := True;
+    btnDelete.Enabled := True;
+  end;
+
 end;
 
 procedure TGroupLoanFM.RadioGroupClick(Sender: TObject);

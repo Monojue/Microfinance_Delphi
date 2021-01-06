@@ -89,7 +89,7 @@ object frmCleintEntry: TfrmCleintEntry
         item
           Value = 100.000000000000000000
         end>
-      TabOrder = 0
+      TabOrder = 1
       DesignSize = (
         499
         40)
@@ -178,7 +178,7 @@ object frmCleintEntry: TfrmCleintEntry
         item
           SizeStyle = ssAuto
         end>
-      TabOrder = 1
+      TabOrder = 2
       object lblID: TLabel
         Left = 71
         Top = 1
@@ -435,7 +435,7 @@ object frmCleintEntry: TfrmCleintEntry
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 2
+      TabOrder = 0
       DesignSize = (
         499
         378)
@@ -467,7 +467,7 @@ object frmCleintEntry: TfrmCleintEntry
         Width = 241
         Height = 26
         Anchors = []
-        TabOrder = 1
+        TabOrder = 7
       end
       object lable: TLabel
         Left = 71
@@ -512,42 +512,42 @@ object frmCleintEntry: TfrmCleintEntry
         ParentFont = False
       end
       object cboxNo: TComboBox
-        Left = 163
-        Top = 88
+        Left = 161
+        Top = 84
         Width = 49
         Height = 26
         Anchors = []
-        TabOrder = 2
+        TabOrder = 1
         OnChange = cboxNoChange
       end
       object cboxR: TComboBox
-        Left = 229
-        Top = 88
-        Width = 68
+        Left = 230
+        Top = 84
+        Width = 100
         Height = 26
         Anchors = []
-        TabOrder = 3
+        TabOrder = 2
       end
       object editNRC: TEdit
-        Left = 322
-        Top = 88
-        Width = 121
+        Left = 356
+        Top = 84
+        Width = 110
         Height = 26
         Anchors = []
         NumbersOnly = True
-        TabOrder = 4
+        TabOrder = 3
       end
       object Label9: TLabel
         Left = 218
-        Top = 91
+        Top = 88
         Width = 6
         Height = 18
         Anchors = []
         Caption = '/'
       end
       object Label10: TLabel
-        Left = 299
-        Top = 91
+        Left = 333
+        Top = 89
         Width = 22
         Height = 18
         Margins.Left = 10
@@ -561,7 +561,7 @@ object frmCleintEntry: TfrmCleintEntry
         Width = 51
         Height = 26
         Anchors = []
-        TabOrder = 5
+        TabOrder = 4
       end
       object cboxMonth: TComboBox
         Left = 229
@@ -569,7 +569,7 @@ object frmCleintEntry: TfrmCleintEntry
         Width = 85
         Height = 26
         Anchors = []
-        TabOrder = 6
+        TabOrder = 5
       end
       object cboxYear: TComboBox
         Left = 322
@@ -577,7 +577,7 @@ object frmCleintEntry: TfrmCleintEntry
         Width = 83
         Height = 26
         Anchors = []
-        TabOrder = 7
+        TabOrder = 6
       end
       object Label11: TLabel
         Left = 71
@@ -671,11 +671,5 @@ object frmCleintEntry: TfrmCleintEntry
         TabOrder = 11
       end
     end
-  end
-  object BindingsList1: TBindingsList
-    Methods = <>
-    OutputConverters = <>
-    Left = 20
-    Top = 5
   end
 end

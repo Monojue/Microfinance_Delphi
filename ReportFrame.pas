@@ -98,7 +98,6 @@ end;
 procedure TReportFM.ClientGridCellClick(Column: TColumn);
 begin
   gridType := 'clientreport';
-  btnViewDetails.Enabled := True;
   SetLength(data, 6);
 
   data[0] :=  ClientGrid.Fields[0].AsString;
@@ -107,12 +106,15 @@ begin
   data[3] :=  ClientGrid.Fields[4].AsString;
   data[4] :=  ClientGrid.Fields[5].AsString;
   data[5] :=  '';
+  if data[0] <> EmptyStr then
+  begin
+    btnViewDetails.Enabled := True;
+  end;
 end;
 
 procedure TReportFM.GroupGridCellClick(Column: TColumn);
 begin
   gridType := 'groupreport';
-  btnViewDetails.Enabled := True;
   SetLength(data, 6);
 
   data[0] :=  GroupGrid.Fields[0].AsString;
@@ -121,6 +123,11 @@ begin
   data[3] :=  GroupGrid.Fields[9].AsString;
   data[4] :=  GroupGrid.Fields[10].AsString;
   data[5] :=  '';
+  if data[0] <> EmptyStr then
+  begin
+    btnViewDetails.Enabled := True;
+  end;
+
 end;
 
 end.

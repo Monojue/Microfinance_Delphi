@@ -43,7 +43,6 @@ type
     editSalary: TEdit;
     btnSave: TButton;
     btnClose: TButton;
-    BindingsList1: TBindingsList;
     procedure FormCreate(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
     procedure prepareupdate(data : array of String);
@@ -69,7 +68,7 @@ implementation
 
 {$R *.dfm}
 
-uses shareFunction, MyQury, DataModule, ClientFrame;
+uses shareFunction, MyQury, DataModule, ClientFrame, Main;
 
 procedure TfrmCleintEntry.FormCreate(Sender: TObject);
 begin
@@ -77,7 +76,6 @@ begin
 end;
 
 procedure TfrmCleintEntry.SelCombo(sql:String;Q:TSQLQuery; var Combo:TComboBox);
-var i: integer;
 begin
   Q.Close;
   Q.SQL.Clear;
@@ -102,7 +100,9 @@ end;
 
 procedure TfrmCleintEntry.prepareupdate(data: array of String);
 begin
+  today := Now;
   lblID.Caption := data[0] ;
+  lblDate.Caption := FormatDateTime('yyyy/MM/dd', today);
   editName.Text := data[1] ;
   SelCombo('SELECT Number FROM nrc group by Number;', DMMicro.SQLQuery, cboxNo);
   cboxNo.Text := shareFunction.splitNRC(data[2])[0];
@@ -216,6 +216,7 @@ begin
          if save then
          begin
              ShowMessage('Save Successfully!');
+             MainForm.PageControl1Change(Sender);
              Close;
          end
          else
@@ -229,6 +230,7 @@ begin
          if save then
          begin
              ShowMessage('Update Successfully!');
+             MainForm.PageControl1Change(Sender);
              Close;
          end
          else
@@ -242,7 +244,7 @@ end;
 
 procedure TfrmCleintEntry.cboxNoChange(Sender: TObject);
 begin
-  SelCombo('SELECT code FROM nrc where Number = "'+ cboxNo.Text+'"', DMMicro.SQLQuery, cboxR);
+  SelCombo('SELECT code FROM nrc where Number = "'+ cboxNo.Text+'" order by code asc', DMMicro.SQLQuery, cboxR);
 end;
 
 function TfrmCleintEntry.check: boolean;
@@ -257,7 +259,7 @@ begin
     ShowMessage('All fields Required!');
     Exit(False)
   end
-  else if duplicateNRC(cboxNo.Text+'/'+ cboxR.Text +'(N)'+ editNRC.Text) then
+  else if duplicateNRC(cboxNo.Text+'/'+ cboxR.Text +'(N)'+ editNRC.Text, lblID.Caption) then
   begin
     ShowMessage('This client is already Exit!');
     Exit(False)

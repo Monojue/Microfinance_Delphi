@@ -94,6 +94,7 @@ object LoginForm: TLoginForm
     Height = 21
     PasswordChar = '*'
     TabOrder = 1
+    OnKeyPress = txtPasswordKeyPress
   end
   object btnLogin: TButton
     Left = 153

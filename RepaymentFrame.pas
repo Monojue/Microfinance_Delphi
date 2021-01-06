@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids,
   Vcl.DBGrids, Vcl.StdCtrls, Vcl.ExtCtrls, Data.DBXMySQL, Data.FMTBcd,
-  Data.SqlExpr, Datasnap.DBClient, Datasnap.Provider;
+  Data.SqlExpr, Datasnap.DBClient, Datasnap.Provider, Vcl.WinXPickers,
+  Vcl.ComCtrls;
 
 type
   TRepaymentFM = class(TFrame)
@@ -14,7 +15,6 @@ type
     GridPanel2: TGridPanel;
     Label1: TLabel;
     cboxSearch: TComboBox;
-    editSearch: TEdit;
     btnViewDetails: TButton;
     btnDelete: TButton;
     btnRefresh: TButton;
@@ -80,6 +80,9 @@ type
     GroupDataSetDuration: TIntegerField;
     GroupDataSetInterestRate: TIntegerField;
     GroupDataSetPayDay: TStringField;
+    Panel2: TPanel;
+    editSearch: TEdit;
+    DatePicker: TDateTimePicker;
     procedure btnViewDetailsClick(Sender: TObject);
     procedure DBGridCellClick(Column: TColumn);
     procedure RadioGroupClick(Sender: TObject);
@@ -87,6 +90,7 @@ type
     procedure editSearchChange(Sender: TObject);
     procedure btnSearchClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
+    procedure cboxSearchChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -105,13 +109,11 @@ uses Repayment_u, MyQury, shareFunction;
 procedure TRepaymentFM.btnDeleteClick(Sender: TObject);
 var
 password, msg, LoanID : string;
-data : array of string;
-I : Integer;
 OK : boolean;
 begin
   msg :=  'Are you sure want to Delete!';
   LoanID := DBGrid.Fields[0].AsString;
-
+  OK := False;
 
     while (password = EmptyStr) do
     begin
@@ -176,7 +178,7 @@ begin
     end
     else if cboxSearch.Text = 'Date' then
     begin
-    CQuery.SQL.Add('Select * from clientloanrequest where approved = 1 and PayDay is not null and duedate = "'+editSearch.Text+'"');
+    CQuery.SQL.Add('Select * from clientloanrequest where approved = 1 and PayDay is not null and duedate = "'+FormatDateTime('yyyy/MM/dd',DatePicker.DateTime)+'"');
     end;
     CQuery.Open;
   end
@@ -192,7 +194,7 @@ begin
     begin
     GQuery.SQL.Add('Select * from grouploanrequest where approved = 1 and PayDay is not null and groupID = "GP-'+editSearch.Text+'"');
     end
-    else if cboxSearch.Text = 'Date' then
+    else if cboxSearch.Text = 'Due Date' then
     begin
     GQuery.SQL.Add('Select * from grouploanrequest where approved = 1 and PayDay is not null and duedate = "'+editSearch.Text+'"');
     end;
@@ -206,6 +208,29 @@ procedure TRepaymentFM.btnViewDetailsClick(Sender: TObject);
 begin
   frmRepayment.prepareView(frmtype, ID, loanID, amount, duration, rate, duedate);
   frmRepayment.Show;
+end;
+
+procedure TRepaymentFM.cboxSearchChange(Sender: TObject);
+begin
+  editSearch.Visible := True;
+  DatePicker.Visible := False;
+  btnSearch.Enabled := False;
+  if cboxSearch.ItemIndex = 0 then
+  lblPrefix.Caption := 'LR-';
+
+  if cboxSearch.ItemIndex = 1 then
+    lblPrefix.Caption := 'CL-';
+
+  if cboxSearch.ItemIndex = 2 then
+    begin
+      lblPrefix.Caption := '';
+      btnSearch.Enabled := True;
+      editSearch.Visible := False;
+      DatePicker.Visible := True;
+    end;
+
+
+
 end;
 
 procedure TRepaymentFM.DBGridCellClick(Column: TColumn);
@@ -234,8 +259,11 @@ begin
   duration := DBGrid.Fields[11].AsString;
   rate := DBGrid.Fields[12].AsString;
   end;
-  btnViewDetails.Enabled := True;
-  btnDelete.Enabled := True;
+  if loanID <> EmptyStr then
+  begin
+    btnViewDetails.Enabled := True;
+      btnDelete.Enabled := True;  
+  end;
 end;
 
 procedure TRepaymentFM.editSearchChange(Sender: TObject);

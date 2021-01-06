@@ -18,7 +18,7 @@ type
     GridPanel2: TGridPanel;
     Label1: TLabel;
     cboxSearch: TComboBox;
-    Label2: TLabel;
+    lblPrefix: TLabel;
     editSearch: TEdit;
     btnSearch: TButton;
     btnNew: TButton;
@@ -48,6 +48,7 @@ type
     procedure btnSearchClick(Sender: TObject);
     procedure editSearchChange(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
+    procedure cboxSearchChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -67,14 +68,13 @@ var
 procedure TGroupFM.btnDeleteClick(Sender: TObject);
 var
 password, msg, groupID : string;
-data : array of string;
 alength, I : Integer;
 OK : boolean;
 begin
   msg :=  'This Group is founded in ';
   groupID := GroupGrid.Fields[0].AsString;
   alength := Length(checkBeforeDelete('group', groupID));
-
+  OK := False;
   if alength >0 then
   begin
     for I := 0 to alength -1 do
@@ -193,6 +193,23 @@ begin
   end;
 end;
 
+procedure TGroupFM.cboxSearchChange(Sender: TObject);
+begin
+
+  if cboxSearch.ItemIndex = 0 then
+    lblPrefix.Caption := '';
+
+  if cboxSearch.ItemIndex = 1 then
+    lblPrefix.Caption := 'GP-';
+
+  if cboxSearch.ItemIndex = 2 then
+    lblPrefix.Caption := '';
+
+  if cboxSearch.ItemIndex = 3 then
+    lblPrefix.Caption := 'CL-';
+
+end;
+
 procedure TGroupFM.editSearchChange(Sender: TObject);
 begin
   if editSearch.Text <> EmptyStr then
@@ -207,8 +224,6 @@ end;
 
 procedure TGroupFM.GroupGridCellClick(Column: TColumn);
 begin
-  btnEdit.Enabled := True;
-  btnDelete.Enabled := True;
   SetLength(selData , 11);
   selData[0] := GroupGrid.Fields[0].AsString;
   selData[1] := GroupGrid.Fields[1].AsString;
@@ -221,6 +236,12 @@ begin
   selData[8] := GroupGrid.Fields[6].AsString;
   selData[9] := GroupGrid.Fields[8].AsString;
   selData[10] := GroupGrid.Fields[10].AsString;
+
+  if selData[0] <> EmptyStr then
+  begin
+    btnEdit.Enabled := True;
+    btnDelete.Enabled := True;
+  end;
 end;
 
 end.

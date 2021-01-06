@@ -112,11 +112,6 @@ object RepaymentFM: TRepaymentFM
           Row = 0
         end
         item
-          Column = 4
-          Control = editSearch
-          Row = 0
-        end
-        item
           Column = 8
           Control = btnViewDetails
           Row = 0
@@ -145,6 +140,11 @@ object RepaymentFM: TRepaymentFM
           Column = 3
           Control = lblPrefix
           Row = 0
+        end
+        item
+          Column = 4
+          Control = Panel2
+          Row = 0
         end>
       RowCollection = <
         item
@@ -170,19 +170,11 @@ object RepaymentFM: TRepaymentFM
         Anchors = []
         TabOrder = 0
         Text = 'LoanRequest ID'
+        OnChange = cboxSearchChange
         Items.Strings = (
           'LoanRequest ID'
           'Client ID'
           'Date')
-      end
-      object editSearch: TEdit
-        Left = 230
-        Top = 12
-        Width = 121
-        Height = 26
-        Anchors = []
-        TabOrder = 1
-        OnChange = editSearchChange
       end
       object btnViewDetails: TButton
         Left = 938
@@ -192,7 +184,7 @@ object RepaymentFM: TRepaymentFM
         Anchors = []
         Caption = 'View Details'
         Enabled = False
-        TabOrder = 2
+        TabOrder = 1
         OnClick = btnViewDetailsClick
       end
       object btnDelete: TButton
@@ -203,7 +195,7 @@ object RepaymentFM: TRepaymentFM
         Anchors = []
         Caption = 'Delete'
         Enabled = False
-        TabOrder = 3
+        TabOrder = 2
         OnClick = btnDeleteClick
       end
       object btnRefresh: TButton
@@ -213,7 +205,7 @@ object RepaymentFM: TRepaymentFM
         Height = 25
         Anchors = []
         Caption = 'Refresh'
-        TabOrder = 4
+        TabOrder = 3
         OnClick = btnRefreshClick
       end
       object btnSearch: TButton
@@ -224,7 +216,7 @@ object RepaymentFM: TRepaymentFM
         Anchors = []
         Caption = 'Search'
         Enabled = False
-        TabOrder = 5
+        TabOrder = 4
         OnClick = btnSearchClick
       end
       object Panel1: TPanel
@@ -234,7 +226,7 @@ object RepaymentFM: TRepaymentFM
         Height = 48
         Align = alClient
         BevelOuter = bvNone
-        TabOrder = 6
+        TabOrder = 5
         object RadioGroup: TRadioGroup
           AlignWithMargins = True
           Left = 3
@@ -264,6 +256,39 @@ object RepaymentFM: TRepaymentFM
         Caption = 'LR-'
         ExplicitLeft = 205
         ExplicitTop = 18
+      end
+      object Panel2: TPanel
+        Left = 226
+        Top = 1
+        Width = 130
+        Height = 48
+        Align = alClient
+        Anchors = []
+        BevelOuter = bvNone
+        TabOrder = 6
+        DesignSize = (
+          130
+          48)
+        object editSearch: TEdit
+          Left = 4
+          Top = 10
+          Width = 125
+          Height = 25
+          Anchors = []
+          AutoSelect = False
+          AutoSize = False
+          TabOrder = 0
+          OnChange = editSearchChange
+        end
+        object DatePicker: TDateTimePicker
+          Left = 4
+          Top = 9
+          Width = 125
+          Height = 26
+          Date = 44160.000000000000000000
+          Time = 0.979901168982905800
+          TabOrder = 1
+        end
       end
     end
     object DBGrid: TDBGrid

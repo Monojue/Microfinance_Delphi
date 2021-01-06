@@ -48,7 +48,7 @@ type
     GroupDataSetM3Name: TStringField;
     GroupDataSetM4Name: TStringField;
     btnRefresh: TButton;
-    Label2: TLabel;
+    lblPrefix: TLabel;
     procedure DBGridCellClick(Column: TColumn);
     procedure FormShow(Sender: TObject);
     procedure btnNewClick(Sender: TObject);
@@ -56,6 +56,7 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnSearchClick(Sender: TObject);
     procedure editSearchChange(Sender: TObject);
+    procedure cboxSearchChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -200,6 +201,24 @@ begin
     GQuery.Open;
   end;
   DBGrid.DataSource.DataSet.Refresh;
+end;
+
+procedure TMySelector.cboxSearchChange(Sender: TObject);
+begin
+    if cboxSearch.Text = 'Client Name' then
+      lblPrefix.Caption := '';
+
+    if cboxSearch.Text = 'Client ID' then
+      lblPrefix.Caption := 'CL-';
+
+    if cboxSearch.Text = 'Leader Name' then
+      lblPrefix.Caption := '';
+
+    if cboxSearch.Text = 'Group ID' then
+      lblPrefix.Caption := 'GP-';
+
+    if cboxSearch.Text = 'Client Name' then
+      lblPrefix.Caption := '';
 end;
 
 procedure TMySelector.DBGridCellClick(Column: TColumn);

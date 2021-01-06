@@ -189,7 +189,7 @@ object ClientFM: TClientFM
         end
         item
           Column = 3
-          Control = Label2
+          Control = lblPrefix
           Row = 0
         end
         item
@@ -247,19 +247,18 @@ object ClientFM: TClientFM
         ItemIndex = 0
         TabOrder = 0
         Text = 'Name'
+        OnChange = cboxSearchChange
         Items.Strings = (
           'Name'
           'Client ID')
       end
-      object Label2: TLabel
-        Left = 203
+      object lblPrefix: TLabel
+        Left = 211
         Top = 16
-        Width = 21
+        Width = 5
         Height = 18
         Anchors = []
-        Caption = 'CL-'
-        ExplicitLeft = 205
-        ExplicitTop = 18
+        ExplicitLeft = 203
       end
       object editSearch: TEdit
         Left = 230

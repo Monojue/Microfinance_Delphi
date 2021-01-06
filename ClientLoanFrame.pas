@@ -45,6 +45,7 @@ type
     procedure btnPayClick(Sender: TObject);
     procedure clientGridCellClick(Column: TColumn);
     procedure btnDeleteClick(Sender: TObject);
+    procedure cboxSearchChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -64,14 +65,12 @@ uses ClientLoanRequestForm, ViewDetails, MyQury, shareFunction;
 procedure TClientLoanFM.btnDeleteClick(Sender: TObject);
 var
 password, msg, LoanID : string;
-data : array of string;
-I : Integer;
 OK : boolean;
 begin
 
   msg :=  'Are you sure want to Delete!';
   LoanID := clientGrid.Fields[0].AsString;
-
+  Ok := False;
     while (password = EmptyStr) do
     begin
       OK := InputQuery('Warning!', msg, password);
@@ -145,6 +144,15 @@ begin
   end;
 end;
 
+procedure TClientLoanFM.cboxSearchChange(Sender: TObject);
+begin
+    if cboxSearch.ItemIndex = 0 then
+    lblPrefix.Caption := 'LR-';
+
+  if cboxSearch.ItemIndex = 1 then
+    lblPrefix.Caption := 'CL-';
+end;
+
 procedure TClientLoanFM.clientGridCellClick(Column: TColumn);
 begin
   SetLength(data, 6);
@@ -154,8 +162,12 @@ begin
   data[3] :=  ClientGrid.Fields[5].AsString;
   data[4] :=  ClientGrid.Fields[6].AsString;
   data[5] :=  ClientGrid.Fields[7].AsString;
+
+  if data[0] <> EmptyStr then
+  begin
   btnPay.Enabled := True;
   btnDelete.Enabled := True;
+  end;
 end;
 
 procedure TClientLoanFM.editSearchChange(Sender: TObject);

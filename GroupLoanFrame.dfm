@@ -139,6 +139,11 @@ object GroupLoanFM: TGroupLoanFM
           Column = 6
           Control = Panel1
           Row = 0
+        end
+        item
+          Column = 3
+          Control = lblPrefix
+          Row = 0
         end>
       RowCollection = <
         item
@@ -164,12 +169,12 @@ object GroupLoanFM: TGroupLoanFM
         Width = 112
         Height = 21
         Anchors = []
-        ItemIndex = 0
         TabOrder = 0
         Text = 'LoanRequest ID'
+        OnChange = cboxSearchChange
         Items.Strings = (
           'LoanRequest ID'
-          'Client ID')
+          'Group ID')
       end
       object editSearch: TEdit
         Left = 230
@@ -260,6 +265,15 @@ object GroupLoanFM: TGroupLoanFM
           OnClick = RadioGroupClick
           ExplicitWidth = 456
         end
+      end
+      object lblPrefix: TLabel
+        Left = 205
+        Top = 18
+        Width = 16
+        Height = 13
+        Anchors = []
+        Caption = 'LR-'
+        ExplicitLeft = 212
       end
     end
     object GroupGird: TDBGrid
